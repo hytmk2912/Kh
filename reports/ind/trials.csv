@@ -13951,3 +13951,13 @@ utc_time,stage,trial_id,indicators,htf,params,split,symbols,note,n_trials
 2026-10-09T21:36:20+00:00,W1-C2,W1-f00-C2,tổ hợp 2–4 từ 20 ứng viên của fold,cả hai,mặc định,train fold 2025-05,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",quét tổ hợp trong fold,12328
 2026-10-09T21:39:52+00:00,W1-S1,W1-f01-S1,99 chỉ báo đơn lẻ,cả hai,mặc định,train fold 2025-06,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ trong fold,198
 2026-10-09T21:39:52+00:00,W1-C2,W1-f01-C2,tổ hợp 2–4 từ 20 ứng viên của fold,cả hai,mặc định,train fold 2025-06,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",quét tổ hợp trong fold,12328
+2026-10-09T21:43:39+00:00,W1-S1,W1-f02-S1,99 chỉ báo đơn lẻ,cả hai,mặc định,train fold 2025-07,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ trong fold,198
+2026-10-09T21:43:39+00:00,W1-C2,W1-f02-C2,tổ hợp 2–4 từ 20 ứng viên của fold,cả hai,mặc định,train fold 2025-07,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",quét tổ hợp trong fold,12328
+2026-10-09T21:47:33+00:00,W1-S1,W1-f03-S1,99 chỉ báo đơn lẻ,cả hai,mặc định,train fold 2025-08,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ trong fold,198
+2026-10-09T21:47:33+00:00,W1-C2,W1-f03-C2,tổ hợp 2–4 từ 20 ứng viên của fold,cả hai,mặc định,train fold 2025-08,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",quét tổ hợp trong fold,12328
+2026-10-09T21:51:40+00:00,W1-S1,W1-f04-S1,99 chỉ báo đơn lẻ,cả hai,mặc định,train fold 2025-09,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ trong fold,198
+2026-10-09T21:51:40+00:00,W1-C2,W1-f04-C2,tổ hợp 2–4 từ 20 ứng viên của fold,cả hai,mặc định,train fold 2025-09,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",quét tổ hợp trong fold,12328
+2026-10-09T21:55:43+00:00,W1-S1,W1-f05-S1,99 chỉ báo đơn lẻ,cả hai,mặc định,train fold 2025-10,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ trong fold,198
+2026-10-09T21:55:43+00:00,W1-C2,W1-f05-C2,tổ hợp 2–4 từ 20 ứng viên của fold,cả hai,mặc định,train fold 2025-10,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",quét tổ hợp trong fold,12328
+2026-10-09T21:59:49+00:00,W1-S1,W1-f06-S1,99 chỉ báo đơn lẻ,cả hai,mặc định,train fold 2025-11,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ trong fold,198
+2026-10-09T21:59:49+00:00,W1-C2,W1-f06-C2,tổ hợp 2–4 từ 20 ứng viên của fold,cả hai,mặc định,train fold 2025-11,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",quét tổ hợp trong fold,12328
