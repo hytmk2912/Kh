@@ -37,7 +37,8 @@ def perf(T: pd.DataFrame, start_ms: int, end_ms: int, capital: float) -> dict:
     total = float(r.sum())
     out = {"days": n_days, "n_trades": 0 if T is None else int(len(T)), "total_return": total,
            "cagr": (1 + total) ** (365 / max(n_days, 1)) - 1 if total > -1 else -1.0,
-           "max_drawdown": float(dd), "sharpe": float(r.mean() / sd * math.sqrt(365)) if sd > 0 else np.nan,
+           "max_drawdown": float(dd), "min_equity": float(eq.min()) if len(eq) else 1.0,
+           "ruined": bool(len(eq) and eq.min() <= 0), "sharpe": float(r.mean() / sd * math.sqrt(365)) if sd > 0 else np.nan,
            "sortino": float(r.mean() / down * math.sqrt(365)) if down and down > 0 else np.nan}
     if T is None or T.empty:
         return out | {"net_pnl": 0.0}
@@ -48,6 +49,7 @@ def perf(T: pd.DataFrame, start_ms: int, end_ms: int, capital: float) -> dict:
             "profit_factor": float(win.sum() / -loss.sum()) if loss.sum() < 0 else np.inf,
             "expectancy_usd": float(T.pnl.mean()), "expectancy_bps": float((T.pnl / T.notional).mean() * 1e4),
             "gross_expectancy_bps": float((T.gross_pnl / T.notional).mean() * 1e4),
+            "raw_expectancy_bps": float((T.raw_pnl / T.notional).mean() * 1e4),
             "avg_hold_min": float(T.hold_min.mean()), "avg_notional": float(T.notional.mean()),
             "exposure": float(T.hold_min.sum() / (n_days * 1440 * 5)), "long_share": float((T.side == 1).mean()),
             "tp_share": float((T.reason == 1).mean()), "sl_share": float((T.reason == -1).mean()),

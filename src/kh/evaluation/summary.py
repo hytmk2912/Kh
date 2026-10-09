@@ -78,12 +78,12 @@ def write_summary(cfg: dict, P) -> None:
               if not any(c["status"].startswith("Có tiềm năng") for c in m["candidates"].values())
               else "- Có quy luật vượt ngưỡng hòa vốn ở decile cực trị — xem báo cáo chi tiết.", ""]
     if bt:
-        L += ["## 4. Chiến lược trên validation (sau chi phí)", "", "| Biến thể | Lệnh | Ròng USD | Sharpe | PF | Exp ròng bps | Exp gộp bps | DSR | Chọn |",
-              "|---|---|---|---|---|---|---|---|---|"]
+        L += ["## 4. Chiến lược trên validation (sau chi phí)", "", "| Biến thể | Lệnh | Ròng USD | Cháy TK | Sharpe | PF | Exp ròng bps | Exp trước chi phí bps | DSR | Chọn |",
+              "|---|---|---|---|---|---|---|---|---|---|"]
         for n, r in bt["variants"].items():
             b = r["base"]
-            L.append(f"| {n} | {b['n_trades']} | {f(b.get('net_pnl'), 0)} | {f(b.get('sharpe'), 2)} | {f(b.get('profit_factor'), 2)} | "
-                     f"{f(b.get('expectancy_bps'), 1)} | {f(b.get('gross_expectancy_bps'), 1)} | {f(r['dsr']['dsr'])} | {r['criteria']['selected']} |")
+            L.append(f"| {n} | {b['n_trades']} | {f(b.get('net_pnl'), 0)} | {'CÓ' if b.get('ruined') else 'không'} | {f(b.get('sharpe'), 2)} | "
+                     f"{f(b.get('profit_factor'), 2)} | {f(b.get('expectancy_bps'), 1)} | {f(b.get('raw_expectancy_bps'), 1)} | {f(r['dsr']['dsr'])} | {r['criteria']['selected']} |")
         L += ["", f"PBO = {f(bt['pbo'].get('pbo'))}. Được chọn vào final test: **{', '.join(bt['selected']) or 'không có'}**.", ""]
     if ft:
         L += ["## 5. Final test", "", f"Chế độ {ft['mode']}, chạy {ft['run_at_utc']}, khóa {ft['lock_hash']}.", "",

@@ -121,7 +121,9 @@ def run_symbol(k: pd.DataFrame, funding: pd.DataFrame | None, signals: pd.DataFr
     cap, nsym = bt["initial_capital"], len(cfg["symbols"])
     T["notional"] = np.minimum(bt["risk_per_trade"] * cap / T.risk_frac.clip(lower=1e-4),
                                bt["max_leverage_per_position"] * cap / nsym)
-    T["gross_pnl"] = T.side * (T.exit_px / T.entry_px - 1) * T.notional
+    # PnL thô (giá mở/thoát chưa trừ slippage) để tách edge khỏi chi phí
+    T["raw_pnl"] = T.side * ((T.exit_px / (1 - T.side * costs.slippage)) / (T.entry_px / (1 + T.side * costs.slippage)) - 1) * T.notional
+    T["gross_pnl"] = T.side * (T.exit_px / T.entry_px - 1) * T.notional  # sau slippage, trước phí & funding
     T["fees"] = costs.taker_fee * T.notional * (1 + T.exit_px / T.entry_px)
     T["funding"], T["funding_estimated"] = _funding(T, funding, funding_last_known_ms)
     T["pnl"] = T.gross_pnl - T.fees + T.funding

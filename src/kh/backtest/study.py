@@ -102,29 +102,32 @@ def buy_hold(M: Market, cfg: dict, lo: int, hi: int, costs: Costs) -> dict:
 
 
 def random_baseline(v, T, M, cfg, lo, hi, costs, reps=50, seed=0) -> dict:
-    """Phân phối PnL ròng khi giữ nguyên số lệnh/quy tắc thoát nhưng chọn thời điểm & hướng ngẫu nhiên."""
+    """Phân phối expectancy/lệnh (bps của notional) khi giữ nguyên số tín hiệu, kích thước và quy tắc thoát
+    nhưng chọn thời điểm & hướng ngẫu nhiên. So expectancy thay vì tổng PnL vì số lệnh thực hiện có thể
+    khác (tín hiệu trùng vị thế bị bỏ qua)."""
     if T.empty:
         return {"pct_rank": np.nan}
     rng = np.random.default_rng(seed)
-    nets = []
+    exps = []
     for _ in range(reps):
-        tot = 0.0
+        parts = []
         for s, g in T.groupby("symbol"):
             t = M.k[s].open_time_ms.to_numpy()
             bars = np.flatnonzero((t >= lo) & (t < hi - 300 * 60_000) & (((t // 60_000) + 1) % 15 == 0))
             tmpl = g[["bar_idx", "side", "tp", "sl", "max_hold", "exit_at", "risk_frac"]].copy()
-            if v["family"] == "dc_follow":  # giữ thời lượng giữ lệnh như mẫu
+            rs = random_signals(tmpl, bars, rng)
+            if v["family"] == "dc_follow":  # giữ phân phối thời gian giữ lệnh như mẫu
                 dur = (g.exit_at - g.bar_idx).to_numpy()
-                rs = random_signals(tmpl, bars, rng)
                 rs["exit_at"] = np.minimum(rs.bar_idx.to_numpy() + rng.permutation(dur), len(t) - 1)
-            else:
-                rs = random_signals(tmpl, bars, rng)
             R = run_symbol(M.k[s], M.f[s], rs, costs, cfg)
-            tot += R.pnl.sum() if len(R) else 0.0
-        nets.append(tot)
-    nets = np.array(nets)
-    return {"random_net_mean": float(nets.mean()), "random_net_p5": float(np.quantile(nets, 0.05)),
-            "random_net_p95": float(np.quantile(nets, 0.95)), "pct_rank": float((nets < T.pnl.sum()).mean())}
+            if len(R):
+                parts.append(R.pnl / R.notional)
+        exps.append(pd.concat(parts).mean() * 1e4 if parts else np.nan)
+    exps = np.array(exps)
+    actual = float((T.pnl / T.notional).mean() * 1e4)
+    return {"random_exp_bps_mean": float(np.nanmean(exps)), "random_exp_bps_p5": float(np.nanquantile(exps, 0.05)),
+            "random_exp_bps_p95": float(np.nanquantile(exps, 0.95)), "actual_exp_bps": actual,
+            "pct_rank": float((exps < actual).mean())}
 
 
 def evaluate_variant(v, M, D, oof, edges, cfg, lo, hi, with_random=True) -> tuple[dict, pd.DataFrame]:
@@ -251,16 +254,22 @@ def _markdown(rep, cfg, path) -> None:
          f"Giai đoạn: {rep['period_val'][0][:10]} → {rep['period_val'][1][:10]}. Vốn giả định {cfg['backtest']['initial_capital']:,.0f} USD, "
          f"rủi ro {cfg['backtest']['risk_per_trade'] * 100:.1f}% vốn/lệnh, đòn bẩy tối đa {cfg['backtest']['max_leverage_per_position']}× trên phần vốn mỗi coin.",
          f"Phí taker {cfg['costs']['taker_fee'] * 100:.3f}%/chiều (giả định VIP0), slippage {cfg['costs']['slippage_bps']} bps/chiều, funding thực tế.",
-         "Vào lệnh ở giá mở cửa nến sau tín hiệu; TP/SL cùng nến → SL trước; mỗi coin tối đa 1 vị thế.", "",
-         f"Số biến thể đã thử: **{len(rep['variants'])}** (cố định trước). PBO (CSCV, giai đoạn walk-forward): **{f(rep['pbo'].get('pbo'), 3)}**.", "",
-         "| Biến thể | Lệnh | Ròng (USD) | Return | Sharpe | MaxDD | PF | Win | Exp ròng (bps) | Exp gộp (bps) | CI90 exp (bps) | Phí | Funding | Ngẫu nhiên %ile | DSR | Chọn |",
-         "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
+         "Vào lệnh ở giá mở cửa nến sau tín hiệu; TP/SL cùng nến → SL trước; mỗi coin tối đa 1 vị thế.",
+         "Vốn không tái đầu tư: lỗ có thể vượt 100% vốn trên giấy; cột 'Cháy TK' = đường vốn từng chạm 0 (thực tế sẽ bị thanh lý/dừng).",
+         "Chi phí khứ hồi ≈ 14 bps (phí 10 + slippage 4): 'Exp ròng' ≈ 'Exp trước mọi chi phí' − 14 − funding.", "",
+         f"Số biến thể đã thử: **{len(rep['variants'])}** (cố định trước). PBO (CSCV, giai đoạn walk-forward): **{f(rep['pbo'].get('pbo'), 3)}**.",
+         "Lưu ý: PBO thấp ở đây KHÔNG có nghĩa là chiến lược tốt — phần lớn biến thể lỗ đều đặn nên thứ hạng ổn định một cách tầm thường.",
+         "DSR (xác suất Sharpe thật > 0 sau khi tính số biến thể đã thử) mới là chỉ số chính.",
+         "'Ngẫu nhiên %ile' = tỷ lệ 50 lần chạy ngẫu nhiên (cùng kích thước & quy tắc thoát) có expectancy/lệnh thấp hơn chiến lược.",
+         "'Exp' là trung bình theo lệnh (bps notional); 'Ròng USD' có trọng số theo kích thước lệnh nên có thể khác dấu.", "",
+         "| Biến thể | Lệnh | Ròng (USD) | Return | Cháy TK | Sharpe | MaxDD | PF | Win | Exp ròng (bps) | Exp trước mọi chi phí (bps) | CI90 exp (bps) | Phí | Funding | Ngẫu nhiên %ile | DSR | Chọn |",
+         "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
     for n, r in rep["variants"].items():
         b = r["base"]
         ci = r["bootstrap"]["ci90_bps"]
-        L.append(f"| {n} | {b['n_trades']} | {f(b.get('net_pnl'), 0)} | {f(b['total_return'] * 100, 2)}% | {f(b.get('sharpe'))} | "
+        L.append(f"| {n} | {b['n_trades']} | {f(b.get('net_pnl'), 0)} | {f(b['total_return'] * 100, 2)}% | {'CÓ' if b.get('ruined') else 'không'} | {f(b.get('sharpe'))} | "
                  f"{f(b['max_drawdown'] * 100, 2)}% | {f(b.get('profit_factor'))} | {f(b.get('win_rate'), 3)} | {f(b.get('expectancy_bps'), 1)} | "
-                 f"{f(b.get('gross_expectancy_bps'), 1)} | [{f(ci[0], 1)}, {f(ci[1], 1)}] | {f(b.get('fees'), 0)} | {f(b.get('funding'), 0)} | "
+                 f"{f(b.get('raw_expectancy_bps'), 1)} | [{f(ci[0], 1)}, {f(ci[1], 1)}] | {f(b.get('fees'), 0)} | {f(b.get('funding'), 0)} | "
                  f"{f(r.get('random', {}).get('pct_rank'), 2)} | {f(r['dsr']['dsr'], 3)} | {r['criteria']['selected']} |")
     bh = rep["baselines"]["buy_hold_equal_weight"]
     L += ["", f"Baseline: không giao dịch = 0%; mua & giữ 5 coin (1× vốn, có funding) = {bh['total_return'] * 100:.2f}% "
