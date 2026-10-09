@@ -314,6 +314,7 @@ def robustness(cfg, P, top, TR, SEL, SD, folds) -> pd.DataFrame:
 
 def top10_md(cfg, top, B, pbo, n_trials, folds, info, path) -> None:
     f = lambda x, d=4: "" if x is None or (isinstance(x, float) and not np.isfinite(x)) else f"{x:.{d}f}"
+    pf = lambda x: "∞" if isinstance(x, float) and np.isposinf(x) else f(x, 2)
     syms = cfg["symbols"]
     L = ["# Top 10 tổ hợp — walk-forward ngoài mẫu (Bảng B)", "",
          f"Walk-forward lồng nhau: {len(folds)} fold, train mở rộng từ 2024-10-09 (≥ 6 tháng), kiểm tra từng tháng "
@@ -331,20 +332,27 @@ def top10_md(cfg, top, B, pbo, n_trials, folds, info, path) -> None:
     for i, r in enumerate(top.itertuples(), 1):
         L.append(f"| {i} | {r.indicators} | {'có' if r.htf else 'không'} | {r.n_folds_selected} | {r.n_trades} | {f(r.win_rate, 3)} | "
                  f"{f(r.expectancy_net_pct)} | [{f(r.expectancy_ci95_low_pct)}, {f(r.expectancy_ci95_high_pct)}] | {f(r.expectancy_gross_pct)} | "
-                 f"{f(r.profit_factor, 2)} | {f(r.max_drawdown_pct, 2)} | {r.symbols_positive}/5 | {f(r.sharpe_annual, 2)} | {f(r.dsr, 3)} |")
+                 f"{pf(r.profit_factor)} | {f(r.max_drawdown_pct, 2)} | {r.symbols_positive}/5 | {f(r.sharpe_annual, 2)} | {f(r.dsr, 3)} |")
     L += ["", "## Theo symbol, chế độ biến động, train, leave-one-coin-out, độ nhạy ±20% (expectancy ròng %/lệnh)", "",
           "| # | " + " | ".join(syms) + " | Biến động thấp | vừa | cao | Train | " + " | ".join(f"LOCO {s[:3]}" for s in syms) + " | ×0,8 | ×1,2 | Đổi dấu |",
           "|---|" + "---|" * (len(syms) + 3 + 1 + len(syms) + 3)]
-    for i, r in enumerate(top.itertuples(), 1):
-        d = r._asdict()
+    for i, d in enumerate(top.to_dict("records"), 1):  # to_dict: tên cột có dấu chấm (sens_x0.8_…)
         L.append(f"| {i} | " + " | ".join(f(d.get(f"exp_{s}")) for s in syms) + " | " +
                  " | ".join(f(d.get(f"exp_regime_{k}")) for k in ("thấp", "vừa", "cao")) + f" | {f(d.get('train_expectancy_net_pct'))} | " +
                  " | ".join(f(d.get(f"loco_{s}_expectancy_pct")) for s in syms) +
                  f" | {f(d.get('sens_x0.8_expectancy_pct'))} | {f(d.get('sens_x1.2_expectancy_pct'))} | {d.get('sens_sign_flip')} |")
-    L += ["", "## Vì sao các chỉ báo bổ trợ nhau", ""]
+    L += ["", "Ô trống: CI95 khi < 10 lệnh (bootstrap khối ngày không có nghĩa); PF = ∞ khi không có lệnh lỗ; "
+          "theo symbol/chế độ khi không có lệnh; LOCO khi bỏ coin đó ra thì tổ hợp không lọt top ở fold nào hoặc không có lệnh "
+          "trên coin bị bỏ; ×0,8/×1,2 khi không có lệnh.", "", "## Vì sao các chỉ báo bổ trợ nhau", ""]
+    role = {"A1": "xu hướng (MA)", "A2": "xu hướng/kênh", "A3": "động lượng", "A4": "biến động", "A5": "khối lượng", "A6": "giá/khác"}
+    src = {"A1": "xu hướng", "A2": "xu hướng", "A3": "động lượng", "A4": "biến động", "A5": "khối lượng", "A6": "giá"}
     for i, r in enumerate(top.itertuples(), 1):
-        groups = sorted({BY_NAME[n.strip()].group for n in r.indicators.split("+")})
-        L.append(f"{i}. {r.indicators}: kết hợp nhóm {', '.join(groups)}" +
-                 (" — đa dạng nguồn thông tin (xu hướng/động lượng/biến động/khối lượng)." if len(groups) > 1 else " — cùng một nhóm, ít bổ trợ."))
+        cards = [BY_NAME[n.strip()] for n in r.indicators.split("+")]
+        parts = [f"{c.name} ({role.get(c.group[:2], c.group)}, {'bộ lọc' if c.kind == 'F' else 'tín hiệu'})" for c in cards]
+        srcs = sorted({src.get(c.group[:2], c.group) for c in cards})
+        L.append(f"{i}. {' + '.join(parts)} — nguồn thông tin: {', '.join(srcs)}"
+                 + (". Tín hiệu chỉ phát khi các nguồn khác nhau cùng đồng ý → ít lệnh, chọn lọc hơn." if len(srcs) > 1 else
+                    ". Cùng một nguồn, ít bổ trợ.")
+                 + f" [I] Đây là giả thuyết; bằng chứng ngoài mẫu: {r.n_trades} lệnh.")
     L += ["", "Ghi chú: [F] số đo trên dữ liệu thật trong train + validation; chưa chạm tập test khoá. Kết quả backtest không phải lợi nhuận thực tế."]
     path.write_text("\n".join(L) + "\n")
