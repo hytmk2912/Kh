@@ -52,7 +52,8 @@ class WaveBook:
         self.good_short = valid & has & (np.where(has, self.dir[np.maximum(w, 0)], 0) == -1) & (rem >= MIN_REMAINING)
         self.valid_idx = np.flatnonzero(valid)
 
-    def score(self, sig: np.ndarray, rng: np.random.Generator, n_random: int = 20) -> dict:
+    def score(self, sig: np.ndarray, rng: np.random.Generator, n_random: int = 20, bar_metrics: bool = True,
+              random_with_replacement: bool = False) -> dict:
         s = np.where(self.valid, sig, 0)
         L, S = np.flatnonzero(s == 1), np.flatnonzero(s == -1)
         out = {"n_long": len(L), "n_short": len(S)}
@@ -109,6 +110,9 @@ class WaveBook:
             for k in ("flat", "pullback", "counter_wave", "late", "other"):
                 out[f"false_{k}_share" if k not in ("flat", "pullback") else f"false_in_{k}_share"] = np.nan
         # chỉ số cấp nến
+        if not bar_metrics:
+            out["bar_macro_f1"] = out["bar_balanced_accuracy"] = np.nan
+            return self._random(out, L, S, rng, n_random, random_with_replacement)
         idx = np.arange(self.lo, self.hi)
         idx = idx[self.valid[idx]]
         truth = np.where(self.label[idx] == UP, 1, np.where(self.label[idx] == DOWN, 2, 0))
@@ -121,13 +125,18 @@ class WaveBook:
             f1 = 2 * prec * rec / (prec + rec)
         out["bar_macro_f1"] = float(np.nanmean(np.nan_to_num(f1)))
         out["bar_balanced_accuracy"] = float(np.nanmean(rec))
-        # precision ngẫu nhiên cùng tần suất
+        return self._random(out, L, S, rng, n_random, random_with_replacement)
+
+    def _random(self, out, L, S, rng, n_random, with_replacement):
+        """Precision ngẫu nhiên cùng tần suất: TB của n_random lần đặt cùng số tín hiệu vào nến hợp lệ ngẫu nhiên."""
         rl, rs = [], []
+        V = self.valid_idx
+        pick = (lambda k: V[rng.integers(0, len(V), k)]) if with_replacement else (lambda k: rng.choice(V, k, replace=False))
         for _ in range(n_random):
             if len(L):
-                rl.append(self.good_long[rng.choice(self.valid_idx, len(L), replace=False)].mean())
+                rl.append(self.good_long[pick(len(L))].mean())
             if len(S):
-                rs.append(self.good_short[rng.choice(self.valid_idx, len(S), replace=False)].mean())
+                rs.append(self.good_short[pick(len(S))].mean())
         out["random_precision_long"] = float(np.mean(rl)) if rl else np.nan
         out["random_precision_short"] = float(np.mean(rs)) if rs else np.nan
         out["lift_long"] = out["precision_long"] / out["random_precision_long"] if rl and out["random_precision_long"] > 0 else np.nan

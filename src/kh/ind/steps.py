@@ -41,8 +41,10 @@ def step_single(cfg, P, args):
 
 def step_combos(cfg, P, args):
     from kh.ind.candidates import run_candidates
+    from kh.ind.combos import run_scan
 
     run_candidates(cfg, P)
+    run_scan(cfg, P)
 
 
 def step_final(cfg, P, args):
