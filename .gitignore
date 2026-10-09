@@ -1,5 +1,5 @@
 # Dữ liệu lớn và bí mật không đưa lên GitHub
-data/
+/data/
 *.zip
 *.parquet
 !reports/**/*.json
