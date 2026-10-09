@@ -1,0 +1,6538 @@
+{
+  "summary": {
+    "n_univariate_tests": 900,
+    "n_pair_tests": 90,
+    "univariate_fdr_train_ALL": 53,
+    "univariate_fdr_and_val_ALL": 41,
+    "univariate_full_pass_ALL": 41,
+    "pairs_fdr_and_val": 7,
+    "breakeven_prob": {
+      "60": 0.6185654067058338,
+      "240": 0.559282703352917
+    },
+    "preregistered_pass": {
+      "H2_breakout": false,
+      "H3_squeeze": false,
+      "H4_reversal_ret15": true,
+      "H5_funding": false,
+      "H6_oi_price": false,
+      "H7_taker_imb": true
+    }
+  },
+  "preregistered": {
+    "H2_breakout": {
+      "train": {
+        "breakout_up_rate": {
+          "diff": -0.021406156417165922,
+          "ci90": [
+            -0.04211009123089422,
+            -0.00015097275725953075
+          ],
+          "p_one_sided": 0.953,
+          "n_event": 2540,
+          "n_days": 437
+        },
+        "breakdown_down_rate": {
+          "diff": -0.008787965357216265,
+          "ci90": [
+            -0.03191765946884546,
+            0.013801184735263004
+          ],
+          "p_one_sided": 0.715,
+          "n_event": 2020,
+          "n_days": 437
+        }
+      },
+      "val": {
+        "breakout_up_rate": {
+          "diff": -0.039897703285823705,
+          "ci90": [
+            -0.08704948868777028,
+            0.0029463820410126594
+          ],
+          "p_one_sided": 0.919,
+          "n_event": 544,
+          "n_days": 145
+        },
+        "breakdown_down_rate": {
+          "diff": 0.004632319577229982,
+          "ci90": [
+            -0.04323811352388535,
+            0.05160344898979101
+          ],
+          "p_one_sided": 0.451,
+          "n_event": 499,
+          "n_days": 145
+        }
+      },
+      "pass": false
+    },
+    "H3_squeeze": {
+      "train": {
+        "diff": -0.22887673943612635,
+        "ci90": [
+          -0.24382522472947843,
+          -0.21357311390583472
+        ],
+        "p_one_sided": 1.0,
+        "n_event": 20903,
+        "n_days": 437
+      },
+      "decile10_threshold": 0.5529317855834961,
+      "val": {
+        "diff": -0.2346242084972593,
+        "ci90": [
+          -0.2641239844304096,
+          -0.20294470873909154
+        ],
+        "p_one_sided": 1.0,
+        "n_event": 8587,
+        "n_days": 145
+      },
+      "pass": false
+    },
+    "H4_reversal_ret15": {
+      "ic_train": -0.02822459758683719,
+      "t_train": -8.942574187773047,
+      "ic_val": -0.028409248603238804,
+      "t_val": -4.619841243001257,
+      "coins_same_sign_val": 5.0,
+      "expected_sign": -1,
+      "p_train": 1.9010420651774226e-19,
+      "p_val": 1.920168891420011e-06,
+      "pass": true
+    },
+    "H5_funding": {
+      "ic_train": -0.0039023278755345304,
+      "t_train": -0.34128274826896804,
+      "ic_val": -0.01607327940331716,
+      "t_val": -0.8950026473049546,
+      "coins_same_sign_val": 4.0,
+      "expected_sign": -1,
+      "p_train": 0.3664453670155152,
+      "p_val": 0.18539283641229465,
+      "pass": false
+    },
+    "H6_oi_price": {
+      "ic_train": 0.00014150322426670448,
+      "t_train": 0.041273961794391835,
+      "ic_val": 0.011241816446315937,
+      "t_val": 1.5715013048644806,
+      "coins_same_sign_val": 4.0,
+      "expected_sign": 1,
+      "p_train": 0.4835387454272384,
+      "p_val": 0.05803312577773174,
+      "pass": false
+    },
+    "H7_taker_imb": {
+      "ic_train": -0.023739945528760187,
+      "t_train": -8.336793404869786,
+      "ic_val": -0.02723973085326937,
+      "t_val": -5.721445386824529,
+      "coins_same_sign_val": 5.0,
+      "expected_sign": 0,
+      "p_train": 7.633225799518782e-17,
+      "p_val": 5.281080521836037e-09,
+      "pass": true
+    }
+  },
+  "candidates": {
+    "U0011": {
+      "feature": "ret_15_z",
+      "H": 60,
+      "ic_train": -0.02822459758683719,
+      "t_train": -8.942574187773047,
+      "ic_val": -0.028409248603238804,
+      "t_val": -4.619841243001257,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.521 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5021,
+          "fwd_bps_train": 2.2493,
+          "n_val": 6561,
+          "up_rate_val": 0.5185,
+          "fwd_bps_val": 0.2525
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.5164,
+          "fwd_bps_train": 0.7521,
+          "n_val": 6431,
+          "up_rate_val": 0.5027,
+          "fwd_bps_val": -2.2324
+        },
+        {
+          "index": 2,
+          "n_train": 20903,
+          "up_rate_train": 0.52,
+          "fwd_bps_train": 2.1273,
+          "n_val": 6821,
+          "up_rate_val": 0.5155,
+          "fwd_bps_val": 0.5631
+        },
+        {
+          "index": 3,
+          "n_train": 20901,
+          "up_rate_train": 0.522,
+          "fwd_bps_train": 1.4914,
+          "n_val": 7229,
+          "up_rate_val": 0.5121,
+          "fwd_bps_val": 0.5489
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.4997,
+          "fwd_bps_train": 0.1637,
+          "n_val": 7930,
+          "up_rate_val": 0.4968,
+          "fwd_bps_val": -0.7736
+        },
+        {
+          "index": 5,
+          "n_train": 20902,
+          "up_rate_train": 0.5,
+          "fwd_bps_train": -0.3306,
+          "n_val": 7752,
+          "up_rate_val": 0.4868,
+          "fwd_bps_val": -1.7447
+        },
+        {
+          "index": 6,
+          "n_train": 20902,
+          "up_rate_train": 0.4877,
+          "fwd_bps_train": -2.0387,
+          "n_val": 7208,
+          "up_rate_val": 0.4792,
+          "fwd_bps_val": -1.7405
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.4902,
+          "fwd_bps_train": -0.8907,
+          "n_val": 6746,
+          "up_rate_val": 0.4816,
+          "fwd_bps_val": -1.2581
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.4964,
+          "fwd_bps_train": 0.254,
+          "n_val": 6247,
+          "up_rate_val": 0.4948,
+          "fwd_bps_val": -0.1583
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.5062,
+          "fwd_bps_train": 0.388,
+          "n_val": 6353,
+          "up_rate_val": 0.49,
+          "fwd_bps_val": -1.1182
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.14938354545701257,
+          "t": -7.129464058192836,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": -0.02405097615253195,
+          "t": -4.706564410353146,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.0612172764035551,
+          "t": -3.19498935306993,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.043772630621376936,
+          "t": -4.353189600264277,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": 0.016762506507259252,
+          "t": 1.1223556322409796,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.0330137488910269,
+          "t": -3.9232211638362777,
+          "days": 524
+        }
+      }
+    },
+    "U0245": {
+      "feature": "taker_imb_15",
+      "H": 60,
+      "ic_train": -0.023739945528760187,
+      "t_train": -8.336793404869786,
+      "ic_val": -0.02723973085326937,
+      "t_val": -5.721445386824529,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.522 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5212,
+          "fwd_bps_train": 2.0884,
+          "n_val": 6979,
+          "up_rate_val": 0.5206,
+          "fwd_bps_val": 0.6919
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.5138,
+          "fwd_bps_train": 1.0841,
+          "n_val": 6618,
+          "up_rate_val": 0.5054,
+          "fwd_bps_val": 0.5005
+        },
+        {
+          "index": 2,
+          "n_train": 20903,
+          "up_rate_train": 0.5067,
+          "fwd_bps_train": 0.7872,
+          "n_val": 6440,
+          "up_rate_val": 0.5112,
+          "fwd_bps_val": -0.5225
+        },
+        {
+          "index": 3,
+          "n_train": 20901,
+          "up_rate_train": 0.5083,
+          "fwd_bps_train": 1.3932,
+          "n_val": 6347,
+          "up_rate_val": 0.5004,
+          "fwd_bps_val": -0.1108
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.506,
+          "fwd_bps_train": 1.5256,
+          "n_val": 6380,
+          "up_rate_val": 0.4909,
+          "fwd_bps_val": -1.1036
+        },
+        {
+          "index": 5,
+          "n_train": 20903,
+          "up_rate_train": 0.503,
+          "fwd_bps_train": -0.253,
+          "n_val": 6714,
+          "up_rate_val": 0.5009,
+          "fwd_bps_val": -0.2793
+        },
+        {
+          "index": 6,
+          "n_train": 20901,
+          "up_rate_train": 0.4938,
+          "fwd_bps_train": -0.647,
+          "n_val": 6833,
+          "up_rate_val": 0.4884,
+          "fwd_bps_val": -2.0392
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.4923,
+          "fwd_bps_train": -1.3398,
+          "n_val": 7032,
+          "up_rate_val": 0.4973,
+          "fwd_bps_val": -1.5
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.4984,
+          "fwd_bps_train": -0.3612,
+          "n_val": 7503,
+          "up_rate_val": 0.4779,
+          "fwd_bps_val": -2.061
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.4973,
+          "fwd_bps_train": -0.1117,
+          "n_val": 8432,
+          "up_rate_val": 0.4878,
+          "fwd_bps_val": -1.054
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.08561843599086788,
+          "t": -4.898614253843397,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": -0.02036465318605111,
+          "t": -5.563576365928324,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.034399802707607084,
+          "t": -2.069456091706235,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.03604607696072184,
+          "t": -4.313159600669998,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": -0.004324118044602197,
+          "t": -0.30875686709270683,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.02224417406850118,
+          "t": -3.7303887919006278,
+          "days": 524
+        }
+      }
+    },
+    "U0155": {
+      "feature": "rsi_14",
+      "H": 60,
+      "ic_train": -0.02821440745486595,
+      "t_train": -7.298728135341856,
+      "ic_val": -0.030008946554186167,
+      "t_val": -4.229409546449653,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.517 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5139,
+          "fwd_bps_train": 1.9373,
+          "n_val": 6798,
+          "up_rate_val": 0.5172,
+          "fwd_bps_val": -0.9084
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.5145,
+          "fwd_bps_train": 1.5932,
+          "n_val": 7062,
+          "up_rate_val": 0.5065,
+          "fwd_bps_val": -0.3762
+        },
+        {
+          "index": 2,
+          "n_train": 20902,
+          "up_rate_train": 0.5071,
+          "fwd_bps_train": 0.1288,
+          "n_val": 7015,
+          "up_rate_val": 0.5125,
+          "fwd_bps_val": -0.1774
+        },
+        {
+          "index": 3,
+          "n_train": 20902,
+          "up_rate_train": 0.5109,
+          "fwd_bps_train": 0.8936,
+          "n_val": 7336,
+          "up_rate_val": 0.5008,
+          "fwd_bps_val": -1.1156
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.5021,
+          "fwd_bps_train": 0.2385,
+          "n_val": 7241,
+          "up_rate_val": 0.4925,
+          "fwd_bps_val": 0.2282
+        },
+        {
+          "index": 5,
+          "n_train": 20902,
+          "up_rate_train": 0.5051,
+          "fwd_bps_train": 1.0304,
+          "n_val": 7311,
+          "up_rate_val": 0.4942,
+          "fwd_bps_val": -0.7339
+        },
+        {
+          "index": 6,
+          "n_train": 20902,
+          "up_rate_train": 0.4969,
+          "fwd_bps_train": -1.618,
+          "n_val": 7153,
+          "up_rate_val": 0.4868,
+          "fwd_bps_val": -1.4263
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.5042,
+          "fwd_bps_train": 0.4048,
+          "n_val": 6720,
+          "up_rate_val": 0.4879,
+          "fwd_bps_val": -0.5363
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.4926,
+          "fwd_bps_train": -0.7065,
+          "n_val": 6389,
+          "up_rate_val": 0.4877,
+          "fwd_bps_val": -1.6876
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.4936,
+          "fwd_bps_train": 0.2638,
+          "n_val": 6253,
+          "up_rate_val": 0.4887,
+          "fwd_bps_val": -1.1376
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.1578050063435681,
+          "t": -6.803682773097276,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": -0.021682953210386765,
+          "t": -3.6270125176121852,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.07019173844698437,
+          "t": -3.5417078683569856,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.035340219629293304,
+          "t": -3.3351273244072175,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": 0.02504844958518867,
+          "t": 1.5096940472400528,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.031182125814253902,
+          "t": -3.884937891276651,
+          "days": 524
+        }
+      }
+    },
+    "U0107": {
+      "feature": "ema_dist_20_z",
+      "H": 60,
+      "ic_train": -0.025760679723712484,
+      "t_train": -7.092276756411613,
+      "ic_val": -0.027921295784298063,
+      "t_val": -3.7923338790104593,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.516 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5058,
+          "fwd_bps_train": 2.4561,
+          "n_val": 6283,
+          "up_rate_val": 0.516,
+          "fwd_bps_val": 0.5764
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.5113,
+          "fwd_bps_train": 0.4212,
+          "n_val": 6646,
+          "up_rate_val": 0.5104,
+          "fwd_bps_val": -0.4223
+        },
+        {
+          "index": 2,
+          "n_train": 20902,
+          "up_rate_train": 0.5131,
+          "fwd_bps_train": 0.6418,
+          "n_val": 7271,
+          "up_rate_val": 0.5034,
+          "fwd_bps_val": -1.2208
+        },
+        {
+          "index": 3,
+          "n_train": 20902,
+          "up_rate_train": 0.5062,
+          "fwd_bps_train": 0.5489,
+          "n_val": 7440,
+          "up_rate_val": 0.5,
+          "fwd_bps_val": -0.9206
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.5117,
+          "fwd_bps_train": 1.6874,
+          "n_val": 7773,
+          "up_rate_val": 0.4935,
+          "fwd_bps_val": -0.9271
+        },
+        {
+          "index": 5,
+          "n_train": 20903,
+          "up_rate_train": 0.4971,
+          "fwd_bps_train": -0.919,
+          "n_val": 7833,
+          "up_rate_val": 0.4961,
+          "fwd_bps_val": -1.2188
+        },
+        {
+          "index": 6,
+          "n_train": 20901,
+          "up_rate_train": 0.4981,
+          "fwd_bps_train": -0.2856,
+          "n_val": 7196,
+          "up_rate_val": 0.4861,
+          "fwd_bps_val": -1.0644
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.5016,
+          "fwd_bps_train": -0.5413,
+          "n_val": 6655,
+          "up_rate_val": 0.4917,
+          "fwd_bps_val": -0.8666
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.4947,
+          "fwd_bps_train": -0.4582,
+          "n_val": 6146,
+          "up_rate_val": 0.4845,
+          "fwd_bps_val": -0.3755
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.5011,
+          "fwd_bps_train": 0.6146,
+          "n_val": 6035,
+          "up_rate_val": 0.4954,
+          "fwd_bps_val": -1.0402
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.14668045294751333,
+          "t": -6.5330799810830555,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": -0.019220856256317583,
+          "t": -3.0677000810022292,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.06120901462962303,
+          "t": -3.1486449914899373,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.037182423852999226,
+          "t": -3.5545117658732006,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": 0.034173140495900256,
+          "t": 2.0061313502404996,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.03130757702389324,
+          "t": -3.1293339549240544,
+          "days": 524
+        }
+      }
+    },
+    "U0017": {
+      "feature": "ret_30_z",
+      "H": 60,
+      "ic_train": -0.03016289172153177,
+      "t_train": -6.726782356660857,
+      "ic_val": -0.03175348745806275,
+      "t_val": -3.9893169959960706,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.521 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5023,
+          "fwd_bps_train": 2.5903,
+          "n_val": 6541,
+          "up_rate_val": 0.5118,
+          "fwd_bps_val": 1.5862
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.5164,
+          "fwd_bps_train": 0.9355,
+          "n_val": 6657,
+          "up_rate_val": 0.5022,
+          "fwd_bps_val": -0.0267
+        },
+        {
+          "index": 2,
+          "n_train": 20902,
+          "up_rate_train": 0.5176,
+          "fwd_bps_train": 0.503,
+          "n_val": 7064,
+          "up_rate_val": 0.5194,
+          "fwd_bps_val": -0.2985
+        },
+        {
+          "index": 3,
+          "n_train": 20902,
+          "up_rate_train": 0.5137,
+          "fwd_bps_train": 0.7579,
+          "n_val": 7342,
+          "up_rate_val": 0.5065,
+          "fwd_bps_val": -1.4086
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.5118,
+          "fwd_bps_train": 0.8592,
+          "n_val": 7358,
+          "up_rate_val": 0.4943,
+          "fwd_bps_val": -0.9324
+        },
+        {
+          "index": 5,
+          "n_train": 20903,
+          "up_rate_train": 0.5001,
+          "fwd_bps_train": -0.0459,
+          "n_val": 7514,
+          "up_rate_val": 0.4928,
+          "fwd_bps_val": -1.7622
+        },
+        {
+          "index": 6,
+          "n_train": 20901,
+          "up_rate_train": 0.4913,
+          "fwd_bps_train": -0.7979,
+          "n_val": 7083,
+          "up_rate_val": 0.4826,
+          "fwd_bps_val": -1.9572
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.4935,
+          "fwd_bps_train": -0.504,
+          "n_val": 6744,
+          "up_rate_val": 0.4788,
+          "fwd_bps_val": -2.2217
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.4949,
+          "fwd_bps_train": -0.5108,
+          "n_val": 6510,
+          "up_rate_val": 0.4833,
+          "fwd_bps_val": -2.0564
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.4992,
+          "fwd_bps_train": 0.3784,
+          "n_val": 6465,
+          "up_rate_val": 0.5046,
+          "fwd_bps_val": 1.6879
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.14841210589616258,
+          "t": -6.115029240605685,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": -0.023345079087140626,
+          "t": -3.403425894317044,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.09178049609897493,
+          "t": -5.0234145992141706,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.04477293118365385,
+          "t": -3.397884920522881,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": 0.023958120118304574,
+          "t": 1.379817321433963,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.0345706219602212,
+          "t": -3.75240319015544,
+          "days": 524
+        }
+      }
+    },
+    "U0113": {
+      "feature": "ema_dist_60_z",
+      "H": 60,
+      "ic_train": -0.031630995163408886,
+      "t_train": -6.572548792354185,
+      "ic_val": -0.03692321705934693,
+      "t_val": -4.2441942299978255,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.531 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5104,
+          "fwd_bps_train": 3.1532,
+          "n_val": 6425,
+          "up_rate_val": 0.5118,
+          "fwd_bps_val": -0.0503
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.5082,
+          "fwd_bps_train": -0.6293,
+          "n_val": 6929,
+          "up_rate_val": 0.5148,
+          "fwd_bps_val": -0.4336
+        },
+        {
+          "index": 2,
+          "n_train": 20903,
+          "up_rate_train": 0.5174,
+          "fwd_bps_train": 0.2511,
+          "n_val": 7388,
+          "up_rate_val": 0.5137,
+          "fwd_bps_val": -0.8466
+        },
+        {
+          "index": 3,
+          "n_train": 20901,
+          "up_rate_train": 0.5072,
+          "fwd_bps_train": 0.3046,
+          "n_val": 7493,
+          "up_rate_val": 0.5122,
+          "fwd_bps_val": -1.1966
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.5086,
+          "fwd_bps_train": 0.7532,
+          "n_val": 7582,
+          "up_rate_val": 0.4872,
+          "fwd_bps_val": -1.6448
+        },
+        {
+          "index": 5,
+          "n_train": 20903,
+          "up_rate_train": 0.5066,
+          "fwd_bps_train": 0.1089,
+          "n_val": 7436,
+          "up_rate_val": 0.5003,
+          "fwd_bps_val": 0.3846
+        },
+        {
+          "index": 6,
+          "n_train": 20901,
+          "up_rate_train": 0.4993,
+          "fwd_bps_train": 0.1135,
+          "n_val": 7076,
+          "up_rate_val": 0.4816,
+          "fwd_bps_val": -1.2578
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.4956,
+          "fwd_bps_train": -0.6215,
+          "n_val": 6382,
+          "up_rate_val": 0.4854,
+          "fwd_bps_val": -0.6199
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.4965,
+          "fwd_bps_train": 0.1736,
+          "n_val": 6107,
+          "up_rate_val": 0.4691,
+          "fwd_bps_val": -2.1566
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.4911,
+          "fwd_bps_train": 0.5586,
+          "n_val": 6460,
+          "up_rate_val": 0.4955,
+          "fwd_bps_val": 0.079
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.186874735841542,
+          "t": -7.295399102157124,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": -0.020297469644935315,
+          "t": -2.6548030710703827,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.09790774702325834,
+          "t": -5.457030249512306,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.04183609959884629,
+          "t": -2.8434788739562973,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": 0.037674027481973266,
+          "t": 1.8405693368358758,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.03728031928703388,
+          "t": -3.5297880190264697,
+          "days": 524
+        }
+      }
+    },
+    "U0065": {
+      "feature": "pos_range_1440",
+      "H": 60,
+      "ic_train": -0.033173575232983435,
+      "t_train": -6.533614323544073,
+      "ic_val": -0.022389157152621197,
+      "t_val": -2.760969998467209,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.519 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5121,
+          "fwd_bps_train": 1.0018,
+          "n_val": 8645,
+          "up_rate_val": 0.5168,
+          "fwd_bps_val": -1.9986
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.516,
+          "fwd_bps_train": -0.5427,
+          "n_val": 7929,
+          "up_rate_val": 0.4958,
+          "fwd_bps_val": -3.7741
+        },
+        {
+          "index": 2,
+          "n_train": 20902,
+          "up_rate_train": 0.51,
+          "fwd_bps_train": -0.3794,
+          "n_val": 7230,
+          "up_rate_val": 0.5008,
+          "fwd_bps_val": -0.0881
+        },
+        {
+          "index": 3,
+          "n_train": 20902,
+          "up_rate_train": 0.5097,
+          "fwd_bps_train": -0.2328,
+          "n_val": 7044,
+          "up_rate_val": 0.5044,
+          "fwd_bps_val": 0.6779
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.5155,
+          "fwd_bps_train": 1.0661,
+          "n_val": 6642,
+          "up_rate_val": 0.498,
+          "fwd_bps_val": -1.1433
+        },
+        {
+          "index": 5,
+          "n_train": 20902,
+          "up_rate_train": 0.5086,
+          "fwd_bps_train": 0.2484,
+          "n_val": 6673,
+          "up_rate_val": 0.5071,
+          "fwd_bps_val": -0.2775
+        },
+        {
+          "index": 6,
+          "n_train": 20902,
+          "up_rate_train": 0.5009,
+          "fwd_bps_train": 0.0318,
+          "n_val": 7157,
+          "up_rate_val": 0.4973,
+          "fwd_bps_val": 0.0925
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.4993,
+          "fwd_bps_train": 0.3092,
+          "n_val": 6711,
+          "up_rate_val": 0.4807,
+          "fwd_bps_val": -2.2101
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.4881,
+          "fwd_bps_train": 1.3625,
+          "n_val": 6226,
+          "up_rate_val": 0.4815,
+          "fwd_bps_val": 0.2738
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.4807,
+          "fwd_bps_train": 1.301,
+          "n_val": 5021,
+          "up_rate_val": 0.4832,
+          "fwd_bps_val": 2.2505
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.0652979459867355,
+          "t": -2.4788704084485826,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": 0.04039745949013896,
+          "t": 4.696845987376062,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.07294362705521161,
+          "t": -3.6896512321022388,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.04510199045123021,
+          "t": -3.3937654615954442,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": -0.008238405383472237,
+          "t": -0.41992777159395406,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.015258216375057412,
+          "t": -1.279271469913054,
+          "days": 524
+        }
+      }
+    },
+    "U0149": {
+      "feature": "di_diff_60",
+      "H": 60,
+      "ic_train": -0.033128687914498633,
+      "t_train": -6.4569680466536985,
+      "ic_val": -0.04813942071827085,
+      "t_val": -5.562937427227416,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.540 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5233,
+          "fwd_bps_train": 3.1922,
+          "n_val": 7504,
+          "up_rate_val": 0.5168,
+          "fwd_bps_val": -2.1883
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.5105,
+          "fwd_bps_train": -0.3728,
+          "n_val": 6722,
+          "up_rate_val": 0.5332,
+          "fwd_bps_val": 0.8055
+        },
+        {
+          "index": 2,
+          "n_train": 20902,
+          "up_rate_train": 0.5072,
+          "fwd_bps_train": -1.4025,
+          "n_val": 6569,
+          "up_rate_val": 0.519,
+          "fwd_bps_val": 1.1689
+        },
+        {
+          "index": 3,
+          "n_train": 20902,
+          "up_rate_train": 0.5102,
+          "fwd_bps_train": -0.5033,
+          "n_val": 6553,
+          "up_rate_val": 0.5057,
+          "fwd_bps_val": -1.3513
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.508,
+          "fwd_bps_train": 0.4004,
+          "n_val": 6377,
+          "up_rate_val": 0.4971,
+          "fwd_bps_val": -0.5948
+        },
+        {
+          "index": 5,
+          "n_train": 20903,
+          "up_rate_train": 0.5022,
+          "fwd_bps_train": -0.4206,
+          "n_val": 6495,
+          "up_rate_val": 0.5001,
+          "fwd_bps_val": -0.2785
+        },
+        {
+          "index": 6,
+          "n_train": 20901,
+          "up_rate_train": 0.5019,
+          "fwd_bps_train": 0.4656,
+          "n_val": 6545,
+          "up_rate_val": 0.4938,
+          "fwd_bps_val": 0.313
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.497,
+          "fwd_bps_train": 0.7703,
+          "n_val": 6667,
+          "up_rate_val": 0.4923,
+          "fwd_bps_val": 0.3821
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.4942,
+          "fwd_bps_train": 0.9695,
+          "n_val": 7172,
+          "up_rate_val": 0.4693,
+          "fwd_bps_val": -2.9781
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.4862,
+          "fwd_bps_train": 1.0672,
+          "n_val": 8674,
+          "up_rate_val": 0.4601,
+          "fwd_bps_val": -2.2053
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.18430246593905916,
+          "t": -6.312516098920742,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": -0.017757778486753594,
+          "t": -2.6580292859031633,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.09801662076416896,
+          "t": -5.125175772198565,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.04919627572570955,
+          "t": -2.797176608107687,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": 0.02072394100607362,
+          "t": 1.1244138741863432,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.039548638540559344,
+          "t": -3.682946924444864,
+          "days": 524
+        }
+      }
+    },
+    "U0071": {
+      "feature": "dist_high_1440_z",
+      "H": 60,
+      "ic_train": -0.03302838227936869,
+      "t_train": -6.1990031691337935,
+      "ic_val": -0.020096076766967588,
+      "t_val": -2.3480247496657856,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.530 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5042,
+          "fwd_bps_train": 1.0758,
+          "n_val": 8298,
+          "up_rate_val": 0.53,
+          "fwd_bps_val": -0.5737
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.5107,
+          "fwd_bps_train": 0.1179,
+          "n_val": 8199,
+          "up_rate_val": 0.4855,
+          "fwd_bps_val": -2.5331
+        },
+        {
+          "index": 2,
+          "n_train": 20902,
+          "up_rate_train": 0.5167,
+          "fwd_bps_train": 0.5344,
+          "n_val": 7354,
+          "up_rate_val": 0.498,
+          "fwd_bps_val": -0.3254
+        },
+        {
+          "index": 3,
+          "n_train": 20902,
+          "up_rate_train": 0.5122,
+          "fwd_bps_train": -0.8592,
+          "n_val": 6964,
+          "up_rate_val": 0.4941,
+          "fwd_bps_val": -1.526
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.5108,
+          "fwd_bps_train": -0.9647,
+          "n_val": 6949,
+          "up_rate_val": 0.4972,
+          "fwd_bps_val": -2.55
+        },
+        {
+          "index": 5,
+          "n_train": 20903,
+          "up_rate_train": 0.5138,
+          "fwd_bps_train": 0.913,
+          "n_val": 6545,
+          "up_rate_val": 0.501,
+          "fwd_bps_val": -0.7984
+        },
+        {
+          "index": 6,
+          "n_train": 20901,
+          "up_rate_train": 0.5065,
+          "fwd_bps_train": 0.329,
+          "n_val": 6623,
+          "up_rate_val": 0.493,
+          "fwd_bps_val": -0.9119
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.4994,
+          "fwd_bps_train": 0.4739,
+          "n_val": 6663,
+          "up_rate_val": 0.496,
+          "fwd_bps_val": -0.5822
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.4871,
+          "fwd_bps_train": 1.0847,
+          "n_val": 6335,
+          "up_rate_val": 0.4879,
+          "fwd_bps_val": 1.1921
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.4794,
+          "fwd_bps_train": 1.4611,
+          "n_val": 5348,
+          "up_rate_val": 0.4856,
+          "fwd_bps_val": 1.9046
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": 0.31648005265118817,
+          "t": 9.106160519251798,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": 0.03459207935186872,
+          "t": 4.017494903907372,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.13112104393464305,
+          "t": -6.402741523501816,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.05312492147160707,
+          "t": -3.7379222107653547,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": -0.002447997349242665,
+          "t": -0.12652828305438524,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.00876513372224162,
+          "t": -0.7277985454789496,
+          "days": 524
+        }
+      }
+    },
+    "U0251": {
+      "feature": "taker_imb_60",
+      "H": 60,
+      "ic_train": -0.024380654737173484,
+      "t_train": -6.166278241792969,
+      "ic_val": -0.03825952230184289,
+      "t_val": -5.462605363909388,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.530 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5199,
+          "fwd_bps_train": 0.8098,
+          "n_val": 7136,
+          "up_rate_val": 0.5259,
+          "fwd_bps_val": 1.2783
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.5197,
+          "fwd_bps_train": 1.9937,
+          "n_val": 6373,
+          "up_rate_val": 0.5042,
+          "fwd_bps_val": -0.94
+        },
+        {
+          "index": 2,
+          "n_train": 20903,
+          "up_rate_train": 0.5124,
+          "fwd_bps_train": 1.7059,
+          "n_val": 6043,
+          "up_rate_val": 0.5118,
+          "fwd_bps_val": 0.7916
+        },
+        {
+          "index": 3,
+          "n_train": 20901,
+          "up_rate_train": 0.504,
+          "fwd_bps_train": 0.6525,
+          "n_val": 5941,
+          "up_rate_val": 0.5053,
+          "fwd_bps_val": -0.2801
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.4963,
+          "fwd_bps_train": -1.1704,
+          "n_val": 6142,
+          "up_rate_val": 0.4954,
+          "fwd_bps_val": -0.5259
+        },
+        {
+          "index": 5,
+          "n_train": 20903,
+          "up_rate_train": 0.5052,
+          "fwd_bps_train": -0.3054,
+          "n_val": 6198,
+          "up_rate_val": 0.4929,
+          "fwd_bps_val": -0.0258
+        },
+        {
+          "index": 6,
+          "n_train": 20901,
+          "up_rate_train": 0.4997,
+          "fwd_bps_train": 0.3574,
+          "n_val": 6719,
+          "up_rate_val": 0.5087,
+          "fwd_bps_val": -0.6031
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.5039,
+          "fwd_bps_train": 0.2556,
+          "n_val": 7065,
+          "up_rate_val": 0.4927,
+          "fwd_bps_val": -1.9071
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.4903,
+          "fwd_bps_train": -0.3236,
+          "n_val": 8059,
+          "up_rate_val": 0.4838,
+          "fwd_bps_val": -2.0541
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.4893,
+          "fwd_bps_train": 0.1903,
+          "n_val": 9602,
+          "up_rate_val": 0.4704,
+          "fwd_bps_val": -2.3387
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.09422530957034152,
+          "t": -3.91408204328153,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": -0.02284550888549768,
+          "t": -3.7725233987915843,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.04988269457007825,
+          "t": -2.769780207338433,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.03788509430693887,
+          "t": -3.035014500265555,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": -0.004324663658562213,
+          "t": -0.26349093001532403,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.018133184225913545,
+          "t": -2.139504269039686,
+          "days": 524
+        }
+      }
+    },
+    "U0161": {
+      "feature": "rsi_60",
+      "H": 60,
+      "ic_train": -0.03198142076523051,
+      "t_train": -6.123575091280669,
+      "ic_val": -0.044873135477052406,
+      "t_val": -5.5882256042030685,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.538 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5183,
+          "fwd_bps_train": 2.8353,
+          "n_val": 7180,
+          "up_rate_val": 0.5178,
+          "fwd_bps_val": -1.5304
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.5106,
+          "fwd_bps_train": -0.2928,
+          "n_val": 7291,
+          "up_rate_val": 0.5226,
+          "fwd_bps_val": -0.4884
+        },
+        {
+          "index": 2,
+          "n_train": 20902,
+          "up_rate_train": 0.5077,
+          "fwd_bps_train": -0.3464,
+          "n_val": 7333,
+          "up_rate_val": 0.5132,
+          "fwd_bps_val": -0.9546
+        },
+        {
+          "index": 3,
+          "n_train": 20902,
+          "up_rate_train": 0.5068,
+          "fwd_bps_train": -0.6186,
+          "n_val": 7201,
+          "up_rate_val": 0.5162,
+          "fwd_bps_val": 0.1664
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.5044,
+          "fwd_bps_train": 0.0477,
+          "n_val": 7176,
+          "up_rate_val": 0.4904,
+          "fwd_bps_val": -1.0536
+        },
+        {
+          "index": 5,
+          "n_train": 20902,
+          "up_rate_train": 0.5099,
+          "fwd_bps_train": 0.4605,
+          "n_val": 6773,
+          "up_rate_val": 0.4976,
+          "fwd_bps_val": 0.0318
+        },
+        {
+          "index": 6,
+          "n_train": 20902,
+          "up_rate_train": 0.5025,
+          "fwd_bps_train": 0.148,
+          "n_val": 6596,
+          "up_rate_val": 0.488,
+          "fwd_bps_val": 0.8882
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.5041,
+          "fwd_bps_train": 0.7153,
+          "n_val": 6811,
+          "up_rate_val": 0.4939,
+          "fwd_bps_val": -0.0595
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.4889,
+          "fwd_bps_train": 0.0594,
+          "n_val": 6505,
+          "up_rate_val": 0.4618,
+          "fwd_bps_val": -2.4495
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.4877,
+          "fwd_bps_train": 1.1573,
+          "n_val": 6412,
+          "up_rate_val": 0.4663,
+          "fwd_bps_val": -2.4171
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.20446941132657373,
+          "t": -7.112990600447874,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": -0.01629043616371957,
+          "t": -2.2306960704749135,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.11395037445429991,
+          "t": -6.078976018885116,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.04268543407498693,
+          "t": -2.8478376843436015,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": 0.026100006766733637,
+          "t": 1.3153923021071154,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.03772170095537251,
+          "t": -3.74967391115531,
+          "days": 524
+        }
+      }
+    },
+    "U0053": {
+      "feature": "dist_high_240_z",
+      "H": 60,
+      "ic_train": -0.034054237589800286,
+      "t_train": -6.040384666090801,
+      "ic_val": -0.05211416433032328,
+      "t_val": -4.629381045665693,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.552 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5025,
+          "fwd_bps_train": 1.2398,
+          "n_val": 7194,
+          "up_rate_val": 0.5204,
+          "fwd_bps_val": 0.4116
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.5163,
+          "fwd_bps_train": 1.3014,
+          "n_val": 7098,
+          "up_rate_val": 0.5285,
+          "fwd_bps_val": 0.8181
+        },
+        {
+          "index": 2,
+          "n_train": 20903,
+          "up_rate_train": 0.5159,
+          "fwd_bps_train": 0.375,
+          "n_val": 7313,
+          "up_rate_val": 0.5154,
+          "fwd_bps_val": -0.2986
+        },
+        {
+          "index": 3,
+          "n_train": 20901,
+          "up_rate_train": 0.5028,
+          "fwd_bps_train": -0.0864,
+          "n_val": 7475,
+          "up_rate_val": 0.51,
+          "fwd_bps_val": 0.2509
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.5077,
+          "fwd_bps_train": -0.0683,
+          "n_val": 7446,
+          "up_rate_val": 0.486,
+          "fwd_bps_val": -1.8322
+        },
+        {
+          "index": 5,
+          "n_train": 20903,
+          "up_rate_train": 0.5061,
+          "fwd_bps_train": -0.0848,
+          "n_val": 7124,
+          "up_rate_val": 0.5015,
+          "fwd_bps_val": -0.3008
+        },
+        {
+          "index": 6,
+          "n_train": 20901,
+          "up_rate_train": 0.5114,
+          "fwd_bps_train": 1.2213,
+          "n_val": 7085,
+          "up_rate_val": 0.4963,
+          "fwd_bps_val": -1.394
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.5029,
+          "fwd_bps_train": 1.3873,
+          "n_val": 6810,
+          "up_rate_val": 0.4828,
+          "fwd_bps_val": -0.0832
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.4939,
+          "fwd_bps_train": -0.2397,
+          "n_val": 6581,
+          "up_rate_val": 0.4698,
+          "fwd_bps_val": -2.3349
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.4813,
+          "fwd_bps_train": -0.8796,
+          "n_val": 5152,
+          "up_rate_val": 0.4484,
+          "fwd_bps_val": -3.9871
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.10289972737156013,
+          "t": -4.347349541898272,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": -0.0281030713689604,
+          "t": -3.2877391027290024,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.1190886826668169,
+          "t": -5.330909637133249,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.05959174929039911,
+          "t": -3.321593724055408,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": 0.016111852297703105,
+          "t": 0.667584473724125,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.039570739627809694,
+          "t": -3.5235345736515993,
+          "days": 524
+        }
+      }
+    },
+    "U0041": {
+      "feature": "pos_range_60",
+      "H": 60,
+      "ic_train": -0.02824957069845336,
+      "t_train": -5.991082789031741,
+      "ic_val": -0.028285468719545605,
+      "t_val": -3.558234901529643,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.514 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20900,
+          "up_rate_train": 0.516,
+          "fwd_bps_train": 1.9229,
+          "n_val": 6257,
+          "up_rate_val": 0.5121,
+          "fwd_bps_val": 0.0293
+        },
+        {
+          "index": 1,
+          "n_train": 20904,
+          "up_rate_train": 0.5096,
+          "fwd_bps_train": 0.9601,
+          "n_val": 7144,
+          "up_rate_val": 0.5081,
+          "fwd_bps_val": -1.3942
+        },
+        {
+          "index": 2,
+          "n_train": 20902,
+          "up_rate_train": 0.5059,
+          "fwd_bps_train": 0.4885,
+          "n_val": 7518,
+          "up_rate_val": 0.5113,
+          "fwd_bps_val": -0.503
+        },
+        {
+          "index": 3,
+          "n_train": 20901,
+          "up_rate_train": 0.5104,
+          "fwd_bps_train": 0.6154,
+          "n_val": 7419,
+          "up_rate_val": 0.502,
+          "fwd_bps_val": -0.7515
+        },
+        {
+          "index": 4,
+          "n_train": 20903,
+          "up_rate_train": 0.5121,
+          "fwd_bps_train": 0.7873,
+          "n_val": 7441,
+          "up_rate_val": 0.4911,
+          "fwd_bps_val": -0.9202
+        },
+        {
+          "index": 5,
+          "n_train": 20903,
+          "up_rate_train": 0.5026,
+          "fwd_bps_train": 0.5455,
+          "n_val": 7378,
+          "up_rate_val": 0.487,
+          "fwd_bps_val": -1.2471
+        },
+        {
+          "index": 6,
+          "n_train": 20901,
+          "up_rate_train": 0.5028,
+          "fwd_bps_train": 0.3746,
+          "n_val": 7307,
+          "up_rate_val": 0.494,
+          "fwd_bps_val": -0.3812
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.4967,
+          "fwd_bps_train": 0.0286,
+          "n_val": 7149,
+          "up_rate_val": 0.4943,
+          "fwd_bps_val": -1.1203
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.492,
+          "fwd_bps_train": -1.2374,
+          "n_val": 6607,
+          "up_rate_val": 0.488,
+          "fwd_bps_val": -0.4218
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.4928,
+          "fwd_bps_train": -0.3195,
+          "n_val": 5058,
+          "up_rate_val": 0.4858,
+          "fwd_bps_val": -0.9711
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.1703020089461341,
+          "t": -6.703145536805367,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": -0.022986609076523244,
+          "t": -3.404782136943454,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.08832168573576508,
+          "t": -4.493169613132329,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.03354110369896255,
+          "t": -2.566089726570696,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": 0.02293908151468183,
+          "t": 1.3026217093400876,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.03473505165254612,
+          "t": -4.166416464058294,
+          "days": 524
+        }
+      }
+    },
+    "U0035": {
+      "feature": "ret_1440_z",
+      "H": 60,
+      "ic_train": -0.03512035726518421,
+      "t_train": -5.954515178527536,
+      "ic_val": -0.0247858563618577,
+      "t_val": -2.8441259768739284,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.532 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.513,
+          "fwd_bps_train": 1.6233,
+          "n_val": 8476,
+          "up_rate_val": 0.512,
+          "fwd_bps_val": -2.565
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.5235,
+          "fwd_bps_train": 1.7551,
+          "n_val": 7276,
+          "up_rate_val": 0.4922,
+          "fwd_bps_val": -1.6118
+        },
+        {
+          "index": 2,
+          "n_train": 20903,
+          "up_rate_train": 0.5172,
+          "fwd_bps_train": 0.3357,
+          "n_val": 6775,
+          "up_rate_val": 0.5045,
+          "fwd_bps_val": 0.0561
+        },
+        {
+          "index": 3,
+          "n_train": 20901,
+          "up_rate_train": 0.5144,
+          "fwd_bps_train": -0.6591,
+          "n_val": 6579,
+          "up_rate_val": 0.5071,
+          "fwd_bps_val": -0.1083
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.5179,
+          "fwd_bps_train": -0.0753,
+          "n_val": 6596,
+          "up_rate_val": 0.5011,
+          "fwd_bps_val": -0.2407
+        },
+        {
+          "index": 5,
+          "n_train": 20903,
+          "up_rate_train": 0.5022,
+          "fwd_bps_train": 0.3323,
+          "n_val": 6853,
+          "up_rate_val": 0.5069,
+          "fwd_bps_val": 1.4213
+        },
+        {
+          "index": 6,
+          "n_train": 20901,
+          "up_rate_train": 0.4841,
+          "fwd_bps_train": -1.0927,
+          "n_val": 7219,
+          "up_rate_val": 0.5037,
+          "fwd_bps_val": 0.5266
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.492,
+          "fwd_bps_train": 0.2774,
+          "n_val": 6921,
+          "up_rate_val": 0.4963,
+          "fwd_bps_val": -0.5264
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.4822,
+          "fwd_bps_train": 0.2635,
+          "n_val": 6589,
+          "up_rate_val": 0.4773,
+          "fwd_bps_val": -2.1785
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.4944,
+          "fwd_bps_train": 1.4056,
+          "n_val": 5994,
+          "up_rate_val": 0.4678,
+          "fwd_bps_val": -2.3076
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": 0.3510651857113862,
+          "t": 10.284414887531952,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": 0.04551498981889293,
+          "t": 4.175977334614766,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": 0.25269778091687034,
+          "t": 10.520533703620346,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.04513778369430001,
+          "t": -3.256960022080901,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": -0.01231341933127046,
+          "t": -0.7894826538009648,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.01423935160172436,
+          "t": -1.0165967275033214,
+          "days": 524
+        }
+      }
+    },
+    "U0083": {
+      "feature": "body_15",
+      "H": 60,
+      "ic_train": -0.01654520452951956,
+      "t_train": -5.508985879815045,
+      "ic_val": -0.01079773392655006,
+      "t_val": -1.8723154543419764,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.509 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5067,
+          "fwd_bps_train": 1.0804,
+          "n_val": 6329,
+          "up_rate_val": 0.4957,
+          "fwd_bps_val": -1.9203
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.5083,
+          "fwd_bps_train": 0.581,
+          "n_val": 6424,
+          "up_rate_val": 0.5022,
+          "fwd_bps_val": -1.9282
+        },
+        {
+          "index": 2,
+          "n_train": 20903,
+          "up_rate_train": 0.5118,
+          "fwd_bps_train": 2.0433,
+          "n_val": 7066,
+          "up_rate_val": 0.504,
+          "fwd_bps_val": -0.2521
+        },
+        {
+          "index": 3,
+          "n_train": 20901,
+          "up_rate_train": 0.5055,
+          "fwd_bps_train": 0.5099,
+          "n_val": 7296,
+          "up_rate_val": 0.4968,
+          "fwd_bps_val": -0.1494
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.5037,
+          "fwd_bps_train": 0.7964,
+          "n_val": 7606,
+          "up_rate_val": 0.4986,
+          "fwd_bps_val": -0.2747
+        },
+        {
+          "index": 5,
+          "n_train": 20903,
+          "up_rate_train": 0.5,
+          "fwd_bps_train": -0.1932,
+          "n_val": 7457,
+          "up_rate_val": 0.5036,
+          "fwd_bps_val": 0.4718
+        },
+        {
+          "index": 6,
+          "n_train": 20901,
+          "up_rate_train": 0.4986,
+          "fwd_bps_train": -0.2652,
+          "n_val": 7345,
+          "up_rate_val": 0.4909,
+          "fwd_bps_val": -0.6669
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.4944,
+          "fwd_bps_train": -1.2892,
+          "n_val": 7022,
+          "up_rate_val": 0.4919,
+          "fwd_bps_val": -1.0876
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.5032,
+          "fwd_bps_train": 0.4958,
+          "n_val": 6577,
+          "up_rate_val": 0.4929,
+          "fwd_bps_val": -1.404
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.5086,
+          "fwd_bps_train": 0.4066,
+          "n_val": 6156,
+          "up_rate_val": 0.4997,
+          "fwd_bps_val": -0.9621
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.11987390571668644,
+          "t": -5.474676177859788,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": -0.010075340582577086,
+          "t": -2.100877232806344,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.0512599189085832,
+          "t": -2.810002667817155,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.030378169732045688,
+          "t": -3.2847837822818025,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": 0.026825830090916845,
+          "t": 2.0615910924201177,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.018540292001625183,
+          "t": -2.4574173250068547,
+          "days": 524
+        }
+      }
+    },
+    "U0119": {
+      "feature": "ema_dist_240_z",
+      "H": 60,
+      "ic_train": -0.029849677517515997,
+      "t_train": -5.252933657176935,
+      "ic_val": -0.043853623559896325,
+      "t_val": -4.985143808895832,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.539 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5067,
+          "fwd_bps_train": 2.5246,
+          "n_val": 6907,
+          "up_rate_val": 0.5059,
+          "fwd_bps_val": -1.924
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.5154,
+          "fwd_bps_train": -1.4042,
+          "n_val": 6850,
+          "up_rate_val": 0.5393,
+          "fwd_bps_val": 0.1188
+        },
+        {
+          "index": 2,
+          "n_train": 20903,
+          "up_rate_train": 0.5099,
+          "fwd_bps_train": -0.4318,
+          "n_val": 7456,
+          "up_rate_val": 0.5186,
+          "fwd_bps_val": 0.149
+        },
+        {
+          "index": 3,
+          "n_train": 20901,
+          "up_rate_train": 0.5054,
+          "fwd_bps_train": -1.2642,
+          "n_val": 7515,
+          "up_rate_val": 0.5123,
+          "fwd_bps_val": -0.9689
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.5083,
+          "fwd_bps_train": -0.1058,
+          "n_val": 7753,
+          "up_rate_val": 0.4966,
+          "fwd_bps_val": -1.055
+        },
+        {
+          "index": 5,
+          "n_train": 20903,
+          "up_rate_train": 0.5057,
+          "fwd_bps_train": 0.3519,
+          "n_val": 7170,
+          "up_rate_val": 0.4898,
+          "fwd_bps_val": -1.1458
+        },
+        {
+          "index": 6,
+          "n_train": 20901,
+          "up_rate_train": 0.5057,
+          "fwd_bps_train": 0.4441,
+          "n_val": 6720,
+          "up_rate_val": 0.4853,
+          "fwd_bps_val": -0.2745
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.5022,
+          "fwd_bps_train": 1.5978,
+          "n_val": 6353,
+          "up_rate_val": 0.471,
+          "fwd_bps_val": -1.3618
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.4893,
+          "fwd_bps_train": 0.6327,
+          "n_val": 5986,
+          "up_rate_val": 0.4714,
+          "fwd_bps_val": -0.3597
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.4922,
+          "fwd_bps_train": 1.8207,
+          "n_val": 6568,
+          "up_rate_val": 0.4769,
+          "fwd_bps_val": -0.9116
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.14673244085742568,
+          "t": -5.8689226331934,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": -0.00474349258103094,
+          "t": -0.5704233715056058,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.09737732252780364,
+          "t": -5.0110041360867275,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.047615861055868076,
+          "t": -2.606017601471946,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": 0.019810235996334625,
+          "t": 0.9013283228454246,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.030231840088557137,
+          "t": -2.2740289838666814,
+          "days": 524
+        }
+      }
+    },
+    "U0047": {
+      "feature": "pos_range_240",
+      "H": 60,
+      "ic_train": -0.028011092788065288,
+      "t_train": -5.219043398627208,
+      "ic_val": -0.046807863031653026,
+      "t_val": -5.4067365683469575,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.546 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5126,
+          "fwd_bps_train": 1.1607,
+          "n_val": 6311,
+          "up_rate_val": 0.528,
+          "fwd_bps_val": -1.3533
+        },
+        {
+          "index": 1,
+          "n_train": 20901,
+          "up_rate_train": 0.5064,
+          "fwd_bps_train": -0.1567,
+          "n_val": 7734,
+          "up_rate_val": 0.5304,
+          "fwd_bps_val": -1.1613
+        },
+        {
+          "index": 2,
+          "n_train": 20904,
+          "up_rate_train": 0.5095,
+          "fwd_bps_train": -0.1784,
+          "n_val": 7853,
+          "up_rate_val": 0.5104,
+          "fwd_bps_val": -0.5241
+        },
+        {
+          "index": 3,
+          "n_train": 20898,
+          "up_rate_train": 0.5106,
+          "fwd_bps_train": 0.1666,
+          "n_val": 7451,
+          "up_rate_val": 0.5083,
+          "fwd_bps_val": 0.8386
+        },
+        {
+          "index": 4,
+          "n_train": 20905,
+          "up_rate_train": 0.508,
+          "fwd_bps_train": -0.3981,
+          "n_val": 7477,
+          "up_rate_val": 0.4935,
+          "fwd_bps_val": -0.9955
+        },
+        {
+          "index": 5,
+          "n_train": 20895,
+          "up_rate_train": 0.5073,
+          "fwd_bps_train": 0.7277,
+          "n_val": 7357,
+          "up_rate_val": 0.4976,
+          "fwd_bps_val": 0.2743
+        },
+        {
+          "index": 6,
+          "n_train": 20909,
+          "up_rate_train": 0.5038,
+          "fwd_bps_train": 0.8137,
+          "n_val": 7090,
+          "up_rate_val": 0.4848,
+          "fwd_bps_val": -0.687
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.5067,
+          "fwd_bps_train": 1.8982,
+          "n_val": 6806,
+          "up_rate_val": 0.4759,
+          "fwd_bps_val": -0.3089
+        },
+        {
+          "index": 8,
+          "n_train": 20887,
+          "up_rate_train": 0.4914,
+          "fwd_bps_train": 0.7191,
+          "n_val": 6303,
+          "up_rate_val": 0.4753,
+          "fwd_bps_val": -1.967
+        },
+        {
+          "index": 9,
+          "n_train": 20918,
+          "up_rate_train": 0.4845,
+          "fwd_bps_train": -0.5858,
+          "n_val": 4896,
+          "up_rate_val": 0.4538,
+          "fwd_bps_val": -2.7552
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.1891675572993797,
+          "t": -6.979444388479926,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": -0.014630681118825893,
+          "t": -2.032763261545943,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.11451562445367176,
+          "t": -5.307891261681041,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.03838571900567717,
+          "t": -2.768712515203642,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": 0.01855575315489495,
+          "t": 0.8415747176567073,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.03316771258781808,
+          "t": -3.046741600333228,
+          "days": 524
+        }
+      }
+    },
+    "U0137": {
+      "feature": "ema_cross_20_60_z",
+      "H": 60,
+      "ic_train": -0.02805017802650831,
+      "t_train": -5.14892832798423,
+      "ic_val": -0.03710044078752609,
+      "t_val": -3.923793771527258,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.534 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5107,
+          "fwd_bps_train": 2.7972,
+          "n_val": 6564,
+          "up_rate_val": 0.5027,
+          "fwd_bps_val": -0.4856
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.5104,
+          "fwd_bps_train": 0.1621,
+          "n_val": 6882,
+          "up_rate_val": 0.5232,
+          "fwd_bps_val": -0.1835
+        },
+        {
+          "index": 2,
+          "n_train": 20902,
+          "up_rate_train": 0.5109,
+          "fwd_bps_train": -0.7719,
+          "n_val": 7260,
+          "up_rate_val": 0.5194,
+          "fwd_bps_val": -0.0488
+        },
+        {
+          "index": 3,
+          "n_train": 20902,
+          "up_rate_train": 0.5056,
+          "fwd_bps_train": -0.9637,
+          "n_val": 7499,
+          "up_rate_val": 0.503,
+          "fwd_bps_val": -1.4734
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.5078,
+          "fwd_bps_train": 0.3955,
+          "n_val": 7557,
+          "up_rate_val": 0.4949,
+          "fwd_bps_val": -2.004
+        },
+        {
+          "index": 5,
+          "n_train": 20903,
+          "up_rate_train": 0.5036,
+          "fwd_bps_train": 0.1064,
+          "n_val": 7324,
+          "up_rate_val": 0.4919,
+          "fwd_bps_val": -1.1118
+        },
+        {
+          "index": 6,
+          "n_train": 20901,
+          "up_rate_train": 0.5066,
+          "fwd_bps_train": 0.5454,
+          "n_val": 6998,
+          "up_rate_val": 0.4933,
+          "fwd_bps_val": -0.72
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.4956,
+          "fwd_bps_train": -0.2001,
+          "n_val": 6409,
+          "up_rate_val": 0.4871,
+          "fwd_bps_val": 0.3398
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.4961,
+          "fwd_bps_train": 0.6197,
+          "n_val": 6171,
+          "up_rate_val": 0.4661,
+          "fwd_bps_val": -1.8297
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.4935,
+          "fwd_bps_train": 1.4752,
+          "n_val": 6614,
+          "up_rate_val": 0.4894,
+          "fwd_bps_val": -0.0577
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.17842991708423214,
+          "t": -6.805997948263381,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": -0.01570206925927134,
+          "t": -2.0092410078217475,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.10625602152193893,
+          "t": -6.212056881825305,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.040087542070003465,
+          "t": -2.4543165084368397,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": 0.03130098625358646,
+          "t": 1.583430137174266,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.028113658146202744,
+          "t": -2.6361520169197314,
+          "days": 524
+        }
+      }
+    },
+    "U0389": {
+      "feature": "taker_lsr_5m",
+      "H": 60,
+      "ic_train": -0.014871205703955242,
+      "t_train": -4.986959138170548,
+      "ic_val": -0.007637436564343814,
+      "t_val": -1.5710916314613863,
+      "coins_same_sign_val": 5.0,
+      "status": "Không đạt (không xác nhận trên validation)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5166,
+          "fwd_bps_train": 1.3704,
+          "n_val": 7138,
+          "up_rate_val": 0.5041,
+          "fwd_bps_val": -0.5529
+        },
+        {
+          "index": 1,
+          "n_train": 20901,
+          "up_rate_train": 0.5116,
+          "fwd_bps_train": 1.433,
+          "n_val": 6779,
+          "up_rate_val": 0.4995,
+          "fwd_bps_val": -1.0184
+        },
+        {
+          "index": 2,
+          "n_train": 20903,
+          "up_rate_train": 0.503,
+          "fwd_bps_train": 0.3865,
+          "n_val": 6714,
+          "up_rate_val": 0.4987,
+          "fwd_bps_val": 0.8435
+        },
+        {
+          "index": 3,
+          "n_train": 20902,
+          "up_rate_train": 0.504,
+          "fwd_bps_train": 0.3506,
+          "n_val": 6592,
+          "up_rate_val": 0.4961,
+          "fwd_bps_val": -1.2405
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.5061,
+          "fwd_bps_train": 1.7836,
+          "n_val": 6696,
+          "up_rate_val": 0.4964,
+          "fwd_bps_val": -0.5255
+        },
+        {
+          "index": 5,
+          "n_train": 20903,
+          "up_rate_train": 0.5042,
+          "fwd_bps_train": 1.1612,
+          "n_val": 6569,
+          "up_rate_val": 0.5048,
+          "fwd_bps_val": 0.0308
+        },
+        {
+          "index": 6,
+          "n_train": 20901,
+          "up_rate_train": 0.4939,
+          "fwd_bps_train": -1.2392,
+          "n_val": 6779,
+          "up_rate_val": 0.4875,
+          "fwd_bps_val": -2.11
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.4986,
+          "fwd_bps_train": 0.218,
+          "n_val": 7023,
+          "up_rate_val": 0.4942,
+          "fwd_bps_val": -1.2224
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.5031,
+          "fwd_bps_train": -0.8345,
+          "n_val": 7198,
+          "up_rate_val": 0.4974,
+          "fwd_bps_val": -0.7873
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.4999,
+          "fwd_bps_train": -0.4638,
+          "n_val": 7790,
+          "up_rate_val": 0.4976,
+          "fwd_bps_val": -1.0833
+        }
+      ],
+      "regimes": null
+    },
+    "U0125": {
+      "feature": "ema_dist_1440_z",
+      "H": 60,
+      "ic_train": -0.027246678765543573,
+      "t_train": -4.9330528724620555,
+      "ic_val": -0.03222643666010179,
+      "t_val": -3.8249070731319517,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.531 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.4978,
+          "fwd_bps_train": 0.5618,
+          "n_val": 7383,
+          "up_rate_val": 0.5272,
+          "fwd_bps_val": -0.383
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.5177,
+          "fwd_bps_train": -0.1475,
+          "n_val": 8145,
+          "up_rate_val": 0.4983,
+          "fwd_bps_val": -1.791
+        },
+        {
+          "index": 2,
+          "n_train": 20903,
+          "up_rate_train": 0.5153,
+          "fwd_bps_train": -0.3886,
+          "n_val": 7205,
+          "up_rate_val": 0.4995,
+          "fwd_bps_val": -1.3497
+        },
+        {
+          "index": 3,
+          "n_train": 20901,
+          "up_rate_train": 0.5118,
+          "fwd_bps_train": -0.8816,
+          "n_val": 6966,
+          "up_rate_val": 0.5144,
+          "fwd_bps_val": 0.1495
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.5107,
+          "fwd_bps_train": -0.0708,
+          "n_val": 7309,
+          "up_rate_val": 0.4979,
+          "fwd_bps_val": -1.2476
+        },
+        {
+          "index": 5,
+          "n_train": 20903,
+          "up_rate_train": 0.5065,
+          "fwd_bps_train": 0.7024,
+          "n_val": 6718,
+          "up_rate_val": 0.4987,
+          "fwd_bps_val": -1.4304
+        },
+        {
+          "index": 6,
+          "n_train": 20901,
+          "up_rate_train": 0.4995,
+          "fwd_bps_train": 0.1126,
+          "n_val": 6743,
+          "up_rate_val": 0.4935,
+          "fwd_bps_val": -1.1888
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.4977,
+          "fwd_bps_train": 0.3698,
+          "n_val": 6394,
+          "up_rate_val": 0.4819,
+          "fwd_bps_val": 0.0161
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.4878,
+          "fwd_bps_train": 1.421,
+          "n_val": 6236,
+          "up_rate_val": 0.4888,
+          "fwd_bps_val": 0.3459
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.496,
+          "fwd_bps_train": 2.4867,
+          "n_val": 6179,
+          "up_rate_val": 0.4685,
+          "fwd_bps_val": -0.5006
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": 0.10688390841527967,
+          "t": 3.649325930725516,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": 0.05389524104418566,
+          "t": 5.258804002455501,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": 0.07600164099605396,
+          "t": 3.469583341072816,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.04726807309046945,
+          "t": -3.14657505043232,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": -0.0010148531849720349,
+          "t": -0.04653760616678046,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.010699255091430285,
+          "t": -0.7155277870963808,
+          "days": 524
+        }
+      }
+    },
+    "U0077": {
+      "feature": "dist_low_1440_z",
+      "H": 60,
+      "ic_train": -0.026690324611538505,
+      "t_train": -4.87103566643724,
+      "ic_val": -0.023345491565725827,
+      "t_val": -2.148601640332006,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.521 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5159,
+          "fwd_bps_train": 0.9426,
+          "n_val": 8389,
+          "up_rate_val": 0.5136,
+          "fwd_bps_val": -3.4301
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.5192,
+          "fwd_bps_train": -0.0677,
+          "n_val": 8094,
+          "up_rate_val": 0.5016,
+          "fwd_bps_val": -1.4234
+        },
+        {
+          "index": 2,
+          "n_train": 20903,
+          "up_rate_train": 0.5146,
+          "fwd_bps_train": 0.5855,
+          "n_val": 6816,
+          "up_rate_val": 0.5021,
+          "fwd_bps_val": -0.465
+        },
+        {
+          "index": 3,
+          "n_train": 20901,
+          "up_rate_train": 0.5083,
+          "fwd_bps_train": -0.81,
+          "n_val": 7001,
+          "up_rate_val": 0.5121,
+          "fwd_bps_val": 0.0528
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.4963,
+          "fwd_bps_train": -0.4552,
+          "n_val": 7265,
+          "up_rate_val": 0.4928,
+          "fwd_bps_val": 0.4314
+        },
+        {
+          "index": 5,
+          "n_train": 20902,
+          "up_rate_train": 0.5002,
+          "fwd_bps_train": 0.2389,
+          "n_val": 6969,
+          "up_rate_val": 0.4896,
+          "fwd_bps_val": -0.871
+        },
+        {
+          "index": 6,
+          "n_train": 20902,
+          "up_rate_train": 0.4958,
+          "fwd_bps_train": 0.467,
+          "n_val": 6469,
+          "up_rate_val": 0.5004,
+          "fwd_bps_val": 0.1892
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.4977,
+          "fwd_bps_train": 0.4539,
+          "n_val": 6718,
+          "up_rate_val": 0.493,
+          "fwd_bps_val": -0.6877
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.4945,
+          "fwd_bps_train": 1.0898,
+          "n_val": 6013,
+          "up_rate_val": 0.4825,
+          "fwd_bps_val": -0.1793
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.4983,
+          "fwd_bps_train": 1.721,
+          "n_val": 5544,
+          "up_rate_val": 0.4791,
+          "fwd_bps_val": -0.5717
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.15354664819370858,
+          "t": -5.62516822883913,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": 0.03987864241567429,
+          "t": 4.192523871129385,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": 0.20005930540052727,
+          "t": 8.192096885005121,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.03176347050474903,
+          "t": -2.1681800276896124,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": -0.009161128565176166,
+          "t": -0.46429330014843073,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.018261556314877914,
+          "t": -1.4720316518659344,
+          "days": 524
+        }
+      }
+    },
+    "U0131": {
+      "feature": "ema_slope_60_z",
+      "H": 60,
+      "ic_train": -0.02560240614795134,
+      "t_train": -4.850359522938133,
+      "ic_val": -0.03447384788734829,
+      "t_val": -3.733004958965479,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.523 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5097,
+          "fwd_bps_train": 2.7244,
+          "n_val": 6560,
+          "up_rate_val": 0.5099,
+          "fwd_bps_val": 0.2244
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.5088,
+          "fwd_bps_train": -0.2291,
+          "n_val": 6877,
+          "up_rate_val": 0.511,
+          "fwd_bps_val": -1.0822
+        },
+        {
+          "index": 2,
+          "n_train": 20903,
+          "up_rate_train": 0.5105,
+          "fwd_bps_train": -0.3899,
+          "n_val": 7167,
+          "up_rate_val": 0.5175,
+          "fwd_bps_val": 0.0922
+        },
+        {
+          "index": 3,
+          "n_train": 20901,
+          "up_rate_train": 0.5064,
+          "fwd_bps_train": -0.8587,
+          "n_val": 7584,
+          "up_rate_val": 0.504,
+          "fwd_bps_val": -1.1163
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.5086,
+          "fwd_bps_train": 0.0363,
+          "n_val": 7394,
+          "up_rate_val": 0.4999,
+          "fwd_bps_val": -1.813
+        },
+        {
+          "index": 5,
+          "n_train": 20903,
+          "up_rate_train": 0.5025,
+          "fwd_bps_train": 0.1092,
+          "n_val": 7372,
+          "up_rate_val": 0.4887,
+          "fwd_bps_val": -1.4255
+        },
+        {
+          "index": 6,
+          "n_train": 20901,
+          "up_rate_train": 0.5063,
+          "fwd_bps_train": 0.3986,
+          "n_val": 7224,
+          "up_rate_val": 0.4914,
+          "fwd_bps_val": -1.0371
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.4967,
+          "fwd_bps_train": 0.5139,
+          "n_val": 6322,
+          "up_rate_val": 0.4848,
+          "fwd_bps_val": -0.474
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.4984,
+          "fwd_bps_train": 0.8718,
+          "n_val": 6121,
+          "up_rate_val": 0.4769,
+          "fwd_bps_val": -1.4598
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.493,
+          "fwd_bps_train": 0.9894,
+          "n_val": 6657,
+          "up_rate_val": 0.4884,
+          "fwd_bps_val": 0.5165
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.1729283216347721,
+          "t": -6.648674677702137,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": -0.014329349889057699,
+          "t": -1.910535423359826,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.10211383050174802,
+          "t": -5.9356004352264975,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.03848156215334701,
+          "t": -2.3681065335167313,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": 0.03092494259669951,
+          "t": 1.620212753726806,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.023528607983225314,
+          "t": -2.19375261431633,
+          "days": 524
+        }
+      }
+    },
+    "U0695": {
+      "feature": "taker_imb_15",
+      "H": 240,
+      "ic_train": -0.012140563364697184,
+      "t_train": -4.845035901865598,
+      "ic_val": -0.012977592386291998,
+      "t_val": -2.2280208250393407,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.515 < ngưỡng hòa vốn 0.559)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20897,
+          "up_rate_train": 0.5163,
+          "fwd_bps_train": 2.6009,
+          "n_val": 6990,
+          "up_rate_val": 0.5122,
+          "fwd_bps_val": -1.6055
+        },
+        {
+          "index": 1,
+          "n_train": 20896,
+          "up_rate_train": 0.5133,
+          "fwd_bps_train": 1.9403,
+          "n_val": 6636,
+          "up_rate_val": 0.4988,
+          "fwd_bps_val": -2.9928
+        },
+        {
+          "index": 2,
+          "n_train": 20896,
+          "up_rate_train": 0.5062,
+          "fwd_bps_train": 1.503,
+          "n_val": 6452,
+          "up_rate_val": 0.4967,
+          "fwd_bps_val": -3.7139
+        },
+        {
+          "index": 3,
+          "n_train": 20896,
+          "up_rate_train": 0.5082,
+          "fwd_bps_train": 4.6995,
+          "n_val": 6354,
+          "up_rate_val": 0.4972,
+          "fwd_bps_val": -1.3764
+        },
+        {
+          "index": 4,
+          "n_train": 20896,
+          "up_rate_train": 0.5054,
+          "fwd_bps_train": 2.4623,
+          "n_val": 6397,
+          "up_rate_val": 0.4879,
+          "fwd_bps_val": -2.6053
+        },
+        {
+          "index": 5,
+          "n_train": 20896,
+          "up_rate_train": 0.5058,
+          "fwd_bps_train": 3.8565,
+          "n_val": 6729,
+          "up_rate_val": 0.4992,
+          "fwd_bps_val": -3.0191
+        },
+        {
+          "index": 6,
+          "n_train": 20896,
+          "up_rate_train": 0.4934,
+          "fwd_bps_train": -0.5149,
+          "n_val": 6846,
+          "up_rate_val": 0.4852,
+          "fwd_bps_val": -4.0356
+        },
+        {
+          "index": 7,
+          "n_train": 20896,
+          "up_rate_train": 0.5003,
+          "fwd_bps_train": -1.0865,
+          "n_val": 7046,
+          "up_rate_val": 0.4936,
+          "fwd_bps_val": -2.9666
+        },
+        {
+          "index": 8,
+          "n_train": 20896,
+          "up_rate_train": 0.5034,
+          "fwd_bps_train": 0.8947,
+          "n_val": 7515,
+          "up_rate_val": 0.486,
+          "fwd_bps_val": -3.6348
+        },
+        {
+          "index": 9,
+          "n_train": 20897,
+          "up_rate_train": 0.5021,
+          "fwd_bps_train": 0.0383,
+          "n_val": 8441,
+          "up_rate_val": 0.4879,
+          "fwd_bps_val": -3.9014
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.0889142263579388,
+          "t": -5.176671176943554,
+          "days": 383
+        },
+        "trend_regime=range": {
+          "ic": -0.005876823068029427,
+          "t": -1.7804977317989066,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.0771333944016519,
+          "t": -5.010583445281285,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.00449776702638542,
+          "t": -0.6235449452017175,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": -0.013962906780462709,
+          "t": -0.9995462413724066,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.015355598166379728,
+          "t": -2.953042196710874,
+          "days": 524
+        }
+      }
+    },
+    "U0347": {
+      "feature": "oi_chg_60",
+      "H": 60,
+      "ic_train": -0.019302528102286203,
+      "t_train": -4.825138032508446,
+      "ic_val": -0.00928732990019726,
+      "t_val": -1.1010781496902229,
+      "coins_same_sign_val": 4.0,
+      "status": "Không đạt (không xác nhận trên validation)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20894,
+          "up_rate_train": 0.514,
+          "fwd_bps_train": 3.1195,
+          "n_val": 5579,
+          "up_rate_val": 0.468,
+          "fwd_bps_val": -2.8966
+        },
+        {
+          "index": 1,
+          "n_train": 20894,
+          "up_rate_train": 0.5118,
+          "fwd_bps_train": 1.0062,
+          "n_val": 6192,
+          "up_rate_val": 0.5019,
+          "fwd_bps_val": -1.241
+        },
+        {
+          "index": 2,
+          "n_train": 20894,
+          "up_rate_train": 0.5108,
+          "fwd_bps_train": 0.115,
+          "n_val": 6777,
+          "up_rate_val": 0.5209,
+          "fwd_bps_val": 2.593
+        },
+        {
+          "index": 3,
+          "n_train": 20894,
+          "up_rate_train": 0.5112,
+          "fwd_bps_train": 0.6184,
+          "n_val": 7459,
+          "up_rate_val": 0.5021,
+          "fwd_bps_val": -0.5314
+        },
+        {
+          "index": 4,
+          "n_train": 20893,
+          "up_rate_train": 0.5079,
+          "fwd_bps_train": 0.261,
+          "n_val": 8251,
+          "up_rate_val": 0.5055,
+          "fwd_bps_val": -1.1887
+        },
+        {
+          "index": 5,
+          "n_train": 20894,
+          "up_rate_train": 0.5069,
+          "fwd_bps_train": -0.4012,
+          "n_val": 8407,
+          "up_rate_val": 0.5021,
+          "fwd_bps_val": -1.3472
+        },
+        {
+          "index": 6,
+          "n_train": 20894,
+          "up_rate_train": 0.4998,
+          "fwd_bps_train": 0.0932,
+          "n_val": 7961,
+          "up_rate_val": 0.4817,
+          "fwd_bps_val": -1.4539
+        },
+        {
+          "index": 7,
+          "n_train": 20894,
+          "up_rate_train": 0.4973,
+          "fwd_bps_train": -0.19,
+          "n_val": 7115,
+          "up_rate_val": 0.4914,
+          "fwd_bps_val": -1.8826
+        },
+        {
+          "index": 8,
+          "n_train": 20894,
+          "up_rate_train": 0.4942,
+          "fwd_bps_train": -0.4352,
+          "n_val": 5928,
+          "up_rate_val": 0.5027,
+          "fwd_bps_val": 0.0684
+        },
+        {
+          "index": 9,
+          "n_train": 20894,
+          "up_rate_train": 0.4867,
+          "fwd_bps_train": -0.0404,
+          "n_val": 5609,
+          "up_rate_val": 0.4951,
+          "fwd_bps_val": 0.4023
+        }
+      ],
+      "regimes": null
+    },
+    "U0023": {
+      "feature": "ret_60_z",
+      "H": 60,
+      "ic_train": -0.026321894540201608,
+      "t_train": -4.7172402271726845,
+      "ic_val": -0.02845450663807612,
+      "t_val": -3.243269445311451,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.529 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5103,
+          "fwd_bps_train": 2.7734,
+          "n_val": 6671,
+          "up_rate_val": 0.5062,
+          "fwd_bps_val": 0.8536
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.5143,
+          "fwd_bps_train": 0.0611,
+          "n_val": 6888,
+          "up_rate_val": 0.511,
+          "fwd_bps_val": -2.0121
+        },
+        {
+          "index": 2,
+          "n_train": 20902,
+          "up_rate_train": 0.5075,
+          "fwd_bps_train": 0.1361,
+          "n_val": 7219,
+          "up_rate_val": 0.5042,
+          "fwd_bps_val": -1.5253
+        },
+        {
+          "index": 3,
+          "n_train": 20902,
+          "up_rate_train": 0.5061,
+          "fwd_bps_train": -0.4989,
+          "n_val": 7370,
+          "up_rate_val": 0.5129,
+          "fwd_bps_val": -1.6399
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.5067,
+          "fwd_bps_train": 0.1165,
+          "n_val": 7220,
+          "up_rate_val": 0.5084,
+          "fwd_bps_val": -0.6018
+        },
+        {
+          "index": 5,
+          "n_train": 20903,
+          "up_rate_train": 0.5048,
+          "fwd_bps_train": -0.4212,
+          "n_val": 7161,
+          "up_rate_val": 0.4913,
+          "fwd_bps_val": -1.6906
+        },
+        {
+          "index": 6,
+          "n_train": 20901,
+          "up_rate_train": 0.4987,
+          "fwd_bps_train": 0.3713,
+          "n_val": 6945,
+          "up_rate_val": 0.4839,
+          "fwd_bps_val": -0.58
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.5029,
+          "fwd_bps_train": 0.2126,
+          "n_val": 6697,
+          "up_rate_val": 0.486,
+          "fwd_bps_val": 0.239
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.5006,
+          "fwd_bps_train": 0.9649,
+          "n_val": 6475,
+          "up_rate_val": 0.4709,
+          "fwd_bps_val": -1.2389
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.489,
+          "fwd_bps_train": 0.4502,
+          "n_val": 6632,
+          "up_rate_val": 0.498,
+          "fwd_bps_val": 0.6767
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.16590444613420435,
+          "t": -7.166464608344353,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": -0.015679833455764555,
+          "t": -2.0662543011128056,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.0915164210642045,
+          "t": -5.583311211475889,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.034219459552716054,
+          "t": -2.2004769048603685,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": 0.031869061330061524,
+          "t": 1.5904575994591243,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.028354883780544862,
+          "t": -2.8065908936214856,
+          "days": 524
+        }
+      }
+    },
+    "U0287": {
+      "feature": "false_breakout_15",
+      "H": 60,
+      "ic_train": -0.01714052360347859,
+      "t_train": -4.694628828781469,
+      "ic_val": -0.022567321583141845,
+      "t_val": -2.6294697346955114,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.502 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 209021,
+          "up_rate_train": 0.5041,
+          "fwd_bps_train": 0.4166,
+          "n_val": 69278,
+          "up_rate_val": 0.4976,
+          "fwd_bps_val": -0.7748
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.06808666568711942,
+          "t": -6.212060713309448,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": -0.008909266760626464,
+          "t": -1.9262729665484983,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.06432552783610979,
+          "t": -2.9574518734644903,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.013297337622320174,
+          "t": -1.4706831994361602,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": -0.011463512440050712,
+          "t": -1.2545805919800048,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.021222834768673315,
+          "t": -3.199016644276507,
+          "days": 524
+        }
+      }
+    },
+    "U0323": {
+      "feature": "dc4_mode",
+      "H": 60,
+      "ic_train": -0.021462429913029015,
+      "t_train": -4.519302225969324,
+      "ic_val": -0.007832809270223793,
+      "t_val": -0.7809893659184597,
+      "coins_same_sign_val": 4.0,
+      "status": "Không đạt (không xác nhận trên validation)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 208768,
+          "up_rate_train": 0.504,
+          "fwd_bps_train": 0.4095,
+          "n_val": 69278,
+          "up_rate_val": 0.4976,
+          "fwd_bps_val": -0.7748
+        }
+      ],
+      "regimes": null
+    },
+    "U0353": {
+      "feature": "oi_chg_240",
+      "H": 60,
+      "ic_train": -0.019913180466858426,
+      "t_train": -4.507406816157241,
+      "ic_val": -0.02681158461505652,
+      "t_val": -2.1814569977782208,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.521 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20894,
+          "up_rate_train": 0.5126,
+          "fwd_bps_train": 2.823,
+          "n_val": 5902,
+          "up_rate_val": 0.5166,
+          "fwd_bps_val": 2.9018
+        },
+        {
+          "index": 1,
+          "n_train": 20894,
+          "up_rate_train": 0.5167,
+          "fwd_bps_train": 1.9198,
+          "n_val": 6511,
+          "up_rate_val": 0.5081,
+          "fwd_bps_val": 0.0328
+        },
+        {
+          "index": 2,
+          "n_train": 20894,
+          "up_rate_train": 0.5202,
+          "fwd_bps_train": 0.5179,
+          "n_val": 6811,
+          "up_rate_val": 0.4873,
+          "fwd_bps_val": -0.8955
+        },
+        {
+          "index": 3,
+          "n_train": 20894,
+          "up_rate_train": 0.5031,
+          "fwd_bps_train": -0.1463,
+          "n_val": 7265,
+          "up_rate_val": 0.5093,
+          "fwd_bps_val": 0.0068
+        },
+        {
+          "index": 4,
+          "n_train": 20893,
+          "up_rate_train": 0.5073,
+          "fwd_bps_train": -0.3556,
+          "n_val": 7790,
+          "up_rate_val": 0.5074,
+          "fwd_bps_val": -0.2611
+        },
+        {
+          "index": 5,
+          "n_train": 20894,
+          "up_rate_train": 0.4986,
+          "fwd_bps_train": -0.5235,
+          "n_val": 8060,
+          "up_rate_val": 0.4974,
+          "fwd_bps_val": -0.9958
+        },
+        {
+          "index": 6,
+          "n_train": 20894,
+          "up_rate_train": 0.4934,
+          "fwd_bps_train": -0.5287,
+          "n_val": 7803,
+          "up_rate_val": 0.4785,
+          "fwd_bps_val": -2.1365
+        },
+        {
+          "index": 7,
+          "n_train": 20894,
+          "up_rate_train": 0.4941,
+          "fwd_bps_train": -0.357,
+          "n_val": 7020,
+          "up_rate_val": 0.4852,
+          "fwd_bps_val": -2.2439
+        },
+        {
+          "index": 8,
+          "n_train": 20894,
+          "up_rate_train": 0.4948,
+          "fwd_bps_train": -0.2499,
+          "n_val": 6108,
+          "up_rate_val": 0.5011,
+          "fwd_bps_val": -0.1641
+        },
+        {
+          "index": 9,
+          "n_train": 20894,
+          "up_rate_train": 0.4986,
+          "fwd_bps_train": 0.875,
+          "n_val": 6008,
+          "up_rate_val": 0.4885,
+          "fwd_bps_val": -3.5752
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.013287772054641385,
+          "t": -0.48928469622523085,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": -0.01468616346283635,
+          "t": -2.095388134588783,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.0384999487144849,
+          "t": -1.6141865333528567,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.017235522735129464,
+          "t": -1.3095072803354315,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": -0.029398408391971644,
+          "t": -1.6726877274315786,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.032896359842753374,
+          "t": -3.0154583170495006,
+          "days": 524
+        }
+      }
+    },
+    "U0461": {
+      "feature": "ret_15_z",
+      "H": 240,
+      "ic_train": -0.011857845149217094,
+      "t_train": -4.504359224278867,
+      "ic_val": -0.009824378076441723,
+      "t_val": -1.8676876689334752,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.522 < ngưỡng hòa vốn 0.559)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20897,
+          "up_rate_train": 0.5137,
+          "fwd_bps_train": 2.6155,
+          "n_val": 6567,
+          "up_rate_val": 0.5129,
+          "fwd_bps_val": -2.0001
+        },
+        {
+          "index": 1,
+          "n_train": 20896,
+          "up_rate_train": 0.5094,
+          "fwd_bps_train": 2.9295,
+          "n_val": 6447,
+          "up_rate_val": 0.5013,
+          "fwd_bps_val": -1.9764
+        },
+        {
+          "index": 2,
+          "n_train": 20896,
+          "up_rate_train": 0.5116,
+          "fwd_bps_train": 3.1379,
+          "n_val": 6839,
+          "up_rate_val": 0.4973,
+          "fwd_bps_val": -2.6371
+        },
+        {
+          "index": 3,
+          "n_train": 20896,
+          "up_rate_train": 0.5075,
+          "fwd_bps_train": 2.7415,
+          "n_val": 7239,
+          "up_rate_val": 0.4997,
+          "fwd_bps_val": -3.3783
+        },
+        {
+          "index": 4,
+          "n_train": 20896,
+          "up_rate_train": 0.5055,
+          "fwd_bps_train": 1.4219,
+          "n_val": 7929,
+          "up_rate_val": 0.4999,
+          "fwd_bps_val": -3.7405
+        },
+        {
+          "index": 5,
+          "n_train": 20896,
+          "up_rate_train": 0.4969,
+          "fwd_bps_train": 0.5045,
+          "n_val": 7780,
+          "up_rate_val": 0.4837,
+          "fwd_bps_val": -7.3009
+        },
+        {
+          "index": 6,
+          "n_train": 20896,
+          "up_rate_train": 0.4968,
+          "fwd_bps_train": -1.8311,
+          "n_val": 7228,
+          "up_rate_val": 0.4784,
+          "fwd_bps_val": -6.0914
+        },
+        {
+          "index": 7,
+          "n_train": 20896,
+          "up_rate_train": 0.4963,
+          "fwd_bps_train": -0.7225,
+          "n_val": 6756,
+          "up_rate_val": 0.4868,
+          "fwd_bps_val": -2.7071
+        },
+        {
+          "index": 8,
+          "n_train": 20896,
+          "up_rate_train": 0.5065,
+          "fwd_bps_train": 4.0474,
+          "n_val": 6256,
+          "up_rate_val": 0.491,
+          "fwd_bps_val": -1.2349
+        },
+        {
+          "index": 9,
+          "n_train": 20897,
+          "up_rate_train": 0.5101,
+          "fwd_bps_train": 1.5492,
+          "n_val": 6365,
+          "up_rate_val": 0.4933,
+          "fwd_bps_val": 2.4072
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.1264203641120618,
+          "t": -7.239236167248203,
+          "days": 383
+        },
+        "trend_regime=range": {
+          "ic": -0.0026830404323942517,
+          "t": -0.524344045270214,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.0869381204558104,
+          "t": -6.02393141287321,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.022231371879320432,
+          "t": -2.548932567608819,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": 0.007990391234855124,
+          "t": 0.5470986428334866,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.008055149161084504,
+          "t": -1.022172899933819,
+          "days": 524
+        }
+      }
+    },
+    "U0443": {
+      "feature": "btc_ret_60_z",
+      "H": 60,
+      "ic_train": -0.02323040949964745,
+      "t_train": -4.378271126425754,
+      "ic_val": -0.020293038418281905,
+      "t_val": -2.4888251156910344,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.517 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5014,
+          "fwd_bps_train": 1.041,
+          "n_val": 9043,
+          "up_rate_val": 0.5049,
+          "fwd_bps_val": 0.3769
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.5142,
+          "fwd_bps_train": 1.1414,
+          "n_val": 7862,
+          "up_rate_val": 0.498,
+          "fwd_bps_val": -2.6362
+        },
+        {
+          "index": 2,
+          "n_train": 20902,
+          "up_rate_train": 0.5144,
+          "fwd_bps_train": 0.5668,
+          "n_val": 6626,
+          "up_rate_val": 0.5101,
+          "fwd_bps_val": -2.435
+        },
+        {
+          "index": 3,
+          "n_train": 20902,
+          "up_rate_train": 0.5078,
+          "fwd_bps_train": 0.232,
+          "n_val": 5764,
+          "up_rate_val": 0.5151,
+          "fwd_bps_val": -1.1102
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.5066,
+          "fwd_bps_train": 0.3674,
+          "n_val": 5604,
+          "up_rate_val": 0.4902,
+          "fwd_bps_val": -0.548
+        },
+        {
+          "index": 5,
+          "n_train": 20902,
+          "up_rate_train": 0.506,
+          "fwd_bps_train": -1.0476,
+          "n_val": 5576,
+          "up_rate_val": 0.4905,
+          "fwd_bps_val": -1.0334
+        },
+        {
+          "index": 6,
+          "n_train": 20902,
+          "up_rate_train": 0.5029,
+          "fwd_bps_train": 0.7259,
+          "n_val": 5793,
+          "up_rate_val": 0.5004,
+          "fwd_bps_val": -0.8042
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.4967,
+          "fwd_bps_train": 0.6399,
+          "n_val": 6568,
+          "up_rate_val": 0.4829,
+          "fwd_bps_val": -1.5507
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.4902,
+          "fwd_bps_train": -0.9005,
+          "n_val": 7515,
+          "up_rate_val": 0.4929,
+          "fwd_bps_val": 0.832
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.5006,
+          "fwd_bps_train": 1.3995,
+          "n_val": 8927,
+          "up_rate_val": 0.4914,
+          "fwd_bps_val": 0.4031
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.1324732035291983,
+          "t": -6.380733354798254,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": -0.013157136396244301,
+          "t": -1.7516939649419558,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.06284038716280303,
+          "t": -3.615722846406989,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.01836395942052258,
+          "t": -1.1238838687465618,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": 0.023241066440417964,
+          "t": 1.1670008731559094,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.025561914043836235,
+          "t": -2.586119009362153,
+          "days": 524
+        }
+      }
+    },
+    "U0263": {
+      "feature": "pv_corr_60",
+      "H": 60,
+      "ic_train": -0.021399935914438426,
+      "t_train": -4.242576192276625,
+      "ic_val": -0.04049995136122392,
+      "t_val": -5.379531407271062,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.529 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5165,
+          "fwd_bps_train": 1.1493,
+          "n_val": 8310,
+          "up_rate_val": 0.5179,
+          "fwd_bps_val": -0.5378
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.5155,
+          "fwd_bps_train": 0.067,
+          "n_val": 6809,
+          "up_rate_val": 0.5171,
+          "fwd_bps_val": 0.2026
+        },
+        {
+          "index": 2,
+          "n_train": 20903,
+          "up_rate_train": 0.5072,
+          "fwd_bps_train": -0.2766,
+          "n_val": 6369,
+          "up_rate_val": 0.5122,
+          "fwd_bps_val": -0.1442
+        },
+        {
+          "index": 3,
+          "n_train": 20901,
+          "up_rate_train": 0.5056,
+          "fwd_bps_train": 0.2661,
+          "n_val": 6225,
+          "up_rate_val": 0.4996,
+          "fwd_bps_val": 0.2329
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.5143,
+          "fwd_bps_train": 0.8448,
+          "n_val": 6176,
+          "up_rate_val": 0.5096,
+          "fwd_bps_val": 0.4751
+        },
+        {
+          "index": 5,
+          "n_train": 20903,
+          "up_rate_train": 0.5027,
+          "fwd_bps_train": 0.3177,
+          "n_val": 6270,
+          "up_rate_val": 0.4981,
+          "fwd_bps_val": -0.8179
+        },
+        {
+          "index": 6,
+          "n_train": 20901,
+          "up_rate_train": 0.4965,
+          "fwd_bps_train": -0.5768,
+          "n_val": 6491,
+          "up_rate_val": 0.4908,
+          "fwd_bps_val": -0.5433
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.4992,
+          "fwd_bps_train": 0.761,
+          "n_val": 6787,
+          "up_rate_val": 0.4901,
+          "fwd_bps_val": -1.293
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.4934,
+          "fwd_bps_train": 0.4368,
+          "n_val": 7074,
+          "up_rate_val": 0.4757,
+          "fwd_bps_val": -1.9837
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.49,
+          "fwd_bps_train": 1.1765,
+          "n_val": 8767,
+          "up_rate_val": 0.4711,
+          "fwd_bps_val": -2.5766
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.10547215770804436,
+          "t": -4.133593009392621,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": -0.017424292547490814,
+          "t": -2.909601986908564,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.060208055784251736,
+          "t": -2.8501933853394785,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.016439823181132202,
+          "t": -1.3617156609667223,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": -0.002339351968714621,
+          "t": -0.16372855273136577,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.02624040252103739,
+          "t": -2.8044371763966036,
+          "days": 524
+        }
+      }
+    },
+    "U0257": {
+      "feature": "taker_imb_240",
+      "H": 60,
+      "ic_train": -0.02012551384041124,
+      "t_train": -4.2334316223430895,
+      "ic_val": -0.032722442304580136,
+      "t_val": -3.4422751483523903,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.523 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5091,
+          "fwd_bps_train": -0.9235,
+          "n_val": 7153,
+          "up_rate_val": 0.5146,
+          "fwd_bps_val": -1.5314
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.5132,
+          "fwd_bps_train": 0.802,
+          "n_val": 5765,
+          "up_rate_val": 0.5152,
+          "fwd_bps_val": 0.5144
+        },
+        {
+          "index": 2,
+          "n_train": 20903,
+          "up_rate_train": 0.5111,
+          "fwd_bps_train": 0.5543,
+          "n_val": 5446,
+          "up_rate_val": 0.5125,
+          "fwd_bps_val": 0.5928
+        },
+        {
+          "index": 3,
+          "n_train": 20901,
+          "up_rate_train": 0.5125,
+          "fwd_bps_train": 0.8519,
+          "n_val": 5466,
+          "up_rate_val": 0.5064,
+          "fwd_bps_val": -0.7679
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.503,
+          "fwd_bps_train": -0.4888,
+          "n_val": 5585,
+          "up_rate_val": 0.5099,
+          "fwd_bps_val": -2.0664
+        },
+        {
+          "index": 5,
+          "n_train": 20903,
+          "up_rate_train": 0.511,
+          "fwd_bps_train": 1.0516,
+          "n_val": 6095,
+          "up_rate_val": 0.4998,
+          "fwd_bps_val": -0.9371
+        },
+        {
+          "index": 6,
+          "n_train": 20901,
+          "up_rate_train": 0.5046,
+          "fwd_bps_train": 1.3647,
+          "n_val": 6579,
+          "up_rate_val": 0.5022,
+          "fwd_bps_val": 0.0353
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.5005,
+          "fwd_bps_train": 0.8381,
+          "n_val": 7203,
+          "up_rate_val": 0.489,
+          "fwd_bps_val": -0.8279
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.4876,
+          "fwd_bps_train": -0.033,
+          "n_val": 8541,
+          "up_rate_val": 0.4779,
+          "fwd_bps_val": -1.0765
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.4883,
+          "fwd_bps_train": 0.1486,
+          "n_val": 11445,
+          "up_rate_val": 0.4772,
+          "fwd_bps_val": -1.0956
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.03712344587973621,
+          "t": -1.1661741017576799,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": 0.00248857651041314,
+          "t": 0.3751207813203025,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.04761712614662342,
+          "t": -2.1538685611776884,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.02302671903264156,
+          "t": -1.6693850053222206,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": -0.014883039828187948,
+          "t": -0.8750875405667441,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.025155187696274325,
+          "t": -2.108942899322262,
+          "days": 524
+        }
+      }
+    },
+    "U0797": {
+      "feature": "oi_chg_60",
+      "H": 240,
+      "ic_train": -0.021002656103866358,
+      "t_train": -4.059945112714477,
+      "ic_val": -0.023178602081795247,
+      "t_val": -1.5320398427092587,
+      "coins_same_sign_val": 5.0,
+      "status": "Không đạt (không xác nhận trên validation)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20888,
+          "up_rate_train": 0.5239,
+          "fwd_bps_train": 7.9987,
+          "n_val": 5582,
+          "up_rate_val": 0.5056,
+          "fwd_bps_val": 6.4875
+        },
+        {
+          "index": 1,
+          "n_train": 20888,
+          "up_rate_train": 0.5205,
+          "fwd_bps_train": 3.7774,
+          "n_val": 6204,
+          "up_rate_val": 0.4952,
+          "fwd_bps_val": -2.5159
+        },
+        {
+          "index": 2,
+          "n_train": 20888,
+          "up_rate_train": 0.5157,
+          "fwd_bps_train": 0.8867,
+          "n_val": 6779,
+          "up_rate_val": 0.5159,
+          "fwd_bps_val": 0.014
+        },
+        {
+          "index": 3,
+          "n_train": 20888,
+          "up_rate_train": 0.5094,
+          "fwd_bps_train": 0.8033,
+          "n_val": 7479,
+          "up_rate_val": 0.5014,
+          "fwd_bps_val": -4.1957
+        },
+        {
+          "index": 4,
+          "n_train": 20888,
+          "up_rate_train": 0.4995,
+          "fwd_bps_train": -0.5197,
+          "n_val": 8264,
+          "up_rate_val": 0.4917,
+          "fwd_bps_val": -4.0819
+        },
+        {
+          "index": 5,
+          "n_train": 20888,
+          "up_rate_train": 0.5015,
+          "fwd_bps_train": -0.9288,
+          "n_val": 8419,
+          "up_rate_val": 0.4912,
+          "fwd_bps_val": -3.5108
+        },
+        {
+          "index": 6,
+          "n_train": 20888,
+          "up_rate_train": 0.4999,
+          "fwd_bps_train": 1.1873,
+          "n_val": 7975,
+          "up_rate_val": 0.4849,
+          "fwd_bps_val": -5.4214
+        },
+        {
+          "index": 7,
+          "n_train": 20888,
+          "up_rate_train": 0.4948,
+          "fwd_bps_train": 0.9873,
+          "n_val": 7135,
+          "up_rate_val": 0.4799,
+          "fwd_bps_val": -6.2448
+        },
+        {
+          "index": 8,
+          "n_train": 20888,
+          "up_rate_train": 0.5026,
+          "fwd_bps_train": 1.0596,
+          "n_val": 5940,
+          "up_rate_val": 0.4997,
+          "fwd_bps_val": -3.7532
+        },
+        {
+          "index": 9,
+          "n_train": 20888,
+          "up_rate_train": 0.486,
+          "fwd_bps_train": 0.99,
+          "n_val": 5629,
+          "up_rate_val": 0.4807,
+          "fwd_bps_val": -4.5288
+        }
+      ],
+      "regimes": null
+    },
+    "U0317": {
+      "feature": "dc2_age",
+      "H": 60,
+      "ic_train": -0.016906707068946574,
+      "t_train": -3.8991161816301805,
+      "ic_val": -0.026143469863107217,
+      "t_val": -2.3763035771283887,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.521 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20513,
+          "up_rate_train": 0.5029,
+          "fwd_bps_train": 1.0459,
+          "n_val": 6789,
+          "up_rate_val": 0.501,
+          "fwd_bps_val": 0.9888
+        },
+        {
+          "index": 1,
+          "n_train": 20717,
+          "up_rate_train": 0.507,
+          "fwd_bps_train": 1.4654,
+          "n_val": 6891,
+          "up_rate_val": 0.516,
+          "fwd_bps_val": 3.5236
+        },
+        {
+          "index": 2,
+          "n_train": 21104,
+          "up_rate_train": 0.5071,
+          "fwd_bps_train": 0.6433,
+          "n_val": 6970,
+          "up_rate_val": 0.5118,
+          "fwd_bps_val": 0.9731
+        },
+        {
+          "index": 3,
+          "n_train": 21240,
+          "up_rate_train": 0.5093,
+          "fwd_bps_train": 0.6266,
+          "n_val": 7081,
+          "up_rate_val": 0.5029,
+          "fwd_bps_val": -0.497
+        },
+        {
+          "index": 4,
+          "n_train": 20820,
+          "up_rate_train": 0.5104,
+          "fwd_bps_train": 1.4764,
+          "n_val": 6799,
+          "up_rate_val": 0.5001,
+          "fwd_bps_val": -2.2097
+        },
+        {
+          "index": 5,
+          "n_train": 20855,
+          "up_rate_train": 0.5047,
+          "fwd_bps_train": 1.0615,
+          "n_val": 6710,
+          "up_rate_val": 0.4927,
+          "fwd_bps_val": -1.7347
+        },
+        {
+          "index": 6,
+          "n_train": 20794,
+          "up_rate_train": 0.501,
+          "fwd_bps_train": -0.4091,
+          "n_val": 6750,
+          "up_rate_val": 0.4824,
+          "fwd_bps_val": -3.2273
+        },
+        {
+          "index": 7,
+          "n_train": 21055,
+          "up_rate_train": 0.5062,
+          "fwd_bps_train": -0.192,
+          "n_val": 6771,
+          "up_rate_val": 0.4791,
+          "fwd_bps_val": -3.3441
+        },
+        {
+          "index": 8,
+          "n_train": 20987,
+          "up_rate_train": 0.4946,
+          "fwd_bps_train": -0.651,
+          "n_val": 6808,
+          "up_rate_val": 0.4918,
+          "fwd_bps_val": -0.7812
+        },
+        {
+          "index": 9,
+          "n_train": 20902,
+          "up_rate_train": 0.4969,
+          "fwd_bps_train": -0.9347,
+          "n_val": 7709,
+          "up_rate_val": 0.4975,
+          "fwd_bps_val": -1.4949
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": 0.0023706851139212357,
+          "t": 0.08233243236337999,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": -0.017029769569245096,
+          "t": -1.7944897777062783,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.059015566062674774,
+          "t": -2.584393034851171,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.03816661872901871,
+          "t": -2.5669451405538304,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": 0.01849338438538571,
+          "t": 0.8607792416384963,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.01721624372183985,
+          "t": -1.5114981905773828,
+          "days": 524
+        }
+      }
+    },
+    "U0005": {
+      "feature": "ret_5_z",
+      "H": 60,
+      "ic_train": -0.013645439903016303,
+      "t_train": -3.830438218551379,
+      "ic_val": -0.0036266586127777388,
+      "t_val": -0.5253642616851353,
+      "coins_same_sign_val": 4.0,
+      "status": "Không đạt (không xác nhận trên validation)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5038,
+          "fwd_bps_train": 1.505,
+          "n_val": 6103,
+          "up_rate_val": 0.5048,
+          "fwd_bps_val": -0.1137
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.5093,
+          "fwd_bps_train": 1.0705,
+          "n_val": 6608,
+          "up_rate_val": 0.4973,
+          "fwd_bps_val": -1.0433
+        },
+        {
+          "index": 2,
+          "n_train": 20902,
+          "up_rate_train": 0.5114,
+          "fwd_bps_train": 1.4116,
+          "n_val": 7138,
+          "up_rate_val": 0.4889,
+          "fwd_bps_val": -0.2673
+        },
+        {
+          "index": 3,
+          "n_train": 20902,
+          "up_rate_train": 0.505,
+          "fwd_bps_train": -0.591,
+          "n_val": 7463,
+          "up_rate_val": 0.4944,
+          "fwd_bps_val": -1.1612
+        },
+        {
+          "index": 4,
+          "n_train": 19284,
+          "up_rate_train": 0.5019,
+          "fwd_bps_train": -0.5432,
+          "n_val": 7301,
+          "up_rate_val": 0.4955,
+          "fwd_bps_val": -2.128
+        },
+        {
+          "index": 5,
+          "n_train": 22521,
+          "up_rate_train": 0.5031,
+          "fwd_bps_train": 0.3606,
+          "n_val": 8633,
+          "up_rate_val": 0.491,
+          "fwd_bps_val": -1.4472
+        },
+        {
+          "index": 6,
+          "n_train": 20901,
+          "up_rate_train": 0.5028,
+          "fwd_bps_train": -0.6928,
+          "n_val": 7280,
+          "up_rate_val": 0.5033,
+          "fwd_bps_val": -0.429
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.5057,
+          "fwd_bps_train": 0.7512,
+          "n_val": 6579,
+          "up_rate_val": 0.4856,
+          "fwd_bps_val": -2.1537
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.5001,
+          "fwd_bps_train": 0.448,
+          "n_val": 6193,
+          "up_rate_val": 0.5161,
+          "fwd_bps_val": 1.1679
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.4975,
+          "fwd_bps_train": 0.3758,
+          "n_val": 5980,
+          "up_rate_val": 0.5042,
+          "fwd_bps_val": 0.4307
+        }
+      ],
+      "regimes": null
+    },
+    "U0293": {
+      "feature": "false_breakdown_15",
+      "H": 60,
+      "ic_train": 0.016332604634322002,
+      "t_train": 3.7055831012164075,
+      "ic_val": 0.026906002362206895,
+      "t_val": 4.318295953209007,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.502 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 209021,
+          "up_rate_train": 0.5041,
+          "fwd_bps_train": 0.4166,
+          "n_val": 69278,
+          "up_rate_val": 0.4976,
+          "fwd_bps_val": -0.7748
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": 0.14548570090555005,
+          "t": 5.025215166728367,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": 0.007014226581786781,
+          "t": 1.2203456131904444,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": 0.05174278671628879,
+          "t": 5.612873832640243,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": 0.026172327888465536,
+          "t": 2.948499724936267,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": -0.009058203769643223,
+          "t": -0.7158008078035808,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": 0.033474763518954474,
+          "t": 3.3250604730426843,
+          "days": 524
+        }
+      }
+    },
+    "U0467": {
+      "feature": "ret_30_z",
+      "H": 240,
+      "ic_train": -0.012422007523680967,
+      "t_train": -3.5497204466081267,
+      "ic_val": -0.009642809730858412,
+      "t_val": -1.2347798236333556,
+      "coins_same_sign_val": 5.0,
+      "status": "Không đạt (không xác nhận trên validation)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20897,
+          "up_rate_train": 0.5094,
+          "fwd_bps_train": 4.0653,
+          "n_val": 6547,
+          "up_rate_val": 0.5094,
+          "fwd_bps_val": -1.1209
+        },
+        {
+          "index": 1,
+          "n_train": 20896,
+          "up_rate_train": 0.5127,
+          "fwd_bps_train": 2.9434,
+          "n_val": 6665,
+          "up_rate_val": 0.5088,
+          "fwd_bps_val": -2.6183
+        },
+        {
+          "index": 2,
+          "n_train": 20896,
+          "up_rate_train": 0.5089,
+          "fwd_bps_train": 0.793,
+          "n_val": 7076,
+          "up_rate_val": 0.5051,
+          "fwd_bps_val": -2.7088
+        },
+        {
+          "index": 3,
+          "n_train": 20896,
+          "up_rate_train": 0.5076,
+          "fwd_bps_train": 2.008,
+          "n_val": 7360,
+          "up_rate_val": 0.4996,
+          "fwd_bps_val": -6.0948
+        },
+        {
+          "index": 4,
+          "n_train": 20896,
+          "up_rate_train": 0.5025,
+          "fwd_bps_train": 0.022,
+          "n_val": 7370,
+          "up_rate_val": 0.4859,
+          "fwd_bps_val": -5.0404
+        },
+        {
+          "index": 5,
+          "n_train": 20896,
+          "up_rate_train": 0.4987,
+          "fwd_bps_train": -0.446,
+          "n_val": 7526,
+          "up_rate_val": 0.4761,
+          "fwd_bps_val": -8.3804
+        },
+        {
+          "index": 6,
+          "n_train": 20896,
+          "up_rate_train": 0.4974,
+          "fwd_bps_train": -0.5432,
+          "n_val": 7100,
+          "up_rate_val": 0.4883,
+          "fwd_bps_val": -2.9018
+        },
+        {
+          "index": 7,
+          "n_train": 20896,
+          "up_rate_train": 0.5018,
+          "fwd_bps_train": 0.7229,
+          "n_val": 6756,
+          "up_rate_val": 0.4753,
+          "fwd_bps_val": -4.9833
+        },
+        {
+          "index": 8,
+          "n_train": 20896,
+          "up_rate_train": 0.5068,
+          "fwd_bps_train": 2.8916,
+          "n_val": 6537,
+          "up_rate_val": 0.4909,
+          "fwd_bps_val": -0.1857
+        },
+        {
+          "index": 9,
+          "n_train": 20897,
+          "up_rate_train": 0.5086,
+          "fwd_bps_train": 3.9366,
+          "n_val": 6469,
+          "up_rate_val": 0.5064,
+          "fwd_bps_val": 5.4057
+        }
+      ],
+      "regimes": null
+    },
+    "U0029": {
+      "feature": "ret_240_z",
+      "H": 60,
+      "ic_train": -0.019503138463452363,
+      "t_train": -3.4812098163959146,
+      "ic_val": -0.026942707767290953,
+      "t_val": -2.578968336116928,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.520 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5021,
+          "fwd_bps_train": 0.6218,
+          "n_val": 7196,
+          "up_rate_val": 0.52,
+          "fwd_bps_val": -0.4455
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.5093,
+          "fwd_bps_train": -0.9815,
+          "n_val": 6580,
+          "up_rate_val": 0.5132,
+          "fwd_bps_val": -2.5427
+        },
+        {
+          "index": 2,
+          "n_train": 20903,
+          "up_rate_train": 0.5156,
+          "fwd_bps_train": -0.4765,
+          "n_val": 6958,
+          "up_rate_val": 0.5118,
+          "fwd_bps_val": -1.0179
+        },
+        {
+          "index": 3,
+          "n_train": 20901,
+          "up_rate_train": 0.5031,
+          "fwd_bps_train": -1.0198,
+          "n_val": 7453,
+          "up_rate_val": 0.5054,
+          "fwd_bps_val": -0.9953
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.5018,
+          "fwd_bps_train": 0.4424,
+          "n_val": 7531,
+          "up_rate_val": 0.4893,
+          "fwd_bps_val": -1.8864
+        },
+        {
+          "index": 5,
+          "n_train": 20903,
+          "up_rate_train": 0.5094,
+          "fwd_bps_train": 0.1802,
+          "n_val": 7462,
+          "up_rate_val": 0.4845,
+          "fwd_bps_val": -2.1185
+        },
+        {
+          "index": 6,
+          "n_train": 20901,
+          "up_rate_train": 0.5059,
+          "fwd_bps_train": 0.6441,
+          "n_val": 6798,
+          "up_rate_val": 0.4846,
+          "fwd_bps_val": -0.2962
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.4995,
+          "fwd_bps_train": 0.4006,
+          "n_val": 6449,
+          "up_rate_val": 0.5064,
+          "fwd_bps_val": 1.3881
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.4961,
+          "fwd_bps_train": 1.6303,
+          "n_val": 6211,
+          "up_rate_val": 0.48,
+          "fwd_bps_val": 0.5772
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.4981,
+          "fwd_bps_train": 2.7243,
+          "n_val": 6640,
+          "up_rate_val": 0.4798,
+          "fwd_bps_val": 0.038
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.08561670589491586,
+          "t": -3.3993425743354915,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": 0.01044112150700924,
+          "t": 1.2984429311883894,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.07504631806371816,
+          "t": -3.580492622697127,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.037179915927268076,
+          "t": -2.0977596857928344,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": 0.011374468917246547,
+          "t": 0.5247877678018609,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.022982180706740102,
+          "t": -1.5850177726865737,
+          "days": 524
+        }
+      }
+    },
+    "U0299": {
+      "feature": "dc2_mode",
+      "H": 60,
+      "ic_train": -0.01752058596423246,
+      "t_train": -3.4445037548442516,
+      "ic_val": -0.02066096735008092,
+      "t_val": -2.5719361751348675,
+      "coins_same_sign_val": 4.0,
+      "status": "Đạt một phần (decile tốt nhất 0.502 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 208987,
+          "up_rate_train": 0.504,
+          "fwd_bps_train": 0.4107,
+          "n_val": 69278,
+          "up_rate_val": 0.4976,
+          "fwd_bps_val": -0.7748
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.10896689351750528,
+          "t": -4.604462815174504,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": -0.012446887828261652,
+          "t": -1.9271541959404213,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.07758763640046644,
+          "t": -3.8432539791477636,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.0314761951274248,
+          "t": -2.5497002861162312,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": 0.009510533492500138,
+          "t": 0.5394802886741108,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.012512979418443645,
+          "t": -1.2732807616161603,
+          "days": 524
+        }
+      }
+    },
+    "U0221": {
+      "feature": "vol_ratio_30d",
+      "H": 60,
+      "ic_train": 0.02109610062942077,
+      "t_train": 3.3515356441612134,
+      "ic_val": -0.022157324921485602,
+      "t_val": -1.6084926650394618,
+      "coins_same_sign_val": 0.0,
+      "status": "Không đạt (không xác nhận trên validation)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20568,
+          "up_rate_train": 0.4963,
+          "fwd_bps_train": -1.4384,
+          "n_val": 6561,
+          "up_rate_val": 0.5211,
+          "fwd_bps_val": 0.3027
+        },
+        {
+          "index": 1,
+          "n_train": 20567,
+          "up_rate_train": 0.4945,
+          "fwd_bps_train": -2.0229,
+          "n_val": 7788,
+          "up_rate_val": 0.4974,
+          "fwd_bps_val": -0.5144
+        },
+        {
+          "index": 2,
+          "n_train": 20567,
+          "up_rate_train": 0.5141,
+          "fwd_bps_train": 1.5126,
+          "n_val": 9658,
+          "up_rate_val": 0.5027,
+          "fwd_bps_val": -1.0472
+        },
+        {
+          "index": 3,
+          "n_train": 20568,
+          "up_rate_train": 0.5002,
+          "fwd_bps_train": 0.2046,
+          "n_val": 11819,
+          "up_rate_val": 0.5093,
+          "fwd_bps_val": 1.4649
+        },
+        {
+          "index": 4,
+          "n_train": 20567,
+          "up_rate_train": 0.4991,
+          "fwd_bps_train": -0.0865,
+          "n_val": 9858,
+          "up_rate_val": 0.4941,
+          "fwd_bps_val": 0.3997
+        },
+        {
+          "index": 5,
+          "n_train": 20567,
+          "up_rate_train": 0.4966,
+          "fwd_bps_train": -1.3134,
+          "n_val": 7458,
+          "up_rate_val": 0.4964,
+          "fwd_bps_val": 1.5064
+        },
+        {
+          "index": 6,
+          "n_train": 20568,
+          "up_rate_train": 0.5031,
+          "fwd_bps_train": 0.3952,
+          "n_val": 4723,
+          "up_rate_val": 0.4859,
+          "fwd_bps_val": -1.7181
+        },
+        {
+          "index": 7,
+          "n_train": 20567,
+          "up_rate_train": 0.5029,
+          "fwd_bps_train": 0.2536,
+          "n_val": 2854,
+          "up_rate_val": 0.4835,
+          "fwd_bps_val": -1.4363
+        },
+        {
+          "index": 8,
+          "n_train": 20567,
+          "up_rate_train": 0.5128,
+          "fwd_bps_train": 2.2516,
+          "n_val": 3414,
+          "up_rate_val": 0.4757,
+          "fwd_bps_val": -8.2132
+        },
+        {
+          "index": 9,
+          "n_train": 20568,
+          "up_rate_train": 0.5121,
+          "fwd_bps_train": 3.6489,
+          "n_val": 5145,
+          "up_rate_val": 0.4731,
+          "fwd_bps_val": -6.5647
+        }
+      ],
+      "regimes": null
+    },
+    "U0605": {
+      "feature": "rsi_14",
+      "H": 240,
+      "ic_train": -0.011267236083543726,
+      "t_train": -3.3401687663447457,
+      "ic_val": -0.014353442065503808,
+      "t_val": -1.8020641960055064,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.520 < ngưỡng hòa vốn 0.559)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20897,
+          "up_rate_train": 0.5148,
+          "fwd_bps_train": 3.5374,
+          "n_val": 6802,
+          "up_rate_val": 0.5019,
+          "fwd_bps_val": -5.4021
+        },
+        {
+          "index": 1,
+          "n_train": 20896,
+          "up_rate_train": 0.5104,
+          "fwd_bps_train": 2.3314,
+          "n_val": 7073,
+          "up_rate_val": 0.5129,
+          "fwd_bps_val": -3.1042
+        },
+        {
+          "index": 2,
+          "n_train": 20896,
+          "up_rate_train": 0.505,
+          "fwd_bps_train": 0.4873,
+          "n_val": 7035,
+          "up_rate_val": 0.5168,
+          "fwd_bps_val": -0.5904
+        },
+        {
+          "index": 3,
+          "n_train": 20896,
+          "up_rate_train": 0.5055,
+          "fwd_bps_train": 3.1589,
+          "n_val": 7345,
+          "up_rate_val": 0.4968,
+          "fwd_bps_val": -4.6889
+        },
+        {
+          "index": 4,
+          "n_train": 20896,
+          "up_rate_train": 0.5,
+          "fwd_bps_train": 0.3832,
+          "n_val": 7254,
+          "up_rate_val": 0.4888,
+          "fwd_bps_val": -3.2081
+        },
+        {
+          "index": 5,
+          "n_train": 20896,
+          "up_rate_train": 0.5006,
+          "fwd_bps_train": 0.4638,
+          "n_val": 7330,
+          "up_rate_val": 0.4817,
+          "fwd_bps_val": -3.7132
+        },
+        {
+          "index": 6,
+          "n_train": 20896,
+          "up_rate_train": 0.5012,
+          "fwd_bps_train": -0.9123,
+          "n_val": 7167,
+          "up_rate_val": 0.493,
+          "fwd_bps_val": -4.0253
+        },
+        {
+          "index": 7,
+          "n_train": 20896,
+          "up_rate_train": 0.5093,
+          "fwd_bps_train": 2.9825,
+          "n_val": 6726,
+          "up_rate_val": 0.4831,
+          "fwd_bps_val": -0.7898
+        },
+        {
+          "index": 8,
+          "n_train": 20896,
+          "up_rate_train": 0.5053,
+          "fwd_bps_train": 1.7151,
+          "n_val": 6409,
+          "up_rate_val": 0.4849,
+          "fwd_bps_val": -2.0124
+        },
+        {
+          "index": 9,
+          "n_train": 20897,
+          "up_rate_train": 0.5022,
+          "fwd_bps_train": 2.2465,
+          "n_val": 6265,
+          "up_rate_val": 0.4804,
+          "fwd_bps_val": -2.3472
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.1477779487966803,
+          "t": -7.529114687834279,
+          "days": 383
+        },
+        "trend_regime=range": {
+          "ic": 0.0007159288708384717,
+          "t": 0.11860344172855758,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.09493141258298661,
+          "t": -6.374042843170766,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.020685864687208826,
+          "t": -1.9990101935513003,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": 0.01090737520096782,
+          "t": 0.6447457129526007,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.013100509401055185,
+          "t": -1.6360711017830387,
+          "days": 524
+        }
+      }
+    },
+    "U0449": {
+      "feature": "rel_ret_60_z",
+      "H": 60,
+      "ic_train": -0.016998836876184878,
+      "t_train": -3.2836498837537893,
+      "ic_val": -0.02171713841496358,
+      "t_val": -2.443508554463463,
+      "coins_same_sign_val": 4.0,
+      "status": "Đạt một phần (decile tốt nhất 0.524 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5137,
+          "fwd_bps_train": 2.3134,
+          "n_val": 4746,
+          "up_rate_val": 0.5034,
+          "fwd_bps_val": -0.2183
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.5017,
+          "fwd_bps_train": -0.5222,
+          "n_val": 6389,
+          "up_rate_val": 0.5082,
+          "fwd_bps_val": -0.5038
+        },
+        {
+          "index": 2,
+          "n_train": 20902,
+          "up_rate_train": 0.5075,
+          "fwd_bps_train": 0.3086,
+          "n_val": 7806,
+          "up_rate_val": 0.5033,
+          "fwd_bps_val": -0.5789
+        },
+        {
+          "index": 3,
+          "n_train": 20902,
+          "up_rate_train": 0.5098,
+          "fwd_bps_train": 1.1004,
+          "n_val": 8713,
+          "up_rate_val": 0.5102,
+          "fwd_bps_val": -0.119
+        },
+        {
+          "index": 4,
+          "n_train": 1562,
+          "up_rate_train": 0.5128,
+          "fwd_bps_train": 4.0356,
+          "n_val": 704,
+          "up_rate_val": 0.5241,
+          "fwd_bps_val": 0.7939
+        },
+        {
+          "index": 5,
+          "n_train": 61144,
+          "up_rate_train": 0.5027,
+          "fwd_bps_train": -0.1148,
+          "n_val": 21843,
+          "up_rate_val": 0.4965,
+          "fwd_bps_val": -0.9393
+        },
+        {
+          "index": 6,
+          "n_train": 20902,
+          "up_rate_train": 0.5065,
+          "fwd_bps_train": 1.1736,
+          "n_val": 7739,
+          "up_rate_val": 0.484,
+          "fwd_bps_val": -1.9644
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.5041,
+          "fwd_bps_train": -0.6545,
+          "n_val": 6609,
+          "up_rate_val": 0.4803,
+          "fwd_bps_val": -1.8874
+        },
+        {
+          "index": 8,
+          "n_train": 20903,
+          "up_rate_train": 0.4888,
+          "fwd_bps_train": 0.4809,
+          "n_val": 4729,
+          "up_rate_val": 0.4929,
+          "fwd_bps_val": 0.7973
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.05234599647405458,
+          "t": -2.5867590529790627,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": -0.011216772904286115,
+          "t": -1.5885704618750396,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.06431074436883699,
+          "t": -3.138966837952151,
+          "days": 394
+        },
+        "vol_regime=high": {
+          "ic": -0.04133432484035055,
+          "t": -3.551856567149461,
+          "days": 262
+        },
+        "vol_regime=low": {
+          "ic": -0.003487636878945976,
+          "t": -0.16547415585722683,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.027720535002373096,
+          "t": -2.5126254621070063,
+          "days": 524
+        }
+      }
+    },
+    "U0485": {
+      "feature": "ret_1440_z",
+      "H": 240,
+      "ic_train": -0.03975351167258992,
+      "t_train": -3.2051746472203813,
+      "ic_val": -0.03555391666407305,
+      "t_val": -1.6388099209047693,
+      "coins_same_sign_val": 5.0,
+      "status": "Không đạt (không xác nhận trên validation)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20897,
+          "up_rate_train": 0.5188,
+          "fwd_bps_train": 1.6023,
+          "n_val": 8474,
+          "up_rate_val": 0.4829,
+          "fwd_bps_val": -11.4669
+        },
+        {
+          "index": 1,
+          "n_train": 20896,
+          "up_rate_train": 0.5401,
+          "fwd_bps_train": 6.1487,
+          "n_val": 7298,
+          "up_rate_val": 0.4979,
+          "fwd_bps_val": -3.3329
+        },
+        {
+          "index": 2,
+          "n_train": 20896,
+          "up_rate_train": 0.5217,
+          "fwd_bps_train": 2.2167,
+          "n_val": 6787,
+          "up_rate_val": 0.4895,
+          "fwd_bps_val": 2.5186
+        },
+        {
+          "index": 3,
+          "n_train": 20896,
+          "up_rate_train": 0.518,
+          "fwd_bps_train": -2.5334,
+          "n_val": 6600,
+          "up_rate_val": 0.5185,
+          "fwd_bps_val": 3.8897
+        },
+        {
+          "index": 4,
+          "n_train": 20896,
+          "up_rate_train": 0.5192,
+          "fwd_bps_train": 0.7378,
+          "n_val": 6602,
+          "up_rate_val": 0.5103,
+          "fwd_bps_val": -0.8757
+        },
+        {
+          "index": 5,
+          "n_train": 20896,
+          "up_rate_train": 0.5009,
+          "fwd_bps_train": -0.1724,
+          "n_val": 6863,
+          "up_rate_val": 0.5308,
+          "fwd_bps_val": -0.5302
+        },
+        {
+          "index": 6,
+          "n_train": 20896,
+          "up_rate_train": 0.4788,
+          "fwd_bps_train": -1.7087,
+          "n_val": 7223,
+          "up_rate_val": 0.5057,
+          "fwd_bps_val": -1.1368
+        },
+        {
+          "index": 7,
+          "n_train": 20896,
+          "up_rate_train": 0.4858,
+          "fwd_bps_train": 0.0641,
+          "n_val": 6939,
+          "up_rate_val": 0.4773,
+          "fwd_bps_val": -2.239
+        },
+        {
+          "index": 8,
+          "n_train": 20896,
+          "up_rate_train": 0.4809,
+          "fwd_bps_train": 4.5447,
+          "n_val": 6599,
+          "up_rate_val": 0.4725,
+          "fwd_bps_val": -5.8464
+        },
+        {
+          "index": 9,
+          "n_train": 20897,
+          "up_rate_train": 0.4901,
+          "fwd_bps_train": 5.494,
+          "n_val": 6021,
+          "up_rate_val": 0.4549,
+          "fwd_bps_val": -9.811
+        }
+      ],
+      "regimes": null
+    },
+    "U0197": {
+      "feature": "atr_60_rel",
+      "H": 60,
+      "ic_train": 0.018847041416493734,
+      "t_train": 3.1868035163678634,
+      "ic_val": 0.027306959692569056,
+      "t_val": 2.456510866643189,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.518 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5033,
+          "fwd_bps_train": 0.3331,
+          "n_val": 8830,
+          "up_rate_val": 0.5014,
+          "fwd_bps_val": -1.411
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.5021,
+          "fwd_bps_train": -0.6641,
+          "n_val": 7311,
+          "up_rate_val": 0.4816,
+          "fwd_bps_val": -3.8697
+        },
+        {
+          "index": 2,
+          "n_train": 20902,
+          "up_rate_train": 0.506,
+          "fwd_bps_train": 0.2368,
+          "n_val": 7285,
+          "up_rate_val": 0.4927,
+          "fwd_bps_val": -2.7329
+        },
+        {
+          "index": 3,
+          "n_train": 20902,
+          "up_rate_train": 0.4982,
+          "fwd_bps_train": -1.1618,
+          "n_val": 7537,
+          "up_rate_val": 0.4999,
+          "fwd_bps_val": -2.0508
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.5083,
+          "fwd_bps_train": 0.2606,
+          "n_val": 6890,
+          "up_rate_val": 0.4853,
+          "fwd_bps_val": -1.6462
+        },
+        {
+          "index": 5,
+          "n_train": 20902,
+          "up_rate_train": 0.5068,
+          "fwd_bps_train": 1.6415,
+          "n_val": 6215,
+          "up_rate_val": 0.4988,
+          "fwd_bps_val": -0.4596
+        },
+        {
+          "index": 6,
+          "n_train": 20902,
+          "up_rate_train": 0.5088,
+          "fwd_bps_train": 0.4645,
+          "n_val": 6052,
+          "up_rate_val": 0.5084,
+          "fwd_bps_val": 2.3412
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.5034,
+          "fwd_bps_train": -0.5564,
+          "n_val": 5811,
+          "up_rate_val": 0.4965,
+          "fwd_bps_val": 0.7706
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.5133,
+          "fwd_bps_train": 2.267,
+          "n_val": 6377,
+          "up_rate_val": 0.4984,
+          "fwd_bps_val": 0.9032
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.4905,
+          "fwd_bps_train": 1.3446,
+          "n_val": 6970,
+          "up_rate_val": 0.5143,
+          "fwd_bps_val": 1.7549
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": 0.0015233121952597233,
+          "t": 0.06321755195572684,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": 0.021816519181678633,
+          "t": 1.859545053825287,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": 0.0019595622875443123,
+          "t": 0.08594065634259127,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": 0.05179442291824358,
+          "t": 2.8731917107612186,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": -0.008867850819333344,
+          "t": -0.3917286927020074,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": 0.02160803169915864,
+          "t": 1.5337958039036756,
+          "days": 524
+        }
+      }
+    },
+    "U0203": {
+      "feature": "range_60_z",
+      "H": 60,
+      "ic_train": 0.01807187567182154,
+      "t_train": 3.184121852555183,
+      "ic_val": 0.017190985758888288,
+      "t_val": 2.2935837579147074,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.516 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.504,
+          "fwd_bps_train": -0.1082,
+          "n_val": 8016,
+          "up_rate_val": 0.4838,
+          "fwd_bps_val": -3.2794
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.4973,
+          "fwd_bps_train": -0.7205,
+          "n_val": 7148,
+          "up_rate_val": 0.4997,
+          "fwd_bps_val": -2.3657
+        },
+        {
+          "index": 2,
+          "n_train": 20902,
+          "up_rate_train": 0.5018,
+          "fwd_bps_train": -0.0508,
+          "n_val": 6767,
+          "up_rate_val": 0.4971,
+          "fwd_bps_val": -0.8222
+        },
+        {
+          "index": 3,
+          "n_train": 20902,
+          "up_rate_train": 0.5062,
+          "fwd_bps_train": -0.2611,
+          "n_val": 6582,
+          "up_rate_val": 0.5052,
+          "fwd_bps_val": 0.1709
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.503,
+          "fwd_bps_train": -0.8979,
+          "n_val": 6601,
+          "up_rate_val": 0.494,
+          "fwd_bps_val": -1.659
+        },
+        {
+          "index": 5,
+          "n_train": 20903,
+          "up_rate_train": 0.5104,
+          "fwd_bps_train": 0.9624,
+          "n_val": 6814,
+          "up_rate_val": 0.5079,
+          "fwd_bps_val": 0.8018
+        },
+        {
+          "index": 6,
+          "n_train": 20901,
+          "up_rate_train": 0.5056,
+          "fwd_bps_train": 0.3101,
+          "n_val": 6470,
+          "up_rate_val": 0.5011,
+          "fwd_bps_val": -1.1358
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.51,
+          "fwd_bps_train": 1.7243,
+          "n_val": 6740,
+          "up_rate_val": 0.4958,
+          "fwd_bps_val": -0.7075
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.5025,
+          "fwd_bps_train": 0.5879,
+          "n_val": 6894,
+          "up_rate_val": 0.4943,
+          "fwd_bps_val": -0.3219
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.5001,
+          "fwd_bps_train": 2.6196,
+          "n_val": 7246,
+          "up_rate_val": 0.4997,
+          "fwd_bps_val": 1.9025
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": 0.06179583479578826,
+          "t": 2.7945539627817566,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": 0.018519832227700792,
+          "t": 1.8821772694997345,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.023250919566991348,
+          "t": -1.061237197373276,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": 0.045936083132602834,
+          "t": 2.875149324084332,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": -0.010173775352467605,
+          "t": -0.5336760086453827,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": 0.014606216323374407,
+          "t": 1.1017763652238672,
+          "days": 524
+        }
+      }
+    },
+    "U0185": {
+      "feature": "rv_240_rel",
+      "H": 60,
+      "ic_train": 0.018476633491085186,
+      "t_train": 3.1652351423694274,
+      "ic_val": 0.03226205513357182,
+      "t_val": 2.650243242493243,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.520 < ngưỡng hòa vốn 0.619)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20902,
+          "up_rate_train": 0.5021,
+          "fwd_bps_train": 0.4039,
+          "n_val": 7654,
+          "up_rate_val": 0.4804,
+          "fwd_bps_val": -4.5302
+        },
+        {
+          "index": 1,
+          "n_train": 20902,
+          "up_rate_train": 0.4948,
+          "fwd_bps_train": -1.6318,
+          "n_val": 6404,
+          "up_rate_val": 0.4869,
+          "fwd_bps_val": -3.3328
+        },
+        {
+          "index": 2,
+          "n_train": 20902,
+          "up_rate_train": 0.5045,
+          "fwd_bps_train": 0.8952,
+          "n_val": 7186,
+          "up_rate_val": 0.5085,
+          "fwd_bps_val": -1.5286
+        },
+        {
+          "index": 3,
+          "n_train": 20902,
+          "up_rate_train": 0.5025,
+          "fwd_bps_train": -0.5105,
+          "n_val": 7201,
+          "up_rate_val": 0.4956,
+          "fwd_bps_val": -0.7662
+        },
+        {
+          "index": 4,
+          "n_train": 20902,
+          "up_rate_train": 0.5112,
+          "fwd_bps_train": 0.5397,
+          "n_val": 6980,
+          "up_rate_val": 0.4887,
+          "fwd_bps_val": -0.9217
+        },
+        {
+          "index": 5,
+          "n_train": 20903,
+          "up_rate_train": 0.5034,
+          "fwd_bps_train": -0.8642,
+          "n_val": 6501,
+          "up_rate_val": 0.4939,
+          "fwd_bps_val": -1.8496
+        },
+        {
+          "index": 6,
+          "n_train": 20901,
+          "up_rate_train": 0.5039,
+          "fwd_bps_train": -0.1084,
+          "n_val": 6013,
+          "up_rate_val": 0.4949,
+          "fwd_bps_val": 0.4975
+        },
+        {
+          "index": 7,
+          "n_train": 20902,
+          "up_rate_train": 0.5115,
+          "fwd_bps_train": 2.8414,
+          "n_val": 6255,
+          "up_rate_val": 0.5103,
+          "fwd_bps_val": 3.8074
+        },
+        {
+          "index": 8,
+          "n_train": 20902,
+          "up_rate_train": 0.5104,
+          "fwd_bps_train": 0.9486,
+          "n_val": 7165,
+          "up_rate_val": 0.5089,
+          "fwd_bps_val": 0.3976
+        },
+        {
+          "index": 9,
+          "n_train": 20903,
+          "up_rate_train": 0.4964,
+          "fwd_bps_train": 1.652,
+          "n_val": 7919,
+          "up_rate_val": 0.5076,
+          "fwd_bps_val": 0.9654
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.06292363643523759,
+          "t": -2.327457708993481,
+          "days": 384
+        },
+        "trend_regime=range": {
+          "ic": 0.023023640492498852,
+          "t": 1.9659884834835268,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": 0.029833914010658654,
+          "t": 1.2216710507045219,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": 0.047663813248024656,
+          "t": 2.5948547176437606,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": 0.0064797636535019335,
+          "t": 0.27328016728986315,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": 0.02413685998010607,
+          "t": 1.7131686766655712,
+          "days": 524
+        }
+      }
+    },
+    "U0635": {
+      "feature": "rv_240_rel",
+      "H": 240,
+      "ic_train": 0.0351622729884339,
+      "t_train": 3.093953224093509,
+      "ic_val": 0.06727135924071646,
+      "t_val": 2.7554732161089124,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.537 < ngưỡng hòa vốn 0.559)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20897,
+          "up_rate_train": 0.4993,
+          "fwd_bps_train": 0.5733,
+          "n_val": 7661,
+          "up_rate_val": 0.4638,
+          "fwd_bps_val": -16.8345
+        },
+        {
+          "index": 1,
+          "n_train": 20896,
+          "up_rate_train": 0.482,
+          "fwd_bps_train": -5.9255,
+          "n_val": 6406,
+          "up_rate_val": 0.4813,
+          "fwd_bps_val": -14.932
+        },
+        {
+          "index": 2,
+          "n_train": 20896,
+          "up_rate_train": 0.5039,
+          "fwd_bps_train": 2.7665,
+          "n_val": 7198,
+          "up_rate_val": 0.4914,
+          "fwd_bps_val": -11.1364
+        },
+        {
+          "index": 3,
+          "n_train": 20896,
+          "up_rate_train": 0.4921,
+          "fwd_bps_train": 0.2309,
+          "n_val": 7221,
+          "up_rate_val": 0.4998,
+          "fwd_bps_val": -1.9625
+        },
+        {
+          "index": 4,
+          "n_train": 20896,
+          "up_rate_train": 0.5103,
+          "fwd_bps_train": -1.1633,
+          "n_val": 7012,
+          "up_rate_val": 0.4766,
+          "fwd_bps_val": -2.064
+        },
+        {
+          "index": 5,
+          "n_train": 20896,
+          "up_rate_train": 0.5089,
+          "fwd_bps_train": -3.6866,
+          "n_val": 6514,
+          "up_rate_val": 0.4759,
+          "fwd_bps_val": -4.2838
+        },
+        {
+          "index": 6,
+          "n_train": 20896,
+          "up_rate_train": 0.5051,
+          "fwd_bps_train": 2.2087,
+          "n_val": 6041,
+          "up_rate_val": 0.491,
+          "fwd_bps_val": -3.6609
+        },
+        {
+          "index": 7,
+          "n_train": 20896,
+          "up_rate_train": 0.5172,
+          "fwd_bps_train": 8.0277,
+          "n_val": 6255,
+          "up_rate_val": 0.5114,
+          "fwd_bps_val": 1.4855
+        },
+        {
+          "index": 8,
+          "n_train": 20896,
+          "up_rate_train": 0.5211,
+          "fwd_bps_train": 6.151,
+          "n_val": 7177,
+          "up_rate_val": 0.5107,
+          "fwd_bps_val": 6.1197
+        },
+        {
+          "index": 9,
+          "n_train": 20897,
+          "up_rate_train": 0.5147,
+          "fwd_bps_train": 7.2108,
+          "n_val": 7921,
+          "up_rate_val": 0.5365,
+          "fwd_bps_val": 15.2361
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.04733072994009153,
+          "t": -1.415255265880134,
+          "days": 383
+        },
+        "trend_regime=range": {
+          "ic": 0.037604752299680605,
+          "t": 2.220883949833692,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": 0.06145792033724744,
+          "t": 1.7921082369091739,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": 0.08606184240265656,
+          "t": 3.194753282727657,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": 0.006277125877559828,
+          "t": 0.1661265697059001,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": 0.04246865717440042,
+          "t": 2.0422704650961965,
+          "days": 524
+        }
+      }
+    },
+    "U0671": {
+      "feature": "vol_ratio_30d",
+      "H": 240,
+      "ic_train": 0.03915736421687305,
+      "t_train": 3.059937028580223,
+      "ic_val": -0.055994050290318544,
+      "t_val": -1.801558204904312,
+      "coins_same_sign_val": 0.0,
+      "status": "Không đạt (không xác nhận trên validation)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20561,
+          "up_rate_train": 0.4773,
+          "fwd_bps_train": -6.3873,
+          "n_val": 6576,
+          "up_rate_val": 0.5812,
+          "fwd_bps_val": 4.9645
+        },
+        {
+          "index": 1,
+          "n_train": 20560,
+          "up_rate_train": 0.4779,
+          "fwd_bps_train": -7.2742,
+          "n_val": 7791,
+          "up_rate_val": 0.5051,
+          "fwd_bps_val": -3.997
+        },
+        {
+          "index": 2,
+          "n_train": 20561,
+          "up_rate_train": 0.5197,
+          "fwd_bps_train": 5.3328,
+          "n_val": 9661,
+          "up_rate_val": 0.4845,
+          "fwd_bps_val": -1.2496
+        },
+        {
+          "index": 3,
+          "n_train": 20560,
+          "up_rate_train": 0.5011,
+          "fwd_bps_train": 1.5133,
+          "n_val": 11848,
+          "up_rate_val": 0.517,
+          "fwd_bps_val": 2.5768
+        },
+        {
+          "index": 4,
+          "n_train": 20561,
+          "up_rate_train": 0.5031,
+          "fwd_bps_train": -0.292,
+          "n_val": 9871,
+          "up_rate_val": 0.4995,
+          "fwd_bps_val": 3.1881
+        },
+        {
+          "index": 5,
+          "n_train": 20560,
+          "up_rate_train": 0.4853,
+          "fwd_bps_train": -6.1657,
+          "n_val": 7484,
+          "up_rate_val": 0.4749,
+          "fwd_bps_val": 3.2497
+        },
+        {
+          "index": 6,
+          "n_train": 20561,
+          "up_rate_train": 0.5174,
+          "fwd_bps_train": 1.9764,
+          "n_val": 4746,
+          "up_rate_val": 0.4756,
+          "fwd_bps_val": -0.2523
+        },
+        {
+          "index": 7,
+          "n_train": 20560,
+          "up_rate_train": 0.518,
+          "fwd_bps_train": 3.8017,
+          "n_val": 2861,
+          "up_rate_val": 0.453,
+          "fwd_bps_val": -9.7554
+        },
+        {
+          "index": 8,
+          "n_train": 20561,
+          "up_rate_train": 0.5175,
+          "fwd_bps_train": 8.7038,
+          "n_val": 3420,
+          "up_rate_val": 0.4307,
+          "fwd_bps_val": -36.0709
+        },
+        {
+          "index": 9,
+          "n_train": 20561,
+          "up_rate_train": 0.5212,
+          "fwd_bps_train": 12.2917,
+          "n_val": 5148,
+          "up_rate_val": 0.4332,
+          "fwd_bps_val": -25.8028
+        }
+      ],
+      "regimes": null
+    },
+    "U0533": {
+      "feature": "body_15",
+      "H": 240,
+      "ic_train": -0.008446616733082592,
+      "t_train": -3.038928538734502,
+      "ic_val": -0.0019881980836581473,
+      "t_val": -0.40216589874901043,
+      "coins_same_sign_val": 4.0,
+      "status": "Không đạt (không xác nhận trên validation)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20897,
+          "up_rate_train": 0.5096,
+          "fwd_bps_train": 3.1669,
+          "n_val": 6345,
+          "up_rate_val": 0.4954,
+          "fwd_bps_val": -4.6858
+        },
+        {
+          "index": 1,
+          "n_train": 20896,
+          "up_rate_train": 0.5077,
+          "fwd_bps_train": -0.0772,
+          "n_val": 6439,
+          "up_rate_val": 0.496,
+          "fwd_bps_val": -5.3608
+        },
+        {
+          "index": 2,
+          "n_train": 20896,
+          "up_rate_train": 0.5086,
+          "fwd_bps_train": 3.1211,
+          "n_val": 7073,
+          "up_rate_val": 0.4964,
+          "fwd_bps_val": -2.9987
+        },
+        {
+          "index": 3,
+          "n_train": 20896,
+          "up_rate_train": 0.5038,
+          "fwd_bps_train": 2.6139,
+          "n_val": 7314,
+          "up_rate_val": 0.4919,
+          "fwd_bps_val": -4.0856
+        },
+        {
+          "index": 4,
+          "n_train": 20896,
+          "up_rate_train": 0.5004,
+          "fwd_bps_train": 1.8986,
+          "n_val": 7622,
+          "up_rate_val": 0.5043,
+          "fwd_bps_val": -0.3302
+        },
+        {
+          "index": 5,
+          "n_train": 20896,
+          "up_rate_train": 0.5053,
+          "fwd_bps_train": 2.2491,
+          "n_val": 7469,
+          "up_rate_val": 0.4965,
+          "fwd_bps_val": -0.4042
+        },
+        {
+          "index": 6,
+          "n_train": 20896,
+          "up_rate_train": 0.5039,
+          "fwd_bps_train": 0.2285,
+          "n_val": 7363,
+          "up_rate_val": 0.4839,
+          "fwd_bps_val": -3.3603
+        },
+        {
+          "index": 7,
+          "n_train": 20896,
+          "up_rate_train": 0.5033,
+          "fwd_bps_train": 1.3086,
+          "n_val": 7023,
+          "up_rate_val": 0.4857,
+          "fwd_bps_val": -4.3118
+        },
+        {
+          "index": 8,
+          "n_train": 20896,
+          "up_rate_train": 0.5015,
+          "fwd_bps_train": -0.1151,
+          "n_val": 6590,
+          "up_rate_val": 0.4974,
+          "fwd_bps_val": -2.1428
+        },
+        {
+          "index": 9,
+          "n_train": 20897,
+          "up_rate_train": 0.5102,
+          "fwd_bps_train": 1.9992,
+          "n_val": 6168,
+          "up_rate_val": 0.4951,
+          "fwd_bps_val": -3.1659
+        }
+      ],
+      "regimes": null
+    },
+    "U0803": {
+      "feature": "oi_chg_240",
+      "H": 240,
+      "ic_train": -0.02200770005476853,
+      "t_train": -3.0336213378085737,
+      "ic_val": -0.03569512793579565,
+      "t_val": -1.807107395749503,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.527 < ngưỡng hòa vốn 0.559)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20888,
+          "up_rate_train": 0.5275,
+          "fwd_bps_train": 6.9298,
+          "n_val": 5897,
+          "up_rate_val": 0.5169,
+          "fwd_bps_val": 13.1033
+        },
+        {
+          "index": 1,
+          "n_train": 20888,
+          "up_rate_train": 0.5094,
+          "fwd_bps_train": 3.0664,
+          "n_val": 6499,
+          "up_rate_val": 0.5022,
+          "fwd_bps_val": -1.301
+        },
+        {
+          "index": 2,
+          "n_train": 20888,
+          "up_rate_train": 0.5222,
+          "fwd_bps_train": 2.3385,
+          "n_val": 6829,
+          "up_rate_val": 0.4992,
+          "fwd_bps_val": -3.6751
+        },
+        {
+          "index": 3,
+          "n_train": 20888,
+          "up_rate_train": 0.5135,
+          "fwd_bps_train": 2.2959,
+          "n_val": 7282,
+          "up_rate_val": 0.5012,
+          "fwd_bps_val": -1.7042
+        },
+        {
+          "index": 4,
+          "n_train": 20888,
+          "up_rate_train": 0.5077,
+          "fwd_bps_train": 0.1332,
+          "n_val": 7813,
+          "up_rate_val": 0.5083,
+          "fwd_bps_val": -3.4466
+        },
+        {
+          "index": 5,
+          "n_train": 20888,
+          "up_rate_train": 0.4982,
+          "fwd_bps_train": -0.2039,
+          "n_val": 8074,
+          "up_rate_val": 0.5001,
+          "fwd_bps_val": -2.7502
+        },
+        {
+          "index": 6,
+          "n_train": 20888,
+          "up_rate_train": 0.4826,
+          "fwd_bps_train": -2.6046,
+          "n_val": 7811,
+          "up_rate_val": 0.4809,
+          "fwd_bps_val": -7.0763
+        },
+        {
+          "index": 7,
+          "n_train": 20888,
+          "up_rate_train": 0.491,
+          "fwd_bps_train": -1.2867,
+          "n_val": 7035,
+          "up_rate_val": 0.4728,
+          "fwd_bps_val": -9.8802
+        },
+        {
+          "index": 8,
+          "n_train": 20888,
+          "up_rate_train": 0.4953,
+          "fwd_bps_train": 0.3194,
+          "n_val": 6132,
+          "up_rate_val": 0.4767,
+          "fwd_bps_val": -7.7499
+        },
+        {
+          "index": 9,
+          "n_train": 20888,
+          "up_rate_train": 0.5063,
+          "fwd_bps_train": 5.26,
+          "n_val": 6034,
+          "up_rate_val": 0.4838,
+          "fwd_bps_val": -3.2185
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": 0.011983927950924912,
+          "t": 0.3585840286821696,
+          "days": 383
+        },
+        "trend_regime=range": {
+          "ic": -0.022832335520247816,
+          "t": -2.113477800779641,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.01856392347379627,
+          "t": -0.705062115908716,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.023746119537227044,
+          "t": -1.046716722250918,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": -0.034275075839467053,
+          "t": -1.1972405444794478,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.025407524136458644,
+          "t": -1.834606799176934,
+          "days": 524
+        }
+      }
+    },
+    "U0845": {
+      "feature": "ls_acct_chg_60",
+      "H": 240,
+      "ic_train": -0.01828891722244455,
+      "t_train": -3.024308874879588,
+      "ic_val": -0.0036366130461300992,
+      "t_val": -0.31198180034278644,
+      "coins_same_sign_val": 2.0,
+      "status": "Không đạt (không xác nhận trên validation)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20892,
+          "up_rate_train": 0.5177,
+          "fwd_bps_train": 9.5808,
+          "n_val": 4513,
+          "up_rate_val": 0.4994,
+          "fwd_bps_val": 5.8545
+        },
+        {
+          "index": 1,
+          "n_train": 20891,
+          "up_rate_train": 0.5203,
+          "fwd_bps_train": 6.7683,
+          "n_val": 5436,
+          "up_rate_val": 0.4961,
+          "fwd_bps_val": 2.6457
+        },
+        {
+          "index": 2,
+          "n_train": 20891,
+          "up_rate_train": 0.509,
+          "fwd_bps_train": 3.88,
+          "n_val": 6755,
+          "up_rate_val": 0.4968,
+          "fwd_bps_val": -0.6565
+        },
+        {
+          "index": 3,
+          "n_train": 20892,
+          "up_rate_train": 0.5098,
+          "fwd_bps_train": 2.4405,
+          "n_val": 8340,
+          "up_rate_val": 0.4953,
+          "fwd_bps_val": -2.8278
+        },
+        {
+          "index": 4,
+          "n_train": 20891,
+          "up_rate_train": 0.5047,
+          "fwd_bps_train": 1.568,
+          "n_val": 9369,
+          "up_rate_val": 0.4906,
+          "fwd_bps_val": -5.5751
+        },
+        {
+          "index": 5,
+          "n_train": 20891,
+          "up_rate_train": 0.5121,
+          "fwd_bps_train": 2.1145,
+          "n_val": 9412,
+          "up_rate_val": 0.5011,
+          "fwd_bps_val": -6.4244
+        },
+        {
+          "index": 6,
+          "n_train": 20892,
+          "up_rate_train": 0.5018,
+          "fwd_bps_train": -0.0447,
+          "n_val": 8544,
+          "up_rate_val": 0.4826,
+          "fwd_bps_val": -8.0176
+        },
+        {
+          "index": 7,
+          "n_train": 20891,
+          "up_rate_train": 0.4998,
+          "fwd_bps_train": -0.3573,
+          "n_val": 6825,
+          "up_rate_val": 0.4828,
+          "fwd_bps_val": -7.9009
+        },
+        {
+          "index": 8,
+          "n_train": 20891,
+          "up_rate_train": 0.493,
+          "fwd_bps_train": -3.158,
+          "n_val": 5558,
+          "up_rate_val": 0.5002,
+          "fwd_bps_val": -0.4026
+        },
+        {
+          "index": 9,
+          "n_train": 20892,
+          "up_rate_train": 0.4868,
+          "fwd_bps_train": -6.2759,
+          "n_val": 4654,
+          "up_rate_val": 0.5062,
+          "fwd_bps_val": 3.2294
+        }
+      ],
+      "regimes": null
+    },
+    "U0515": {
+      "feature": "pos_range_1440",
+      "H": 240,
+      "ic_train": -0.033580275510441265,
+      "t_train": -2.982205791771518,
+      "ic_val": -0.016134770330010952,
+      "t_val": -0.975229209866702,
+      "coins_same_sign_val": 5.0,
+      "status": "Không đạt (không xác nhận trên validation)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20897,
+          "up_rate_train": 0.519,
+          "fwd_bps_train": 0.5185,
+          "n_val": 8663,
+          "up_rate_val": 0.5021,
+          "fwd_bps_val": -10.9662
+        },
+        {
+          "index": 1,
+          "n_train": 20896,
+          "up_rate_train": 0.5192,
+          "fwd_bps_train": -0.3074,
+          "n_val": 7950,
+          "up_rate_val": 0.4868,
+          "fwd_bps_val": -8.9964
+        },
+        {
+          "index": 2,
+          "n_train": 20896,
+          "up_rate_train": 0.523,
+          "fwd_bps_train": 0.6886,
+          "n_val": 7261,
+          "up_rate_val": 0.4885,
+          "fwd_bps_val": -1.7705
+        },
+        {
+          "index": 3,
+          "n_train": 20896,
+          "up_rate_train": 0.522,
+          "fwd_bps_train": 1.8609,
+          "n_val": 7033,
+          "up_rate_val": 0.4975,
+          "fwd_bps_val": -0.5191
+        },
+        {
+          "index": 4,
+          "n_train": 20896,
+          "up_rate_train": 0.5134,
+          "fwd_bps_train": 2.2677,
+          "n_val": 6656,
+          "up_rate_val": 0.4841,
+          "fwd_bps_val": -4.5776
+        },
+        {
+          "index": 5,
+          "n_train": 20896,
+          "up_rate_train": 0.4995,
+          "fwd_bps_train": -0.1959,
+          "n_val": 6684,
+          "up_rate_val": 0.5132,
+          "fwd_bps_val": 3.3304
+        },
+        {
+          "index": 6,
+          "n_train": 20896,
+          "up_rate_train": 0.4925,
+          "fwd_bps_train": 0.932,
+          "n_val": 7158,
+          "up_rate_val": 0.494,
+          "fwd_bps_val": -1.0207
+        },
+        {
+          "index": 7,
+          "n_train": 20896,
+          "up_rate_train": 0.5,
+          "fwd_bps_train": 3.3489,
+          "n_val": 6726,
+          "up_rate_val": 0.4874,
+          "fwd_bps_val": -1.1348
+        },
+        {
+          "index": 8,
+          "n_train": 20896,
+          "up_rate_train": 0.4928,
+          "fwd_bps_train": 4.208,
+          "n_val": 6233,
+          "up_rate_val": 0.4949,
+          "fwd_bps_val": -1.0681
+        },
+        {
+          "index": 9,
+          "n_train": 20897,
+          "up_rate_train": 0.473,
+          "fwd_bps_train": 3.0723,
+          "n_val": 5042,
+          "up_rate_val": 0.4933,
+          "fwd_bps_val": 0.6511
+        }
+      ],
+      "regimes": null
+    },
+    "U0491": {
+      "feature": "pos_range_60",
+      "H": 240,
+      "ic_train": -0.012309078646555767,
+      "t_train": -2.9490025181944524,
+      "ic_val": -0.016859255321544777,
+      "t_val": -2.0774749219047934,
+      "coins_same_sign_val": 5.0,
+      "status": "Đạt một phần (decile tốt nhất 0.521 < ngưỡng hòa vốn 0.559)",
+      "deciles": [
+        {
+          "index": 0,
+          "n_train": 20894,
+          "up_rate_train": 0.5153,
+          "fwd_bps_train": 3.4473,
+          "n_val": 6262,
+          "up_rate_val": 0.518,
+          "fwd_bps_val": -2.1803
+        },
+        {
+          "index": 1,
+          "n_train": 20899,
+          "up_rate_train": 0.5046,
+          "fwd_bps_train": 2.4667,
+          "n_val": 7158,
+          "up_rate_val": 0.4941,
+          "fwd_bps_val": -4.9026
+        },
+        {
+          "index": 2,
+          "n_train": 20896,
+          "up_rate_train": 0.5024,
+          "fwd_bps_train": 0.4745,
+          "n_val": 7527,
+          "up_rate_val": 0.5188,
+          "fwd_bps_val": -2.4147
+        },
+        {
+          "index": 3,
+          "n_train": 20895,
+          "up_rate_train": 0.5082,
+          "fwd_bps_train": 1.0911,
+          "n_val": 7438,
+          "up_rate_val": 0.4988,
+          "fwd_bps_val": -2.2392
+        },
+        {
+          "index": 4,
+          "n_train": 20897,
+          "up_rate_train": 0.5131,
+          "fwd_bps_train": 3.28,
+          "n_val": 7455,
+          "up_rate_val": 0.493,
+          "fwd_bps_val": -5.179
+        },
+        {
+          "index": 5,
+          "n_train": 20896,
+          "up_rate_train": 0.5029,
+          "fwd_bps_train": 0.9996,
+          "n_val": 7392,
+          "up_rate_val": 0.4912,
+          "fwd_bps_val": -1.3832
+        },
+        {
+          "index": 6,
+          "n_train": 20888,
+          "up_rate_train": 0.4976,
+          "fwd_bps_train": -0.4807,
+          "n_val": 7310,
+          "up_rate_val": 0.4815,
+          "fwd_bps_val": -4.8589
+        },
+        {
+          "index": 7,
+          "n_train": 20896,
+          "up_rate_train": 0.5026,
+          "fwd_bps_train": 1.5058,
+          "n_val": 7176,
+          "up_rate_val": 0.4819,
+          "fwd_bps_val": -2.4792
+        },
+        {
+          "index": 8,
+          "n_train": 20904,
+          "up_rate_train": 0.4991,
+          "fwd_bps_train": 1.1707,
+          "n_val": 6625,
+          "up_rate_val": 0.4826,
+          "fwd_bps_val": -2.2419
+        },
+        {
+          "index": 9,
+          "n_train": 20897,
+          "up_rate_train": 0.5087,
+          "fwd_bps_train": 2.438,
+          "n_val": 5063,
+          "up_rate_val": 0.4794,
+          "fwd_bps_val": -1.7728
+        }
+      ],
+      "regimes": {
+        "trend_regime=down": {
+          "ic": -0.16268920550034538,
+          "t": -7.0232687500675475,
+          "days": 383
+        },
+        "trend_regime=range": {
+          "ic": -0.002421584188296834,
+          "t": -0.36696318779757975,
+          "days": 581
+        },
+        "trend_regime=up": {
+          "ic": -0.1126762907858251,
+          "t": -6.668882226783837,
+          "days": 406
+        },
+        "vol_regime=high": {
+          "ic": -0.022813446393959227,
+          "t": -2.007934631967768,
+          "days": 270
+        },
+        "vol_regime=low": {
+          "ic": 0.009429738736502645,
+          "t": 0.486095180028078,
+          "days": 285
+        },
+        "vol_regime=normal": {
+          "ic": -0.020830992637469646,
+          "t": -2.471209750973222,
+          "days": 524
+        }
+      }
+    }
+  }
+}

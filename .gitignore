@@ -1,5 +1,5 @@
 # Dữ liệu lớn và bí mật không đưa lên GitHub
-data/
+/data/
 *.zip
 *.parquet
 !reports/**/*.json
@@ -8,3 +8,4 @@ data/
 __pycache__/
 .ipynb_checkpoints/
 logs/*.log
+*.egg-info/
