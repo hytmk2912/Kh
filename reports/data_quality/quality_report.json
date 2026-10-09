@@ -1,0 +1,670 @@
+{
+  "BTCUSDT": {
+    "klines_1m": {
+      "rows": 1051200,
+      "expected_rows": 1051200,
+      "first": "2024-10-09 00:00:00+00:00",
+      "last": "2026-10-08 23:59:00+00:00",
+      "missing_minutes": 0,
+      "missing_runs": [],
+      "duplicate_timestamps": 0,
+      "non_monotonic_steps": 0,
+      "ohlc_violations": 0,
+      "negative_values": 0,
+      "nan_values": 0,
+      "close_time_offset_ms_values": [
+        59999
+      ],
+      "taker_buy_gt_volume": 0,
+      "filler_minutes": 126,
+      "filler_runs": [
+        {
+          "start": "2024-10-28 16:21:00+00:00",
+          "end": "2024-10-28 16:34:00+00:00",
+          "minutes": 14
+        },
+        {
+          "start": "2024-10-28 16:36:00+00:00",
+          "end": "2024-10-28 16:36:00+00:00",
+          "minutes": 1
+        },
+        {
+          "start": "2024-10-28 20:00:00+00:00",
+          "end": "2024-10-28 21:13:00+00:00",
+          "minutes": 74
+        },
+        {
+          "start": "2025-01-14 13:32:00+00:00",
+          "end": "2025-01-14 13:33:00+00:00",
+          "minutes": 2
+        },
+        {
+          "start": "2025-01-29 01:23:00+00:00",
+          "end": "2025-01-29 01:35:00+00:00",
+          "minutes": 13
+        },
+        {
+          "start": "2025-01-29 02:41:00+00:00",
+          "end": "2025-01-29 02:44:00+00:00",
+          "minutes": 4
+        },
+        {
+          "start": "2025-08-29 06:19:00+00:00",
+          "end": "2025-08-29 06:36:00+00:00",
+          "minutes": 18
+        }
+      ],
+      "zero_volume_not_flat": 0,
+      "abs_1m_return_gt_0.1": 0,
+      "max_abs_1m_return": 0.051330222862608466
+    },
+    "metrics": {
+      "rows": 210235,
+      "expected_rows": 210240,
+      "missing_slots": 5,
+      "missing_sample": [
+        "2024-10-28 16:25:00+00:00",
+        "2024-10-28 16:30:00+00:00",
+        "2025-08-29 06:20:00+00:00",
+        "2025-08-29 06:25:00+00:00",
+        "2025-08-29 06:30:00+00:00"
+      ],
+      "off_grid": 0,
+      "duplicates": 0,
+      "nan_by_column": {
+        "sum_open_interest": 0,
+        "sum_open_interest_value": 0,
+        "count_toptrader_long_short_ratio": 54,
+        "sum_toptrader_long_short_ratio": 18,
+        "count_long_short_ratio": 19,
+        "sum_taker_long_short_vol_ratio": 0
+      },
+      "non_positive_open_interest": 25
+    },
+    "fundingRate": {
+      "rows": 2166,
+      "first": "2024-10-09 00:00:00+00:00",
+      "last": "2026-09-30 16:00:00+00:00",
+      "interval_hours_declared": {
+        "8": 2166
+      },
+      "interval_hours_observed": {
+        "8.0": 2165
+      },
+      "rate_min": -0.00015178,
+      "rate_max": 0.00072446,
+      "abs_rate_gt_0.003": 0
+    },
+    "crosscheck_monthly_vs_daily": {
+      "days": [
+        {
+          "day": "2025-11-06",
+          "rows_daily": 1440,
+          "rows_matched": 1440,
+          "value_mismatches": 0
+        },
+        {
+          "day": "2025-11-12",
+          "rows_daily": 1440,
+          "rows_matched": 1440,
+          "value_mismatches": 0
+        },
+        {
+          "day": "2026-07-29",
+          "rows_daily": 1440,
+          "rows_matched": 1440,
+          "value_mismatches": 0
+        }
+      ],
+      "all_match": true
+    }
+  },
+  "ETHUSDT": {
+    "klines_1m": {
+      "rows": 1051200,
+      "expected_rows": 1051200,
+      "first": "2024-10-09 00:00:00+00:00",
+      "last": "2026-10-08 23:59:00+00:00",
+      "missing_minutes": 0,
+      "missing_runs": [],
+      "duplicate_timestamps": 0,
+      "non_monotonic_steps": 0,
+      "ohlc_violations": 0,
+      "negative_values": 0,
+      "nan_values": 0,
+      "close_time_offset_ms_values": [
+        59999
+      ],
+      "taker_buy_gt_volume": 0,
+      "filler_minutes": 127,
+      "filler_runs": [
+        {
+          "start": "2024-10-28 16:21:00+00:00",
+          "end": "2024-10-28 16:34:00+00:00",
+          "minutes": 14
+        },
+        {
+          "start": "2024-10-28 16:36:00+00:00",
+          "end": "2024-10-28 16:36:00+00:00",
+          "minutes": 1
+        },
+        {
+          "start": "2024-10-28 20:00:00+00:00",
+          "end": "2024-10-28 21:13:00+00:00",
+          "minutes": 74
+        },
+        {
+          "start": "2025-01-14 13:32:00+00:00",
+          "end": "2025-01-14 13:33:00+00:00",
+          "minutes": 2
+        },
+        {
+          "start": "2025-01-14 15:01:00+00:00",
+          "end": "2025-01-14 15:01:00+00:00",
+          "minutes": 1
+        },
+        {
+          "start": "2025-01-29 01:23:00+00:00",
+          "end": "2025-01-29 01:35:00+00:00",
+          "minutes": 13
+        },
+        {
+          "start": "2025-01-29 02:41:00+00:00",
+          "end": "2025-01-29 02:44:00+00:00",
+          "minutes": 4
+        },
+        {
+          "start": "2025-08-29 06:19:00+00:00",
+          "end": "2025-08-29 06:36:00+00:00",
+          "minutes": 18
+        }
+      ],
+      "zero_volume_not_flat": 0,
+      "abs_1m_return_gt_0.1": 1,
+      "max_abs_1m_return": 0.12376175256110056
+    },
+    "metrics": {
+      "rows": 210235,
+      "expected_rows": 210240,
+      "missing_slots": 5,
+      "missing_sample": [
+        "2024-10-28 16:25:00+00:00",
+        "2024-10-28 16:30:00+00:00",
+        "2025-08-29 06:20:00+00:00",
+        "2025-08-29 06:25:00+00:00",
+        "2025-08-29 06:30:00+00:00"
+      ],
+      "off_grid": 0,
+      "duplicates": 0,
+      "nan_by_column": {
+        "sum_open_interest": 0,
+        "sum_open_interest_value": 0,
+        "count_toptrader_long_short_ratio": 56,
+        "sum_toptrader_long_short_ratio": 18,
+        "count_long_short_ratio": 21,
+        "sum_taker_long_short_vol_ratio": 0
+      },
+      "non_positive_open_interest": 24
+    },
+    "fundingRate": {
+      "rows": 2166,
+      "first": "2024-10-09 00:00:00+00:00",
+      "last": "2026-09-30 16:00:00+00:00",
+      "interval_hours_declared": {
+        "8": 2166
+      },
+      "interval_hours_observed": {
+        "8.0": 2165
+      },
+      "rate_min": -0.00036526,
+      "rate_max": 0.0005762,
+      "abs_rate_gt_0.003": 0
+    },
+    "crosscheck_monthly_vs_daily": {
+      "days": [
+        {
+          "day": "2025-08-06",
+          "rows_daily": 1440,
+          "rows_matched": 1440,
+          "value_mismatches": 0
+        },
+        {
+          "day": "2026-03-29",
+          "rows_daily": 1440,
+          "rows_matched": 1440,
+          "value_mismatches": 0
+        },
+        {
+          "day": "2026-08-31",
+          "rows_daily": 1440,
+          "rows_matched": 1440,
+          "value_mismatches": 0
+        }
+      ],
+      "all_match": true
+    }
+  },
+  "BNBUSDT": {
+    "klines_1m": {
+      "rows": 1051200,
+      "expected_rows": 1051200,
+      "first": "2024-10-09 00:00:00+00:00",
+      "last": "2026-10-08 23:59:00+00:00",
+      "missing_minutes": 0,
+      "missing_runs": [],
+      "duplicate_timestamps": 0,
+      "non_monotonic_steps": 0,
+      "ohlc_violations": 0,
+      "negative_values": 0,
+      "nan_values": 0,
+      "close_time_offset_ms_values": [
+        59999
+      ],
+      "taker_buy_gt_volume": 0,
+      "filler_minutes": 128,
+      "filler_runs": [
+        {
+          "start": "2024-10-28 16:21:00+00:00",
+          "end": "2024-10-28 16:34:00+00:00",
+          "minutes": 14
+        },
+        {
+          "start": "2024-10-28 16:36:00+00:00",
+          "end": "2024-10-28 16:36:00+00:00",
+          "minutes": 1
+        },
+        {
+          "start": "2024-10-28 20:00:00+00:00",
+          "end": "2024-10-28 21:13:00+00:00",
+          "minutes": 74
+        },
+        {
+          "start": "2025-01-14 13:32:00+00:00",
+          "end": "2025-01-14 13:33:00+00:00",
+          "minutes": 2
+        },
+        {
+          "start": "2025-01-14 15:01:00+00:00",
+          "end": "2025-01-14 15:01:00+00:00",
+          "minutes": 1
+        },
+        {
+          "start": "2025-01-29 01:23:00+00:00",
+          "end": "2025-01-29 01:35:00+00:00",
+          "minutes": 13
+        },
+        {
+          "start": "2025-01-29 02:41:00+00:00",
+          "end": "2025-01-29 02:44:00+00:00",
+          "minutes": 4
+        },
+        {
+          "start": "2025-08-29 06:18:00+00:00",
+          "end": "2025-08-29 06:36:00+00:00",
+          "minutes": 19
+        }
+      ],
+      "zero_volume_not_flat": 0,
+      "abs_1m_return_gt_0.1": 0,
+      "max_abs_1m_return": 0.08533419233051553
+    },
+    "metrics": {
+      "rows": 210235,
+      "expected_rows": 210240,
+      "missing_slots": 5,
+      "missing_sample": [
+        "2024-10-28 16:25:00+00:00",
+        "2024-10-28 16:30:00+00:00",
+        "2025-08-29 06:20:00+00:00",
+        "2025-08-29 06:25:00+00:00",
+        "2025-08-29 06:30:00+00:00"
+      ],
+      "off_grid": 0,
+      "duplicates": 0,
+      "nan_by_column": {
+        "sum_open_interest": 0,
+        "sum_open_interest_value": 0,
+        "count_toptrader_long_short_ratio": 54,
+        "sum_toptrader_long_short_ratio": 18,
+        "count_long_short_ratio": 19,
+        "sum_taker_long_short_vol_ratio": 0
+      },
+      "non_positive_open_interest": 24
+    },
+    "fundingRate": {
+      "rows": 2166,
+      "first": "2024-10-09 00:00:00+00:00",
+      "last": "2026-09-30 16:00:00+00:00",
+      "interval_hours_declared": {
+        "8": 2166
+      },
+      "interval_hours_observed": {
+        "8.0": 2165
+      },
+      "rate_min": -0.00097361,
+      "rate_max": 0.00043533,
+      "abs_rate_gt_0.003": 0
+    },
+    "crosscheck_monthly_vs_daily": {
+      "days": [
+        {
+          "day": "2025-01-22",
+          "rows_daily": 1440,
+          "rows_matched": 1440,
+          "value_mismatches": 0
+        },
+        {
+          "day": "2025-01-31",
+          "rows_daily": 1440,
+          "rows_matched": 1440,
+          "value_mismatches": 0
+        },
+        {
+          "day": "2025-11-22",
+          "rows_daily": 1440,
+          "rows_matched": 1440,
+          "value_mismatches": 0
+        }
+      ],
+      "all_match": true
+    }
+  },
+  "SOLUSDT": {
+    "klines_1m": {
+      "rows": 1051200,
+      "expected_rows": 1051200,
+      "first": "2024-10-09 00:00:00+00:00",
+      "last": "2026-10-08 23:59:00+00:00",
+      "missing_minutes": 0,
+      "missing_runs": [],
+      "duplicate_timestamps": 0,
+      "non_monotonic_steps": 0,
+      "ohlc_violations": 0,
+      "negative_values": 0,
+      "nan_values": 0,
+      "close_time_offset_ms_values": [
+        59999
+      ],
+      "taker_buy_gt_volume": 0,
+      "filler_minutes": 128,
+      "filler_runs": [
+        {
+          "start": "2024-10-28 16:21:00+00:00",
+          "end": "2024-10-28 16:34:00+00:00",
+          "minutes": 14
+        },
+        {
+          "start": "2024-10-28 16:36:00+00:00",
+          "end": "2024-10-28 16:36:00+00:00",
+          "minutes": 1
+        },
+        {
+          "start": "2024-10-28 20:00:00+00:00",
+          "end": "2024-10-28 21:13:00+00:00",
+          "minutes": 74
+        },
+        {
+          "start": "2025-01-14 13:32:00+00:00",
+          "end": "2025-01-14 13:33:00+00:00",
+          "minutes": 2
+        },
+        {
+          "start": "2025-01-14 15:01:00+00:00",
+          "end": "2025-01-14 15:01:00+00:00",
+          "minutes": 1
+        },
+        {
+          "start": "2025-01-29 01:23:00+00:00",
+          "end": "2025-01-29 01:35:00+00:00",
+          "minutes": 13
+        },
+        {
+          "start": "2025-01-29 02:41:00+00:00",
+          "end": "2025-01-29 02:44:00+00:00",
+          "minutes": 4
+        },
+        {
+          "start": "2025-08-29 06:18:00+00:00",
+          "end": "2025-08-29 06:36:00+00:00",
+          "minutes": 19
+        }
+      ],
+      "zero_volume_not_flat": 0,
+      "abs_1m_return_gt_0.1": 1,
+      "max_abs_1m_return": 0.12574302119582725
+    },
+    "metrics": {
+      "rows": 210235,
+      "expected_rows": 210240,
+      "missing_slots": 5,
+      "missing_sample": [
+        "2024-10-28 16:25:00+00:00",
+        "2024-10-28 16:30:00+00:00",
+        "2025-08-29 06:20:00+00:00",
+        "2025-08-29 06:25:00+00:00",
+        "2025-08-29 06:30:00+00:00"
+      ],
+      "off_grid": 0,
+      "duplicates": 0,
+      "nan_by_column": {
+        "sum_open_interest": 0,
+        "sum_open_interest_value": 0,
+        "count_toptrader_long_short_ratio": 55,
+        "sum_toptrader_long_short_ratio": 18,
+        "count_long_short_ratio": 20,
+        "sum_taker_long_short_vol_ratio": 0
+      },
+      "non_positive_open_interest": 24
+    },
+    "fundingRate": {
+      "rows": 2166,
+      "first": "2024-10-09 00:00:00+00:00",
+      "last": "2026-09-30 16:00:00+00:00",
+      "interval_hours_declared": {
+        "8": 2166
+      },
+      "interval_hours_observed": {
+        "8.0": 2165
+      },
+      "rate_min": -0.00302761,
+      "rate_max": 0.00055995,
+      "abs_rate_gt_0.003": 1
+    },
+    "crosscheck_monthly_vs_daily": {
+      "days": [
+        {
+          "day": "2025-03-13",
+          "rows_daily": 1440,
+          "rows_matched": 1440,
+          "value_mismatches": 0
+        },
+        {
+          "day": "2025-06-21",
+          "rows_daily": 1440,
+          "rows_matched": 1440,
+          "value_mismatches": 0
+        },
+        {
+          "day": "2026-02-12",
+          "rows_daily": 1440,
+          "rows_matched": 1440,
+          "value_mismatches": 0
+        }
+      ],
+      "all_match": true
+    }
+  },
+  "XRPUSDT": {
+    "klines_1m": {
+      "rows": 1051200,
+      "expected_rows": 1051200,
+      "first": "2024-10-09 00:00:00+00:00",
+      "last": "2026-10-08 23:59:00+00:00",
+      "missing_minutes": 0,
+      "missing_runs": [],
+      "duplicate_timestamps": 0,
+      "non_monotonic_steps": 0,
+      "ohlc_violations": 0,
+      "negative_values": 0,
+      "nan_values": 0,
+      "close_time_offset_ms_values": [
+        59999
+      ],
+      "taker_buy_gt_volume": 0,
+      "filler_minutes": 127,
+      "filler_runs": [
+        {
+          "start": "2024-10-28 16:21:00+00:00",
+          "end": "2024-10-28 16:34:00+00:00",
+          "minutes": 14
+        },
+        {
+          "start": "2024-10-28 16:36:00+00:00",
+          "end": "2024-10-28 16:36:00+00:00",
+          "minutes": 1
+        },
+        {
+          "start": "2024-10-28 20:00:00+00:00",
+          "end": "2024-10-28 21:13:00+00:00",
+          "minutes": 74
+        },
+        {
+          "start": "2025-01-14 13:32:00+00:00",
+          "end": "2025-01-14 13:33:00+00:00",
+          "minutes": 2
+        },
+        {
+          "start": "2025-01-14 15:01:00+00:00",
+          "end": "2025-01-14 15:01:00+00:00",
+          "minutes": 1
+        },
+        {
+          "start": "2025-01-29 01:23:00+00:00",
+          "end": "2025-01-29 01:35:00+00:00",
+          "minutes": 13
+        },
+        {
+          "start": "2025-01-29 02:41:00+00:00",
+          "end": "2025-01-29 02:44:00+00:00",
+          "minutes": 4
+        },
+        {
+          "start": "2025-08-29 06:19:00+00:00",
+          "end": "2025-08-29 06:36:00+00:00",
+          "minutes": 18
+        }
+      ],
+      "zero_volume_not_flat": 0,
+      "abs_1m_return_gt_0.1": 4,
+      "max_abs_1m_return": 0.21609354332247926
+    },
+    "metrics": {
+      "rows": 210235,
+      "expected_rows": 210240,
+      "missing_slots": 5,
+      "missing_sample": [
+        "2024-10-28 16:25:00+00:00",
+        "2024-10-28 16:30:00+00:00",
+        "2025-08-29 06:20:00+00:00",
+        "2025-08-29 06:25:00+00:00",
+        "2025-08-29 06:30:00+00:00"
+      ],
+      "off_grid": 0,
+      "duplicates": 0,
+      "nan_by_column": {
+        "sum_open_interest": 0,
+        "sum_open_interest_value": 0,
+        "count_toptrader_long_short_ratio": 55,
+        "sum_toptrader_long_short_ratio": 18,
+        "count_long_short_ratio": 20,
+        "sum_taker_long_short_vol_ratio": 0
+      },
+      "non_positive_open_interest": 25
+    },
+    "fundingRate": {
+      "rows": 2166,
+      "first": "2024-10-09 00:00:00+00:00",
+      "last": "2026-09-30 16:00:00+00:00",
+      "interval_hours_declared": {
+        "8": 2166
+      },
+      "interval_hours_observed": {
+        "8.0": 2165
+      },
+      "rate_min": -0.00044229,
+      "rate_max": 0.00067031,
+      "abs_rate_gt_0.003": 0
+    },
+    "crosscheck_monthly_vs_daily": {
+      "days": [
+        {
+          "day": "2025-04-25",
+          "rows_daily": 1440,
+          "rows_matched": 1440,
+          "value_mismatches": 0
+        },
+        {
+          "day": "2025-07-23",
+          "rows_daily": 1440,
+          "rows_matched": 1440,
+          "value_mismatches": 0
+        },
+        {
+          "day": "2025-10-27",
+          "rows_daily": 1440,
+          "rows_matched": 1440,
+          "value_mismatches": 0
+        }
+      ],
+      "all_match": true
+    }
+  },
+  "_gates": {
+    "BTCUSDT": {
+      "no_duplicates": true,
+      "sorted": true,
+      "ohlc_valid": true,
+      "missing_le_0.1pct": true,
+      "filler_le_0.1pct": true,
+      "crosscheck_ok": true,
+      "pass": true
+    },
+    "ETHUSDT": {
+      "no_duplicates": true,
+      "sorted": true,
+      "ohlc_valid": true,
+      "missing_le_0.1pct": true,
+      "filler_le_0.1pct": true,
+      "crosscheck_ok": true,
+      "pass": true
+    },
+    "BNBUSDT": {
+      "no_duplicates": true,
+      "sorted": true,
+      "ohlc_valid": true,
+      "missing_le_0.1pct": true,
+      "filler_le_0.1pct": true,
+      "crosscheck_ok": true,
+      "pass": true
+    },
+    "SOLUSDT": {
+      "no_duplicates": true,
+      "sorted": true,
+      "ohlc_valid": true,
+      "missing_le_0.1pct": true,
+      "filler_le_0.1pct": true,
+      "crosscheck_ok": true,
+      "pass": true
+    },
+    "XRPUSDT": {
+      "no_duplicates": true,
+      "sorted": true,
+      "ohlc_valid": true,
+      "missing_le_0.1pct": true,
+      "filler_le_0.1pct": true,
+      "crosscheck_ok": true,
+      "pass": true
+    },
+    "all_pass": true
+  }
+}
