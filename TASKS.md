@@ -12,7 +12,7 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
 ### D. Dữ liệu (spec §1)
 - [x] **D1** Tải klines 1m + funding 5 symbol, xác minh SHA256, ghi manifest, chạy lại không tải lại.
   - Xong khi: `python -m kh.ind data` lần 2 báo "0 file tải mới"; manifest có 5 × 32 zip klines (24 tháng + 8 ngày) + 5 × 24 zip funding, tất cả `verified`.
-- [ ] **D2** Chuẩn hoá Parquet, gắn `is_filler`, resample M15/H1, suy ra tick size, xuất `data_quality.json`.
+- [x] **D2** Chuẩn hoá Parquet, gắn `is_filler`, resample M15/H1, suy ra tick size, xuất `data_quality.json`.
   - Xong khi: `pytest -q tests/test_data.py` qua; mỗi symbol 1.051.200 nến M1, 70.080 nến M15, 17.520 nến H1, 0 thiếu, 0 trùng; số filler = BTC 126 / ETH 127 / BNB 128 / SOL 128 / XRP 127.
 
 ### L. Nhãn sóng (spec §2)
@@ -50,6 +50,7 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
 - 2026-10-09 · K1 · `pip install -e . && python -m kh.ind --help && pytest -q` · cài OK, CLI in 6 bước (data, labels, indicators, single, combos, final), 20 passed · PR nháp https://github.com/hytmk2912/Kh/pull/5
 - 2026-10-09 · D1 · `python -m kh.ind data` (lần 1) · 280 file tải mới, 215,0 MB, 127 s, 0 lỗi [F]
 - 2026-10-09 · D1 · `python -m kh.ind data` (lần 2) · "0 file tải mới; 280 file trong manifest; 0 file lỗi"; manifest: 5 × 32 klines (24 tháng + 8 ngày) + 5 × 24 funding (tháng), tất cả `verified` [F]. Funding 2026-10 chưa có trên server (đúng như spec §1, [L])
+- 2026-10-09 · D2 · `python -m kh.ind data && pytest -q tests/test_data.py` · 6 passed; mỗi symbol M1 1.051.200 / M15 70.080 / H1 17.520, thiếu 0, trùng 0, OHLC sai 0, không hữu hạn 0; filler BTC 126 / ETH 127 / BNB 128 / SOL 128 / XRP 127 [F]; funding 2.166 bản ghi/symbol, cuối 2026-09-30 16:00 [F]; tick suy ra BTC 0,1 · ETH 0,01 · BNB 0,01 · SOL 0,001 · XRP 0,0001 [I] → `reports/ind/data_quality.json`, `tick_size.json`
 
 ## Ghi chú phiên
 <!-- Việc đang làm dở, file đang sửa, vấn đề chưa giải quyết. Cập nhật trước khi hết phiên. -->

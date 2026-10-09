@@ -3,9 +3,10 @@ from __future__ import annotations
 
 
 def step_data(cfg, P, args):
-    from kh.ind.data import download
+    from kh.ind.data import download, normalize
 
     download(cfg, P)
+    normalize(cfg, P)
 
 
 def step_labels(cfg, P, args):

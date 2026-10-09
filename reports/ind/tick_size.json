@@ -1,0 +1,37 @@
+{
+  "BTCUSDT": {
+    "tick_size": 0.1,
+    "decimals": 1,
+    "min_observed_step": 0.09999999999126885,
+    "n_unique_close": 464520,
+    "label": "[I] suy ra từ dữ liệu close, chưa đối chiếu exchangeInfo (HTTP 451)"
+  },
+  "ETHUSDT": {
+    "tick_size": 0.01,
+    "decimals": 2,
+    "min_observed_step": 0.009999999999308784,
+    "n_unique_close": 277718,
+    "label": "[I] suy ra từ dữ liệu close, chưa đối chiếu exchangeInfo (HTTP 451)"
+  },
+  "BNBUSDT": {
+    "tick_size": 0.01,
+    "decimals": 2,
+    "min_observed_step": 0.009999999999990905,
+    "n_unique_close": 69673,
+    "label": "[I] suy ra từ dữ liệu close, chưa đối chiếu exchangeInfo (HTTP 451)"
+  },
+  "SOLUSDT": {
+    "tick_size": 0.001,
+    "decimals": 3,
+    "min_observed_step": 0.0009999999999763531,
+    "n_unique_close": 26111,
+    "label": "[I] suy ra từ dữ liệu close, chưa đối chiếu exchangeInfo (HTTP 451)"
+  },
+  "XRPUSDT": {
+    "tick_size": 0.0001,
+    "decimals": 4,
+    "min_observed_step": 9.999999999976694e-05,
+    "n_unique_close": 29371,
+    "label": "[I] suy ra từ dữ liệu close, chưa đối chiếu exchangeInfo (HTTP 451)"
+  }
+}

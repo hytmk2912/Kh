@@ -48,3 +48,29 @@ def test_microsecond_timestamps_converted():
 
     s = pd.Series([1735689600000000, 1735689600000])
     assert np.all(N._to_ms(s) == 1735689600000)
+
+
+# ---------------------------------------------------------------- track ind (D2)
+from kh.ind.data import infer_tick, resample  # noqa: E402
+
+
+def test_resample_m15_h1_and_available_at():
+    k = synth_klines(240, filler_at=(30, 35))
+    m15, h1 = resample(k, 15), resample(k, 60)
+    assert len(m15) == 16 and len(h1) == 4
+    first = k.iloc[:15]
+    r = m15.iloc[0]
+    assert r.open == first.open.iloc[0] and r.close == first.close.iloc[-1]
+    assert r.high == first.high.max() and r.low == first.low.min() and np.isclose(r.volume, first.volume.sum())
+    # nến M15 chỉ dùng được khi đã đóng: available_at = mở cửa + 15 phút
+    assert (m15.available_at_ms - m15.open_time_ms == 15 * 60_000).all()
+    assert (h1.available_at_ms - h1.open_time_ms == 60 * 60_000).all()
+    assert m15.n_filler.sum() == 5 and (m15.n_m1 == 15).all()
+
+
+def test_infer_tick_size():
+    rng = np.random.default_rng(0)
+    for tick, base in ((0.1, 60000.0), (0.01, 2500.0), (0.0001, 0.6)):
+        steps = rng.integers(-50, 50, 2000).cumsum()
+        px = np.round((base / tick + steps)) * tick
+        assert np.isclose(infer_tick(px)["tick_size"], tick)
