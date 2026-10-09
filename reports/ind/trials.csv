@@ -13949,3 +13949,5 @@ utc_time,stage,trial_id,indicators,htf,params,split,symbols,note,n_trials
 2026-10-09T21:28:38+00:00,C2,C2-i099+i069+i097+i068-htf,i099+i069+i097+i068,True,mặc định,train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A tổ hợp,1
 2026-10-09T21:36:20+00:00,W1-S1,W1-f00-S1,99 chỉ báo đơn lẻ,cả hai,mặc định,train fold 2025-05,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ trong fold,198
 2026-10-09T21:36:20+00:00,W1-C2,W1-f00-C2,tổ hợp 2–4 từ 20 ứng viên của fold,cả hai,mặc định,train fold 2025-05,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",quét tổ hợp trong fold,12328
+2026-10-09T21:39:52+00:00,W1-S1,W1-f01-S1,99 chỉ báo đơn lẻ,cả hai,mặc định,train fold 2025-06,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ trong fold,198
+2026-10-09T21:39:52+00:00,W1-C2,W1-f01-C2,tổ hợp 2–4 từ 20 ứng viên của fold,cả hai,mặc định,train fold 2025-06,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",quét tổ hợp trong fold,12328
