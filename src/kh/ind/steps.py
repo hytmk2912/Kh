@@ -33,9 +33,10 @@ def step_indicators(cfg, P, args):
 
 
 def step_single(cfg, P, args):
-    from kh.ind.single import run_table_a
+    from kh.ind.single import run_table_a, run_table_b
 
     run_table_a(cfg, P)
+    run_table_b(cfg, P)
 
 
 def step_combos(cfg, P, args):

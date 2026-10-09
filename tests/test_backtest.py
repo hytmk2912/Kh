@@ -78,3 +78,62 @@ def test_metrics_and_dsr_pbo_shapes():
     d = deflated_sharpe(M[0], (M.mean() / M.std()).to_numpy())
     assert 0 <= d["dsr"] <= 1
     assert perf(pd.DataFrame(), T0, T0 + 10 * 86_400_000, 1e4)["total_return"] == 0
+
+
+# ---------------------------------------------------------------- track ind (S2): engine lướt sóng
+from kh.backtest.scalp import ScalpParams, run as scalp_run  # noqa: E402
+
+
+def _m(o, h, l, c, filler=None):
+    n = len(c)
+    return pd.DataFrame({"open_time_ms": T0 + np.arange(n) * 60_000, "open": o, "high": h, "low": l, "close": c,
+                         "is_filler": np.zeros(n, bool) if filler is None else filler})
+
+
+def _flat(n=40, px=100.0):
+    a = np.full(n, px)
+    return a.copy(), a.copy(), a.copy(), a.copy()
+
+
+def test_scalp_entry_next_open_and_fees_both_sides():
+    o, h, l, c = _flat()
+    o[1:] = 101.0
+    h[1:], l[1:], c[1:] = 101.0, 101.0, 101.0
+    sig = np.zeros(40, np.int8)
+    sig[0] = 1
+    T = scalp_run(_m(o, h, l, c), sig, 0.1, ScalpParams(slip_ticks=0), 0, 40)
+    t = T.iloc[0]
+    assert t.entry_idx == 1 and t.entry_raw == 101.0          # vào ở open nến kế tiếp
+    assert t.reason == 0 and t.hold_min == 15                  # hết 15 phút
+    assert np.isclose(t.fees, 0.0005 * 2)                      # phí 2 chiều
+    assert np.isclose(t.net, -0.001)
+
+
+def test_scalp_tp_and_sl_same_bar_counts_as_sl():
+    o, h, l, c = _flat()
+    h[3], l[3] = 101.0, 99.0                                   # nến 3 chạm cả TP (+0,45%) và SL (−0,30%)
+    sig = np.zeros(40, np.int8)
+    sig[0] = 1
+    T = scalp_run(_m(o, h, l, c), sig, 0.1, ScalpParams(slip_ticks=0, fee=0), 0, 40)
+    assert T.iloc[0].reason == -1 and np.isclose(T.iloc[0].gross, -0.003)
+
+
+def test_scalp_no_entry_during_or_30min_after_filler():
+    o, h, l, c = _flat(120)
+    fil = np.zeros(120, bool)
+    fil[10:12] = True
+    sig = np.zeros(120, np.int8)
+    sig[[9, 30, 50]] = 1                                       # vào ở 10 (filler), 31 (≤ 30′ sau), 51 (được)
+    T = scalp_run(_m(o, h, l, c, fil), sig, 0.1, ScalpParams(), 0, 120)
+    assert list(T.entry_idx) == [51]
+
+
+def test_scalp_opposite_signal_exit_and_slippage_ticks():
+    o, h, l, c = _flat()
+    sig = np.zeros(40, np.int8)
+    sig[0], sig[5] = 1, -1                                     # tín hiệu ngược tại nến 5 → thoát ở open nến 6
+    T = scalp_run(_m(o, h, l, c), sig, 0.5, ScalpParams(fee=0, slip_ticks=2), 0, 40)
+    t = T.iloc[0]
+    assert t.reason == 2 and t.exit_idx == 6
+    assert np.isclose(t.slippage, 2 * 2 * 0.5 / 100)           # 2 tick × 2 chiều
+    assert len(T) == 1                                         # tín hiệu ngược khi đang có lệnh không mở lệnh mới

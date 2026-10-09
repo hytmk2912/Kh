@@ -85,3 +85,52 @@ def run_table_a(cfg: dict, P) -> None:
                             "symbols": ",".join(cfg["symbols"]), "note": "Bảng A đơn lẻ"}
                            for r in T.drop_duplicates(["indicator", "htf"]).itertuples()])
     log.info("Bảng A: %d dòng → %s", len(T), out / "single_tableA.csv")
+
+
+# ---------------------------------------------------------------- S2: Bảng B — backtest baseline
+def table_b(cfg: dict, P, lo_ms: int, hi_ms: int, scenarios: dict | None = None) -> tuple[pd.DataFrame, pd.DataFrame]:
+    from kh.backtest.scalp import SCENARIOS, metrics, run
+    from kh.ind.data import load_funding, load_m1, load_ticks
+
+    scenarios = scenarios or SCENARIOS
+    ticks = load_ticks(P)
+    base_rows, sens_rows = [], []
+    for s in cfg["symbols"]:
+        m1 = load_m1(P, s)
+        fund = load_funding(P, s)
+        sigs = pd.read_parquet(signals_path(P, s))
+        t = m1.open_time_ms.to_numpy()
+        lo, hi = int(np.searchsorted(t, lo_ms)), int(np.searchsorted(t, hi_ms))
+        for c in CARDS:
+            if c.name not in IMPL or c.kind != "D":
+                continue
+            raw = sigs[col_key(c.name)].to_numpy()
+            for htf in (False, True):
+                sig = apply_htf(raw, sigs) if htf else raw
+                for name, prm in scenarios.items():
+                    m = metrics(run(m1, sig, ticks[s], prm, lo, hi, fund))
+                    key = {"indicator": c.name, "key": col_key(c.name), "symbol": s, "htf": htf}
+                    if name == "baseline":
+                        base_rows.append(key | m)
+                    sens_rows.append(key | {"scenario": name, "n_trades": m["n_trades"],
+                                            "expectancy_net_pct": m.get("expectancy_net_pct", np.nan),
+                                            "net_pct": m.get("net_pct", np.nan), "profit_factor": m.get("profit_factor", np.nan)})
+        log.info("Bảng B %s xong", s)
+    return pd.DataFrame(base_rows), pd.DataFrame(sens_rows)
+
+
+def run_table_b(cfg: dict, P) -> None:
+    lo, hi = split_ms(cfg, "train")
+    B, S = table_b(cfg, P, lo, hi)
+    out = P.reports / "ind"
+    B.to_csv(out / "single_tableB.csv", index=False)
+    S.to_csv(out / "single_tableB_sensitivity.csv", index=False)
+    g = B.groupby(["indicator", "key", "htf"], sort=False)
+    summ = pd.concat([g[["n_trades", "expectancy_net_pct", "expectancy_gross_pct", "profit_factor", "win_rate", "max_drawdown_pct"]].median().add_suffix("_median"),
+                      g["expectancy_net_pct"].min().rename("expectancy_net_pct_worst"),
+                      g.apply(lambda d: int((d.expectancy_net_pct > 0).sum()), include_groups=False).rename("symbols_positive")], axis=1).reset_index()
+    summ.to_csv(out / "single_tableB_summary.csv", index=False)
+    log_trials(P.reports, [{"stage": "S2", "trial_id": f"S2-{r.key}-{'htf' if r.htf else 'nohtf'}-{sc}", "indicators": r.indicator,
+                            "htf": r.htf, "params": sc, "split": "train", "symbols": ",".join(cfg["symbols"]), "note": "backtest đơn lẻ"}
+                           for r in B.drop_duplicates(["indicator", "htf"]).itertuples() for sc in S.scenario.unique()])
+    log.info("Bảng B: %d dòng baseline, %d dòng độ nhạy", len(B), len(S))
