@@ -6,7 +6,7 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
 ## Việc
 
 ### 0. Khung dự án
-- [ ] **K1** Tạo `pyproject.toml` (gói `kh`, `src/` layout), `requirements.txt` khoá phiên bản, `src/kh/ind/__main__.py` (CLI các bước), `tests/`, nhánh `ind-scalp`, mở PR nháp vào `master`.
+- [x] **K1** Tạo `pyproject.toml` (gói `kh`, `src/` layout), `requirements.txt` khoá phiên bản, `src/kh/ind/__main__.py` (CLI các bước), `tests/`, nhánh `ind-scalp`, mở PR nháp vào `master`.
   - Xong khi: `pip install -e . && python -m kh.ind --help && pytest -q` chạy không lỗi; có link PR.
 
 ### D. Dữ liệu (spec §1)
@@ -47,6 +47,9 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
 
 ## Log bằng chứng
 <!-- Mỗi dòng: YYYY-MM-DD · mã việc · lệnh · kết quả chính -->
+- 2026-10-10 · K1 · `pip install -e . && python -m kh.ind --help && pytest -q` · cài OK, CLI in 6 bước (data, labels, indicators, single, combos, final), 20 passed · PR nháp https://github.com/hytmk2912/Kh/pull/5
 
 ## Ghi chú phiên
 <!-- Việc đang làm dở, file đang sửa, vấn đề chưa giải quyết. Cập nhật trước khi hết phiên. -->
+- Nhánh `ind-scalp` = `ind-scalp-setup` (PR #4) + merge `phase-0` (PR #2, chưa merge vào master) để dùng lại `src/kh/data` (tải Binance Vision có SHA256/retry), `src/kh/backtest`, `src/kh/evaluation`. Code riêng của track nằm ở `src/kh/ind/`.
+- Dữ liệu: đặt `KH_DATA_DIR` (mặc định `data/` trong repo, đã gitignore). Phiên mới phải chạy lại `python -m kh.ind data`.
