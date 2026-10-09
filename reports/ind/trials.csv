@@ -1,0 +1,199 @@
+utc_time,stage,trial_id,indicators,htf,params,split,symbols,note
+2026-10-09T21:13:05+00:00,S1,S1-i001-nohtf,SMA,False,{'length': 9},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i001-htf,SMA,True,{'length': 9},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i002-nohtf,EMA,False,{'length': 9},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i002-htf,EMA,True,{'length': 9},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i003-nohtf,DEMA,False,{'length': 9},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i003-htf,DEMA,True,{'length': 9},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i004-nohtf,TEMA,False,{'length': 9},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i004-htf,TEMA,True,{'length': 9},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i005-nohtf,Hull MA,False,{'length': 9},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i005-htf,Hull MA,True,{'length': 9},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i006-nohtf,Hamming MA,False,{'length': 10},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i006-htf,Hamming MA,True,{'length': 10},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i007-nohtf,Arnaud Legoux MA,False,"{'length': 9, 'offset': 0.85, 'sigma': 6}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i007-htf,Arnaud Legoux MA,True,"{'length': 9, 'offset': 0.85, 'sigma': 6}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i008-nohtf,Least Squares MA,False,{'length': 25},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i008-htf,Least Squares MA,True,{'length': 25},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i009-nohtf,Smoothed MA,False,{'length': 7},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i009-htf,Smoothed MA,True,{'length': 7},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i010-nohtf,Adaptive MA,False,"{'length': 9, 'fast': 2, 'slow': 30}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i010-htf,Adaptive MA,True,"{'length': 9, 'fast': 2, 'slow': 30}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i011-nohtf,Multi-Timeframe MA,False,"{'length': 20, 'tf': '15m'}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i011-htf,Multi-Timeframe MA,True,"{'length': 20, 'tf': '15m'}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i012-nohtf,WMA,False,{'length': 9},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i012-htf,WMA,True,{'length': 9},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i013-nohtf,McGinley Dynamic,False,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i013-htf,McGinley Dynamic,True,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i014-nohtf,Guppy MMA,False,"{'short': [3, 5, 8, 10, 12, 15], 'long': [30, 35, 40, 45, 50, 60]}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i014-htf,Guppy MMA,True,"{'short': [3, 5, 8, 10, 12, 15], 'long': [30, 35, 40, 45, 50, 60]}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i015-nohtf,MA Cross,False,"{'fast': 9, 'slow': 21}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i015-htf,MA Cross,True,"{'fast': 9, 'slow': 21}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i016-nohtf,EMA Cross,False,"{'fast': 9, 'slow': 21}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i016-htf,EMA Cross,True,"{'fast': 9, 'slow': 21}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i017-nohtf,MA-EMA Cross,False,"{'sma': 10, 'ema': 10}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i017-htf,MA-EMA Cross,True,"{'sma': 10, 'ema': 10}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i018-nohtf,SuperTrend,False,"{'atr': 10, 'factor': 3.0}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i018-htf,SuperTrend,True,"{'atr': 10, 'factor': 3.0}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i019-nohtf,Ichimoku Cloud,False,"{'tenkan': 9, 'kijun': 26, 'senkou_b': 52, 'displacement': 26}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i019-htf,Ichimoku Cloud,True,"{'tenkan': 9, 'kijun': 26, 'senkou_b': 52, 'displacement': 26}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i020-nohtf,Parabolic SAR,False,"{'start': 0.02, 'inc': 0.02, 'max': 0.2}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i020-htf,Parabolic SAR,True,"{'start': 0.02, 'inc': 0.02, 'max': 0.2}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i021-nohtf,Directional Movement,False,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i021-htf,Directional Movement,True,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i022-nohtf,Vortex,False,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i022-htf,Vortex,True,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i023-nohtf,Williams Alligator,False,"{'jaw': [13, 8], 'teeth': [8, 5], 'lips': [5, 3]}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i023-htf,Williams Alligator,True,"{'jaw': [13, 8], 'teeth': [8, 5], 'lips': [5, 3]}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i024-nohtf,Williams Fractal,False,{'periods': 2},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i024-htf,Williams Fractal,True,{'periods': 2},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i025-nohtf,Aroon,False,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i025-htf,Aroon,True,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i026-nohtf,Trend Strength Index,False,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i026-htf,Trend Strength Index,True,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i027-nohtf,Zig Zag,False,{'deviation': 0.005},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i027-htf,Zig Zag,True,{'deviation': 0.005},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i028-nohtf,Linear Regression Curve,False,{'length': 9},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i028-htf,Linear Regression Curve,True,{'length': 9},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i029-nohtf,Linear Regression Slope,False,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i029-htf,Linear Regression Slope,True,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i030-nohtf,Keltner Channels,False,"{'length': 20, 'mult': 2.0, 'atr': 10}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i030-htf,Keltner Channels,True,"{'length': 20, 'mult': 2.0, 'atr': 10}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i031-nohtf,Donchian Channels,False,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i031-htf,Donchian Channels,True,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i032-nohtf,Price Channel,False,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i032-htf,Price Channel,True,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i033-nohtf,MA Channel,False,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i033-htf,MA Channel,True,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i034-nohtf,Chande Kroll Stop,False,"{'p': 10, 'x': 1.0, 'q': 9}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i034-htf,Chande Kroll Stop,True,"{'p': 10, 'x': 1.0, 'q': 9}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i035-nohtf,52-Week High/Low,False,{'length': 1440},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i035-htf,52-Week High/Low,True,{'length': 1440},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i036-nohtf,Majority Rule,False,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i036-htf,Majority Rule,True,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i037-nohtf,ADX,False,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i037-htf,ADX,True,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i038-nohtf,MACD,False,"{'fast': 12, 'slow': 26, 'signal': 9}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i038-htf,MACD,True,"{'fast': 12, 'slow': 26, 'signal': 9}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i039-nohtf,RSI,False,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i039-htf,RSI,True,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i040-nohtf,Stochastic,False,"{'k': 14, 'smooth_k': 1, 'd': 3}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i040-htf,Stochastic,True,"{'k': 14, 'smooth_k': 1, 'd': 3}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i041-nohtf,Stochastic RSI,False,"{'rsi': 14, 'stoch': 14, 'k': 3, 'd': 3}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i041-htf,Stochastic RSI,True,"{'rsi': 14, 'stoch': 14, 'k': 3, 'd': 3}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i042-nohtf,Connors RSI,False,"{'rsi': 3, 'streak': 2, 'rank': 100}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i042-htf,Connors RSI,True,"{'rsi': 3, 'streak': 2, 'rank': 100}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i043-nohtf,Awesome Oscillator,False,"{'fast': 5, 'slow': 34}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i043-htf,Awesome Oscillator,True,"{'fast': 5, 'slow': 34}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i044-nohtf,Accelerator Oscillator,False,"{'fast': 5, 'slow': 34, 'smooth': 5}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i044-htf,Accelerator Oscillator,True,"{'fast': 5, 'slow': 34, 'smooth': 5}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i045-nohtf,Momentum,False,{'length': 10},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i045-htf,Momentum,True,{'length': 10},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i046-nohtf,Chande Momentum Oscillator,False,{'length': 9},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i046-htf,Chande Momentum Oscillator,True,{'length': 9},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i047-nohtf,Price Oscillator,False,"{'fast': 10, 'slow': 21}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i047-htf,Price Oscillator,True,"{'fast': 10, 'slow': 21}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i048-nohtf,Detrended Price Oscillator,False,{'length': 21},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i048-htf,Detrended Price Oscillator,True,{'length': 21},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i049-nohtf,TRIX,False,{'length': 18},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i049-htf,TRIX,True,{'length': 18},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i050-nohtf,Fisher Transform,False,{'length': 9},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i050-htf,Fisher Transform,True,{'length': 9},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i051-nohtf,Ultimate Oscillator,False,"{'fast': 7, 'mid': 14, 'slow': 28}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i051-htf,Ultimate Oscillator,True,"{'fast': 7, 'mid': 14, 'slow': 28}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i052-nohtf,Williams %R,False,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i052-htf,Williams %R,True,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i053-nohtf,SMI Ergodic,False,"{'short': 5, 'long': 20, 'signal': 5}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i053-htf,SMI Ergodic,True,"{'short': 5, 'long': 20, 'signal': 5}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i054-nohtf,Relative Vigor Index,False,{'length': 10},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i054-htf,Relative Vigor Index,True,{'length': 10},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i055-nohtf,True Strength Index,False,"{'long': 25, 'short': 13, 'signal': 13}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i055-htf,True Strength Index,True,"{'long': 25, 'short': 13, 'signal': 13}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i056-nohtf,Coppock Curve,False,"{'wma': 10, 'long': 14, 'short': 11}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i056-htf,Coppock Curve,True,"{'wma': 10, 'long': 14, 'short': 11}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i057-nohtf,Rate of Change,False,{'length': 9},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i057-htf,Rate of Change,True,{'length': 9},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i058-nohtf,Klinger Oscillator,False,"{'fast': 34, 'slow': 55, 'signal': 13}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i058-htf,Klinger Oscillator,True,"{'fast': 34, 'slow': 55, 'signal': 13}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i059-nohtf,Bollinger Bands,False,"{'length': 20, 'mult': 2.0}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i059-htf,Bollinger Bands,True,"{'length': 20, 'mult': 2.0}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i060-nohtf,BB %B,False,"{'length': 20, 'mult': 2.0}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i060-htf,BB %B,True,"{'length': 20, 'mult': 2.0}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i061-nohtf,Standard Error Bands,False,"{'length': 21, 'mult': 2.0, 'smooth': 3}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i061-htf,Standard Error Bands,True,"{'length': 21, 'mult': 2.0, 'smooth': 3}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i062-nohtf,Envelopes,False,"{'length': 20, 'percent': 10.0}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i062-htf,Envelopes,True,"{'length': 20, 'percent': 10.0}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i063-nohtf,BB Width,False,"{'length': 20, 'mult': 2.0}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i063-htf,BB Width,True,"{'length': 20, 'mult': 2.0}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i064-nohtf,ATR,False,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i064-htf,ATR,True,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i065-nohtf,Historical Volatility,False,{'length': 10},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i065-htf,Historical Volatility,True,{'length': 10},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i066-nohtf,Chaikin Volatility,False,"{'length': 10, 'roc': 10}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i066-htf,Chaikin Volatility,True,"{'length': 10, 'roc': 10}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i067-nohtf,Close-to-Close Volatility,False,{'length': 10},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i067-htf,Close-to-Close Volatility,True,{'length': 10},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i068-nohtf,Non-Directional Close-to-Close Volatility,False,{'length': 10},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i068-htf,Non-Directional Close-to-Close Volatility,True,{'length': 10},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i069-nohtf,O-H-L-C Volatility,False,{'length': 10},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i069-htf,O-H-L-C Volatility,True,{'length': 10},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i070-nohtf,Relative Volatility Index,False,"{'stdev': 10, 'smooth': 14}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i070-htf,Relative Volatility Index,True,"{'stdev': 10, 'smooth': 14}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i071-nohtf,Standard Deviation,False,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i071-htf,Standard Deviation,True,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i073-nohtf,Mass Index,False,"{'ema': 9, 'sum': 25}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i073-htf,Mass Index,True,"{'ema': 9, 'sum': 25}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i074-nohtf,Net Volume,False,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i074-htf,Net Volume,True,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i075-nohtf,OBV,False,{'signal': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i075-htf,OBV,True,{'signal': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i076-nohtf,Accumulation/Distribution,False,{'signal': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i076-htf,Accumulation/Distribution,True,{'signal': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i077-nohtf,MFI,False,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i077-htf,MFI,True,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i078-nohtf,Chaikin Money Flow,False,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i078-htf,Chaikin Money Flow,True,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i079-nohtf,Chaikin Oscillator,False,"{'fast': 3, 'slow': 10}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i079-htf,Chaikin Oscillator,True,"{'fast': 3, 'slow': 10}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i080-nohtf,Ease of Movement,False,"{'length': 14, 'divisor': 10000}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i080-htf,Ease of Movement,True,"{'length': 14, 'divisor': 10000}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i081-nohtf,Elder Force Index,False,{'length': 13},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i081-htf,Elder Force Index,True,{'length': 13},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i082-nohtf,Price & Volume Trend,False,{'signal': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i082-htf,Price & Volume Trend,True,{'signal': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i083-nohtf,Volume,False,{},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i083-htf,Volume,True,{},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i084-nohtf,Volume Oscillator,False,"{'fast': 5, 'slow': 10}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i084-htf,Volume Oscillator,True,"{'fast': 5, 'slow': 10}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i085-nohtf,Volume Profile Fixed Range,False,"{'value_area': 0.7, 'bins': 100}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i085-htf,Volume Profile Fixed Range,True,"{'value_area': 0.7, 'bins': 100}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i086-nohtf,VWAP,False,{'anchor': '1D'},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i086-htf,VWAP,True,{'anchor': '1D'},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i087-nohtf,VWMA,False,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i087-htf,VWMA,True,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i088-nohtf,Pivot Points Standard,False,{'anchor': '1D'},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i088-htf,Pivot Points Standard,True,{'anchor': '1D'},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i089-nohtf,Balance of Power,False,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i089-htf,Balance of Power,True,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i090-nohtf,Accumulative Swing Index,False,"{'limit': 10000.0, 'signal': 20}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i090-htf,Accumulative Swing Index,True,"{'limit': 10000.0, 'signal': 20}",train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i091-nohtf,Up/Down,False,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i091-htf,Up/Down,True,{'length': 14},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i092-nohtf,Spread,False,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i092-htf,Spread,True,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i093-nohtf,Correlation Coefficient,False,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i093-htf,Correlation Coefficient,True,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i094-nohtf,Correlation-Log,False,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i094-htf,Correlation-Log,True,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i095-nohtf,Rank Correlation,False,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i095-htf,Rank Correlation,True,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i096-nohtf,Ratio,False,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i096-htf,Ratio,True,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i097-nohtf,Standard Error,False,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i097-htf,Standard Error,True,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i099-nohtf,Average Price,False,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i099-htf,Average Price,True,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i100-nohtf,Typical Price,False,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i100-htf,Typical Price,True,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i101-nohtf,Median Price,False,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ
+2026-10-09T21:13:05+00:00,S1,S1-i101-htf,Median Price,True,{'length': 20},train,"BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT",Bảng A đơn lẻ

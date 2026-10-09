@@ -26,7 +26,7 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
   - Xong khi: `pytest -q tests/test_lookahead.py` qua cho mọi chỉ báo đã triển khai (20 thời điểm ngẫu nhiên/chỉ báo); đối chiếu ≥ 10 chỉ báo phổ biến (EMA, RSI, MACD, ATR, BB, Stoch, ADX, SuperTrend, OBV, VWAP) với một thư viện độc lập, sai số < 1e-4 sau giai đoạn khởi động, kết quả ghi trong phiếu.
 
 ### S. Chấm đơn lẻ (spec §4)
-- [ ] **S1** Bảng A đơn lẻ (Train), có/không HTF, từng symbol + tổng hợp, kèm precision ngẫu nhiên.
+- [x] **S1** Bảng A đơn lẻ (Train), có/không HTF, từng symbol + tổng hợp, kèm precision ngẫu nhiên.
   - Xong khi: `reports/ind/single_tableA.csv` có số dòng = số chỉ báo triển khai × 5 symbol × 2 (HTF); không ô nào bịa (ô trống = NaN có lý do).
 - [ ] **S2** Backtest baseline đơn lẻ (Train), kịch bản phí/trượt giá.
   - Xong khi: `pytest -q tests/test_backtest.py` qua (gồm: vào lệnh ở open nến sau; TP+SL cùng nến → SL; phí tính 2 chiều; không vào lệnh trong filler); `reports/ind/single_tableB.csv` có đủ cột ở spec §4.
@@ -56,6 +56,7 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
 - 2026-10-09 · I2 · `pytest -q tests/test_lookahead.py` · 103 passed: 99 chỉ báo × 20 thời điểm ngẫu nhiên (giá trị + tín hiệu khớp khi tính trên data[:t+1]) + bộ lọc HTF; thử cài một chỉ báo rò rỉ (SMA căn giữa) → test phát hiện
 - 2026-10-09 · I2 · `python tools/ind_crosscheck.py --pandas-ta-python <venv>` (BTCUSDT M1 thật, 30.000 nến, bỏ 2.000 khởi động, ngưỡng 1e-4) · khớp 25 chỉ báo, gồm đủ 10 bắt buộc: EMA 6,6e-16 · RSI 1,1e-15 · MACD 2,7e-12 · ATR 4,3e-15 · BB 5,0e-08 · Stoch 2,3e-14 · ADX 2,8e-15 · SuperTrend 2,2e-16 (talipp, hướng trùng 100%) · OBV 9,3e-14 · VWAP 0 (pandas-ta); không khớp chỉ để tham khảo: CMO (TA-Lib khác định nghĩa TradingView), SuperTrend vs pandas-ta, SAR vs talipp → `reports/ind/indicator_crosscheck.json`, kết quả in trong phiếu
 - 2026-10-09 · I2 · `python -m kh.ind indicators` · 99 chỉ báo × 5 symbol, 122 s; HTF cho phép long 38–43% / short 38–43% số nến [F]; Envelopes (mặc định 10%) 0 tín hiệu trên BTC [F] → `reports/ind/signal_summary.json`
+- 2026-10-09 · S1 · `python -m kh.ind single && pytest -q tests/test_score.py` · `single_tableA.csv` 990 dòng = 99 chỉ báo × 5 symbol × 2 (HTF); 0 ô NaN thiếu lý do; precision ngẫu nhiên ≈ 0,40 [F]; lift Long trung vị cao nhất (n đủ lớn): Zig Zag 1,33–1,34 · Keltner 1,33 · Donchian 1,31–1,33 [F]; recall sóng nhanh cao nhất Connors RSI 0,85 nhưng lift 1,05 [F]; Envelopes lift 2,5 chỉ từ vài tín hiệu (mẫu quá nhỏ) [I]; filter lift cao nhất ATR 1,34 [F]; `trials.csv` 198 lần thử
 
 ## Ghi chú phiên
 <!-- Việc đang làm dở, file đang sửa, vấn đề chưa giải quyết. Cập nhật trước khi hết phiên. -->

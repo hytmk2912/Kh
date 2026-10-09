@@ -33,7 +33,9 @@ def step_indicators(cfg, P, args):
 
 
 def step_single(cfg, P, args):
-    raise NotImplementedError("việc S1–S2")
+    from kh.ind.single import run_table_a
+
+    run_table_a(cfg, P)
 
 
 def step_combos(cfg, P, args):
