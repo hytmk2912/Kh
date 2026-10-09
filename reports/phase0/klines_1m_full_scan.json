@@ -1,0 +1,72 @@
+{
+  "BTCUSDT": {
+    "rows": 1051200,
+    "expected": 1051200,
+    "missing_minutes": 0,
+    "duplicates": 0,
+    "unsorted_steps": 0,
+    "checksum_fail": 0,
+    "ohlc_violations": 0,
+    "zero_volume": 126,
+    "gap_count": 0,
+    "largest_gaps": [],
+    "min_close": 57843.0,
+    "max_close": 126086.8
+  },
+  "ETHUSDT": {
+    "rows": 1051200,
+    "expected": 1051200,
+    "missing_minutes": 0,
+    "duplicates": 0,
+    "unsorted_steps": 0,
+    "checksum_fail": 0,
+    "ohlc_violations": 0,
+    "zero_volume": 127,
+    "gap_count": 0,
+    "largest_gaps": [],
+    "min_close": 1387.79,
+    "max_close": 4953.0
+  },
+  "BNBUSDT": {
+    "rows": 1051200,
+    "expected": 1051200,
+    "missing_minutes": 0,
+    "duplicates": 0,
+    "unsorted_steps": 0,
+    "checksum_fail": 0,
+    "ohlc_violations": 0,
+    "zero_volume": 128,
+    "gap_count": 0,
+    "largest_gaps": [],
+    "min_close": 503.35,
+    "max_close": 1372.68
+  },
+  "SOLUSDT": {
+    "rows": 1051200,
+    "expected": 1051200,
+    "missing_minutes": 0,
+    "duplicates": 0,
+    "unsorted_steps": 0,
+    "checksum_fail": 0,
+    "ohlc_violations": 0,
+    "zero_volume": 128,
+    "gap_count": 0,
+    "largest_gaps": [],
+    "min_close": 60.29,
+    "max_close": 295.33
+  },
+  "XRPUSDT": {
+    "rows": 1051200,
+    "expected": 1051200,
+    "missing_minutes": 0,
+    "duplicates": 0,
+    "unsorted_steps": 0,
+    "checksum_fail": 0,
+    "ohlc_violations": 0,
+    "zero_volume": 127,
+    "gap_count": 0,
+    "largest_gaps": [],
+    "min_close": 0.4889,
+    "max_close": 3.6569
+  }
+}
