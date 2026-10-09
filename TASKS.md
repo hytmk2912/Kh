@@ -67,7 +67,7 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
 - Nhánh `ind-scalp` = `ind-scalp-setup` (PR #4) + merge `phase-0` (PR #2, chưa merge vào master) để dùng lại `src/kh/data` (tải Binance Vision có SHA256/retry), `src/kh/backtest`, `src/kh/evaluation`. Code riêng của track nằm ở `src/kh/ind/`.
 - C2: Bảng A tổ hợp chỉ có 30 dòng đạt điều kiện → W1 chạy walk-forward cho 30 tổ hợp này ("top 50" = tối đa 50). Kết quả chi tiết theo symbol: `data/ind/combos_train_by_symbol.parquet` (không commit), tổng hợp mọi tổ hợp: `reports/ind/combos_tableA_all.csv.gz`.
 - W1 xong. Kết quả chọn từng fold lưu ở `data/ind/wf/foldNN/` (không commit) → chạy lại `--part w1` dùng lại cache, chỉ tính lại Bảng B + độ bền.
-- Việc tiếp: F1 — viết `docs/ind/strategy.md`, ghi lựa chọn + hash vào CHANGELOG, rồi **dừng hỏi chủ repo** (không chạy F2 khi chưa được duyệt).
+- F1: đã viết `docs/ind/strategy.md` + dòng CHANGELOG (Bảng B hạng 1, commit `113a5c4`). **Đang chờ chủ repo trả lời** (mục 6 của strategy.md: 1 = chạy test khoá, 2 = kết luận không có chiến lược, 3 = hướng khác). Chưa mở test khoá; `python -m kh.ind final` vẫn chặn (NotImplementedError) tới khi được duyệt.
 - Ngày trong log theo UTC (đồng hồ container).
 - Đối chiếu chỉ báo cần môi trường riêng: `python -m venv /tmp/xenv && /tmp/xenv/bin/pip install pandas-ta talipp pyarrow`, rồi `python tools/ind_crosscheck.py --pandas-ta-python /tmp/xenv/bin/python`.
 - Dữ liệu: đặt `KH_DATA_DIR` (mặc định `data/` trong repo, đã gitignore). Phiên mới phải chạy lại `python -m kh.ind data`.
