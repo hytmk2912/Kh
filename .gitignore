@@ -1,0 +1,10 @@
+# Dữ liệu lớn và bí mật không đưa lên GitHub
+data/
+*.zip
+*.parquet
+!reports/**/*.json
+.env
+*.key
+__pycache__/
+.ipynb_checkpoints/
+logs/*.log
