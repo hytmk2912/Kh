@@ -1,0 +1,24 @@
+2026-10-09T16:50:35 INFO kh.cli: === Stage data bắt đầu (config 41b083d4e64b) ===
+2026-10-09T16:50:44 INFO kh.data.vision: klines_1m BTCUSDT: 32 file
+2026-10-09T16:51:02 INFO kh.data.vision: klines_1m ETHUSDT: 32 file
+2026-10-09T16:51:19 INFO kh.data.vision: klines_1m BNBUSDT: 32 file
+2026-10-09T16:51:36 INFO kh.data.vision: klines_1m SOLUSDT: 32 file
+2026-10-09T16:51:53 INFO kh.data.vision: klines_1m XRPUSDT: 32 file
+2026-10-09T16:52:14 INFO kh.data.vision: metrics BTCUSDT: 730 file
+2026-10-09T16:54:03 INFO kh.data.vision: metrics ETHUSDT: 730 file
+2026-10-09T16:55:57 INFO kh.data.vision: metrics BNBUSDT: 730 file
+2026-10-09T16:57:42 INFO kh.data.vision: metrics SOLUSDT: 730 file
+2026-10-09T16:59:28 INFO kh.data.vision: metrics XRPUSDT: 730 file
+2026-10-09T17:01:10 WARNING kh.data.vision: fundingRate BTCUSDT 2026-10: thiếu 8/8 file ngày trên server
+2026-10-09T17:01:10 INFO kh.data.vision: fundingRate BTCUSDT: 24 file
+2026-10-09T17:01:16 WARNING kh.data.vision: fundingRate ETHUSDT 2026-10: thiếu 8/8 file ngày trên server
+2026-10-09T17:01:16 INFO kh.data.vision: fundingRate ETHUSDT: 24 file
+2026-10-09T17:01:22 WARNING kh.data.vision: fundingRate BNBUSDT 2026-10: thiếu 8/8 file ngày trên server
+2026-10-09T17:01:22 INFO kh.data.vision: fundingRate BNBUSDT: 24 file
+2026-10-09T17:01:27 WARNING kh.data.vision: fundingRate SOLUSDT 2026-10: thiếu 8/8 file ngày trên server
+2026-10-09T17:01:27 INFO kh.data.vision: fundingRate SOLUSDT: 24 file
+2026-10-09T17:01:31 WARNING kh.data.vision: fundingRate XRPUSDT 2026-10: thiếu 8/8 file ngày trên server
+2026-10-09T17:01:31 INFO kh.data.vision: fundingRate XRPUSDT: 24 file
+2026-10-09T17:01:34 INFO kh.data.vision: Manifest: 3930 file, 256.6 MB, trạng thái {'downloaded': 3930}
+2026-10-09T17:01:41 INFO kh.data.normalize: klines_1m BTCUSDT: 1051200 dòng -> /content/drive/MyDrive/kh_data/normalized/klines_1m/BTCUSDT.parquet
+2026-10-09T17:01:43 INFO kh.cli: === Stage push bắt đầu (config 41b083d4e64b) ===

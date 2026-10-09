@@ -1,0 +1,34 @@
+# Sinh tự động bởi stage backtest. KHÔNG sửa tay sau khi đã chạy final test.
+locked: true
+locked_at_utc: '2026-10-09T16:36:42+00:00'
+git: 55d9471-dirty
+config_hash: 41b083d4e64b
+selection_rule: docs/hypotheses.md — tiêu chí chọn chiến lược vào final test
+selected: []
+informational_best_val_sharpe_per_family:
+- family: model
+  name: lgbm_H60_tau0.65
+  H: 60
+  tau: 0.65
+- family: reversal
+  name: rev_ret_15_z_H240
+  feature: ret_15_z
+  H: 240
+- family: dc_follow
+  name: dc_sig8
+  scale: 8
+reversal_edges_from_train:
+  ret_15_z:
+  - -1.0456974506378174
+  - 1.04334557056427
+  taker_imb_15:
+  - -0.2169133573770523
+  - 0.18863220512866974
+  rsi_14:
+  - 35.80079650878906
+  - 64.5103759765625
+n_variants_tried: 14
+pbo_research:
+  pbo: 0.0
+  n_combinations: 12870
+  median_logit: 2.639057329615259
