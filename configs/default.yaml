@@ -60,7 +60,7 @@ mining:
   fdr_q: 0.10
   val_alpha: 0.05
   min_coins_same_sign: 3
-  nw_lags: 5
+  nw_lags: 10
   bootstrap_reps: 1000
   block_days: 5
 

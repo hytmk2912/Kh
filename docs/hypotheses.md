@@ -63,3 +63,10 @@ cùng dấu trên validation với p < 0,05 (một phía) và cùng dấu ở �
 - **Không đạt**: ròng ≤ 0.
 
 Không có chiến lược nào được gọi là "có lợi nhuận" chỉ dựa trên train hoặc validation.
+
+## Nhật ký thay đổi phương pháp (sau khi đăng ký)
+
+| Ngày | Thay đổi | Lý do | Ảnh hưởng tới tính độc lập |
+|---|---|---|---|
+| 2026-10-09 | IC tính trong từng ngày → IC Spearman gộp toàn tập, sai số Newey-West trên đóng góp theo ngày; NW lags 5 → 10 | Lần chạy đầu cho IC ≈ −0,24 ở đặc trưng chậm. Kiểm chứng trên bước ngẫu nhiên: IC trong ngày cho −0,22 (t = −22,6) với return 1 ngày và −0,026 (t = −5,1) với return 15 phút dù không có quy luật nào → **lỗi phương pháp**, không phải tín hiệu. Phương pháp mới cho t ≈ N(0,1) trên bước ngẫu nhiên (`tests/test_stats.py`). | Đây là sửa lỗi đo lường, không phải chọn lại giả thuyết. Kết quả lần chạy lỗi được giữ trong registry thí nghiệm. Final test chưa bị chạm. |
+| 2026-10-09 | Tổ hợp hai đặc trưng: hạng trong ngày → hạng theo phân phối train của từng coin | Hạng trong ngày dùng giá trị phía sau trong cùng ngày (rò rỉ tương lai) | Như trên. |
