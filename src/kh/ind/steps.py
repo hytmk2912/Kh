@@ -10,7 +10,9 @@ def step_data(cfg, P, args):
 
 
 def step_labels(cfg, P, args):
-    raise NotImplementedError("việc L1")
+    from kh.ind.labels import run_labels
+
+    run_labels(cfg, P)
 
 
 def step_indicators(cfg, P, args):

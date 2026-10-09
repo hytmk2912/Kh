@@ -16,7 +16,7 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
   - Xong khi: `pytest -q tests/test_data.py` qua; mỗi symbol 1.051.200 nến M1, 70.080 nến M15, 17.520 nến H1, 0 thiếu, 0 trùng; số filler = BTC 126 / ETH 127 / BNB 128 / SOL 128 / XRP 127.
 
 ### L. Nhãn sóng (spec §2)
-- [ ] **L1** ZigZag 0,5% trên high/low (lưu `event_time` + `confirm_time`), nhãn 4 trạng thái + UNKNOWN, cờ sóng nhanh.
+- [x] **L1** ZigZag 0,5% trên high/low (lưu `event_time` + `confirm_time`), nhãn 4 trạng thái + UNKNOWN, cờ sóng nhanh.
   - Xong khi: `pytest -q tests/test_labels.py` qua (gồm chuỗi giá tự tạo có đáp án biết trước, và test module tín hiệu không import module nhãn); `reports/ind/waves_stats.json` có đủ 5 symbol × 3 ngưỡng (0,4 / 0,5 / 0,7%).
 
 ### I. Chỉ báo và tín hiệu (spec §3)
@@ -51,6 +51,7 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
 - 2026-10-09 · D1 · `python -m kh.ind data` (lần 1) · 280 file tải mới, 215,0 MB, 127 s, 0 lỗi [F]
 - 2026-10-09 · D1 · `python -m kh.ind data` (lần 2) · "0 file tải mới; 280 file trong manifest; 0 file lỗi"; manifest: 5 × 32 klines (24 tháng + 8 ngày) + 5 × 24 funding (tháng), tất cả `verified` [F]. Funding 2026-10 chưa có trên server (đúng như spec §1, [L])
 - 2026-10-09 · D2 · `python -m kh.ind data && pytest -q tests/test_data.py` · 6 passed; mỗi symbol M1 1.051.200 / M15 70.080 / H1 17.520, thiếu 0, trùng 0, OHLC sai 0, không hữu hạn 0; filler BTC 126 / ETH 127 / BNB 128 / SOL 128 / XRP 127 [F]; funding 2.166 bản ghi/symbol, cuối 2026-09-30 16:00 [F]; tick suy ra BTC 0,1 · ETH 0,01 · BNB 0,01 · SOL 0,001 · XRP 0,0001 [I] → `reports/ind/data_quality.json`, `tick_size.json`
+- 2026-10-09 · L1 · `pytest -q tests/test_labels.py && python -m kh.ind labels` · 5 passed (chuỗi giá có đáp án biết trước, filler, đi ngang/nhịp hồi, module tín hiệu không import nhãn); `waves_stats.json` đủ 5 symbol × 3 ngưỡng; sóng 0,5% nhanh tăng/giảm (train+val): BTC 4.268/4.023 · ETH 11.392/11.120 · BNB 5.910/5.687 · SOL 16.662/16.451 · XRP 18.462/18.183 [F]; tỷ lệ nến ĐI NGANG BTC 85,0% · ETH 63,7% · BNB 79,2% · SOL 48,6% · XRP 54,3% [F]
 
 ## Ghi chú phiên
 <!-- Việc đang làm dở, file đang sửa, vấn đề chưa giải quyết. Cập nhật trước khi hết phiên. -->
