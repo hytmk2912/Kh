@@ -44,3 +44,42 @@ def test_features_finite_or_nan(cfg, data):
     k, m, f, btc = data
     F = compute_features(k, cfg, m, f, btc)
     assert not np.isinf(F.to_numpy()).any()
+
+
+# ---------------------------------------------------------------- track ind (I2): mọi chỉ báo
+from kh.ind.htf import htf_permissions  # noqa: E402
+from kh.ind.indicators.impl import IMPL, Ctx, compute  # noqa: E402
+
+N_IND = 3200
+
+
+@pytest.fixture(scope="module")
+def ind_data():
+    k = synth_klines(N_IND, seed=11, filler_at=(1800, 1810))
+    rng = np.random.default_rng(5)
+    ref = k.close.to_numpy() * 0.5 + np.cumsum(rng.normal(0, 0.02, len(k)))
+    k["open_time_ms"] = k.open_time_ms - (k.open_time_ms.iloc[0] % 86_400_000)  # bắt đầu đúng 00:00 UTC
+    return k, ref
+
+
+@pytest.mark.parametrize("name", sorted(IMPL))
+def test_indicator_no_lookahead(name, ind_data):
+    """20 thời điểm ngẫu nhiên: giá trị + tín hiệu tại t tính trên data[:t+1] phải bằng khi tính trên toàn bộ."""
+    k, ref = ind_data
+    full_out, full_sig = compute(name, Ctx.from_frame(k, ref))
+    rng = np.random.default_rng(abs(hash(name)) % 2**32)
+    for t in sorted(rng.choice(np.arange(1500, N_IND), 20, replace=False)):
+        out, sig = compute(name, Ctx.from_frame(k.iloc[: t + 1], ref[: t + 1]))
+        assert sig[t] == full_sig[t], f"{name}: tín hiệu khác tại t={t}"
+        for key in full_out:
+            a, b = out[key][t], full_out[key][t]
+            assert np.isclose(a, b, rtol=1e-5, atol=1e-6, equal_nan=True), f"{name}.{key}: {a} ≠ {b} tại t={t}"
+
+
+def test_htf_filter_no_lookahead(ind_data):
+    k, _ = ind_data
+    t, c = k.open_time_ms.to_numpy(), k.close.to_numpy()
+    L, S = htf_permissions(t, c)
+    for i in np.random.default_rng(0).choice(np.arange(200, N_IND), 30, replace=False):
+        l2, s2 = htf_permissions(t[: i + 1], c[: i + 1])
+        assert l2[i] == L[i] and s2[i] == S[i]

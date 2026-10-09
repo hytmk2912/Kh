@@ -10,3 +10,5 @@ lightgbm==4.7.0
 matplotlib==3.11.2
 pyyaml==6.0.1
 pytest==9.1.1
+# Chỉ dùng để đối chiếu chỉ báo (tools/ind_crosscheck.py). pandas-ta 0.4.71b0 + talipp 2.7.0 chạy ở môi trường riêng.
+TA-Lib==0.8.1

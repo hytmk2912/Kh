@@ -22,7 +22,7 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
 ### I. Chỉ báo và tín hiệu (spec §3)
 - [x] **I1** Registry + phiếu cho **mọi** chỉ báo ở Phụ lục A (kể cả không triển khai được).
   - Xong khi: `python -m kh.ind indicators --list` in số chỉ báo = số tên trong Phụ lục A; `docs/ind/indicator_cards.md` sinh tự động.
-- [ ] **I2** Triển khai chỉ báo + tín hiệu directional/filter + bộ lọc HTF.
+- [x] **I2** Triển khai chỉ báo + tín hiệu directional/filter + bộ lọc HTF.
   - Xong khi: `pytest -q tests/test_lookahead.py` qua cho mọi chỉ báo đã triển khai (20 thời điểm ngẫu nhiên/chỉ báo); đối chiếu ≥ 10 chỉ báo phổ biến (EMA, RSI, MACD, ATR, BB, Stoch, ADX, SuperTrend, OBV, VWAP) với một thư viện độc lập, sai số < 1e-4 sau giai đoạn khởi động, kết quả ghi trong phiếu.
 
 ### S. Chấm đơn lẻ (spec §4)
@@ -53,9 +53,13 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
 - 2026-10-09 · D2 · `python -m kh.ind data && pytest -q tests/test_data.py` · 6 passed; mỗi symbol M1 1.051.200 / M15 70.080 / H1 17.520, thiếu 0, trùng 0, OHLC sai 0, không hữu hạn 0; filler BTC 126 / ETH 127 / BNB 128 / SOL 128 / XRP 127 [F]; funding 2.166 bản ghi/symbol, cuối 2026-09-30 16:00 [F]; tick suy ra BTC 0,1 · ETH 0,01 · BNB 0,01 · SOL 0,001 · XRP 0,0001 [I] → `reports/ind/data_quality.json`, `tick_size.json`
 - 2026-10-09 · L1 · `pytest -q tests/test_labels.py && python -m kh.ind labels` · 5 passed (chuỗi giá có đáp án biết trước, filler, đi ngang/nhịp hồi, module tín hiệu không import nhãn); `waves_stats.json` đủ 5 symbol × 3 ngưỡng; sóng 0,5% nhanh tăng/giảm (train+val): BTC 4.268/4.023 · ETH 11.392/11.120 · BNB 5.910/5.687 · SOL 16.662/16.451 · XRP 18.462/18.183 [F]; tỷ lệ nến ĐI NGANG BTC 85,0% · ETH 63,7% · BNB 79,2% · SOL 48,6% · XRP 54,3% [F]
 - 2026-10-09 · I1 · `python -m kh.ind indicators --list && pytest -q tests/test_registry.py` · in 101 chỉ báo = 101 tên Phụ lục A (test so khớp đúng tên và thứ tự), 2 không triển khai (Volatility Region, Sure Thing); `docs/ind/indicator_cards.md` sinh tự động
+- 2026-10-09 · I2 · `pytest -q tests/test_lookahead.py` · 103 passed: 99 chỉ báo × 20 thời điểm ngẫu nhiên (giá trị + tín hiệu khớp khi tính trên data[:t+1]) + bộ lọc HTF; thử cài một chỉ báo rò rỉ (SMA căn giữa) → test phát hiện
+- 2026-10-09 · I2 · `python tools/ind_crosscheck.py --pandas-ta-python <venv>` (BTCUSDT M1 thật, 30.000 nến, bỏ 2.000 khởi động, ngưỡng 1e-4) · khớp 25 chỉ báo, gồm đủ 10 bắt buộc: EMA 6,6e-16 · RSI 1,1e-15 · MACD 2,7e-12 · ATR 4,3e-15 · BB 5,0e-08 · Stoch 2,3e-14 · ADX 2,8e-15 · SuperTrend 2,2e-16 (talipp, hướng trùng 100%) · OBV 9,3e-14 · VWAP 0 (pandas-ta); không khớp chỉ để tham khảo: CMO (TA-Lib khác định nghĩa TradingView), SuperTrend vs pandas-ta, SAR vs talipp → `reports/ind/indicator_crosscheck.json`, kết quả in trong phiếu
+- 2026-10-09 · I2 · `python -m kh.ind indicators` · 99 chỉ báo × 5 symbol, 122 s; HTF cho phép long 38–43% / short 38–43% số nến [F]; Envelopes (mặc định 10%) 0 tín hiệu trên BTC [F] → `reports/ind/signal_summary.json`
 
 ## Ghi chú phiên
 <!-- Việc đang làm dở, file đang sửa, vấn đề chưa giải quyết. Cập nhật trước khi hết phiên. -->
 - Nhánh `ind-scalp` = `ind-scalp-setup` (PR #4) + merge `phase-0` (PR #2, chưa merge vào master) để dùng lại `src/kh/data` (tải Binance Vision có SHA256/retry), `src/kh/backtest`, `src/kh/evaluation`. Code riêng của track nằm ở `src/kh/ind/`.
 - Ngày trong log theo UTC (đồng hồ container).
+- Đối chiếu chỉ báo cần môi trường riêng: `python -m venv /tmp/xenv && /tmp/xenv/bin/pip install pandas-ta talipp pyarrow`, rồi `python tools/ind_crosscheck.py --pandas-ta-python /tmp/xenv/bin/python`.
 - Dữ liệu: đặt `KH_DATA_DIR` (mặc định `data/` trong repo, đã gitignore). Phiên mới phải chạy lại `python -m kh.ind data`.

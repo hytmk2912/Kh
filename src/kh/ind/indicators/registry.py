@@ -69,12 +69,12 @@ CARDS: list[Card] = [
     _c("MA-EMA Cross", "A1 MA", "D", "SMA và EMA cùng độ dài", {"sma": 10, "ema": 10}, "EMA cắt lên SMA → +1; cắt xuống → −1", 50,
        notes=["[A] SMA 10 / EMA 10 theo 'MA with EMA Cross'"]),
     # ---------------- A2. Xu hướng
-    _c("SuperTrend", "A2 Xu hướng", "D", "dải hl2 ± factor·ATR(RMA), đổi hướng khi close vượt dải", {"atr": 10, "factor": 3.0},
+    _c("SuperTrend", "A2 Xu hướng", "D", "dải hl2 ± factor·ATR(RMA), chép theo mã tham chiếu Pine `ta.supertrend` của TradingView", {"atr": 10, "factor": 3.0},
        "đổi sang xu hướng tăng → +1; đổi sang giảm → −1", 50),
     _c("Ichimoku Cloud", "A2 Xu hướng", "D", "Tenkan 9, Kijun 26, Senkou B 52, mây dịch tới 26 nến (mây tại t tính từ dữ liệu t−26)",
        {"tenkan": 9, "kijun": 26, "senkou_b": 52, "displacement": 26}, "close cắt lên đỉnh mây → +1; cắt xuống đáy mây → −1", 78,
        notes=["[A] dùng tín hiệu giá phá mây (không dùng Chikou vì Chikou là giá dịch lùi)"]),
-    _c("Parabolic SAR", "A2 Xu hướng", "D", "SAR Wilder, AF 0,02 tăng 0,02 tối đa 0,2", {"start": 0.02, "inc": 0.02, "max": 0.2},
+    _c("Parabolic SAR", "A2 Xu hướng", "D", "SAR Wilder, AF 0,02 tăng 0,02 tối đa 0,2; SAR nến sau được kẹp bởi high/low nến hiện tại và nến trước rồi mới xét đảo chiều (định nghĩa gốc Wilder, như TA-Lib)", {"start": 0.02, "inc": 0.02, "max": 0.2},
        "SAR đổi xuống dưới giá → +1; lên trên giá → −1", 10),
     _c("Directional Movement", "A2 Xu hướng", "D", "+DI và −DI (RMA 14)", {"length": 14}, "+DI cắt lên −DI → +1; cắt xuống → −1", 70),
     _c("Vortex", "A2 Xu hướng", "D", "VI+ = Σ|H−L₋₁|/ΣTR, VI− = Σ|L−H₋₁|/ΣTR", {"length": 14}, "VI+ cắt lên VI− → +1; cắt xuống → −1", 15),
@@ -229,11 +229,22 @@ def status(card: Card) -> str:
     return "đã triển khai" if card.name in getattr(impl, "IMPL", {}) else "chưa triển khai"
 
 
+def crosscheck_results() -> dict:
+    import json
+
+    from kh.config import REPO_ROOT
+
+    p = REPO_ROOT / "reports" / "ind" / "indicator_crosscheck.json"
+    return json.loads(p.read_text())["results"] if p.exists() else {}
+
+
 def cards_markdown() -> str:
+    xc = crosscheck_results()
     L = ["# Phiếu chỉ báo (sinh tự động từ `src/kh/ind/indicators/registry.py`)", "",
          f"Tổng số: **{len(CARDS)}** chỉ báo = số tên ở Phụ lục A của `docs/ind/spec.md`.",
          "Quy ước: (D) directional → sự kiện +1/−1 tại nến điều kiện vừa đúng; (F) filter → trạng thái bật/tắt, không cho hướng.",
-         f"Quy tắc filter mặc định: {FILTER_RULE}.", "",
+         f"Quy tắc filter mặc định: {FILTER_RULE}.",
+         "Đối chiếu thư viện độc lập: `tools/ind_crosscheck.py` → `reports/ind/indicator_crosscheck.json` (BTCUSDT M1 thật, ngưỡng 1e-4).", "",
          "| # | Chỉ báo | Nhóm | Loại | Trạng thái | Tham số | Quy tắc |", "|---|---|---|---|---|---|---|"]
     for i, c in enumerate(CARDS, 1):
         L.append(f"| {i} | {c.name} | {c.group} | {c.kind} | {status(c)} | `{c.params}` | {c.rule} |")
@@ -245,6 +256,9 @@ def cards_markdown() -> str:
               f"- Công thức: {c.formula}", f"- Nguồn công thức: {c.source}", f"- Tham số mặc định: `{c.params}`",
               f"- Quy tắc tín hiệu: {c.rule}", f"- Số nến khởi động: {c.warmup}", f"- Độ trễ: {c.lag}",
               f"- Rủi ro repaint: {c.repaint}", f"- Tương đương TradingView: {c.tv_note}"]
+        for r in xc.get(c.name, []):
+            L.append(f"- Đối chiếu thư viện độc lập ({r['library']}): sai số tương đối tối đa {r['max_rel_error']:.2e} sau 2.000 nến khởi động"
+                     f" → **{'khớp' if r['pass'] else 'không khớp'}**" + (f" — {r['note']}" if r["note"] else ""))
         L += [f"- Ghi chú: {n}" for n in c.notes]
         L.append("")
     return "\n".join(L)
