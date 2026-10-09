@@ -24,8 +24,11 @@ KLINE_RENAME = {"open_time": "open_time_ms", "close_time": "close_time_ms", "cou
 
 
 def _read_zip_csv(path: Path, names: list[str] | None = None) -> pd.DataFrame:
-    with zipfile.ZipFile(path) as z:
-        raw = z.read(z.namelist()[0])
+    try:
+        with zipfile.ZipFile(path) as z:
+            raw = z.read(z.namelist()[0])
+    except (zipfile.BadZipFile, OSError) as e:
+        raise RuntimeError(f"Không đọc được {path} ({e}). Xóa file này và file .sha256 đi kèm rồi chạy lại stage data.") from e
     has_header = not raw[:1].isdigit()
     df = pd.read_csv(io.BytesIO(raw), header=0 if has_header else None)
     if not has_header and names:

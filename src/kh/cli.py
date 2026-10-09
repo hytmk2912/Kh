@@ -102,7 +102,12 @@ def main(argv=None):
     for st in (ALL if args.stage == "all" else [args.stage]):
         t0 = time.time()
         log.info("=== Stage %s bắt đầu (config %s) ===", st, cfg["_hash"])
-        STAGES[st](cfg, P, args)
+        try:
+            STAGES[st](cfg, P, args)
+        except Exception:
+            # Ghi traceback vào kh.log để báo cáo đẩy lên GitHub có đủ nguyên nhân lỗi
+            log.exception("Stage %s lỗi", st)
+            sys.exit(1)
         log.info("=== Stage %s xong trong %.1f s ===", st, time.time() - t0)
 
 
