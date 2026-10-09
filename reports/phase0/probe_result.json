@@ -1,0 +1,298 @@
+{
+  "run_at_utc": "2026-10-09T15:19:42.278965+00:00",
+  "window": {
+    "start": "2024-10-09",
+    "end": "2026-10-08",
+    "days": 730
+  },
+  "rest": {
+    "/fapi/v1/ping": {
+      "http": 451,
+      "body_head": "{\n  \"code\": 0,\n  \"msg\": \"Service unavailable from a restricted location according to 'b. Eligibility' in https://www.binance.com/en/terms. Please contact custom"
+    },
+    "/fapi/v1/exchangeInfo": {
+      "http": 451,
+      "body_head": "{\n  \"code\": 0,\n  \"msg\": \"Service unavailable from a restricted location according to 'b. Eligibility' in https://www.binance.com/en/terms. Please contact custom"
+    }
+  },
+  "coverage": {
+    "BTCUSDT": {
+      "klines_1m_monthly": {
+        "first_available": "2020-01",
+        "last_available": "2026-09",
+        "files_total": 81,
+        "files_in_window": 24
+      },
+      "klines_1m_daily": {
+        "first_available": "2019-12-31",
+        "last_available": "2026-10-08",
+        "files_total": 2474,
+        "files_in_window": 730,
+        "days_expected": 730,
+        "days_missing": 0,
+        "missing_sample": []
+      },
+      "metrics_daily": {
+        "first_available": "2020-09-01",
+        "last_available": "2026-10-08",
+        "files_total": 2229,
+        "files_in_window": 730,
+        "days_expected": 730,
+        "days_missing": 0,
+        "missing_sample": []
+      },
+      "fundingRate_monthly": {
+        "first_available": "2020-01",
+        "last_available": "2026-09",
+        "files_total": 81,
+        "files_in_window": 24
+      }
+    },
+    "ETHUSDT": {
+      "klines_1m_monthly": {
+        "first_available": "2020-01",
+        "last_available": "2026-09",
+        "files_total": 81,
+        "files_in_window": 24
+      },
+      "klines_1m_daily": {
+        "first_available": "2019-12-31",
+        "last_available": "2026-10-08",
+        "files_total": 2474,
+        "files_in_window": 730,
+        "days_expected": 730,
+        "days_missing": 0,
+        "missing_sample": []
+      },
+      "metrics_daily": {
+        "first_available": "2021-12-01",
+        "last_available": "2026-10-08",
+        "files_total": 1773,
+        "files_in_window": 730,
+        "days_expected": 730,
+        "days_missing": 0,
+        "missing_sample": []
+      },
+      "fundingRate_monthly": {
+        "first_available": "2020-01",
+        "last_available": "2026-09",
+        "files_total": 81,
+        "files_in_window": 24
+      }
+    },
+    "BNBUSDT": {
+      "klines_1m_monthly": {
+        "first_available": "2020-02",
+        "last_available": "2026-09",
+        "files_total": 80,
+        "files_in_window": 24
+      },
+      "klines_1m_daily": {
+        "first_available": "2020-02-10",
+        "last_available": "2026-10-08",
+        "files_total": 2433,
+        "files_in_window": 730,
+        "days_expected": 730,
+        "days_missing": 0,
+        "missing_sample": []
+      },
+      "metrics_daily": {
+        "first_available": "2021-12-01",
+        "last_available": "2026-10-08",
+        "files_total": 1773,
+        "files_in_window": 730,
+        "days_expected": 730,
+        "days_missing": 0,
+        "missing_sample": []
+      },
+      "fundingRate_monthly": {
+        "first_available": "2020-02",
+        "last_available": "2026-09",
+        "files_total": 80,
+        "files_in_window": 24
+      }
+    },
+    "SOLUSDT": {
+      "klines_1m_monthly": {
+        "first_available": "2020-09",
+        "last_available": "2026-09",
+        "files_total": 73,
+        "files_in_window": 24
+      },
+      "klines_1m_daily": {
+        "first_available": "2020-09-14",
+        "last_available": "2026-10-08",
+        "files_total": 2216,
+        "files_in_window": 730,
+        "days_expected": 730,
+        "days_missing": 0,
+        "missing_sample": []
+      },
+      "metrics_daily": {
+        "first_available": "2021-12-01",
+        "last_available": "2026-10-08",
+        "files_total": 1773,
+        "files_in_window": 730,
+        "days_expected": 730,
+        "days_missing": 0,
+        "missing_sample": []
+      },
+      "fundingRate_monthly": {
+        "first_available": "2020-09",
+        "last_available": "2026-09",
+        "files_total": 73,
+        "files_in_window": 24
+      }
+    },
+    "XRPUSDT": {
+      "klines_1m_monthly": {
+        "first_available": "2020-01",
+        "last_available": "2026-09",
+        "files_total": 81,
+        "files_in_window": 24
+      },
+      "klines_1m_daily": {
+        "first_available": "2020-01-06",
+        "last_available": "2026-10-08",
+        "files_total": 2464,
+        "files_in_window": 730,
+        "days_expected": 730,
+        "days_missing": 0,
+        "missing_sample": []
+      },
+      "metrics_daily": {
+        "first_available": "2021-12-01",
+        "last_available": "2026-10-08",
+        "files_total": 1773,
+        "files_in_window": 730,
+        "days_expected": 730,
+        "days_missing": 0,
+        "missing_sample": []
+      },
+      "fundingRate_monthly": {
+        "first_available": "2020-01",
+        "last_available": "2026-09",
+        "files_total": 81,
+        "files_in_window": 24
+      }
+    }
+  },
+  "sample_klines": {
+    "key": "data/futures/um/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2026-09.zip",
+    "zip_bytes": 1796984,
+    "csv_bytes": 4862487,
+    "sha256_ok": true,
+    "has_header": true,
+    "first_line": "open_time,open,high,low,close,volume,close_time,quote_volume,count,taker_buy_volume,taker_buy_quote_volume,ignore",
+    "columns": [
+      "open_time",
+      "open",
+      "high",
+      "low",
+      "close",
+      "volume",
+      "close_time",
+      "quote_volume",
+      "count",
+      "taker_buy_volume",
+      "taker_buy_quote_volume",
+      "ignore"
+    ],
+    "rows": 43200,
+    "rows_expected": 43200,
+    "timestamp_unit": "ms",
+    "first_open_time_utc": "2026-09-01 00:00:00+00:00",
+    "last_open_time_utc": "2026-09-30 23:59:00+00:00",
+    "duplicates": 0,
+    "non_monotonic": 0,
+    "gaps": 0,
+    "missing_minutes": 0,
+    "close_minus_open_time_ms_mode": 59999,
+    "ohlc_violations": 0,
+    "negative_values": 0,
+    "zero_volume_rows": 0,
+    "parquet_zstd_bytes": 2591239
+  },
+  "sample_metrics": {
+    "key": "data/futures/um/daily/metrics/BTCUSDT/BTCUSDT-metrics-2026-10-06.zip",
+    "zip_bytes": 11504,
+    "csv_bytes": 35603,
+    "sha256_ok": true,
+    "has_header": true,
+    "first_line": "create_time,symbol,sum_open_interest,sum_open_interest_value,count_toptrader_long_short_ratio,sum_toptrader_long_short_ratio,count_long_short_ratio,sum_taker_long_short_vol_ratio",
+    "columns": [
+      "create_time",
+      "symbol",
+      "sum_open_interest",
+      "sum_open_interest_value",
+      "count_toptrader_long_short_ratio",
+      "sum_toptrader_long_short_ratio",
+      "count_long_short_ratio",
+      "sum_taker_long_short_vol_ratio"
+    ],
+    "rows": 288,
+    "head": [
+      {
+        "create_time": "2026-10-06 01:05:00",
+        "symbol": "BTCUSDT",
+        "sum_open_interest": 94432.191,
+        "sum_open_interest_value": 8119648067.724899,
+        "count_toptrader_long_short_ratio": 1.18229195,
+        "sum_toptrader_long_short_ratio": 1.768267,
+        "count_long_short_ratio": 1.08870002,
+        "sum_taker_long_short_vol_ratio": 0.910515
+      },
+      {
+        "create_time": "2026-10-06 01:20:00",
+        "symbol": "BTCUSDT",
+        "sum_open_interest": 94502.642,
+        "sum_open_interest_value": 8118639706.246307,
+        "count_toptrader_long_short_ratio": 1.17913053,
+        "sum_toptrader_long_short_ratio": 1.759546,
+        "count_long_short_ratio": 1.0863849,
+        "sum_taker_long_short_vol_ratio": 0.760079
+      },
+      {
+        "create_time": "2026-10-06 02:35:00",
+        "symbol": "BTCUSDT",
+        "sum_open_interest": 94553.706,
+        "sum_open_interest_value": 8095357369.749,
+        "count_toptrader_long_short_ratio": 1.13721206,
+        "sum_toptrader_long_short_ratio": 1.749854,
+        "count_long_short_ratio": 1.06231223,
+        "sum_taker_long_short_vol_ratio": 2.020692
+      }
+    ]
+  },
+  "sample_funding": {
+    "key": "data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2026-09.zip",
+    "zip_bytes": 924,
+    "csv_bytes": 2486,
+    "sha256_ok": true,
+    "has_header": true,
+    "first_line": "calc_time,funding_interval_hours,last_funding_rate",
+    "columns": [
+      "calc_time",
+      "funding_interval_hours",
+      "last_funding_rate"
+    ],
+    "rows": 90,
+    "head": [
+      {
+        "calc_time": 1788220800005,
+        "funding_interval_hours": 8,
+        "last_funding_rate": 8.482e-05
+      },
+      {
+        "calc_time": 1788249600000,
+        "funding_interval_hours": 8,
+        "last_funding_rate": 0.0001
+      },
+      {
+        "calc_time": 1788278400000,
+        "funding_interval_hours": 8,
+        "last_funding_rate": 3.844e-05
+      }
+    ]
+  }
+}
