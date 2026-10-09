@@ -42,9 +42,15 @@ def step_single(cfg, P, args):
 def step_combos(cfg, P, args):
     from kh.ind.candidates import run_candidates
     from kh.ind.combos import run_scan
+    from kh.ind.wf import run_w1
 
-    run_candidates(cfg, P)
-    run_scan(cfg, P)
+    part = getattr(args, "part", "all")
+    if part in ("all", "c1"):
+        run_candidates(cfg, P)
+    if part in ("all", "c2"):
+        run_scan(cfg, P)
+    if part in ("all", "w1"):
+        run_w1(cfg, P)
 
 
 def step_final(cfg, P, args):

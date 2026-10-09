@@ -65,6 +65,7 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
 <!-- Việc đang làm dở, file đang sửa, vấn đề chưa giải quyết. Cập nhật trước khi hết phiên. -->
 - Nhánh `ind-scalp` = `ind-scalp-setup` (PR #4) + merge `phase-0` (PR #2, chưa merge vào master) để dùng lại `src/kh/data` (tải Binance Vision có SHA256/retry), `src/kh/backtest`, `src/kh/evaluation`. Code riêng của track nằm ở `src/kh/ind/`.
 - C2: Bảng A tổ hợp chỉ có 30 dòng đạt điều kiện → W1 chạy walk-forward cho 30 tổ hợp này ("top 50" = tối đa 50). Kết quả chi tiết theo symbol: `data/ind/combos_train_by_symbol.parquet` (không commit), tổng hợp mọi tổ hợp: `reports/ind/combos_tableA_all.csv.gz`.
+- W1 đang chạy: `python -m kh.ind combos --part w1` (≈ 1 giờ). Kết quả chọn từng fold lưu ở `data/ind/wf/foldNN/` → chạy lại sẽ dùng lại, không quét lại.
 - Ngày trong log theo UTC (đồng hồ container).
 - Đối chiếu chỉ báo cần môi trường riêng: `python -m venv /tmp/xenv && /tmp/xenv/bin/pip install pandas-ta talipp pyarrow`, rồi `python tools/ind_crosscheck.py --pandas-ta-python /tmp/xenv/bin/python`.
 - Dữ liệu: đặt `KH_DATA_DIR` (mặc định `data/` trong repo, đã gitignore). Phiên mới phải chạy lại `python -m kh.ind data`.

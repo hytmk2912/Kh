@@ -31,6 +31,7 @@ def main(argv: list[str] | None = None) -> None:
     ap.add_argument("--config", default=None, help="file cấu hình (mặc định configs/default.yaml)")
     ap.add_argument("--list", action="store_true", help="indicators: chỉ liệt kê registry")
     ap.add_argument("--symbols", default=None, help="danh sách symbol cách nhau dấu phẩy (mặc định: 5 symbol)")
+    ap.add_argument("--part", default="all", choices=["all", "c1", "c2", "w1"], help="combos: chỉ chạy một phần")
     ap.add_argument("--confirm-final", action="store_true", help="final: xác nhận đã được duyệt, chạy test khoá")
     args = ap.parse_args(argv)
     cfg, P = load_config(args.config), get_paths()
