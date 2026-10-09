@@ -32,7 +32,7 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
   - Xong khi: `pytest -q tests/test_backtest.py` qua (gồm: vào lệnh ở open nến sau; TP+SL cùng nến → SL; phí tính 2 chiều; không vào lệnh trong filler); `reports/ind/single_tableB.csv` có đủ cột ở spec §4.
 
 ### C + W. Tổ hợp và walk-forward (spec §5–6)
-- [ ] **C1** Chọn 20 ứng viên (16 D + 4 F) theo điểm chốt trước, loại trùng tương quan > 0,8.
+- [x] **C1** Chọn 20 ứng viên (16 D + 4 F) theo điểm chốt trước, loại trùng tương quan > 0,8.
   - Xong khi: `reports/ind/candidates.csv` có 20 dòng + điểm từng tiêu chí.
 - [ ] **C2** Quét tổ hợp 2–4 × có/không HTF, Bảng A tổ hợp, top 50.
   - Xong khi: `reports/ind/trials.csv` ghi tổng số lần thử thật; `combos_tableA.csv` có top 50 thoả precision ≥ 1,5 × ngẫu nhiên.
@@ -58,6 +58,7 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
 - 2026-10-09 · I2 · `python -m kh.ind indicators` · 99 chỉ báo × 5 symbol, 122 s; HTF cho phép long 38–43% / short 38–43% số nến [F]; Envelopes (mặc định 10%) 0 tín hiệu trên BTC [F] → `reports/ind/signal_summary.json`
 - 2026-10-09 · S1 · `python -m kh.ind single && pytest -q tests/test_score.py` · `single_tableA.csv` 990 dòng = 99 chỉ báo × 5 symbol × 2 (HTF); 0 ô NaN thiếu lý do; precision ngẫu nhiên ≈ 0,40 [F]; lift Long trung vị cao nhất (n đủ lớn): Zig Zag 1,33–1,34 · Keltner 1,33 · Donchian 1,31–1,33 [F]; recall sóng nhanh cao nhất Connors RSI 0,85 nhưng lift 1,05 [F]; Envelopes lift 2,5 chỉ từ vài tín hiệu (mẫu quá nhỏ) [I]; filter lift cao nhất ATR 1,34 [F]; `trials.csv` 198 lần thử
 - 2026-10-09 · S2 · `pytest -q tests/test_backtest.py && python -m kh.ind single` · 10 passed (vào ở open nến sau; TP+SL cùng nến → SL; phí 2 chiều; không vào lệnh trong filler/30′ sau; thoát khi tín hiệu ngược; trượt giá theo tick); `single_tableB.csv` 790 dòng (79 directional × 5 × 2 HTF; filter không backtest riêng vì không có hướng) đủ cột spec §4; 0/158 cấu hình có expectancy ròng trung vị > 0; kỳ vọng gộp trung vị +0,0012%/lệnh, ròng trung vị −0,10%/lệnh (baseline), −0,04% (phí 0,02%), −0,14% (phí 0,07%) [F] → `single_tableB_summary.csv`, `single_tableB_sensitivity.csv`
+- 2026-10-09 · C1 · `python -m kh.ind combos` (bước chọn ứng viên) · `candidates.csv` 20 dòng (16 D + 4 F) kèm điểm từng tiêu chí; D (thứ tự): Zig Zag, Chande Kroll Stop, Williams Fractal, Standard Error Bands, Donchian, Bollinger, Keltner, SuperTrend, Parabolic SAR, 52-Week High/Low, MA Channel, Price Channel, Awesome Osc., TRIX, Adaptive MA, Average Price; F: ATR, O-H-L-C Volatility, Standard Error, Non-Directional C2C (tương quan lớn nhất với ứng viên đã chọn ≤ 0,80) [F]; quy tắc chốt trước trong CHANGELOG
 
 ## Ghi chú phiên
 <!-- Việc đang làm dở, file đang sửa, vấn đề chưa giải quyết. Cập nhật trước khi hết phiên. -->

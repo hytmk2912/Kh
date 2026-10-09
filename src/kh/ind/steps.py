@@ -40,7 +40,9 @@ def step_single(cfg, P, args):
 
 
 def step_combos(cfg, P, args):
-    raise NotImplementedError("việc C1–W1")
+    from kh.ind.candidates import run_candidates
+
+    run_candidates(cfg, P)
 
 
 def step_final(cfg, P, args):
