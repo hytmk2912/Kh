@@ -10,7 +10,7 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
   - Xong khi: `pip install -e . && python -m kh.ind --help && pytest -q` chạy không lỗi; có link PR.
 
 ### D. Dữ liệu (spec §1)
-- [ ] **D1** Tải klines 1m + funding 5 symbol, xác minh SHA256, ghi manifest, chạy lại không tải lại.
+- [x] **D1** Tải klines 1m + funding 5 symbol, xác minh SHA256, ghi manifest, chạy lại không tải lại.
   - Xong khi: `python -m kh.ind data` lần 2 báo "0 file tải mới"; manifest có 5 × 32 zip klines (24 tháng + 8 ngày) + 5 × 24 zip funding, tất cả `verified`.
 - [ ] **D2** Chuẩn hoá Parquet, gắn `is_filler`, resample M15/H1, suy ra tick size, xuất `data_quality.json`.
   - Xong khi: `pytest -q tests/test_data.py` qua; mỗi symbol 1.051.200 nến M1, 70.080 nến M15, 17.520 nến H1, 0 thiếu, 0 trùng; số filler = BTC 126 / ETH 127 / BNB 128 / SOL 128 / XRP 127.
@@ -47,9 +47,12 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
 
 ## Log bằng chứng
 <!-- Mỗi dòng: YYYY-MM-DD · mã việc · lệnh · kết quả chính -->
-- 2026-10-10 · K1 · `pip install -e . && python -m kh.ind --help && pytest -q` · cài OK, CLI in 6 bước (data, labels, indicators, single, combos, final), 20 passed · PR nháp https://github.com/hytmk2912/Kh/pull/5
+- 2026-10-09 · K1 · `pip install -e . && python -m kh.ind --help && pytest -q` · cài OK, CLI in 6 bước (data, labels, indicators, single, combos, final), 20 passed · PR nháp https://github.com/hytmk2912/Kh/pull/5
+- 2026-10-09 · D1 · `python -m kh.ind data` (lần 1) · 280 file tải mới, 215,0 MB, 127 s, 0 lỗi [F]
+- 2026-10-09 · D1 · `python -m kh.ind data` (lần 2) · "0 file tải mới; 280 file trong manifest; 0 file lỗi"; manifest: 5 × 32 klines (24 tháng + 8 ngày) + 5 × 24 funding (tháng), tất cả `verified` [F]. Funding 2026-10 chưa có trên server (đúng như spec §1, [L])
 
 ## Ghi chú phiên
 <!-- Việc đang làm dở, file đang sửa, vấn đề chưa giải quyết. Cập nhật trước khi hết phiên. -->
 - Nhánh `ind-scalp` = `ind-scalp-setup` (PR #4) + merge `phase-0` (PR #2, chưa merge vào master) để dùng lại `src/kh/data` (tải Binance Vision có SHA256/retry), `src/kh/backtest`, `src/kh/evaluation`. Code riêng của track nằm ở `src/kh/ind/`.
+- Ngày trong log theo UTC (đồng hồ container).
 - Dữ liệu: đặt `KH_DATA_DIR` (mặc định `data/` trong repo, đã gitignore). Phiên mới phải chạy lại `python -m kh.ind data`.

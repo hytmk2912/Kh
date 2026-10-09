@@ -3,7 +3,9 @@ from __future__ import annotations
 
 
 def step_data(cfg, P, args):
-    raise NotImplementedError("việc D1–D2")
+    from kh.ind.data import download
+
+    download(cfg, P)
 
 
 def step_labels(cfg, P, args):
