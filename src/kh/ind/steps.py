@@ -16,7 +16,20 @@ def step_labels(cfg, P, args):
 
 
 def step_indicators(cfg, P, args):
-    raise NotImplementedError("việc I1–I2")
+    from kh.config import REPO_ROOT
+    from kh.ind.indicators.registry import CARDS, cards_markdown, status
+
+    (REPO_ROOT / "docs" / "ind" / "indicator_cards.md").write_text(cards_markdown())
+    if args.list:
+        for i, c in enumerate(CARDS, 1):
+            print(f"{i:3d}. [{c.kind}] {c.name} — {status(c)}")
+        n_impl = sum(status(c) == "đã triển khai" for c in CARDS)
+        n_no = sum(status(c) == "không triển khai" for c in CARDS)
+        print(f"Tổng: {len(CARDS)} chỉ báo ({n_impl} đã triển khai, {n_no} không triển khai được)")
+        return
+    from kh.ind.signals import run_indicators
+
+    run_indicators(cfg, P)
 
 
 def step_single(cfg, P, args):

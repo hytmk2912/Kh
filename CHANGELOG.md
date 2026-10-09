@@ -16,3 +16,6 @@ Mỗi dòng: ngày · track · quyết định/thay đổi · lý do. Không xo�
 - 2026-10-09 · ind · [A] ZigZag không chốt điểm xoay ở cùng nến vừa tạo cực trị mới; sóng nhanh đếm từ nến SAU điểm xuất phát (không biết thứ tự giá trong nến) · thận trọng, tránh nhìn trong nến
 - 2026-10-09 · ind · [A] Độ nhạy 0,4% / 0,7%: đổi cùng lúc ngưỡng ZigZag, ngưỡng sóng nhanh và ngưỡng đi ngang; nhịp hồi giữ ZigZag 0,2% · spec chỉ nói "chạy lại với 0,4% và 0,7%"
 - 2026-10-09 · ind · Thống kê sóng chỉ tính trên train + validation; nhãn giai đoạn test được lưu (để chấm ở F2) nhưng không mô tả · bảo vệ test khoá
+- 2026-10-09 · ind · [A] Quy tắc filter chung: bật khi giá trị > trung vị của chính nó trong 1.440 nến trước (không gồm nến hiện tại); riêng Volume Oscillator > 0, Spread/Ratio |z| > 1, Volume Profile = close ngoài vùng giá trị ngày trước · spec chỉ cho 1 ví dụ (ATR > trung vị 1 ngày)
+- 2026-10-09 · ind · [A] Tham số/quy tắc chỉ báo không rõ trong TradingView được chốt trong `registry.py` (mỗi chỗ có nhãn [A] trong phiếu); Zig Zag dùng độ lệch 0,5% thay 5%; Up/Down dùng taker buy/sell của Binance; Envelopes giữ mặc định 10% dù gần như không có tín hiệu trên M1 · chốt trước khi chấm, không chỉnh theo kết quả
+- 2026-10-09 · ind · Không triển khai: Volatility Region, Sure Thing (không có công thức chuẩn công bố) · spec §3: có phiếu + lý do, không thay bằng chỉ báo khác
