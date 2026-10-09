@@ -1,0 +1,534 @@
+{
+  "mode": "first_run",
+  "run_at_utc": "2026-10-09T16:37:29+00:00",
+  "git": "e8fdcbd",
+  "lock_hash": "cee83e99e588",
+  "period": [
+    "2026-05-17 00:00:00",
+    "2026-10-09 00:00:00"
+  ],
+  "selected": [],
+  "results": {
+    "lgbm_H60_tau0.65": {
+      "base": {
+        "days": 145,
+        "n_trades": 1,
+        "total_return": 0.0025148400526917043,
+        "cagr": 0.006342541989933892,
+        "max_drawdown": 0.0,
+        "min_equity": 1.0,
+        "ruined": false,
+        "sharpe": 1.5865816648727367,
+        "sortino": NaN,
+        "net_pnl": 25.148400526917044,
+        "gross_pnl": 28.703382628942876,
+        "fees": 3.5549821020258308,
+        "funding": 0.0,
+        "win_rate": 1.0,
+        "avg_win": 25.148400526917044,
+        "avg_loss": 0.0,
+        "profit_factor": Infinity,
+        "expectancy_usd": 25.148400526917044,
+        "expectancy_bps": 71.02803063216192,
+        "gross_expectancy_bps": 81.06856491461923,
+        "raw_expectancy_bps": 85.101798987397,
+        "avg_hold_min": 60.0,
+        "avg_notional": 3540.630410711359,
+        "exposure": 5.747126436781609e-05,
+        "long_share": 1.0,
+        "tp_share": 0.0,
+        "sl_share": 0.0,
+        "liq_risk_trades": 0,
+        "funding_estimated_trades": 0
+      },
+      "bootstrap": {
+        "ci90_bps": [
+          NaN,
+          NaN
+        ],
+        "p_one_sided": NaN
+      },
+      "cost_x1.5": {
+        "days": 145,
+        "n_trades": 1,
+        "total_return": 0.002265764940051574,
+        "cagr": 0.005713284548588327,
+        "max_drawdown": 0.0,
+        "min_equity": 1.0,
+        "ruined": false,
+        "sharpe": 1.5865816648727364,
+        "sortino": NaN,
+        "net_pnl": 22.657649400515737,
+        "gross_pnl": 27.989587206988016,
+        "fees": 5.33193780647228,
+        "funding": 0.0,
+        "win_rate": 1.0,
+        "avg_win": 22.657649400515737,
+        "avg_loss": 0.0,
+        "profit_factor": Infinity,
+        "expectancy_usd": 22.657649400515737,
+        "expectancy_bps": 63.99326326738384,
+        "gross_expectancy_bps": 79.05255268189526,
+        "raw_expectancy_bps": 85.101798987397,
+        "avg_hold_min": 60.0,
+        "avg_notional": 3540.630410711359,
+        "exposure": 5.747126436781609e-05,
+        "long_share": 1.0,
+        "tp_share": 0.0,
+        "sl_share": 0.0,
+        "liq_risk_trades": 0,
+        "funding_estimated_trades": 0
+      },
+      "delay_1": {
+        "days": 145,
+        "n_trades": 1,
+        "total_return": 0.001482762456317132,
+        "cagr": 0.0037366705698558267,
+        "max_drawdown": 0.0,
+        "min_equity": 1.0,
+        "ruined": false,
+        "sharpe": 1.5865816648727369,
+        "sortino": NaN,
+        "net_pnl": 14.82762456317132,
+        "gross_pnl": 18.377443695730545,
+        "fees": 3.5498191325592248,
+        "funding": 0.0,
+        "win_rate": 1.0,
+        "avg_win": 14.82762456317132,
+        "avg_loss": 0.0,
+        "profit_factor": Infinity,
+        "expectancy_usd": 14.82762456317132,
+        "expectancy_bps": 41.878487283828804,
+        "gross_expectancy_bps": 51.90443950358059,
+        "raw_expectancy_bps": 55.926005592599196,
+        "avg_hold_min": 60.0,
+        "avg_notional": 3540.630410711359,
+        "exposure": 5.747126436781609e-05,
+        "long_share": 1.0,
+        "tp_share": 0.0,
+        "sl_share": 0.0,
+        "liq_risk_trades": 0,
+        "funding_estimated_trades": 0
+      },
+      "drop_top5pct": {
+        "days": 145,
+        "n_trades": 0,
+        "total_return": 0.0,
+        "cagr": 0.0,
+        "max_drawdown": 0.0,
+        "min_equity": 1.0,
+        "ruined": false,
+        "sharpe": NaN,
+        "sortino": NaN,
+        "net_pnl": 0.0
+      },
+      "random": {
+        "random_exp_bps_mean": -10.365301420422016,
+        "random_exp_bps_p5": -141.2331710960132,
+        "random_exp_bps_p95": 116.51809012629204,
+        "actual_exp_bps": 71.02803063216192,
+        "pct_rank": 0.92
+      },
+      "by_coin": {
+        "SOLUSDT": {
+          "sum": 25.148400526917044,
+          "size": 1
+        }
+      },
+      "by_trend_regime": {
+        "range": {
+          "sum": 25.148400526917044,
+          "size": 1
+        }
+      },
+      "status": "Tham khảo (không được chọn trên validation)",
+      "checks": {
+        "p_lt_0.05": false,
+        "pf_gt_1.1": true,
+        "n_ge_100": false,
+        "coins_ge_3": false,
+        "cost_x1.5_pos": true,
+        "no_top5_pos": false
+      }
+    },
+    "rev_ret_15_z_H240": {
+      "base": {
+        "days": 145,
+        "n_trades": 4616,
+        "total_return": -3.332969988166773,
+        "cagr": -1.0,
+        "max_drawdown": 3.336566444499562,
+        "min_equity": -2.3329699881667714,
+        "ruined": true,
+        "sharpe": -12.144559428003282,
+        "sortino": -15.321838748502163,
+        "net_pnl": -33329.69988166773,
+        "gross_pnl": -10572.128059623241,
+        "fees": 22790.2981003413,
+        "funding": 32.72627829680556,
+        "win_rate": 0.4493067590987868,
+        "avg_win": 29.659994367885236,
+        "avg_loss": -37.310986703643486,
+        "profit_factor": 0.64858594887886,
+        "expectancy_usd": -7.220472244728711,
+        "expectancy_bps": -14.029948743338185,
+        "gross_expectancy_bps": -4.045154803191948,
+        "raw_expectancy_bps": -0.045357093725345514,
+        "avg_hold_min": 155.80415944540727,
+        "avg_notional": 4937.4003712605245,
+        "exposure": 0.6888812260536399,
+        "long_share": 0.505632582322357,
+        "tp_share": 0.2848786828422877,
+        "sl_share": 0.31109185441941073,
+        "liq_risk_trades": 0,
+        "funding_estimated_trades": 79
+      },
+      "bootstrap": {
+        "ci90_bps": [
+          -17.336164328491794,
+          -11.053512404703945
+        ],
+        "p_one_sided": 1.0
+      },
+      "cost_x1.5": {
+        "days": 145,
+        "n_trades": 4616,
+        "total_return": -4.928270649832871,
+        "cagr": -1.0,
+        "max_drawdown": 4.921825015076393,
+        "min_equity": -3.928270649832868,
+        "ruined": true,
+        "sharpe": -17.1307405137609,
+        "sortino": -20.611475336380096,
+        "net_pnl": -49282.70649832871,
+        "gross_pnl": -15130.033206442078,
+        "fees": 34185.399570183436,
+        "funding": 32.72627829680556,
+        "win_rate": 0.42634315424610053,
+        "avg_win": 27.754765709744262,
+        "avg_loss": -39.2387029513238,
+        "profit_factor": 0.5256903874237454,
+        "expectancy_usd": -10.676496208476758,
+        "expectancy_bps": -21.02969303879298,
+        "gross_expectancy_bps": -6.0450472015321495,
+        "raw_expectancy_bps": -0.0453570937253448,
+        "avg_hold_min": 155.80415944540727,
+        "avg_notional": 4937.4003712605245,
+        "exposure": 0.6888812260536399,
+        "long_share": 0.505632582322357,
+        "tp_share": 0.2848786828422877,
+        "sl_share": 0.31109185441941073,
+        "liq_risk_trades": 0,
+        "funding_estimated_trades": 79
+      },
+      "delay_1": {
+        "days": 145,
+        "n_trades": 4651,
+        "total_return": -3.338191141593701,
+        "cagr": -1.0,
+        "max_drawdown": 3.3693592941852186,
+        "min_equity": -2.338191141593702,
+        "ruined": true,
+        "sharpe": -12.160669669242456,
+        "sortino": -15.346204947529165,
+        "net_pnl": -33381.91141593701,
+        "gross_pnl": -10470.175537878107,
+        "fees": 22935.858427568128,
+        "funding": 24.122549509224452,
+        "win_rate": 0.4534508707804773,
+        "avg_win": 29.49017296826677,
+        "avg_loss": -37.59901109599198,
+        "profit_factor": 0.6507316507711549,
+        "expectancy_usd": -7.17736216210213,
+        "expectancy_bps": -15.175557881632797,
+        "gross_expectancy_bps": -5.184176042789383,
+        "raw_expectancy_bps": -1.184247244426649,
+        "avg_hold_min": 154.90754676413675,
+        "avg_notional": 4931.462301057026,
+        "exposure": 0.690110153256705,
+        "long_share": 0.5003225112878951,
+        "tp_share": 0.2878950763276715,
+        "sl_share": 0.31369597935927757,
+        "liq_risk_trades": 0,
+        "funding_estimated_trades": 75
+      },
+      "drop_top5pct": {
+        "days": 145,
+        "n_trades": 4385,
+        "total_return": -4.393507050663793,
+        "cagr": -1.0,
+        "max_drawdown": 4.397103506996583,
+        "min_equity": -3.3935070506637928,
+        "ruined": true,
+        "sharpe": -15.746463658484664,
+        "sortino": -18.70294117459801,
+        "net_pnl": -43935.07050663793,
+        "gross_pnl": -21851.211511565416,
+        "fees": 22112.831730196667,
+        "funding": 28.972735124155054,
+        "win_rate": 0.4202964652223489,
+        "avg_win": 27.623145791656967,
+        "avg_loss": -37.310986703643486,
+        "profit_factor": 0.5367674726191383,
+        "expectancy_usd": -10.019400343589037,
+        "expectancy_bps": -23.44737108943277,
+        "gross_expectancy_bps": -13.460874687018979,
+        "raw_expectancy_bps": -9.460991996216196,
+        "avg_hold_min": 158.27730900798176,
+        "avg_notional": 5042.965240024224,
+        "exposure": 0.6647950191570882,
+        "long_share": 0.5067274800456101,
+        "tp_share": 0.24720638540478906,
+        "sl_share": 0.3274800456100342,
+        "liq_risk_trades": 0,
+        "funding_estimated_trades": 79
+      },
+      "random": {
+        "random_exp_bps_mean": -13.968328371758625,
+        "random_exp_bps_p5": -16.144552725808058,
+        "random_exp_bps_p95": -11.644444391154513,
+        "actual_exp_bps": -14.029948743338185,
+        "pct_rank": 0.5
+      },
+      "by_coin": {
+        "BNBUSDT": {
+          "sum": -8200.083702992519,
+          "size": 978
+        },
+        "BTCUSDT": {
+          "sum": -6975.517014786603,
+          "size": 910
+        },
+        "ETHUSDT": {
+          "sum": -6885.489408104092,
+          "size": 923
+        },
+        "SOLUSDT": {
+          "sum": -5367.389230139625,
+          "size": 900
+        },
+        "XRPUSDT": {
+          "sum": -5901.220525644894,
+          "size": 905
+        }
+      },
+      "by_trend_regime": {
+        "down": {
+          "sum": -4609.145403684704,
+          "size": 756
+        },
+        "range": {
+          "sum": -22689.102563241457,
+          "size": 3141
+        },
+        "up": {
+          "sum": -6031.45191474157,
+          "size": 719
+        }
+      },
+      "status": "Tham khảo (không được chọn trên validation)",
+      "checks": {
+        "p_lt_0.05": false,
+        "pf_gt_1.1": false,
+        "n_ge_100": true,
+        "coins_ge_3": false,
+        "cost_x1.5_pos": false,
+        "no_top5_pos": false
+      }
+    },
+    "dc_sig8": {
+      "base": {
+        "days": 145,
+        "n_trades": 143,
+        "total_return": 0.16457907730767868,
+        "cagr": 0.4674499674073691,
+        "max_drawdown": 0.10017117088244876,
+        "min_equity": 0.8998288291175512,
+        "ruined": false,
+        "sharpe": 1.5151606827289616,
+        "sortino": 3.9926458956611777,
+        "net_pnl": 1645.7907730767868,
+        "gross_pnl": 1934.441324285675,
+        "fees": 209.17207266159835,
+        "funding": -79.47847854728988,
+        "win_rate": 0.34265734265734266,
+        "avg_win": 93.89934042172499,
+        "avg_loss": -31.439116038167427,
+        "profit_factor": 1.5568990062661072,
+        "expectancy_usd": 11.509026385152355,
+        "expectancy_bps": 13.72259065908175,
+        "gross_expectancy_bps": 26.932130850381093,
+        "raw_expectancy_bps": 30.94370601775434,
+        "avg_hold_min": 3680.4825174825173,
+        "avg_notional": 1455.9779860101783,
+        "exposure": 0.5041273946360153,
+        "long_share": 1.0,
+        "tp_share": 0.0,
+        "sl_share": 0.0,
+        "liq_risk_trades": 0,
+        "funding_estimated_trades": 9
+      },
+      "bootstrap": {
+        "ci90_bps": [
+          -77.00461941414066,
+          121.95058245258417
+        ],
+        "p_one_sided": 0.391
+      },
+      "cost_x1.5": {
+        "days": 145,
+        "n_trades": 143,
+        "total_return": 0.14992125956698255,
+        "cagr": 0.4213998321574113,
+        "max_drawdown": 0.10896980728950201,
+        "min_equity": 0.891030192710498,
+        "ruined": false,
+        "sharpe": 1.3811569037456621,
+        "sortino": 3.568006727285445,
+        "net_pnl": 1499.2125956698258,
+        "gross_pnl": 1892.4176654653975,
+        "fees": 313.72659124828226,
+        "funding": -79.47847854728988,
+        "win_rate": 0.3356643356643357,
+        "avg_win": 94.73097207323326,
+        "avg_loss": -32.08288488258285,
+        "profit_factor": 1.4918879731462178,
+        "expectancy_usd": 10.484004165523258,
+        "expectancy_bps": 6.7121754880119715,
+        "gross_expectancy_bps": 24.92694482250298,
+        "raw_expectancy_bps": 30.94370601775434,
+        "avg_hold_min": 3680.4825174825173,
+        "avg_notional": 1455.9779860101783,
+        "exposure": 0.5041273946360153,
+        "long_share": 1.0,
+        "tp_share": 0.0,
+        "sl_share": 0.0,
+        "liq_risk_trades": 0,
+        "funding_estimated_trades": 9
+      },
+      "delay_1": {
+        "days": 145,
+        "n_trades": 281,
+        "total_return": 0.08722366852326294,
+        "cagr": 0.23430768677077207,
+        "max_drawdown": 0.16234340977857664,
+        "min_equity": 0.9191913793614853,
+        "ruined": false,
+        "sharpe": 0.6673451240735543,
+        "sortino": 2.2098348466831363,
+        "net_pnl": 872.2366852326294,
+        "gross_pnl": 1325.224989190081,
+        "fees": 401.4621746476308,
+        "funding": -51.52612930982084,
+        "win_rate": 0.31316725978647686,
+        "avg_win": 72.62919501307607,
+        "avg_loss": -28.596541326000334,
+        "profit_factor": 1.1580387296442889,
+        "expectancy_usd": 3.104045143176617,
+        "expectancy_bps": -22.509159968007552,
+        "gross_expectancy_bps": -11.533387350198856,
+        "raw_expectancy_bps": -7.518055996657769,
+        "avg_hold_min": 3538.537366548043,
+        "avg_notional": 1424.1374036991178,
+        "exposure": 0.9524224137931034,
+        "long_share": 0.5088967971530249,
+        "tp_share": 0.0,
+        "sl_share": 0.0,
+        "liq_risk_trades": 0,
+        "funding_estimated_trades": 14
+      },
+      "drop_top5pct": {
+        "days": 145,
+        "n_trades": 135,
+        "total_return": -0.1758139555825875,
+        "cagr": -0.38536781113602114,
+        "max_drawdown": 0.1758139555825875,
+        "min_equity": 0.8241860444174125,
+        "ruined": false,
+        "sharpe": -4.196174580183575,
+        "sortino": -4.210097081651575,
+        "net_pnl": -1758.1395558258748,
+        "gross_pnl": -1513.8241456534183,
+        "fees": 187.4423948708822,
+        "funding": -56.87301530157447,
+        "win_rate": 0.3037037037037037,
+        "avg_win": 29.198471994191777,
+        "avg_loss": -31.439116038167427,
+        "profit_factor": 0.4050846635346375,
+        "expectancy_usd": -13.023255969080553,
+        "expectancy_bps": -79.62730353537331,
+        "gross_expectancy_bps": -66.86697331832873,
+        "raw_expectancy_bps": -62.89292529805237,
+        "avg_hold_min": 3482.125925925926,
+        "avg_notional": 1394.0689403237698,
+        "exposure": 0.4502749042145594,
+        "long_share": 1.0,
+        "tp_share": 0.0,
+        "sl_share": 0.0,
+        "liq_risk_trades": 0,
+        "funding_estimated_trades": 9
+      },
+      "random": {
+        "random_exp_bps_mean": 19.92617191583196,
+        "random_exp_bps_p5": -33.604185208960324,
+        "random_exp_bps_p95": 77.37349388523663,
+        "actual_exp_bps": 13.72259065908175,
+        "pct_rank": 0.46
+      },
+      "by_coin": {
+        "BNBUSDT": {
+          "sum": 387.4060090830998,
+          "size": 30
+        },
+        "BTCUSDT": {
+          "sum": 457.56667651251996,
+          "size": 29
+        },
+        "ETHUSDT": {
+          "sum": 278.4850708873092,
+          "size": 31
+        },
+        "SOLUSDT": {
+          "sum": 131.2345636668853,
+          "size": 28
+        },
+        "XRPUSDT": {
+          "sum": 391.0984529269725,
+          "size": 25
+        }
+      },
+      "by_trend_regime": {
+        "range": {
+          "sum": -142.27326234403938,
+          "size": 6
+        }
+      },
+      "status": "Tham khảo (không được chọn trên validation)",
+      "checks": {
+        "p_lt_0.05": false,
+        "pf_gt_1.1": true,
+        "n_ge_100": true,
+        "coins_ge_3": true,
+        "cost_x1.5_pos": true,
+        "no_top5_pos": false
+      }
+    }
+  },
+  "model_predictive_test": {
+    "60": {
+      "n": 69269,
+      "logloss": 0.6938890263044858,
+      "logloss_base": 0.6931983515569065,
+      "skill": -0.0009963594778148455,
+      "brier": 0.25036673499511053,
+      "auc": 0.5127042660005763,
+      "base_rate": 0.4960660612972614
+    }
+  },
+  "buy_hold": {
+    "total_return": 0.09596818190875028,
+    "max_drawdown": 0.21939978580690445,
+    "sharpe": 0.5509080342571561
+  },
+  "funding_note": "Funding sau mốc cuối cùng có dữ liệu được ước tính bằng mức funding cuối cùng đã biết."
+}

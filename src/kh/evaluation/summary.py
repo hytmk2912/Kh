@@ -93,9 +93,31 @@ def write_summary(cfg: dict, P) -> None:
             L.append(f"| {n} | {r['status']} | {b['n_trades']} | {f(b.get('net_pnl'), 0)} | {f(b.get('sharpe'), 2)} | "
                      f"{f(b.get('profit_factor'), 2)} | {f(b.get('expectancy_bps'), 1)} |")
         L.append(f"\nMua & giữ trên test: {ft['buy_hold']['total_return'] * 100:.2f}%.")
+        L += ["", "Đọc kết quả tham khảo trên test (không phải chiến lược được chọn):", ""]
+        for n, r in ft["results"].items():
+            b = r["base"]
+            if b["n_trades"] == 0:
+                continue
+            L.append(f"- `{n}`: p bootstrap {f(r['bootstrap']['p_one_sided'])}, xếp hạng so với vào lệnh ngẫu nhiên {f(r['random'].get('pct_rank'), 2)}, "
+                     f"bỏ 5% lệnh lãi nhất → {f(r['drop_top5pct'].get('net_pnl'), 0)} USD, {b['n_trades']} lệnh. "
+                     + ("Quá ít lệnh để kết luận." if b["n_trades"] < 30 else
+                        "Lãi nhưng KHÔNG có ý nghĩa thống kê và phụ thuộc vài lệnh lớn → không phải bằng chứng."
+                        if b.get("net_pnl", 0) > 0 else "Lỗ."))
     else:
         L += ["## 5. Final test", "", "Chưa chạy.", ""]
-    L += ["", "## 6. Giới hạn chính", "",
+    L += ["", "## 6. Kết luận", "",
+          "- Không có quy luật hay chiến lược nào đạt tiêu chí đã đăng ký trước để được coi là có lợi thế sau chi phí.",
+          "- Có hiệu ứng đảo chiều ngắn hạn (H4, H7) ổn định về mặt thống kê ở cả 5 coin, nhưng quá nhỏ (≈ 0–1 bps/lệnh trước chi phí)",
+          "  so với chi phí khứ hồi ≈ 14 bps khi khớp lệnh taker.",
+          "- Mô hình LightGBM ở ngưỡng tự tin cao có edge trước chi phí ≈ 13 bps/lệnh, vượt baseline ngẫu nhiên trên validation,",
+          "  nhưng vẫn bị chi phí xóa sạch; log-loss skill gần 0 và không ổn định theo fold.",
+          "- Các khẳng định phổ biến như Fibonacci, breakout tiếp diễn, co hẹp → bùng nổ không được dữ liệu ủng hộ ở khung 1 phút–4 giờ.",
+          "",
+          "### Hướng nghiên cứu tiếp theo (cần đăng ký giả thuyết mới, dùng dữ liệu forward sau 2026-10-08)",
+          "- Giảm chi phí: mô phỏng lệnh maker (phí 0,02%, không slippage nhưng có rủi ro không khớp) — cần dữ liệu aggTrades/bookDepth.",
+          "- Khung thời gian dài hơn (4h–1 ngày) nơi chi phí nhỏ hơn so với biên độ di chuyển.",
+          "- Forward holdout: chạy lại chính các biến thể đã khóa trên dữ liệu mới sau ≥ 3 tháng, không chỉnh sửa.",
+          "", "## 7. Giới hạn chính", "",
           "- 2 năm dữ liệu, 5 coin vốn hóa lớn tương quan cao; final test 146 ngày có thể chỉ chứa một vài chế độ thị trường.",
           "- Không có dữ liệu spread lịch sử; slippage là giả định (2 bps/chiều, kiểm tra thêm ×3).",
           "- Phí giả định VIP0 taker 0,05%; tài khoản thật có thể khác.",
