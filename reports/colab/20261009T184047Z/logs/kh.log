@@ -1,0 +1,139 @@
+2026-10-09T18:40:48 INFO kh.cli: === Stage data bắt đầu (config 41b083d4e64b) ===
+2026-10-09T18:40:57 INFO kh.data.vision: klines_1m BTCUSDT: 32 file
+2026-10-09T18:41:15 INFO kh.data.vision: klines_1m ETHUSDT: 32 file
+2026-10-09T18:41:32 INFO kh.data.vision: klines_1m BNBUSDT: 32 file
+2026-10-09T18:41:50 INFO kh.data.vision: klines_1m SOLUSDT: 32 file
+2026-10-09T18:42:08 INFO kh.data.vision: klines_1m XRPUSDT: 32 file
+2026-10-09T18:42:26 INFO kh.data.vision: metrics BTCUSDT: 730 file
+2026-10-09T18:43:52 INFO kh.data.vision: metrics ETHUSDT: 730 file
+2026-10-09T18:45:22 INFO kh.data.vision: metrics BNBUSDT: 730 file
+2026-10-09T18:47:04 INFO kh.data.vision: metrics SOLUSDT: 730 file
+2026-10-09T18:48:50 INFO kh.data.vision: metrics XRPUSDT: 730 file
+2026-10-09T18:50:22 WARNING kh.data.vision: fundingRate BTCUSDT 2026-10: thiếu 8/8 file ngày trên server
+2026-10-09T18:50:22 INFO kh.data.vision: fundingRate BTCUSDT: 24 file
+2026-10-09T18:50:26 WARNING kh.data.vision: fundingRate ETHUSDT 2026-10: thiếu 8/8 file ngày trên server
+2026-10-09T18:50:26 INFO kh.data.vision: fundingRate ETHUSDT: 24 file
+2026-10-09T18:50:29 WARNING kh.data.vision: fundingRate BNBUSDT 2026-10: thiếu 8/8 file ngày trên server
+2026-10-09T18:50:29 INFO kh.data.vision: fundingRate BNBUSDT: 24 file
+2026-10-09T18:50:34 WARNING kh.data.vision: fundingRate SOLUSDT 2026-10: thiếu 8/8 file ngày trên server
+2026-10-09T18:50:34 INFO kh.data.vision: fundingRate SOLUSDT: 24 file
+2026-10-09T18:50:38 WARNING kh.data.vision: fundingRate XRPUSDT 2026-10: thiếu 8/8 file ngày trên server
+2026-10-09T18:50:38 INFO kh.data.vision: fundingRate XRPUSDT: 24 file
+2026-10-09T18:50:42 INFO kh.data.vision: Manifest: 3930 file, 256.6 MB, trạng thái {'downloaded': 3930}
+2026-10-09T18:50:46 INFO kh.data.normalize: klines_1m BTCUSDT: 1051200 dòng -> /content/kh_data/normalized/klines_1m/BTCUSDT.parquet
+2026-10-09T18:50:49 INFO kh.data.normalize: klines_1m ETHUSDT: 1051200 dòng -> /content/kh_data/normalized/klines_1m/ETHUSDT.parquet
+2026-10-09T18:50:51 INFO kh.data.normalize: klines_1m BNBUSDT: 1051200 dòng -> /content/kh_data/normalized/klines_1m/BNBUSDT.parquet
+2026-10-09T18:50:54 INFO kh.data.normalize: klines_1m SOLUSDT: 1051200 dòng -> /content/kh_data/normalized/klines_1m/SOLUSDT.parquet
+2026-10-09T18:50:56 INFO kh.data.normalize: klines_1m XRPUSDT: 1051200 dòng -> /content/kh_data/normalized/klines_1m/XRPUSDT.parquet
+2026-10-09T18:50:58 INFO kh.data.normalize: metrics BTCUSDT: 210235 dòng -> /content/kh_data/normalized/metrics/BTCUSDT.parquet
+2026-10-09T18:50:59 INFO kh.data.normalize: metrics ETHUSDT: 210235 dòng -> /content/kh_data/normalized/metrics/ETHUSDT.parquet
+2026-10-09T18:51:01 INFO kh.data.normalize: metrics BNBUSDT: 210235 dòng -> /content/kh_data/normalized/metrics/BNBUSDT.parquet
+2026-10-09T18:51:03 INFO kh.data.normalize: metrics SOLUSDT: 210235 dòng -> /content/kh_data/normalized/metrics/SOLUSDT.parquet
+2026-10-09T18:51:05 INFO kh.data.normalize: metrics XRPUSDT: 210235 dòng -> /content/kh_data/normalized/metrics/XRPUSDT.parquet
+2026-10-09T18:51:05 INFO kh.data.normalize: fundingRate BTCUSDT: 2166 dòng -> /content/kh_data/normalized/fundingRate/BTCUSDT.parquet
+2026-10-09T18:51:05 INFO kh.data.normalize: fundingRate ETHUSDT: 2166 dòng -> /content/kh_data/normalized/fundingRate/ETHUSDT.parquet
+2026-10-09T18:51:05 INFO kh.data.normalize: fundingRate BNBUSDT: 2166 dòng -> /content/kh_data/normalized/fundingRate/BNBUSDT.parquet
+2026-10-09T18:51:05 INFO kh.data.normalize: fundingRate SOLUSDT: 2166 dòng -> /content/kh_data/normalized/fundingRate/SOLUSDT.parquet
+2026-10-09T18:51:05 INFO kh.data.normalize: fundingRate XRPUSDT: 2166 dòng -> /content/kh_data/normalized/fundingRate/XRPUSDT.parquet
+2026-10-09T18:51:05 INFO kh.cli: === Stage data xong trong 617.2 s ===
+2026-10-09T18:51:05 INFO kh.cli: === Stage quality bắt đầu (config 41b083d4e64b) ===
+2026-10-09T18:51:08 INFO kh.data.quality: QA BTCUSDT: {'rows': 1051200, 'missing_minutes': 0, 'ohlc_violations': 0, 'filler_minutes': 126}
+2026-10-09T18:51:11 INFO kh.data.quality: QA ETHUSDT: {'rows': 1051200, 'missing_minutes': 0, 'ohlc_violations': 0, 'filler_minutes': 127}
+2026-10-09T18:51:13 INFO kh.data.quality: QA BNBUSDT: {'rows': 1051200, 'missing_minutes': 0, 'ohlc_violations': 0, 'filler_minutes': 128}
+2026-10-09T18:51:15 INFO kh.data.quality: QA SOLUSDT: {'rows': 1051200, 'missing_minutes': 0, 'ohlc_violations': 0, 'filler_minutes': 128}
+2026-10-09T18:51:18 INFO kh.data.quality: QA XRPUSDT: {'rows': 1051200, 'missing_minutes': 0, 'ohlc_violations': 0, 'filler_minutes': 127}
+2026-10-09T18:51:18 INFO kh.cli: === Stage quality xong trong 12.2 s ===
+2026-10-09T18:51:18 INFO kh.cli: === Stage waves bắt đầu (config 41b083d4e64b) ===
+2026-10-09T18:51:21 INFO kh.waves: BTCUSDT sig2: 3303 sóng, biên độ trung vị 1.60%, H1 -1.7 bps
+2026-10-09T18:51:21 INFO kh.waves: BTCUSDT sig4: 857 sóng, biên độ trung vị 3.19%, H1 -4.9 bps
+2026-10-09T18:51:21 INFO kh.waves: BTCUSDT sig8: 210 sóng, biên độ trung vị 6.23%, H1 17.0 bps
+2026-10-09T18:51:22 INFO kh.waves: BTCUSDT pct0.5: 13309 sóng, biên độ trung vị 0.86%, H1 -1.2 bps
+2026-10-09T18:51:22 INFO kh.waves: BTCUSDT pct1: 3453 sóng, biên độ trung vị 1.71%, H1 -0.7 bps
+2026-10-09T18:51:22 INFO kh.waves: BTCUSDT pct2: 886 sóng, biên độ trung vị 3.42%, H1 -3.0 bps
+2026-10-09T18:51:23 INFO kh.waves: ETHUSDT sig2: 3470 sóng, biên độ trung vị 2.41%, H1 -0.7 bps
+2026-10-09T18:51:23 INFO kh.waves: ETHUSDT sig4: 893 sóng, biên độ trung vị 4.52%, H1 3.5 bps
+2026-10-09T18:51:23 INFO kh.waves: ETHUSDT sig8: 225 sóng, biên độ trung vị 9.54%, H1 25.0 bps
+2026-10-09T18:51:23 INFO kh.waves: ETHUSDT pct0.5: 28379 sóng, biên độ trung vị 0.89%, H1 -0.2 bps
+2026-10-09T18:51:23 INFO kh.waves: ETHUSDT pct1: 7840 sóng, biên độ trung vị 1.72%, H1 0.3 bps
+2026-10-09T18:51:23 INFO kh.waves: ETHUSDT pct2: 2112 sóng, biên độ trung vị 3.35%, H1 -5.3 bps
+2026-10-09T18:51:24 INFO kh.waves: BNBUSDT sig2: 3356 sóng, biên độ trung vị 1.77%, H1 3.6 bps
+2026-10-09T18:51:24 INFO kh.waves: BNBUSDT sig4: 886 sóng, biên độ trung vị 3.57%, H1 10.4 bps
+2026-10-09T18:51:24 INFO kh.waves: BNBUSDT sig8: 231 sóng, biên độ trung vị 7.00%, H1 9.5 bps
+2026-10-09T18:51:25 INFO kh.waves: BNBUSDT pct0.5: 16848 sóng, biên độ trung vị 0.88%, H1 0.5 bps
+2026-10-09T18:51:25 INFO kh.waves: BNBUSDT pct1: 4609 sóng, biên độ trung vị 1.73%, H1 1.8 bps
+2026-10-09T18:51:25 INFO kh.waves: BNBUSDT pct2: 1215 sóng, biên độ trung vị 3.52%, H1 8.3 bps
+2026-10-09T18:51:26 INFO kh.waves: SOLUSDT sig2: 3327 sóng, biên độ trung vị 2.83%, H1 -0.3 bps
+2026-10-09T18:51:26 INFO kh.waves: SOLUSDT sig4: 854 sóng, biên độ trung vị 5.72%, H1 4.1 bps
+2026-10-09T18:51:26 INFO kh.waves: SOLUSDT sig8: 209 sóng, biên độ trung vị 11.35%, H1 43.8 bps
+2026-10-09T18:51:26 INFO kh.waves: SOLUSDT pct0.5: 38327 sóng, biên độ trung vị 0.88%, H1 -0.7 bps
+2026-10-09T18:51:26 INFO kh.waves: SOLUSDT pct1: 10581 sóng, biên độ trung vị 1.74%, H1 -0.7 bps
+2026-10-09T18:51:26 INFO kh.waves: SOLUSDT pct2: 2808 sóng, biên độ trung vị 3.37%, H1 -4.0 bps
+2026-10-09T18:51:27 INFO kh.waves: XRPUSDT sig2: 3369 sóng, biên độ trung vị 2.67%, H1 -0.9 bps
+2026-10-09T18:51:27 INFO kh.waves: XRPUSDT sig4: 817 sóng, biên độ trung vị 5.30%, H1 12.4 bps
+2026-10-09T18:51:27 INFO kh.waves: XRPUSDT sig8: 223 sóng, biên độ trung vị 10.28%, H1 58.7 bps
+2026-10-09T18:51:28 INFO kh.waves: XRPUSDT pct0.5: 41672 sóng, biên độ trung vị 0.90%, H1 -0.5 bps
+2026-10-09T18:51:28 INFO kh.waves: XRPUSDT pct1: 12315 sóng, biên độ trung vị 1.72%, H1 -0.9 bps
+2026-10-09T18:51:28 INFO kh.waves: XRPUSDT pct2: 3212 sóng, biên độ trung vị 3.47%, H1 1.0 bps
+2026-10-09T18:51:30 INFO kh.cli: === Stage waves xong trong 11.7 s ===
+2026-10-09T18:51:31 INFO kh.cli: === Stage features bắt đầu (config 41b083d4e64b) ===
+2026-10-09T18:51:37 INFO kh.features: BTCUSDT: 70080 mẫu, 75 đặc trưng
+2026-10-09T18:51:42 INFO kh.features: ETHUSDT: 70080 mẫu, 75 đặc trưng
+2026-10-09T18:51:46 INFO kh.features: BNBUSDT: 70080 mẫu, 75 đặc trưng
+2026-10-09T18:51:51 INFO kh.features: SOLUSDT: 70080 mẫu, 75 đặc trưng
+2026-10-09T18:51:55 INFO kh.features: XRPUSDT: 70080 mẫu, 75 đặc trưng
+2026-10-09T18:53:51 INFO kh.cli: === Stage features xong trong 139.9 s ===
+2026-10-09T18:53:52 INFO kh.cli: === Stage mine bắt đầu (config 41b083d4e64b) ===
+2026-10-09T18:53:53 INFO kh.mining: Mẫu: {'train': 210160, 'test': 69600, 'val': 69520, 'gap': 1120}; 75 đặc trưng
+2026-10-09T18:54:50 INFO kh.mining: Tóm tắt: {'n_univariate_tests': 900, 'n_pair_tests': 90, 'univariate_fdr_train_ALL': 52, 'univariate_fdr_and_val_ALL': 40, 'univariate_full_pass_ALL': 40, 'pairs_fdr_and_val': 7, 'breakeven_prob': {60: 0.6185654067058338, 240: 0.559282703352917}, 'preregistered_pass': {'H2_breakout': False, 'H3_squeeze': False, 'H4_reversal_ret15': True, 'H5_funding': False, 'H6_oi_price': False, 'H7_taker_imb': True}}
+2026-10-09T18:54:50 INFO kh.cli: === Stage mine xong trong 58.2 s ===
+2026-10-09T18:54:50 INFO kh.cli: === Stage models bắt đầu (config 41b083d4e64b) ===
+2026-10-09T18:55:27 INFO kh.models: H=60 fold 0 (2025-04-07): skill logit 0.0030 lgbm 0.0037 loco 0.0002, AUC lgbm 0.543
+2026-10-09T18:56:04 INFO kh.models: H=60 fold 1 (2025-05-07): skill logit 0.0023 lgbm -0.0059 loco -0.0079, AUC lgbm 0.507
+2026-10-09T18:56:44 INFO kh.models: H=60 fold 2 (2025-06-06): skill logit -0.0019 lgbm -0.0025 loco -0.0040, AUC lgbm 0.515
+2026-10-09T18:57:28 INFO kh.models: H=60 fold 3 (2025-07-06): skill logit 0.0024 lgbm 0.0007 loco 0.0002, AUC lgbm 0.524
+2026-10-09T18:58:17 INFO kh.models: H=60 fold 4 (2025-08-05): skill logit -0.0067 lgbm -0.0037 loco -0.0035, AUC lgbm 0.506
+2026-10-09T18:59:09 INFO kh.models: H=60 fold 5 (2025-09-04): skill logit -0.0018 lgbm 0.0001 loco -0.0016, AUC lgbm 0.521
+2026-10-09T19:00:06 INFO kh.models: H=60 fold 6 (2025-10-04): skill logit -0.0021 lgbm 0.0004 loco -0.0007, AUC lgbm 0.527
+2026-10-09T19:01:06 INFO kh.models: H=60 fold 7 (2025-11-03): skill logit -0.0005 lgbm 0.0019 loco 0.0014, AUC lgbm 0.528
+2026-10-09T19:02:13 INFO kh.models: H=60 fold 8 (2025-12-03): skill logit 0.0040 lgbm 0.0022 loco 0.0012, AUC lgbm 0.533
+2026-10-09T19:03:22 INFO kh.models: H=60 fold 9 (2026-01-02): skill logit 0.0015 lgbm 0.0009 loco -0.0006, AUC lgbm 0.525
+2026-10-09T19:04:34 INFO kh.models: H=60 fold 10 (2026-02-01): skill logit -0.0025 lgbm -0.0017 loco -0.0025, AUC lgbm 0.513
+2026-10-09T19:05:50 INFO kh.models: H=60 fold 11 (2026-03-03): skill logit 0.0009 lgbm 0.0018 loco 0.0010, AUC lgbm 0.526
+2026-10-09T19:07:10 INFO kh.models: H=60 fold 12 (2026-04-02): skill logit 0.0004 lgbm 0.0014 loco 0.0016, AUC lgbm 0.525
+2026-10-09T19:08:32 INFO kh.models: H=60 fold 13 (2026-05-02): skill logit -0.0016 lgbm 0.0022 loco 0.0021, AUC lgbm 0.532
+2026-10-09T19:09:04 INFO kh.models: H=240 fold 0 (2025-04-07): skill logit 0.0060 lgbm 0.0094 loco 0.0015, AUC lgbm 0.565
+2026-10-09T19:09:39 INFO kh.models: H=240 fold 1 (2025-05-07): skill logit 0.0079 lgbm -0.0227 loco -0.0250, AUC lgbm 0.492
+2026-10-09T19:10:19 INFO kh.models: H=240 fold 2 (2025-06-06): skill logit -0.0099 lgbm -0.0198 loco -0.0238, AUC lgbm 0.489
+2026-10-09T19:11:04 INFO kh.models: H=240 fold 3 (2025-07-06): skill logit -0.0022 lgbm -0.0143 loco -0.0174, AUC lgbm 0.494
+2026-10-09T19:11:54 INFO kh.models: H=240 fold 4 (2025-08-05): skill logit -0.0110 lgbm -0.0008 loco -0.0046, AUC lgbm 0.530
+2026-10-09T19:12:44 INFO kh.models: H=240 fold 5 (2025-09-04): skill logit -0.0086 lgbm -0.0077 loco -0.0168, AUC lgbm 0.506
+2026-10-09T19:13:39 INFO kh.models: H=240 fold 6 (2025-10-04): skill logit 0.0030 lgbm 0.0001 loco -0.0031, AUC lgbm 0.538
+2026-10-09T19:14:37 INFO kh.models: H=240 fold 7 (2025-11-03): skill logit -0.0068 lgbm -0.0036 loco -0.0050, AUC lgbm 0.514
+2026-10-09T19:15:39 INFO kh.models: H=240 fold 8 (2025-12-03): skill logit 0.0001 lgbm 0.0009 loco 0.0005, AUC lgbm 0.541
+2026-10-09T19:16:46 INFO kh.models: H=240 fold 9 (2026-01-02): skill logit -0.0078 lgbm -0.0071 loco -0.0113, AUC lgbm 0.494
+2026-10-09T19:17:56 INFO kh.models: H=240 fold 10 (2026-02-01): skill logit -0.0085 lgbm -0.0092 loco -0.0091, AUC lgbm 0.507
+2026-10-09T19:19:08 INFO kh.models: H=240 fold 11 (2026-03-03): skill logit -0.0047 lgbm 0.0046 loco 0.0021, AUC lgbm 0.545
+2026-10-09T19:20:24 INFO kh.models: H=240 fold 12 (2026-04-02): skill logit -0.0019 lgbm -0.0049 loco -0.0077, AUC lgbm 0.497
+2026-10-09T19:21:44 INFO kh.models: H=240 fold 13 (2026-05-02): skill logit -0.0061 lgbm -0.0042 loco -0.0087, AUC lgbm 0.506
+2026-10-09T19:21:45 INFO kh.cli: === Stage models xong trong 1614.6 s ===
+2026-10-09T19:21:46 INFO kh.cli: === Stage backtest bắt đầu (config 41b083d4e64b) ===
+2026-10-09T19:22:00 INFO kh.backtest: lgbm_H60_tau0.55         val: lệnh  4441, ròng -29878.7 USD, exp  -11.8 bps (gộp   -1.8), Sharpe -15.11, PF 0.53
+2026-10-09T19:22:10 INFO kh.backtest: lgbm_H60_tau0.6          val: lệnh   170, ròng   -269.0 USD, exp   -1.3 bps (gộp    8.7), Sharpe -0.99, PF 0.89
+2026-10-09T19:22:15 INFO kh.backtest: lgbm_H60_tau0.65         val: lệnh     8, ròng     71.2 USD, exp   23.4 bps (gộp   33.0), Sharpe  2.21, PF 2.32
+2026-10-09T19:22:24 INFO kh.backtest: lgbm_H240_tau0.55        val: lệnh  2992, ròng -16582.5 USD, exp  -12.7 bps (gộp   -2.7), Sharpe -8.34, PF 0.70
+2026-10-09T19:22:34 INFO kh.backtest: lgbm_H240_tau0.6         val: lệnh   609, ròng  -1436.5 USD, exp   -0.2 bps (gộp    9.8), Sharpe -1.86, PF 0.86
+2026-10-09T19:22:43 INFO kh.backtest: lgbm_H240_tau0.65        val: lệnh    77, ròng    120.0 USD, exp   11.8 bps (gộp   21.9), Sharpe  0.53, PF 1.11
+2026-10-09T19:22:53 INFO kh.backtest: rev_ret_15_z_H60         val: lệnh 10275, ròng -82054.5 USD, exp  -13.7 bps (gộp   -3.7), Sharpe -23.18, PF 0.52
+2026-10-09T19:23:03 INFO kh.backtest: rev_ret_15_z_H240        val: lệnh  4623, ròng -31200.8 USD, exp  -14.5 bps (gộp   -4.5), Sharpe -11.42, PF 0.68
+2026-10-09T19:23:14 INFO kh.backtest: rev_taker_imb_15_H60     val: lệnh  9723, ròng -77702.8 USD, exp  -13.5 bps (gộp   -3.5), Sharpe -38.16, PF 0.42
+2026-10-09T19:23:24 INFO kh.backtest: rev_taker_imb_15_H240    val: lệnh  4193, ròng -25909.7 USD, exp  -13.1 bps (gộp   -3.1), Sharpe -16.08, PF 0.66
+2026-10-09T19:23:35 INFO kh.backtest: rev_rsi_14_H60           val: lệnh  9951, ròng -84273.0 USD, exp  -14.7 bps (gộp   -4.7), Sharpe -31.04, PF 0.46
+2026-10-09T19:23:46 INFO kh.backtest: rev_rsi_14_H240          val: lệnh  4657, ròng -32668.6 USD, exp  -15.5 bps (gộp   -5.5), Sharpe -13.96, PF 0.65
+2026-10-09T19:23:57 INFO kh.backtest: dc_sig4                  val: lệnh   515, ròng   -601.5 USD, exp    1.7 bps (gộp   11.7), Sharpe -0.58, PF 0.94
+2026-10-09T19:24:08 INFO kh.backtest: dc_sig8                  val: lệnh   147, ròng   -305.0 USD, exp    2.9 bps (gộp   14.2), Sharpe -0.47, PF 0.89
+2026-10-09T19:24:10 WARNING kh.backtest: Đã có /content/Kh/configs/locked_strategies.yaml — giữ nguyên bản khóa cũ, bản mới ở /content/Kh/reports/colab/20261009T184047Z/backtest/locked_strategies.yaml
+2026-10-09T19:24:10 INFO kh.cli: === Stage backtest xong trong 144.5 s ===
+2026-10-09T19:24:12 INFO kh.cli: === Stage report bắt đầu (config 41b083d4e64b) ===
+2026-10-09T19:24:12 INFO kh.summary: Đã ghi /content/Kh/reports/colab/20261009T184047Z/SUMMARY.md
+2026-10-09T19:24:12 INFO kh.cli: === Stage report xong trong 0.0 s ===
+2026-10-09T19:24:24 INFO kh.cli: === Stage push bắt đầu (config 41b083d4e64b) ===
