@@ -1,0 +1,70 @@
+# Cấu hình chính của dự án. Mọi giai đoạn đọc từ file này.
+# Đường dẫn dữ liệu lấy từ biến môi trường KH_DATA_DIR (Colab: thư mục trên Google Drive).
+
+symbols: [BTCUSDT, ETHUSDT, BNBUSDT, SOLUSDT, XRPUSDT]
+
+# Cửa sổ nghiên cứu cố định (ngày UTC, gồm cả hai đầu). Đã chốt ở Giai đoạn 0.
+window:
+  start: "2024-10-09"
+  end: "2026-10-08"
+
+# Chia tập theo thời gian (ngày UTC, gồm cả hai đầu). Final test bị khóa.
+splits:
+  train: ["2024-10-09", "2025-12-20"]
+  val: ["2025-12-21", "2026-05-15"]
+  test: ["2026-05-16", "2026-10-08"]
+  embargo_minutes: 1440
+
+data:
+  vision_url: "https://data.binance.vision"
+  list_url: "https://s3-ap-northeast-1.amazonaws.com/data.binance.vision"
+  datasets: [klines_1m, metrics, fundingRate]
+  workers: 4
+  retries: 5
+  timeout_s: 180
+  crosscheck_days_per_symbol: 3   # số ngày ngẫu nhiên đối chiếu file tháng với file ngày
+  metrics_availability_lag_min: 5  # giá trị metrics tại T chỉ được dùng từ T + 5 phút
+  extreme_return_threshold: 0.10   # |return 1 phút| > 10% bị đánh dấu để kiểm tra
+
+waves:
+  # Ngưỡng theo độ biến động: theta_t = k * sigma_1m(t-1) * sqrt(60)
+  sigma_halflife_min: 1440
+  sigma_scales: [2, 4, 8]
+  # Ngưỡng phần trăm cố định (đối chứng)
+  fixed_pcts: [0.005, 0.01, 0.02]
+  primary_scale: 4
+  small_scale: 2
+  range_window_min: 240
+  range_er_max: 0.15
+  breakout_window_min: 240
+
+features:
+  sample_every_min: 15
+
+labels:
+  horizons_min: [60, 240]
+  barrier_sigma_mult: 1.0     # rào = mult * sigma_1m * sqrt(H)
+
+costs:
+  taker_fee: 0.0005           # giả định VIP0, chưa xác minh tài khoản thật
+  maker_fee: 0.0002
+  slippage_bps: 2.0           # mỗi chiều
+
+backtest:
+  initial_capital: 10000.0
+  risk_per_trade: 0.005       # 0,5% vốn ban đầu rủi ro tới SL
+  max_leverage_per_position: 3.0
+  ambiguous_bar_policy: "sl_first"
+
+mining:
+  fdr_q: 0.10
+  val_alpha: 0.05
+  min_coins_same_sign: 3
+  nw_lags: 5
+  bootstrap_reps: 1000
+  block_days: 5
+
+models:
+  walk_forward_first_train_days: 180
+  walk_forward_test_days: 30
+  seed: 42
