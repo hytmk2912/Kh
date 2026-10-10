@@ -1,6 +1,6 @@
 # Kết luận — Lướt sóng M1 bằng tổ hợp chỉ báo
 
-Ngày: 2026-10-10 · Nhánh `ind-scalp` · Quyết định của chủ repo: **phương án 2 — không mở tập test khoá** (2026-05-16 → 2026-10-08 vẫn chưa ai nhìn, để dành cho nghiên cứu sau).
+Ngày: 2026-10-10 · Nhánh `ind-scalp` · Quyết định của chủ repo: **phương án 2 — không mở tập test khoá** (2026-05-16 → 2026-10-08 chưa chạy chiến lược chỉ báo nào trên đó; lưu ý giai đoạn này đã được dùng một lần làm final test của track chính PR #2, nên không còn hoàn toàn "sạch" [L]).
 
 Nhãn: [F] đã đo trên dữ liệu thật · [A] giả định · [I] suy luận · [L] giới hạn.
 
@@ -37,7 +37,7 @@ File chi tiết: `reports/ind/single_tableA.csv`, `single_tableB*.csv`, `combos_
 
 ## 3. Chưa kiểm chứng
 
-- Tập test khoá 2026-05-16 → 2026-10-08: **chưa mở**. Không có `reports/ind/final_test.json`.
+- Tập test khoá 2026-05-16 → 2026-10-08: **chưa mở trong track này** (không có `reports/ind/final_test.json`). [L] Cùng giai đoạn đã là final test của track chính (PR #2, chiến lược khác), nên dùng lại sau này phải ghi rõ là "test bán sạch".
 - Phí maker / lệnh limit, khung khác M1, giữ lệnh > 15 phút, ngưỡng sóng khác 0,5%, coin khác: ngoài phạm vi đã chốt, chưa thử.
 - Tác động thị trường khi khối lượng lớn: không mô phỏng.
 

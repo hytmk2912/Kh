@@ -42,7 +42,7 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
 ### F. Chiến lược cuối (spec §7) — **dừng hỏi trước khi chạy test khoá**
 - [x] **F1** Viết `docs/ind/strategy.md`, ghi chiến lược chọn + hash commit vào `CHANGELOG.md`, **hỏi chủ repo duyệt**.
   - Xong khi: chủ repo trả lời đồng ý trong PR hoặc chat.
-- [~] **F2** ~~Chạy test khoá đúng 1 lần~~, viết `docs/ind/conclusion.md`. **Bỏ phần test khoá** theo quyết định chủ repo (phương án 2, 2026-10-10): bằng chứng chọn chiến lược quá yếu, giữ tập test cho nghiên cứu sau. `docs/ind/conclusion.md` đã viết.
+- [~] **F2** ~~Chạy test khoá đúng 1 lần~~, viết `docs/ind/conclusion.md`. **Bỏ phần test khoá** theo quyết định chủ repo (phương án 2, 2026-10-10): bằng chứng chọn chiến lược quá yếu, không chạy chiến lược chỉ báo nào trên tập test. `docs/ind/conclusion.md` đã viết.
   - Xong khi (đã đổi theo quyết định chủ repo): conclusion tách [F]/[I]/[A]/[L]; không có `final_test.json` vì test khoá không mở.
 
 ## Log bằng chứng
