@@ -21,8 +21,11 @@ MIN_REMAINING = 0.003
 class WaveBook:
     """Đáp án của một symbol trong một khoảng [lo, hi) chỉ số nến."""
 
-    def __init__(self, m1: pd.DataFrame, labels: np.ndarray, waves: pd.DataFrame, lo: int, hi: int):
+    def __init__(self, m1: pd.DataFrame, labels: np.ndarray, waves: pd.DataFrame, lo: int, hi: int,
+                 min_remaining: float = MIN_REMAINING, minutes_per_bar: int = 1):
+        """`m1` = nến tín hiệu (M1 hoặc M15). Track M15: min_remaining 0,9%, minutes_per_bar 15 (độ trễ báo theo phút)."""
         self.lo, self.hi = lo, hi
+        self.mpb = minutes_per_bar
         n = len(m1)
         self.label = labels
         W = waves[(waves.start_idx >= lo) & (waves.end_idx < hi)].reset_index(drop=True)
@@ -48,8 +51,8 @@ class WaveBook:
         rem[has] = np.where(self.dir[w[has]] == 1, self.end_px[w[has]] / self.entry[has] - 1,
                             1 - self.end_px[w[has]] / self.entry[has])
         self.rem = rem
-        self.good_long = valid & has & (np.where(has, self.dir[np.maximum(w, 0)], 0) == 1) & (rem >= MIN_REMAINING)
-        self.good_short = valid & has & (np.where(has, self.dir[np.maximum(w, 0)], 0) == -1) & (rem >= MIN_REMAINING)
+        self.good_long = valid & has & (np.where(has, self.dir[np.maximum(w, 0)], 0) == 1) & (rem >= min_remaining)
+        self.good_short = valid & has & (np.where(has, self.dir[np.maximum(w, 0)], 0) == -1) & (rem >= min_remaining)
         self.valid_idx = np.flatnonzero(valid)
 
     def score(self, sig: np.ndarray, rng: np.random.Generator, n_random: int = 20, bar_metrics: bool = True,
@@ -79,7 +82,7 @@ class WaveBook:
             wv = self.wave_of[g]
             first = g[np.unique(wv, return_index=True)[1]]
             fw = self.wave_of[first]
-            lat_min = first - self.start_idx[fw]
+            lat_min = (first - self.start_idx[fw]) * self.mpb
             travelled = (self.entry[first] - self.start_px[fw]) / (self.end_px[fw] - self.start_px[fw])
             out["latency_min_median"] = float(np.median(lat_min))
             out["travelled_pct_median"] = float(np.median(travelled) * 100)

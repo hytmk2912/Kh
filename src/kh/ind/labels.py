@@ -118,10 +118,11 @@ def waves(m1: pd.DataFrame, pct: float, fast_minutes: int = 15) -> pd.DataFrame:
 
 
 def bar_labels(m1: pd.DataFrame, pct: float, pullback_pct: float = 0.002, flat_minutes: int = 30,
-               unknown_after_filler: int = 30) -> tuple[np.ndarray, pd.DataFrame]:
-    """Nhãn từng nến + bảng sóng (có độ sâu nhịp hồi sâu nhất)."""
+               unknown_after_filler: int = 30, fast_minutes: int = 15) -> tuple[np.ndarray, pd.DataFrame]:
+    """Nhãn từng nến + bảng sóng (có độ sâu nhịp hồi sâu nhất). Độ dài tính theo số nến của `m1`
+    (track M15 truyền nến M15: flat_minutes/fast_minutes/unknown_after_filler là số nến M15)."""
     n = len(m1)
-    W = waves(m1, pct)
+    W = waves(m1, pct, fast_minutes)
     lab = np.zeros(n, np.int8)
     for d, code in ((1, UP), (-1, DOWN)):
         sel = W[W.direction == d]
@@ -181,42 +182,67 @@ def wave_stats(W: pd.DataFrame, lab: np.ndarray) -> dict:
     return out
 
 
-def run_labels(cfg: dict, P) -> None:
-    from kh.ind.data import load_m1
+def labels_dir(P, tr=None):
+    from kh.ind.track import M1
 
-    out_dir = P.data / "ind" / "labels"
+    return (tr or M1).data(P) / "labels"
+
+
+def track_labels(m: pd.DataFrame, pct: float, tr) -> tuple[np.ndarray, pd.DataFrame]:
+    return bar_labels(m, pct, tr.pullback_pct, tr.flat_bars, tr.unknown_after_filler, tr.fast_bars)
+
+
+def run_labels(cfg: dict, P, tr=None) -> None:
+    from kh.ind.data import load_bars
+    from kh.ind.track import M1
+
+    tr = tr or M1
+    out_dir = labels_dir(P, tr)
     out_dir.mkdir(parents=True, exist_ok=True)
     _, val_end = split_ms(cfg, "val")
     stats, md = {}, []
+    main_key = f"{tr.wave_pct * 100:.1f}%"
     for s in cfg["symbols"]:
-        m1 = load_m1(P, s)
+        m1 = load_bars(P, s, tr.tf)
         stats[s] = {}
-        for pct in (0.004, 0.005, 0.007):
-            lab, W = bar_labels(m1, pct)
-            if pct == 0.005:  # ngưỡng chính: lưu đáp án để chấm (cả giai đoạn test — chưa ai xem kết quả trên đó)
+        for pct in tr.wave_sens:
+            lab, W = track_labels(m1, pct, tr)
+            if pct == tr.wave_pct:  # ngưỡng chính: lưu đáp án để chấm (cả giai đoạn test — chưa ai xem kết quả trên đó)
                 pd.DataFrame({"open_time_ms": m1.open_time_ms, "label": lab}).to_parquet(out_dir / f"bars_{s}.parquet", index=False)
                 W.assign(symbol=s).to_parquet(out_dir / f"waves_{s}.parquet", index=False)
             # Thống kê chỉ trên train + validation (không mô tả giai đoạn test khoá)
             keep = (m1.open_time_ms < val_end).to_numpy()
             Wr = W[W.end_event_ms < val_end]
             stats[s][f"{pct * 100:.1f}%"] = wave_stats(Wr, lab[keep])
-        log.info("%s: sóng 0,5%% nhanh tăng %d / giảm %d", s, stats[s]["0.5%"]["up_fast"]["n"], stats[s]["0.5%"]["down_fast"]["n"])
+        log.info("%s: sóng %s nhanh tăng %d / giảm %d", s, main_key, stats[s][main_key]["up_fast"]["n"], stats[s][main_key]["down_fast"]["n"])
+    sens = [f"{p * 100:.1f}%".replace(".", ",") for p in tr.wave_sens if p != tr.wave_pct]
     stats["_note"] = {"period": "train + validation (2024-10-09 → 2026-05-15)",
                       "priority": "UNKNOWN > ĐI NGANG > NHỊP HỒI > SÓNG",
-                      "sensitivity": "0,4% và 0,7% chỉ để báo cáo, không dùng để chọn",
-                      "flat_threshold": "cùng ngưỡng với sóng; nhịp hồi dùng ZigZag 0,2% cố định"}
-    write_json(stats, P.reports / "ind" / "waves_stats.json")
-    _markdown(stats, cfg, P.reports / "ind" / "waves_stats.md")
+                      "sensitivity": f"{' và '.join(sens)} chỉ để báo cáo, không dùng để chọn",
+                      "flat_threshold": f"cùng ngưỡng với sóng; nhịp hồi dùng ZigZag {tr.pullback_pct * 100:.1f}% cố định".replace(".", ",", 1)}
+    if tr.tf != 1:
+        stats["_note"] |= {"bars": f"nến M{tr.tf}", "fast": f"sóng nhanh: đi được ngưỡng trong ≤ {tr.fast_bars} nến ({tr.fast_bars * tr.tf // 60} giờ)",
+                           "flat": f"đi ngang: cửa sổ ≥ {tr.flat_bars} nến ({tr.flat_bars * tr.tf // 60} giờ)",
+                           "minutes_unit": f"cột minutes_* tính theo số nến M{tr.tf}"}
+    write_json(stats, tr.reports(P) / "waves_stats.json")
+    _markdown(stats, cfg, tr.reports(P) / "waves_stats.md", tr)
 
 
-def _markdown(stats: dict, cfg: dict, path) -> None:
+def _markdown(stats: dict, cfg: dict, path, tr=None) -> None:
+    from kh.ind.track import M1
+
+    tr = tr or M1
     f = lambda x, d=1: "" if x is None else f"{x:.{d}f}"
+    fast_txt = "15 phút" if tr.tf == 1 else f"{tr.fast_bars} nến M{tr.tf} ({tr.fast_bars * tr.tf // 60} giờ)"
+    unit = "Phút" if tr.tf == 1 else f"Số nến M{tr.tf}"
     L = ["# Thống kê sóng (đáp án ZigZag) — train + validation", "",
-         "Sóng nhanh = đi được ≥ ngưỡng trong ≤ 15 phút tính từ điểm xuất phát. Tỷ lệ nhãn tính trên số nến.",
+         f"Sóng nhanh = đi được ≥ ngưỡng trong ≤ {fast_txt} tính từ điểm xuất phát. Tỷ lệ nhãn tính trên số nến.",
          "Thứ tự ưu tiên nhãn: UNKNOWN > ĐI NGANG > NHỊP HỒI > SÓNG. Số liệu [F] đo trên dữ liệu thật.", ""]
-    for th in ("0.5%", "0.4%", "0.7%"):
-        L += [f"## Ngưỡng {th}" + (" (chính)" if th == "0.5%" else " (độ nhạy, chỉ báo cáo)"), "",
-              "| Symbol | Tăng nhanh | Tăng chậm | Giảm nhanh | Giảm chậm | Đoạn đi ngang | Phút TB / trung vị (tăng nhanh) | Biên độ TB % (tăng nhanh) | Hồi sâu nhất TV % sóng | % SÓNG | % NHỊP HỒI | % ĐI NGANG | % UNKNOWN |",
+    main = f"{tr.wave_pct * 100:.1f}%"
+    order = [main] + [f"{p * 100:.1f}%" for p in tr.wave_sens if p != tr.wave_pct]
+    for th in order:
+        L += [f"## Ngưỡng {th}" + (" (chính)" if th == main else " (độ nhạy, chỉ báo cáo)"), "",
+              f"| Symbol | Tăng nhanh | Tăng chậm | Giảm nhanh | Giảm chậm | Đoạn đi ngang | {unit} TB / trung vị (tăng nhanh) | Biên độ TB % (tăng nhanh) | Hồi sâu nhất TV % sóng | % SÓNG | % NHỊP HỒI | % ĐI NGANG | % UNKNOWN |",
               "|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
         for s in cfg["symbols"]:
             v = stats[s][th]

@@ -6,7 +6,7 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
 ## Việc
 
 ### N0. Chuẩn bị
-- [ ] **N0** Tham số hoá khung thời gian trong code track M1 (`tf=1m|15m`) thay vì chép code; thêm resample H4; CLI `python -m kh.ind15 <bước>` (data, labels, indicators, single, combos, final).
+- [x] **N0** Tham số hoá khung thời gian trong code track M1 (`tf=1m|15m`) thay vì chép code; thêm resample H4; CLI `python -m kh.ind15 <bước>` (data, labels, indicators, single, combos, final).
   - Xong khi: `pytest -q` qua toàn bộ test cũ + mới; chạy lại `python -m kh.ind single --symbols BTCUSDT` cho ra `single_tableA.csv` phần BTC **giống hệt** bản đã commit (so SHA256 hoặc so từng ô) → code M1 không bị đổi kết quả; mỗi symbol M15 70.080 / H1 17.520 / H4 4.380 nến.
 
 ### N1. Nhãn sóng M15 (spec §1)
@@ -35,6 +35,11 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
 
 ## Log bằng chứng
 <!-- Mỗi dòng: YYYY-MM-DD · mã việc · lệnh · kết quả chính -->
+- 2026-10-10 · N0 · `pytest -q` · 140 passed (135 cũ + 5 mới ở `tests/test_track.py`: tham số Track, H4, ngữ cảnh quy đổi tham số, HTF trên nến M15 = bản M1 tại phút đóng nến, HTF M15 không nhìn tương lai)
+- 2026-10-10 · N0 · `python -m kh.ind labels/indicators/single --symbols BTCUSDT` (code mới) so với bản đã commit · `single_tableA.csv` phần BTC 198 dòng × 35 cột **giống hệt từng ô** (SHA256 e6ba0617… = e6ba0617…); `single_tableB.csv` 158 dòng và `single_tableB_sensitivity.csv` 1.422 dòng giống hệt; Parquet tín hiệu + nhãn + sóng BTC giống hệt; `trials.csv` không đổi → code M1 không đổi kết quả (đã khôi phục file báo cáo 5 symbol sau khi so)
+- 2026-10-10 · N0 · `python -m kh.ind15 data` · manifest 280 file, 0 tải mới, 0 lỗi; mỗi symbol M15 70.080 / H1 17.520 / H4 4.380 nến, 0 nến thiếu nến con [F]; nến M15 có filler: BTC 13, ETH/BNB/SOL/XRP 14 [F] → `reports/ind15/data_quality.json`
 
 ## Ghi chú phiên
 <!-- Việc đang làm dở, file đang sửa, vấn đề chưa giải quyết. Cập nhật trước khi hết phiên. -->
+- Code: `src/kh/ind/track.py` (`M1`, `M15`) — mọi hàm track M1 nhận `tr`, mặc định `M1`. CLI `python -m kh.ind15 <bước>` gọi cùng code với `M15`. Kết quả M15: `reports/ind15/`, trung gian `data/ind15/`.
+- Chạy lại kiểm tra M1 không đổi: `python -m kh.ind labels/indicators/single --symbols BTCUSDT`, so phần BTC với `git show HEAD:reports/ind/...`, rồi `git checkout -- reports/ind` (lệnh chạy 1 symbol ghi đè báo cáo 5 symbol).

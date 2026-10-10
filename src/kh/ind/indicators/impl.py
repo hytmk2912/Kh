@@ -5,6 +5,8 @@ Tham số lấy từ phiếu trong registry.py. Không import module nhãn.
 """
 from __future__ import annotations
 
+import contextlib
+import copy
 from dataclasses import dataclass
 
 import numpy as np
@@ -49,6 +51,22 @@ class Ctx:
 
 
 IMPL: dict = {}
+
+
+@contextlib.contextmanager
+def timeframe(tr):
+    """Tính chỉ báo cho khung của track `tr`: đặt số nến/ngày và tham số đã quy đổi (spec M15 §3).
+    Track M1 không đổi gì. Khôi phục giá trị cũ khi thoát."""
+    old_bpd, old = K.BARS_PER_DAY, {n: copy.deepcopy(BY_NAME[n].params) for n in tr.param_overrides}
+    try:
+        K.BARS_PER_DAY = tr.bars_per_day
+        for n, kv in tr.param_overrides.items():
+            BY_NAME[n].params = {**BY_NAME[n].params, **kv}
+        yield
+    finally:
+        K.BARS_PER_DAY = old_bpd
+        for n, p in old.items():
+            BY_NAME[n].params = p
 
 
 def reg(name):
@@ -783,7 +801,7 @@ def logret(c):
 
 
 @reg("Historical Volatility")
-def _(X): return filt(K.stdev(logret(X.c), P("Historical Volatility")["length"]) * np.sqrt(365 * 1440))
+def _(X): return filt(K.stdev(logret(X.c), P("Historical Volatility")["length"]) * np.sqrt(365 * K.BARS_PER_DAY))
 
 
 @reg("Chaikin Volatility")
@@ -943,12 +961,12 @@ def _(X):
     vah = np.full(len(X), np.nan)
     val = np.full(len(X), np.nan)
     tp = X.hlc3
-    # chỉ dùng ngày đã kết thúc (đủ 1.440 nến) để dựng hồ sơ cho ngày kế tiếp
+    # chỉ dùng ngày đã kết thúc (đủ 1 ngày nến) để dựng hồ sơ cho ngày kế tiếp
     starts = np.searchsorted(d, days)
     ends = np.append(starts[1:], len(d))
     for k in range(len(days) - 1):
         a, b = starts[k], ends[k]
-        if b - a != 1440:
+        if b - a != K.BARS_PER_DAY:
             continue
         lo, hi = X.l[a:b].min(), X.h[a:b].max()
         if hi <= lo:
@@ -994,7 +1012,7 @@ def _(X):
 def _(X):
     d = day_index(X.t)
     g = pd.DataFrame({"d": d, "h": X.h, "l": X.l, "c": X.c, "n": 1}).groupby("d").agg(h=("h", "max"), l=("l", "min"), c=("c", "last"), n=("n", "sum"))
-    piv = ((g.h + g.l + g.c) / 3).where(g.n == 1440)
+    piv = ((g.h + g.l + g.c) / 3).where(g.n == K.BARS_PER_DAY)
     prev = pd.Series(piv.to_numpy(), index=g.index + 1)  # pivot của ngày trước áp dụng cho ngày sau
     line = prev.reindex(d).to_numpy()
     return price_cross(X, line)

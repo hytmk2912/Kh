@@ -22,24 +22,30 @@ STEPS = {
 }
 
 
-def main(argv: list[str] | None = None) -> None:
-    ap = argparse.ArgumentParser(prog="python -m kh.ind",
-                                 description="Track lướt sóng M1 bằng tổ hợp chỉ báo (chỉ nghiên cứu, không giao dịch).",
+def main(argv: list[str] | None = None, steps: dict | None = None, prog: str = "python -m kh.ind",
+         description: str = "Track lướt sóng M1 bằng tổ hợp chỉ báo (chỉ nghiên cứu, không giao dịch).", track=None) -> None:
+    from kh.ind.track import M1
+
+    STEPS_ = steps or STEPS
+    track = track or M1
+    ap = argparse.ArgumentParser(prog=prog, description=description,
                                  formatter_class=argparse.RawDescriptionHelpFormatter,
-                                 epilog="\n".join(f"  {k:<11} {v[2]}" for k, v in STEPS.items()))
-    ap.add_argument("step", choices=list(STEPS), help="bước cần chạy")
+                                 epilog="\n".join(f"  {k:<11} {v[2]}" for k, v in STEPS_.items()))
+    ap.add_argument("step", choices=list(STEPS_), help="bước cần chạy")
     ap.add_argument("--config", default=None, help="file cấu hình (mặc định configs/default.yaml)")
     ap.add_argument("--list", action="store_true", help="indicators: chỉ liệt kê registry")
     ap.add_argument("--symbols", default=None, help="danh sách symbol cách nhau dấu phẩy (mặc định: 5 symbol)")
     ap.add_argument("--part", default="all", choices=["all", "c1", "c2", "w1"], help="combos: chỉ chạy một phần")
+    ap.add_argument("--workers", type=int, default=4, help="số tiến trình song song (mặc định 4)")
     ap.add_argument("--confirm-final", action="store_true", help="final: xác nhận đã được duyệt, chạy test khoá")
     args = ap.parse_args(argv)
+    args.track = track
     cfg, P = load_config(args.config), get_paths()
     if args.symbols:
         cfg["symbols"] = args.symbols.split(",")
-    mod, fn, _ = STEPS[args.step]
+    mod, fn, _ = STEPS_[args.step]
     t0 = time.time()
-    log.info("=== ind %s bắt đầu ===", args.step)
+    log.info("=== %s %s bắt đầu ===", track.name, args.step)
     try:
         import importlib
 
@@ -50,7 +56,7 @@ def main(argv: list[str] | None = None) -> None:
     except Exception:
         log.exception("Bước %s lỗi", args.step)
         sys.exit(1)
-    log.info("=== ind %s xong trong %.1f s ===", args.step, time.time() - t0)
+    log.info("=== %s %s xong trong %.1f s ===", track.name, args.step, time.time() - t0)
 
 
 if __name__ == "__main__":

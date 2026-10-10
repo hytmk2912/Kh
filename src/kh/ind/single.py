@@ -9,6 +9,7 @@ from kh.ind.indicators.impl import IMPL
 from kh.ind.indicators.registry import BY_NAME, CARDS
 from kh.ind.score import WaveBook
 from kh.ind.signals import col_key, signals_path
+from kh.ind.track import M1
 from kh.ind.trials import log_trials
 
 log = setup_logging("ind.single")
@@ -17,16 +18,18 @@ LOWER_IS_BETTER = {"false_in_flat_share", "false_in_pullback_share", "false_coun
                    "latency_min_median", "travelled_pct_median", "repeat_signals_per_caught_wave"}
 
 
-def load_book(P, symbol: str, lo_ms: int, hi_ms: int) -> tuple[WaveBook, pd.DataFrame, pd.DataFrame]:
-    from kh.ind.data import load_m1
+def load_book(P, symbol: str, lo_ms: int, hi_ms: int, tr=M1) -> tuple[WaveBook, pd.DataFrame, pd.DataFrame]:
+    """Đáp án + nến tín hiệu + tín hiệu của một symbol (nến khung tín hiệu của track)."""
+    from kh.ind.data import load_bars
+    from kh.ind.labels import labels_dir
 
-    m1 = load_m1(P, symbol)
-    lab = pd.read_parquet(P.data / "ind" / "labels" / f"bars_{symbol}.parquet").label.to_numpy()
-    W = pd.read_parquet(P.data / "ind" / "labels" / f"waves_{symbol}.parquet")
+    m1 = load_bars(P, symbol, tr.tf)
+    lab = pd.read_parquet(labels_dir(P, tr) / f"bars_{symbol}.parquet").label.to_numpy()
+    W = pd.read_parquet(labels_dir(P, tr) / f"waves_{symbol}.parquet")
     t = m1.open_time_ms.to_numpy()
     lo, hi = int(np.searchsorted(t, lo_ms)), int(np.searchsorted(t, hi_ms))
-    sig = pd.read_parquet(signals_path(P, symbol))
-    return WaveBook(m1, lab, W, lo, hi), m1, sig
+    sig = pd.read_parquet(signals_path(P, symbol, tr))
+    return WaveBook(m1, lab, W, lo, hi, tr.min_remaining, tr.tf), m1, sig
 
 
 def apply_htf(sig: np.ndarray, sigs: pd.DataFrame) -> np.ndarray:
@@ -36,10 +39,10 @@ def apply_htf(sig: np.ndarray, sigs: pd.DataFrame) -> np.ndarray:
     return s
 
 
-def table_a(cfg: dict, P, lo_ms: int, hi_ms: int, seed: int = 0) -> pd.DataFrame:
+def table_a(cfg: dict, P, lo_ms: int, hi_ms: int, seed: int = 0, tr=M1) -> pd.DataFrame:
     rows = []
     for s in cfg["symbols"]:
-        book, _, sigs = load_book(P, s, lo_ms, hi_ms)
+        book, _, sigs = load_book(P, s, lo_ms, hi_ms, tr)
         rng = np.random.default_rng(seed)
         for c in CARDS:
             if c.name not in IMPL:
@@ -74,16 +77,16 @@ def summarize(T: pd.DataFrame) -> pd.DataFrame:
     return pd.concat([med, pd.DataFrame(worst)], axis=1).reset_index()
 
 
-def run_table_a(cfg: dict, P) -> None:
+def run_table_a(cfg: dict, P, tr=M1) -> None:
     lo, hi = split_ms(cfg, "train")
-    T = table_a(cfg, P, lo, hi)
-    out = P.reports / "ind"
+    T = table_a(cfg, P, lo, hi, tr=tr)
+    out = tr.reports(P)
     T.to_csv(out / "single_tableA.csv", index=False)
     summarize(T).to_csv(out / "single_tableA_summary.csv", index=False)
     log_trials(P.reports, [{"stage": "S1", "trial_id": f"S1-{r.key}-{'htf' if r.htf else 'nohtf'}", "indicators": r.indicator,
                             "htf": r.htf, "params": str(BY_NAME[r.indicator].params), "split": "train",
                             "symbols": ",".join(cfg["symbols"]), "note": "Bảng A đơn lẻ"}
-                           for r in T.drop_duplicates(["indicator", "htf"]).itertuples()])
+                           for r in T.drop_duplicates(["indicator", "htf"]).itertuples()], track=tr.name)
     log.info("Bảng A: %d dòng → %s", len(T), out / "single_tableA.csv")
 
 

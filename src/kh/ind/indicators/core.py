@@ -14,6 +14,10 @@ except ImportError:
         return (lambda f: f) if not (a and callable(a[0])) else a[0]
 
 
+# Số nến trong 1 ngày của khung đang tính (M1: 1.440; M15: 96). Đổi qua kh.ind.indicators.impl.timeframe().
+BARS_PER_DAY = 1440
+
+
 def S(x) -> pd.Series:
     return pd.Series(np.asarray(x, dtype=np.float64))
 
@@ -319,8 +323,10 @@ def cross_signal(a, b) -> np.ndarray:
     return events(cross_up(a, b), cross_dn(a, b))
 
 
-def median_filter(x, window=1440) -> np.ndarray:
-    """Filter mặc định [A]: bật khi x > trung vị của x trong `window` nến TRƯỚC (không gồm nến hiện tại)."""
+def median_filter(x, window=None) -> np.ndarray:
+    """Filter mặc định [A]: bật khi x > trung vị của x trong `window` nến TRƯỚC (không gồm nến hiện tại).
+    Mặc định window = 1 ngày (BARS_PER_DAY nến)."""
+    window = window or BARS_PER_DAY
     med = S(x).shift(1).rolling(window, min_periods=window).median().to_numpy()
     with np.errstate(invalid="ignore"):
         return np.asarray(x, np.float64) > med
