@@ -1,0 +1,242 @@
+{
+  "data": "BTCUSDT M1, 30000 nến đầu cửa sổ, bỏ 2000 nến khởi động",
+  "metric": "max|a−b| / TB|b|, đạt nếu < 1e-4",
+  "results": {
+    "EMA": [
+      {
+        "library": "TA-Lib 0.8.1",
+        "max_rel_error": 6.558659295039035e-16,
+        "pass": true,
+        "note": "EMA 9"
+      }
+    ],
+    "SMA": [
+      {
+        "library": "TA-Lib 0.8.1",
+        "max_rel_error": 8.416946394017947e-15,
+        "pass": true,
+        "note": "SMA 9"
+      }
+    ],
+    "WMA": [
+      {
+        "library": "TA-Lib 0.8.1",
+        "max_rel_error": 6.121362966033166e-15,
+        "pass": true,
+        "note": "WMA 9"
+      }
+    ],
+    "DEMA": [
+      {
+        "library": "TA-Lib 0.8.1",
+        "max_rel_error": 8.744654658590628e-16,
+        "pass": true,
+        "note": "DEMA 9"
+      }
+    ],
+    "TEMA": [
+      {
+        "library": "TA-Lib 0.8.1",
+        "max_rel_error": 2.186163624166776e-15,
+        "pass": true,
+        "note": "TEMA 9"
+      }
+    ],
+    "RSI": [
+      {
+        "library": "TA-Lib 0.8.1",
+        "max_rel_error": 1.1226041097564143e-15,
+        "pass": true,
+        "note": "RSI 14"
+      }
+    ],
+    "MACD": [
+      {
+        "library": "TA-Lib 0.8.1",
+        "max_rel_error": 2.7278576546877205e-12,
+        "pass": true,
+        "note": "MACD + signal 12/26/9"
+      }
+    ],
+    "ATR": [
+      {
+        "library": "TA-Lib 0.8.1",
+        "max_rel_error": 4.2824817488351954e-15,
+        "pass": true,
+        "note": "ATR 14 (trước khi chia close)"
+      }
+    ],
+    "Bollinger Bands": [
+      {
+        "library": "TA-Lib 0.8.1",
+        "max_rel_error": 5.0428811290035646e-08,
+        "pass": true,
+        "note": "20, 2σ"
+      }
+    ],
+    "Stochastic": [
+      {
+        "library": "TA-Lib 0.8.1",
+        "max_rel_error": 2.3353955285951536e-14,
+        "pass": true,
+        "note": "%K 14, smooth 1, %D 3"
+      }
+    ],
+    "ADX": [
+      {
+        "library": "TA-Lib 0.8.1",
+        "max_rel_error": 2.8238413940017718e-15,
+        "pass": true,
+        "note": "ADX 14"
+      }
+    ],
+    "Directional Movement": [
+      {
+        "library": "TA-Lib 0.8.1",
+        "max_rel_error": 2.117972853191807e-15,
+        "pass": true,
+        "note": "+DI/−DI 14"
+      }
+    ],
+    "OBV": [
+      {
+        "library": "TA-Lib 0.8.1",
+        "max_rel_error": 9.248314110984247e-14,
+        "pass": true,
+        "note": "so sánh mức thay đổi từng nến (TA-Lib bắt đầu OBV bằng volume nến đầu → lệch hằng số)"
+      }
+    ],
+    "Parabolic SAR": [
+      {
+        "library": "TA-Lib 0.8.1",
+        "max_rel_error": 2.1862668791581403e-16,
+        "pass": true,
+        "note": "0,02 / 0,2 (định nghĩa Wilder)"
+      },
+      {
+        "library": "talipp 2.7.0",
+        "max_rel_error": 0.0031786752655930755,
+        "pass": false,
+        "note": "talipp khác TA-Lib ở nến đảo chiều; đối chiếu chính là TA-Lib — chỉ để tham khảo"
+      }
+    ],
+    "Aroon": [
+      {
+        "library": "TA-Lib 0.8.1",
+        "max_rel_error": 2.911740748788174e-16,
+        "pass": true,
+        "note": "14"
+      }
+    ],
+    "MFI": [
+      {
+        "library": "TA-Lib 0.8.1",
+        "max_rel_error": 1.2766991523757302e-13,
+        "pass": true,
+        "note": "14"
+      }
+    ],
+    "Rate of Change": [
+      {
+        "library": "TA-Lib 0.8.1",
+        "max_rel_error": 1.0159595637037581e-13,
+        "pass": true,
+        "note": "9"
+      }
+    ],
+    "Momentum": [
+      {
+        "library": "TA-Lib 0.8.1",
+        "max_rel_error": 0.0,
+        "pass": true,
+        "note": "10"
+      }
+    ],
+    "Williams %R": [
+      {
+        "library": "TA-Lib 0.8.1",
+        "max_rel_error": 0.0,
+        "pass": true,
+        "note": "14"
+      }
+    ],
+    "Ultimate Oscillator": [
+      {
+        "library": "TA-Lib 0.8.1",
+        "max_rel_error": 2.8213528438852763e-16,
+        "pass": true,
+        "note": "7/14/28"
+      }
+    ],
+    "Accumulation/Distribution": [
+      {
+        "library": "TA-Lib 0.8.1",
+        "max_rel_error": 0.0,
+        "pass": true,
+        "note": ""
+      }
+    ],
+    "Chaikin Oscillator": [
+      {
+        "library": "TA-Lib 0.8.1",
+        "max_rel_error": 2.8208040512491656e-13,
+        "pass": true,
+        "note": "3/10"
+      }
+    ],
+    "Least Squares MA": [
+      {
+        "library": "TA-Lib 0.8.1",
+        "max_rel_error": 8.198114535989951e-14,
+        "pass": true,
+        "note": "linreg 25"
+      }
+    ],
+    "Linear Regression Slope": [
+      {
+        "library": "TA-Lib 0.8.1",
+        "max_rel_error": 6.629119417774042e-11,
+        "pass": true,
+        "note": "14"
+      }
+    ],
+    "Adaptive MA": [
+      {
+        "library": "TA-Lib 0.8.1",
+        "max_rel_error": 1.0931037450969726e-16,
+        "pass": true,
+        "note": "KAMA 9 (fast 2, slow 30)"
+      }
+    ],
+    "Chande Momentum Oscillator": [
+      {
+        "library": "TA-Lib 0.8.1",
+        "max_rel_error": 6.007633960811115,
+        "pass": false,
+        "note": "TA-Lib CMO làm mượt kiểu Wilder, TradingView dùng tổng đơn giản → dự kiến KHÁC định nghĩa"
+      }
+    ],
+    "SuperTrend": [
+      {
+        "library": "talipp 2.7.0",
+        "max_rel_error": 2.1862602618002463e-16,
+        "pass": true,
+        "note": "ATR 10, factor 3; hướng trùng 1.000000 số nến"
+      },
+      {
+        "library": "pandas-ta 0.4.71b0",
+        "max_rel_error": 0.0029276721570613094,
+        "pass": false,
+        "note": "thuật toán pandas-ta khác TradingView (xem docstring); hướng trùng 0.999571 số nến — chỉ để tham khảo"
+      }
+    ],
+    "VWAP": [
+      {
+        "library": "pandas-ta 0.4.71b0",
+        "max_rel_error": 0.0,
+        "pass": true,
+        "note": "neo theo ngày UTC, hlc3"
+      }
+    ]
+  }
+}

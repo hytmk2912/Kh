@@ -1,0 +1,12 @@
+{
+  "n_folds": 13,
+  "n_trials_total": 176786,
+  "pbo": {
+    "pbo": 0.5041181041181041,
+    "n_combinations": 12870,
+    "median_logit": -0.016461277054071962
+  },
+  "n_combos_evaluated": 242,
+  "n_kept_expectancy_positive": 34,
+  "top10_is_informational": false
+}

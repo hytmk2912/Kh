@@ -1,0 +1,14 @@
+# Khoá phiên bản đúng như môi trường đã chạy và kiểm chứng (Python 3.13, container cloud, 2026-10-10).
+# pyproject.toml giữ khoảng phiên bản rộng hơn để cài được trên Colab (Colab có sẵn phiên bản riêng).
+numpy==2.5.3
+pandas==3.0.5
+pyarrow==26.0.0
+scipy==1.18.1
+scikit-learn==1.9.1
+numba==0.68.0
+lightgbm==4.7.0
+matplotlib==3.11.2
+pyyaml==6.0.1
+pytest==9.1.1
+# Chỉ dùng để đối chiếu chỉ báo (tools/ind_crosscheck.py). pandas-ta 0.4.71b0 + talipp 2.7.0 chạy ở môi trường riêng.
+TA-Lib==0.8.1
