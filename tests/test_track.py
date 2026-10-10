@@ -61,3 +61,22 @@ def test_htf_m15_no_lookahead():
     for i in np.random.default_rng(1).choice(np.arange(300, len(t)), 30, replace=False):
         l2, s2 = htf_permissions(t[: i + 1], c[: i + 1], (60, 240), 15)
         assert l2[i] == L[i] and s2[i] == S[i]
+
+
+def test_m15_combo_trigger_confirm_filter_htf():
+    """Kích hoạt = sự kiện tại t; xác nhận = trạng thái cùng chiều tại t; lọc + HTF bật."""
+    import pandas as pd
+
+    from kh.ind15.combos import combo_list, combo_signal
+
+    s = pd.DataFrame({"a": np.array([1, 0, -1, 1, -1, 1], np.int8), "b_st": np.array([1, 1, -1, -1, -1, 1], np.int8),
+                      "c_st": np.array([1, 1, -1, 1, 0, 1], np.int8), "f": np.array([1, 1, 1, 1, 1, 0], bool),
+                      "htf_long_ok": np.array([1, 1, 1, 1, 1, 1], bool), "htf_short_ok": np.array([1, 1, 0, 1, 1, 1], bool)})
+    assert combo_signal(s, "a>b|-", False).tolist() == [1, 0, -1, 0, -1, 1]
+    assert combo_signal(s, "a>b+c|-", False).tolist() == [1, 0, -1, 0, 0, 1]
+    assert combo_signal(s, "a>b+c|f", False).tolist() == [1, 0, -1, 0, 0, 0]
+    assert combo_signal(s, "a>b+c|f", True).tolist() == [1, 0, 0, 0, 0, 0]
+    cand = pd.DataFrame({"key": [f"d{i}" for i in range(10)] + ["f1", "f2", "f3"], "kind": ["D"] * 10 + ["F"] * 3,
+                         "pick_order": list(range(1, 11)) + [1, 2, 3]})
+    L = combo_list(cand)
+    assert len(L) == 1800 and {c["filter"] for c in L} == {"", "f1"}  # 10 × (9 + 36) × 2 × 2, chỉ filter tốt nhất

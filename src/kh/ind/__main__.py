@@ -35,7 +35,8 @@ def main(argv: list[str] | None = None, steps: dict | None = None, prog: str = "
     ap.add_argument("--config", default=None, help="file cấu hình (mặc định configs/default.yaml)")
     ap.add_argument("--list", action="store_true", help="indicators: chỉ liệt kê registry")
     ap.add_argument("--symbols", default=None, help="danh sách symbol cách nhau dấu phẩy (mặc định: 5 symbol)")
-    ap.add_argument("--part", default="all", choices=["all", "c1", "c2", "w1"], help="combos: chỉ chạy một phần")
+    ap.add_argument("--part", default="all", choices=["all", "c1", "c2", "w1", "n4a", "n4b"],
+                    help="combos: chỉ chạy một phần (M1: c1/c2/w1; M15: n4a/n4b)")
     ap.add_argument("--workers", type=int, default=4, help="số tiến trình song song (mặc định 4)")
     ap.add_argument("--confirm-final", action="store_true", help="final: xác nhận đã được duyệt, chạy test khoá")
     args = ap.parse_args(argv)

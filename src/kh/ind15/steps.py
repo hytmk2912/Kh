@@ -29,7 +29,13 @@ def step_single(cfg, P, args):
 
 
 def step_combos(cfg, P, args):
-    raise NotImplementedError("việc N4 (TASKS_M15.md)")
+    from kh.ind15.combos import run_n4a, run_n4b
+
+    part = getattr(args, "part", "all")
+    if part in ("all", "n4a"):
+        run_n4a(cfg, P, args.workers)
+    if part in ("all", "n4b"):
+        run_n4b(cfg, P, args.workers)
 
 
 def step_final(cfg, P, args):
