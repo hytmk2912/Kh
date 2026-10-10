@@ -214,7 +214,7 @@ def run_labels(cfg: dict, P, tr=None) -> None:
             keep = (m1.open_time_ms < val_end).to_numpy()
             Wr = W[W.end_event_ms < val_end]
             stats[s][f"{pct * 100:.1f}%"] = wave_stats(Wr, lab[keep])
-        log.info("%s: sóng %s nhanh tăng %d / giảm %d", s, main_key, stats[s][main_key]["up_fast"]["n"], stats[s][main_key]["down_fast"]["n"])
+        log.info("%s: sóng %s nhanh tăng %d / giảm %d", s, main_key.replace(".", ","), stats[s][main_key]["up_fast"]["n"], stats[s][main_key]["down_fast"]["n"])
     sens = [f"{p * 100:.1f}%".replace(".", ",") for p in tr.wave_sens if p != tr.wave_pct]
     stats["_note"] = {"period": "train + validation (2024-10-09 → 2026-05-15)",
                       "priority": "UNKNOWN > ĐI NGANG > NHỊP HỒI > SÓNG",

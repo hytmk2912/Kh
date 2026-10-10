@@ -1,0 +1,607 @@
+{
+  "BTCUSDT": {
+    "1.0%": {
+      "n_bars": 56064,
+      "label_share": {
+        "UNKNOWN": 0.0008561643835616438,
+        "SÓNG TĂNG": 0.255921803652968,
+        "SÓNG GIẢM": 0.2412064783105023,
+        "ĐI NGANG": 0.409888698630137,
+        "NHỊP HỒI": 0.09212685502283105
+      },
+      "flat_segments": 293,
+      "up_fast": {
+        "n": 1518,
+        "minutes_mean": 16.415678524374176,
+        "minutes_median": 9.0,
+        "amp_pct_mean": 2.1382165343907165,
+        "deepest_pullback_pct_median": 0.0
+      },
+      "up_slow": {
+        "n": 46,
+        "minutes_mean": 88.95652173913044,
+        "minutes_median": 74.0,
+        "amp_pct_mean": 2.168291980496728,
+        "deepest_pullback_pct_median": 21.36439715662511
+      },
+      "down_fast": {
+        "n": 1515,
+        "minutes_mean": 15.397359735973597,
+        "minutes_median": 8.0,
+        "amp_pct_mean": 2.0659845246176993,
+        "deepest_pullback_pct_median": 0.0
+      },
+      "down_slow": {
+        "n": 49,
+        "minutes_mean": 75.08163265306122,
+        "minutes_median": 61.0,
+        "amp_pct_mean": 2.10777395645541,
+        "deepest_pullback_pct_median": 31.09865725879531
+      }
+    },
+    "1.5%": {
+      "n_bars": 56064,
+      "label_share": {
+        "UNKNOWN": 0.0008561643835616438,
+        "SÓNG TĂNG": 0.11208618721461187,
+        "SÓNG GIẢM": 0.1092144691780822,
+        "ĐI NGANG": 0.7162350171232876,
+        "NHỊP HỒI": 0.06160816210045662
+      },
+      "flat_segments": 348,
+      "up_fast": {
+        "n": 681,
+        "minutes_mean": 30.788546255506606,
+        "minutes_median": 15.0,
+        "amp_pct_mean": 3.098832201956993,
+        "deepest_pullback_pct_median": 21.73819742765076
+      },
+      "up_slow": {
+        "n": 78,
+        "minutes_mean": 118.51282051282051,
+        "minutes_median": 83.0,
+        "amp_pct_mean": 3.3452254113365414,
+        "deepest_pullback_pct_median": 33.298572974723974
+      },
+      "down_fast": {
+        "n": 668,
+        "minutes_mean": 26.08383233532934,
+        "minutes_median": 12.0,
+        "amp_pct_mean": 2.9452966321360883,
+        "deepest_pullback_pct_median": 23.913874599614164
+      },
+      "down_slow": {
+        "n": 91,
+        "minutes_mean": 91.01098901098901,
+        "minutes_median": 77.0,
+        "amp_pct_mean": 3.160953777792884,
+        "deepest_pullback_pct_median": 35.9639501604574
+      }
+    },
+    "2.0%": {
+      "n_bars": 56064,
+      "label_share": {
+        "UNKNOWN": 0.0008561643835616438,
+        "SÓNG TĂNG": 0.04924728881278539,
+        "SÓNG GIẢM": 0.05019263698630137,
+        "ĐI NGANG": 0.8614619006849316,
+        "NHỊP HỒI": 0.03824200913242009
+      },
+      "flat_segments": 273,
+      "up_fast": {
+        "n": 338,
+        "minutes_mean": 47.33431952662722,
+        "minutes_median": 22.5,
+        "amp_pct_mean": 4.134356783570252,
+        "deepest_pullback_pct_median": 24.902182287365626
+      },
+      "up_slow": {
+        "n": 93,
+        "minutes_mean": 154.40860215053763,
+        "minutes_median": 100.0,
+        "amp_pct_mean": 4.426992729740191,
+        "deepest_pullback_pct_median": 31.50550457213544
+      },
+      "down_fast": {
+        "n": 328,
+        "minutes_mean": 40.420731707317074,
+        "minutes_median": 18.5,
+        "amp_pct_mean": 3.8837031628799745,
+        "deepest_pullback_pct_median": 26.602954361954616
+      },
+      "down_slow": {
+        "n": 103,
+        "minutes_mean": 119.41747572815534,
+        "minutes_median": 94.0,
+        "amp_pct_mean": 4.064407957904693,
+        "deepest_pullback_pct_median": 34.7551381798808
+      }
+    }
+  },
+  "ETHUSDT": {
+    "1.0%": {
+      "n_bars": 56064,
+      "label_share": {
+        "UNKNOWN": 0.0005351027397260274,
+        "SÓNG TĂNG": 0.3828838470319635,
+        "SÓNG GIẢM": 0.3569135273972603,
+        "ĐI NGANG": 0.1204337899543379,
+        "NHỊP HỒI": 0.13923373287671234
+      },
+      "flat_segments": 120,
+      "up_fast": {
+        "n": 3196,
+        "minutes_mean": 8.796933667083854,
+        "minutes_median": 5.0,
+        "amp_pct_mean": 2.2239946480129498,
+        "deepest_pullback_pct_median": 0.0
+      },
+      "up_slow": {
+        "n": 15,
+        "minutes_mean": 79.86666666666666,
+        "minutes_median": 67.0,
+        "amp_pct_mean": 2.2582023054858698,
+        "deepest_pullback_pct_median": 31.875159397416663
+      },
+      "down_fast": {
+        "n": 3196,
+        "minutes_mean": 8.1229662077597,
+        "minutes_median": 5.0,
+        "amp_pct_mean": 2.1640256490426584,
+        "deepest_pullback_pct_median": 0.0
+      },
+      "down_slow": {
+        "n": 14,
+        "minutes_mean": 54.285714285714285,
+        "minutes_median": 43.5,
+        "amp_pct_mean": 1.886509660323979,
+        "deepest_pullback_pct_median": 37.61525563017803
+      }
+    },
+    "1.5%": {
+      "n_bars": 56064,
+      "label_share": {
+        "UNKNOWN": 0.0005351027397260274,
+        "SÓNG TĂNG": 0.2544591894977169,
+        "SÓNG GIẢM": 0.2309681792237443,
+        "ĐI NGANG": 0.3508311929223744,
+        "NHỊP HỒI": 0.16320633561643835
+      },
+      "flat_segments": 280,
+      "up_fast": {
+        "n": 1593,
+        "minutes_mean": 16.441933458882612,
+        "minutes_median": 9.0,
+        "amp_pct_mean": 3.200108412868361,
+        "deepest_pullback_pct_median": 21.326083769259125
+      },
+      "up_slow": {
+        "n": 42,
+        "minutes_mean": 89.45238095238095,
+        "minutes_median": 75.5,
+        "amp_pct_mean": 3.499028885769693,
+        "deepest_pullback_pct_median": 27.739426464690883
+      },
+      "down_fast": {
+        "n": 1578,
+        "minutes_mean": 14.393536121673003,
+        "minutes_median": 8.0,
+        "amp_pct_mean": 3.076834371600464,
+        "deepest_pullback_pct_median": 21.312253520258444
+      },
+      "down_slow": {
+        "n": 56,
+        "minutes_mean": 59.517857142857146,
+        "minutes_median": 51.0,
+        "amp_pct_mean": 3.3180569614620343,
+        "deepest_pullback_pct_median": 40.687032538650044
+      }
+    },
+    "2.0%": {
+      "n_bars": 56064,
+      "label_share": {
+        "UNKNOWN": 0.0006064497716894977,
+        "SÓNG TĂNG": 0.15314640410958905,
+        "SÓNG GIẢM": 0.1398580194063927,
+        "ĐI NGANG": 0.5862585616438356,
+        "NHỊP HỒI": 0.12013056506849315
+      },
+      "flat_segments": 381,
+      "up_fast": {
+        "n": 931,
+        "minutes_mean": 25.433941997851772,
+        "minutes_median": 14.0,
+        "amp_pct_mean": 4.1609127411621625,
+        "deepest_pullback_pct_median": 24.308446843097155
+      },
+      "up_slow": {
+        "n": 68,
+        "minutes_mean": 98.92647058823529,
+        "minutes_median": 84.5,
+        "amp_pct_mean": 4.118112595606061,
+        "deepest_pullback_pct_median": 34.379159580453646
+      },
+      "down_fast": {
+        "n": 918,
+        "minutes_mean": 20.962962962962962,
+        "minutes_median": 12.0,
+        "amp_pct_mean": 3.920712144611326,
+        "deepest_pullback_pct_median": 25.370061557444092
+      },
+      "down_slow": {
+        "n": 81,
+        "minutes_mean": 77.58024691358025,
+        "minutes_median": 62.0,
+        "amp_pct_mean": 4.30686722575439,
+        "deepest_pullback_pct_median": 32.68568807935904
+      }
+    }
+  },
+  "BNBUSDT": {
+    "1.0%": {
+      "n_bars": 56064,
+      "label_share": {
+        "UNKNOWN": 0.0005886130136986301,
+        "SÓNG TĂNG": 0.314248002283105,
+        "SÓNG GIẢM": 0.2822845319634703,
+        "ĐI NGANG": 0.306845747716895,
+        "NHỊP HỒI": 0.09603310502283105
+      },
+      "flat_segments": 232,
+      "up_fast": {
+        "n": 1959,
+        "minutes_mean": 14.341500765696784,
+        "minutes_median": 7.0,
+        "amp_pct_mean": 2.2219463598990683,
+        "deepest_pullback_pct_median": 0.0
+      },
+      "up_slow": {
+        "n": 24,
+        "minutes_mean": 89.95833333333333,
+        "minutes_median": 84.5,
+        "amp_pct_mean": 2.042250882713651,
+        "deepest_pullback_pct_median": 33.50983072438917
+      },
+      "down_fast": {
+        "n": 1936,
+        "minutes_mean": 11.598140495867769,
+        "minutes_median": 6.0,
+        "amp_pct_mean": 2.145434562078081,
+        "deepest_pullback_pct_median": 0.0
+      },
+      "down_slow": {
+        "n": 47,
+        "minutes_mean": 70.74468085106383,
+        "minutes_median": 55.0,
+        "amp_pct_mean": 2.0791334875061005,
+        "deepest_pullback_pct_median": 27.907908212004486
+      }
+    },
+    "1.5%": {
+      "n_bars": 56064,
+      "label_share": {
+        "UNKNOWN": 0.0005886130136986301,
+        "SÓNG TĂNG": 0.1658818493150685,
+        "SÓNG GIẢM": 0.1495255422374429,
+        "ĐI NGANG": 0.5914312214611872,
+        "NHỊP HỒI": 0.09257277397260275
+      },
+      "flat_segments": 304,
+      "up_fast": {
+        "n": 913,
+        "minutes_mean": 26.6276013143483,
+        "minutes_median": 13.0,
+        "amp_pct_mean": 3.2689091065726976,
+        "deepest_pullback_pct_median": 21.784452457269527
+      },
+      "up_slow": {
+        "n": 61,
+        "minutes_mean": 111.98360655737704,
+        "minutes_median": 89.0,
+        "amp_pct_mean": 3.3290175195368725,
+        "deepest_pullback_pct_median": 29.010065588422325
+      },
+      "down_fast": {
+        "n": 900,
+        "minutes_mean": 20.892222222222223,
+        "minutes_median": 11.5,
+        "amp_pct_mean": 3.1208584588668216,
+        "deepest_pullback_pct_median": 23.497941323483396
+      },
+      "down_slow": {
+        "n": 74,
+        "minutes_mean": 81.9054054054054,
+        "minutes_median": 63.0,
+        "amp_pct_mean": 3.027751304295691,
+        "deepest_pullback_pct_median": 31.781601076266153
+      }
+    },
+    "2.0%": {
+      "n_bars": 56064,
+      "label_share": {
+        "UNKNOWN": 0.0007134703196347032,
+        "SÓNG TĂNG": 0.08481378424657535,
+        "SÓNG GIẢM": 0.079605450913242,
+        "ĐI NGANG": 0.7741866438356164,
+        "NHỊP HỒI": 0.06068065068493151
+      },
+      "flat_segments": 272,
+      "up_fast": {
+        "n": 498,
+        "minutes_mean": 39.592369477911646,
+        "minutes_median": 20.0,
+        "amp_pct_mean": 4.341698337602648,
+        "deepest_pullback_pct_median": 24.15233193137489
+      },
+      "up_slow": {
+        "n": 84,
+        "minutes_mean": 136.20238095238096,
+        "minutes_median": 99.5,
+        "amp_pct_mean": 4.239296181099389,
+        "deepest_pullback_pct_median": 30.967728122720082
+      },
+      "down_fast": {
+        "n": 491,
+        "minutes_mean": 31.602851323828922,
+        "minutes_median": 17.0,
+        "amp_pct_mean": 4.062975779931768,
+        "deepest_pullback_pct_median": 27.139814887643976
+      },
+      "down_slow": {
+        "n": 90,
+        "minutes_mean": 103.6,
+        "minutes_median": 88.0,
+        "amp_pct_mean": 4.07726826824216,
+        "deepest_pullback_pct_median": 31.275391217354496
+      }
+    }
+  },
+  "SOLUSDT": {
+    "1.0%": {
+      "n_bars": 56064,
+      "label_share": {
+        "UNKNOWN": 0.0005351027397260274,
+        "SÓNG TĂNG": 0.4166666666666667,
+        "SÓNG GIẢM": 0.3951198630136986,
+        "ĐI NGANG": 0.04974671803652968,
+        "NHỊP HỒI": 0.137931649543379
+      },
+      "flat_segments": 50,
+      "up_fast": {
+        "n": 4072,
+        "minutes_mean": 6.966355599214145,
+        "minutes_median": 4.0,
+        "amp_pct_mean": 2.267547441557993,
+        "deepest_pullback_pct_median": 0.0
+      },
+      "up_slow": {
+        "n": 6,
+        "minutes_mean": 57.333333333333336,
+        "minutes_median": 60.5,
+        "amp_pct_mean": 1.9723444481401213,
+        "deepest_pullback_pct_median": 34.24551370017843
+      },
+      "down_fast": {
+        "n": 4073,
+        "minutes_mean": 6.644242573041984,
+        "minutes_median": 4.0,
+        "amp_pct_mean": 2.209581381325205,
+        "deepest_pullback_pct_median": 0.0
+      },
+      "down_slow": {
+        "n": 4,
+        "minutes_mean": 66.25,
+        "minutes_median": 54.0,
+        "amp_pct_mean": 1.476064368885635,
+        "deepest_pullback_pct_median": 46.20809187693122
+      }
+    },
+    "1.5%": {
+      "n_bars": 56064,
+      "label_share": {
+        "UNKNOWN": 0.0005351027397260274,
+        "SÓNG TĂNG": 0.3092893835616438,
+        "SÓNG GIẢM": 0.2931292808219178,
+        "ĐI NGANG": 0.20947488584474885,
+        "NHỊP HỒI": 0.18757134703196346
+      },
+      "flat_segments": 190,
+      "up_fast": {
+        "n": 2069,
+        "minutes_mean": 13.344127597873369,
+        "minutes_median": 7.0,
+        "amp_pct_mean": 3.276145600010844,
+        "deepest_pullback_pct_median": 17.544997951038905
+      },
+      "up_slow": {
+        "n": 15,
+        "minutes_mean": 78.66666666666667,
+        "minutes_median": 73.0,
+        "amp_pct_mean": 3.2090769179581664,
+        "deepest_pullback_pct_median": 40.05296034763692
+      },
+      "down_fast": {
+        "n": 2065,
+        "minutes_mean": 12.532203389830508,
+        "minutes_median": 7.0,
+        "amp_pct_mean": 3.1587485571417435,
+        "deepest_pullback_pct_median": 18.341150016061654
+      },
+      "down_slow": {
+        "n": 18,
+        "minutes_mean": 76.11111111111111,
+        "minutes_median": 75.5,
+        "amp_pct_mean": 3.356817358291376,
+        "deepest_pullback_pct_median": 35.69771189628289
+      }
+    },
+    "2.0%": {
+      "n_bars": 56064,
+      "label_share": {
+        "UNKNOWN": 0.0006064497716894977,
+        "SÓNG TĂNG": 0.2095105593607306,
+        "SÓNG GIẢM": 0.20503353310502284,
+        "ĐI NGANG": 0.425103453196347,
+        "NHỊP HỒI": 0.15974600456621005
+      },
+      "flat_segments": 332,
+      "up_fast": {
+        "n": 1232,
+        "minutes_mean": 20.4099025974026,
+        "minutes_median": 11.0,
+        "amp_pct_mean": 4.244274632434848,
+        "deepest_pullback_pct_median": 23.489470743604024
+      },
+      "up_slow": {
+        "n": 45,
+        "minutes_mean": 93.15555555555555,
+        "minutes_median": 69.0,
+        "amp_pct_mean": 4.5853684221111335,
+        "deepest_pullback_pct_median": 34.75182721185259
+      },
+      "down_fast": {
+        "n": 1237,
+        "minutes_mean": 18.908649959579627,
+        "minutes_median": 10.0,
+        "amp_pct_mean": 4.0481213377793255,
+        "deepest_pullback_pct_median": 23.72518420480857
+      },
+      "down_slow": {
+        "n": 40,
+        "minutes_mean": 80.075,
+        "minutes_median": 71.5,
+        "amp_pct_mean": 4.570956622803498,
+        "deepest_pullback_pct_median": 32.76492770126434
+      }
+    }
+  },
+  "XRPUSDT": {
+    "1.0%": {
+      "n_bars": 56064,
+      "label_share": {
+        "UNKNOWN": 0.0005351027397260274,
+        "SÓNG TĂNG": 0.3887878139269406,
+        "SÓNG GIẢM": 0.3820633561643836,
+        "ĐI NGANG": 0.1067351598173516,
+        "NHỊP HỒI": 0.12187856735159817
+      },
+      "flat_segments": 100,
+      "up_fast": {
+        "n": 3997,
+        "minutes_mean": 6.8213660245183885,
+        "minutes_median": 3.0,
+        "amp_pct_mean": 2.467650859803362,
+        "deepest_pullback_pct_median": 0.0
+      },
+      "up_slow": {
+        "n": 10,
+        "minutes_mean": 76.3,
+        "minutes_median": 72.5,
+        "amp_pct_mean": 1.8974237227424773,
+        "deepest_pullback_pct_median": 42.96964339882719
+      },
+      "down_fast": {
+        "n": 3994,
+        "minutes_mean": 6.838507761642464,
+        "minutes_median": 4.0,
+        "amp_pct_mean": 2.3442582116139077,
+        "deepest_pullback_pct_median": 0.0
+      },
+      "down_slow": {
+        "n": 12,
+        "minutes_mean": 57.75,
+        "minutes_median": 46.5,
+        "amp_pct_mean": 2.2259346207944035,
+        "deepest_pullback_pct_median": 31.959168243178333
+      }
+    },
+    "1.5%": {
+      "n_bars": 56064,
+      "label_share": {
+        "UNKNOWN": 0.0006064497716894977,
+        "SÓNG TĂNG": 0.2630386700913242,
+        "SÓNG GIẢM": 0.2636451198630137,
+        "ĐI NGANG": 0.3199379280821918,
+        "NHỊP HỒI": 0.1527718321917808
+      },
+      "flat_segments": 244,
+      "up_fast": {
+        "n": 2195,
+        "minutes_mean": 11.742141230068338,
+        "minutes_median": 5.0,
+        "amp_pct_mean": 3.4659257963511303,
+        "deepest_pullback_pct_median": 0.0
+      },
+      "up_slow": {
+        "n": 32,
+        "minutes_mean": 68.78125,
+        "minutes_median": 69.0,
+        "amp_pct_mean": 3.1116029625659154,
+        "deepest_pullback_pct_median": 32.20894182899619
+      },
+      "down_fast": {
+        "n": 2199,
+        "minutes_mean": 11.778080945884494,
+        "minutes_median": 5.0,
+        "amp_pct_mean": 3.242667427226086,
+        "deepest_pullback_pct_median": 0.0
+      },
+      "down_slow": {
+        "n": 28,
+        "minutes_mean": 76.96428571428571,
+        "minutes_median": 66.5,
+        "amp_pct_mean": 3.0287363810075907,
+        "deepest_pullback_pct_median": 34.61764413170853
+      }
+    },
+    "2.0%": {
+      "n_bars": 56064,
+      "label_share": {
+        "UNKNOWN": 0.0006064497716894977,
+        "SÓNG TĂNG": 0.1714825913242009,
+        "SÓNG GIẢM": 0.17162528538812785,
+        "ĐI NGANG": 0.5316245719178082,
+        "NHỊP HỒI": 0.12466110159817352
+      },
+      "flat_segments": 307,
+      "up_fast": {
+        "n": 1315,
+        "minutes_mean": 17.133079847908746,
+        "minutes_median": 7.0,
+        "amp_pct_mean": 4.54890343391783,
+        "deepest_pullback_pct_median": 19.763074255995704
+      },
+      "up_slow": {
+        "n": 58,
+        "minutes_mean": 92.41379310344827,
+        "minutes_median": 76.0,
+        "amp_pct_mean": 4.37135309510068,
+        "deepest_pullback_pct_median": 30.18903436844139
+      },
+      "down_fast": {
+        "n": 1323,
+        "minutes_mean": 17.561602418745277,
+        "minutes_median": 7.0,
+        "amp_pct_mean": 4.164971802523249,
+        "deepest_pullback_pct_median": 23.218732713501574
+      },
+      "down_slow": {
+        "n": 50,
+        "minutes_mean": 96.36,
+        "minutes_median": 85.0,
+        "amp_pct_mean": 4.542108880569017,
+        "deepest_pullback_pct_median": 32.80329625499042
+      }
+    }
+  },
+  "_note": {
+    "period": "train + validation (2024-10-09 → 2026-05-15)",
+    "priority": "UNKNOWN > ĐI NGANG > NHỊP HỒI > SÓNG",
+    "sensitivity": "1,0% và 2,0% chỉ để báo cáo, không dùng để chọn",
+    "flat_threshold": "cùng ngưỡng với sóng; nhịp hồi dùng ZigZag 0,6% cố định",
+    "bars": "nến M15",
+    "fast": "sóng nhanh: đi được ngưỡng trong ≤ 32 nến (8 giờ)",
+    "flat": "đi ngang: cửa sổ ≥ 32 nến (8 giờ)",
+    "minutes_unit": "cột minutes_* tính theo số nến M15"
+  }
+}

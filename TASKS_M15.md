@@ -10,7 +10,7 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
   - Xong khi: `pytest -q` qua toàn bộ test cũ + mới; chạy lại `python -m kh.ind single --symbols BTCUSDT` cho ra `single_tableA.csv` phần BTC **giống hệt** bản đã commit (so SHA256 hoặc so từng ô) → code M1 không bị đổi kết quả; mỗi symbol M15 70.080 / H1 17.520 / H4 4.380 nến.
 
 ### N1. Nhãn sóng M15 (spec §1)
-- [ ] **N1** ZigZag 1,5% trên M15, sóng nhanh ≤ 8 giờ, đi ngang ≥ 8 giờ < 1,5%, nhịp hồi 0,6%.
+- [x] **N1** ZigZag 1,5% trên M15, sóng nhanh ≤ 8 giờ, đi ngang ≥ 8 giờ < 1,5%, nhịp hồi 0,6%.
   - Xong khi: `pytest -q tests/test_labels.py` qua với ca M15 (chuỗi giá tự tạo có đáp án biết trước); `reports/ind15/waves_stats.json` đủ 5 symbol × 3 ngưỡng (1,0 / 1,5 / 2,0%), chỉ train + validation.
 
 ### N2. Chỉ báo M15 (spec §3)
@@ -38,6 +38,7 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
 - 2026-10-10 · N0 · `pytest -q` · 140 passed (135 cũ + 5 mới ở `tests/test_track.py`: tham số Track, H4, ngữ cảnh quy đổi tham số, HTF trên nến M15 = bản M1 tại phút đóng nến, HTF M15 không nhìn tương lai)
 - 2026-10-10 · N0 · `python -m kh.ind labels/indicators/single --symbols BTCUSDT` (code mới) so với bản đã commit · `single_tableA.csv` phần BTC 198 dòng × 35 cột **giống hệt từng ô** (SHA256 e6ba0617… = e6ba0617…); `single_tableB.csv` 158 dòng và `single_tableB_sensitivity.csv` 1.422 dòng giống hệt; Parquet tín hiệu + nhãn + sóng BTC giống hệt; `trials.csv` không đổi → code M1 không đổi kết quả (đã khôi phục file báo cáo 5 symbol sau khi so)
 - 2026-10-10 · N0 · `python -m kh.ind15 data` · manifest 280 file, 0 tải mới, 0 lỗi; mỗi symbol M15 70.080 / H1 17.520 / H4 4.380 nến, 0 nến thiếu nến con [F]; nến M15 có filler: BTC 13, ETH/BNB/SOL/XRP 14 [F] → `reports/ind15/data_quality.json`
+- 2026-10-10 · N1 · `pytest -q tests/test_labels.py && python -m kh.ind15 labels` · 7 passed (gồm 2 ca M15 chuỗi giá tự tạo: sóng nhanh 1,6%/10 nến, sóng chậm 1,6%/40 nến, đi ngang 40 nến, nhịp hồi 0,7% trong sóng giảm, UNKNOWN = filler + 2 nến); `waves_stats.json` 5 symbol × 3 ngưỡng (1,0 / 1,5 / 2,0%), train + validation; sóng 1,5% nhanh tăng/giảm: BTC 681/668 · ETH 1.593/1.578 · BNB 913/900 · SOL 2.069/2.065 · XRP 2.195/2.199 [F]; sóng chậm rất ít (BTC 78/91, SOL 15/18) [F]; tỷ lệ nến ĐI NGANG ở 1,5%: BTC 71,6% · ETH 35,1% · BNB 59,1% · SOL 20,9% · XRP 32,0% [F]
 
 ## Ghi chú phiên
 <!-- Việc đang làm dở, file đang sửa, vấn đề chưa giải quyết. Cập nhật trước khi hết phiên. -->

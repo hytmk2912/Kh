@@ -102,3 +102,58 @@ def test_signal_modules_never_import_labels():
            "assert 'kh.ind.labels' not in sys.modules, 'module nhãn bị nạp gián tiếp'"
     r = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True)
     assert r.returncode == 0, r.stderr
+
+
+# ---------------------------------------------------------------- track M15 (việc N1): ZigZag 1,5% trên nến M15
+from kh.ind.labels import track_labels  # noqa: E402
+from kh.ind.track import M15  # noqa: E402
+
+
+def _bars15(path, filler=None):
+    m = _bars(path, filler)
+    m["open_time_ms"] = T0 + np.arange(len(m)) * 900_000
+    return m
+
+
+def _known_path15():
+    # đi ngang 40 nến (10 giờ, biên độ 0,2%) → tăng 100 → 101,6 trong 10 nến (nhanh, 2,5 giờ)
+    # → giảm 101,6 → 100,4 (8 nến) → hồi 100,4 → 101,1 (0,7%: nhịp hồi trong sóng giảm) → giảm tiếp tới 99
+    # → tăng 101 (+2%) xác nhận đáy 99
+    rng = np.random.default_rng(1)
+    flat = 100 + rng.uniform(0.02, 0.2, 40)          # luôn > 100 → đáy duy nhất 100 ở nến 39
+    flat[-1] = 100.0
+    up = np.linspace(100, 101.6, 11)[1:]
+    dn1 = np.linspace(101.6, 100.4, 9)[1:]           # giảm dốc để không có cửa sổ 32 nến < 1,5% quanh nhịp hồi
+    pb = np.linspace(100.4, 101.1, 6)[1:]           # hồi 0,7% (> 0,6%) trong sóng giảm
+    dn2 = np.linspace(101.1, 99.0, 9)[1:]
+    up2 = np.linspace(99.0, 101.0, 12)[1:]           # +2,0% để xác nhận đáy 99
+    return np.concatenate([flat, up, dn1, pb, dn2, up2])
+
+
+def test_m15_waves_known_answer():
+    path = _known_path15()
+    lab, W = track_labels(_bars15(path), M15.wave_pct, M15)
+    assert list(W.direction[:2]) == [1, -1]
+    up, dn = W.iloc[0], W.iloc[1]
+    assert np.isclose(up.start_px, 100.0) and np.isclose(up.end_px, 101.6) and up.minutes == 10
+    assert up.fast, "1,6% trong 10 nến M15 (2,5 giờ) là sóng nhanh (≤ 32 nến)"
+    assert np.isclose(dn.end_px, 99.0)
+    reach = W.iloc[1].minutes_to_pct
+    assert dn.fast == (reach <= 32)
+    # đi ngang: 40 nến đầu (≥ 32 nến, biên độ < 1,5%) — trừ đoạn UNKNOWN trước điểm xoay đầu
+    assert (lab[:40] == FLAT).sum() + (lab[:40] == UNKNOWN).sum() == 40
+    # nhịp hồi 0,6% bên trong sóng giảm
+    i_pb = 40 + 10 + 8
+    assert (lab[i_pb - 2:i_pb + 6] == PULLBACK).sum() >= 3
+
+
+def test_m15_slow_wave_and_unknown_after_filler():
+    up = np.linspace(100, 101.6, 41)            # 1,6% trong 40 nến: chạm +1,5% ở nến 38 > 32 → sóng chậm
+    dn = np.linspace(101.6, 99.5, 15)[1:]
+    up2 = np.linspace(99.5, 101.5, 10)[1:]
+    path = np.concatenate([up, dn, up2])
+    fil = np.zeros(len(path), bool)
+    fil[60] = True
+    lab, W = track_labels(_bars15(path, fil), M15.wave_pct, M15)
+    assert W.iloc[0].direction == 1 and not W.iloc[0].fast
+    assert (lab[60:63] == UNKNOWN).all(), "nến filler + 2 nến M15 sau"
