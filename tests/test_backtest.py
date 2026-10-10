@@ -137,3 +137,82 @@ def test_scalp_opposite_signal_exit_and_slippage_ticks():
     assert t.reason == 2 and t.exit_idx == 6
     assert np.isclose(t.slippage, 2 * 2 * 0.5 / 100)           # 2 tick × 2 chiều
     assert len(T) == 1                                         # tín hiệu ngược khi đang có lệnh không mở lệnh mới
+
+
+# ---------------------------------------------------------------- track M15 (N3): tín hiệu M15, thoát lệnh trên đường giá M1
+from kh.backtest.scalp import M15_BASE, run_tf  # noqa: E402
+from kh.ind.data import resample  # noqa: E402
+
+N15B = 60  # nến M15
+
+
+def _m15(o, h, l, c, filler=None):
+    m1 = _m(o, h, l, c, filler)
+    for col in ("volume", "quote_volume", "trade_count", "taker_buy_base_volume", "taker_buy_quote_volume"):
+        m1[col] = 1.0
+    b = resample(m1, 15)
+    return m1, b.assign(is_filler=b.n_filler > 0)
+
+
+def _sig15(**at):
+    s = np.zeros(N15B, np.int8)
+    for j, v in at.items():
+        s[int(j[1:])] = v
+    return s
+
+
+def test_m15_entry_next_m15_open_and_time_exit_after_32_bars():
+    o, h, l, c = _flat(N15B * 15)
+    o[45:], h[45:], l[45:], c[45:] = 100.5, 100.5, 100.5, 100.5   # giá đổi từ nến M15 thứ 3
+    m1, b = _m15(o, h, l, c)
+    T = run_tf(m1, b, _sig15(j2=1), 15, 0.1, ScalpParams(tp=0.012, sl=0.008, max_hold=480, slip_ticks=0), T0, T0 + N15B * 900_000)
+    t = T.iloc[0]
+    assert t.entry_idx == 45 and t.entry_raw == 100.5            # tín hiệu đóng nến M15 #2 → vào open nến M15 #3
+    assert t.entry_ms == b.open_time_ms[3]
+    assert t.reason == 0 and t.exit_idx == 45 + 32 * 15 - 1      # hết 32 nến M15 → đóng ở close nến M1 cuối
+    assert t.exit_ms == b.open_time_ms[3 + 32] and t.hold_min == 480
+    assert np.isclose(t.fees, 0.0005 * 2)
+
+
+def test_m15_tp_sl_checked_on_each_m1_bar_and_same_bar_is_sl():
+    o, h, l, c = _flat(N15B * 15)
+    h[50] = 101.3                                                   # chạm TP 1,2% ở nến M1 thứ 50 (giữa nến M15 #3)
+    m1, b = _m15(o, h, l, c)
+    T = run_tf(m1, b, _sig15(j2=1), 15, 0.1, ScalpParams(tp=0.012, sl=0.008, max_hold=480, slip_ticks=0, fee=0),
+               T0, T0 + N15B * 900_000)
+    assert T.iloc[0].reason == 1 and T.iloc[0].exit_idx == 50 and np.isclose(T.iloc[0].gross, 0.012)
+    o, h, l, c = _flat(N15B * 15)
+    h[52], l[52] = 101.5, 99.0                                      # cùng nến M1 chạm cả TP và SL → SL
+    m1, b = _m15(o, h, l, c)
+    T = run_tf(m1, b, _sig15(j2=1), 15, 0.1, ScalpParams(tp=0.012, sl=0.008, max_hold=480, slip_ticks=0, fee=0),
+               T0, T0 + N15B * 900_000)
+    assert T.iloc[0].reason == -1 and T.iloc[0].exit_idx == 52 and np.isclose(T.iloc[0].gross, -0.008)
+
+
+def test_m15_opposite_signal_exit_at_next_m15_open():
+    o, h, l, c = _flat(N15B * 15)
+    m1, b = _m15(o, h, l, c)
+    T = run_tf(m1, b, _sig15(j2=1, j6=-1), 15, 0.1, M15_BASE, T0, T0 + N15B * 900_000)
+    assert T.iloc[0].reason == 2 and T.iloc[0].exit_idx == 7 * 15 and len(T) == 1
+
+
+def test_m15_funding_at_settlement_inside_hold():
+    o, h, l, c = _flat(N15B * 15)
+    m1, b = _m15(o, h, l, c)
+    fund = pd.DataFrame({"funding_time_ms": [T0 + 10 * 900_000, T0 + 50 * 900_000], "funding_rate": [0.0001, 0.0003]})
+    T = run_tf(m1, b, _sig15(j2=1), 15, 0.1, ScalpParams(tp=0.012, sl=0.008, max_hold=480, slip_ticks=0, fee=0),
+               T0, T0 + N15B * 900_000, fund)
+    assert np.isclose(T.iloc[0].funding, -0.0001)                  # long trả funding dương ở mốc nằm trong (vào, ra]
+    T = run_tf(m1, b, _sig15(j2=-1), 15, 0.1, ScalpParams(tp=0.012, sl=0.008, max_hold=480, slip_ticks=0, fee=0),
+               T0, T0 + N15B * 900_000, fund)
+    assert np.isclose(T.iloc[0].funding, 0.0001)
+
+
+def test_m15_no_entry_in_filler_bar_or_two_bars_after():
+    o, h, l, c = _flat(N15B * 15)
+    fil = np.zeros(N15B * 15, bool)
+    fil[5 * 15 + 3] = True                                          # nến M15 #5 chứa 1 nến M1 filler
+    m1, b = _m15(o, h, l, c, fil)
+    T = run_tf(m1, b, _sig15(j4=1, j6=1, j7=1), 15, 0.1, ScalpParams(tp=0.012, sl=0.008, max_hold=15, slip_ticks=0),
+               T0, T0 + N15B * 900_000)
+    assert list(T.entry_idx) == [8 * 15]                           # vào nến #5, #7 bị chặn; #8 được

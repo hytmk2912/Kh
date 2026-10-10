@@ -91,19 +91,29 @@ def run_table_a(cfg: dict, P, tr=M1) -> None:
 
 
 # ---------------------------------------------------------------- S2: Bảng B — backtest baseline
-def table_b(cfg: dict, P, lo_ms: int, hi_ms: int, scenarios: dict | None = None) -> tuple[pd.DataFrame, pd.DataFrame]:
-    from kh.backtest.scalp import SCENARIOS, metrics, run
-    from kh.ind.data import load_funding, load_m1, load_ticks
+def table_b(cfg: dict, P, lo_ms: int, hi_ms: int, scenarios: dict | None = None, tr=M1) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Backtest baseline + kịch bản độ nhạy. Track M15: tín hiệu nến M15, TP/SL/thoát mô phỏng trên đường giá M1
+    (`kh.backtest.scalp.run_tf`), kịch bản theo spec M15 §4 (kể cả không funding)."""
+    from kh.backtest.scalp import SCENARIOS, SCENARIOS_M15, metrics, run, run_tf
+    from kh.ind.data import load_bars, load_funding, load_m1, load_ticks
 
-    scenarios = scenarios or SCENARIOS
+    scenarios = scenarios or (SCENARIOS if tr.tf == 1 else SCENARIOS_M15)
     ticks = load_ticks(P)
     base_rows, sens_rows = [], []
     for s in cfg["symbols"]:
         m1 = load_m1(P, s)
+        bars = m1 if tr.tf == 1 else load_bars(P, s, tr.tf)
         fund = load_funding(P, s)
-        sigs = pd.read_parquet(signals_path(P, s))
+        sigs = pd.read_parquet(signals_path(P, s, tr))
         t = m1.open_time_ms.to_numpy()
         lo, hi = int(np.searchsorted(t, lo_ms)), int(np.searchsorted(t, hi_ms))
+
+        def bt(sig, prm, name):
+            f = None if name == "no_funding" else fund
+            if tr.tf == 1:
+                return run(m1, sig, ticks[s], prm, lo, hi, f)
+            return run_tf(m1, bars, sig, tr.tf, ticks[s], prm, lo_ms, hi_ms, f, tr.unknown_after_filler)
+
         for c in CARDS:
             if c.name not in IMPL or c.kind != "D":
                 continue
@@ -111,7 +121,7 @@ def table_b(cfg: dict, P, lo_ms: int, hi_ms: int, scenarios: dict | None = None)
             for htf in (False, True):
                 sig = apply_htf(raw, sigs) if htf else raw
                 for name, prm in scenarios.items():
-                    m = metrics(run(m1, sig, ticks[s], prm, lo, hi, fund))
+                    m = metrics(bt(sig, prm, name))
                     key = {"indicator": c.name, "key": col_key(c.name), "symbol": s, "htf": htf}
                     if name == "baseline":
                         base_rows.append(key | m)
@@ -122,10 +132,10 @@ def table_b(cfg: dict, P, lo_ms: int, hi_ms: int, scenarios: dict | None = None)
     return pd.DataFrame(base_rows), pd.DataFrame(sens_rows)
 
 
-def run_table_b(cfg: dict, P) -> None:
+def run_table_b(cfg: dict, P, tr=M1) -> None:
     lo, hi = split_ms(cfg, "train")
-    B, S = table_b(cfg, P, lo, hi)
-    out = P.reports / "ind"
+    B, S = table_b(cfg, P, lo, hi, tr=tr)
+    out = tr.reports(P)
     B.to_csv(out / "single_tableB.csv", index=False)
     S.to_csv(out / "single_tableB_sensitivity.csv", index=False)
     g = B.groupby(["indicator", "key", "htf"], sort=False)
@@ -135,5 +145,5 @@ def run_table_b(cfg: dict, P) -> None:
     summ.to_csv(out / "single_tableB_summary.csv", index=False)
     log_trials(P.reports, [{"stage": "S2", "trial_id": f"S2-{r.key}-{'htf' if r.htf else 'nohtf'}-{sc}", "indicators": r.indicator,
                             "htf": r.htf, "params": sc, "split": "train", "symbols": ",".join(cfg["symbols"]), "note": "backtest đơn lẻ"}
-                           for r in B.drop_duplicates(["indicator", "htf"]).itertuples() for sc in S.scenario.unique()])
+                           for r in B.drop_duplicates(["indicator", "htf"]).itertuples() for sc in S.scenario.unique()], track=tr.name)
     log.info("Bảng B: %d dòng baseline, %d dòng độ nhạy", len(B), len(S))
