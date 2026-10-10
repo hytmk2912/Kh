@@ -313,6 +313,7 @@ def table_b(cfg, P, folds, TR, SEL, SD) -> None:
                "dsr_max": float(B.dsr.max())}
     write_json(summary, out / "wf" / "summary.json")
     top10_md(cfg, B.head(10), summary, folds, out / "top10.md")
+    m1_vs_m15(P)
     log.info("Bảng B: %d tổ hợp ngoài mẫu, %d lệnh; đạt cả 5 tiêu chí: %d", len(B), summary["n_trades_total"], summary["n_pass_all"])
 
 
@@ -411,3 +412,43 @@ def top10_md(cfg, top: pd.DataFrame, S: dict, folds, path) -> None:
           "×0,8/×1,2 khi không có lệnh (tính là đổi dấu → không đạt tiêu chí 5).", "",
           "Ghi chú: [F] số đo trên dữ liệu thật trong train + validation; chưa chạm giai đoạn test. Kết quả backtest không phải lợi nhuận thực tế."]
     path.write_text("\n".join(L) + "\n")
+
+
+def m1_vs_m15(P) -> None:
+    """Bảng so sánh hai track từ các file kết quả đã commit (spec M15 §8)."""
+    import json
+
+    f = lambda x, d=4: "" if x is None or (isinstance(x, float) and not np.isfinite(x)) else f"{x:.{d}f}"
+    r1, r15 = P.reports / "ind", M15.reports(P)
+    S1, S15 = pd.read_csv(r1 / "single_tableB_summary.csv"), pd.read_csv(r15 / "single_tableB_summary.csv")
+    B1, B15 = pd.read_csv(r1 / "combos_tableB.csv"), pd.read_csv(r15 / "combos_tableB.csv")
+    W1, W15 = json.load(open(r1 / "wf" / "summary.json")), json.load(open(r15 / "wf" / "summary.json"))
+    rows = [
+        ("Khung vào lệnh / giữ tối đa", "M1 / 15 phút", "M15 / 8 giờ"),
+        ("TP / SL baseline [A]", "0,45% / 0,30%", "1,2% / 0,8%"),
+        ("Chi phí khứ hồi ≈ (phí 0,10% + trượt)", "≈ 22% TP", "≈ 8–9% TP"),
+        ("Đơn lẻ (train): số lệnh trung vị/symbol", f(S1.n_trades_median.median(), 0), f(S15.n_trades_median.median(), 0)),
+        ("Đơn lẻ: gross trung vị %/lệnh", f(S1.expectancy_gross_pct_median.median()), f(S15.expectancy_gross_pct_median.median())),
+        ("Đơn lẻ: ròng trung vị %/lệnh", f(S1.expectancy_net_pct_median.median()), f(S15.expectancy_net_pct_median.median())),
+        ("Đơn lẻ: số cấu hình có ròng trung vị > 0", f"{int((S1.expectancy_net_pct_median > 0).sum())}/{len(S1)}",
+         f"{int((S15.expectancy_net_pct_median > 0).sum())}/{len(S15)}"),
+        ("Số lần thử (trials.csv)", f"{W1['n_trials_total']:,}", f"{W15['n_trials_m15']:,}"),
+        ("Walk-forward: tổ hợp đánh giá ngoài mẫu", str(len(B1)), str(len(B15))),
+        ("Walk-forward: tổng lệnh ngoài mẫu", f"{int(B1.n_trades.sum()):,}", f"{int(B15.n_trades.sum()):,}"),
+        ("Walk-forward: lệnh trung vị mỗi tổ hợp", f(B1.n_trades.median(), 0), f(B15.n_trades.median(), 0)),
+        ("Walk-forward gộp: gross %/lệnh", f(B1.gross_pct.sum() / B1.n_trades.sum()), f(W15["pooled_expectancy_gross_pct"])),
+        ("Walk-forward gộp: ròng %/lệnh", f(B1.net_pct.sum() / B1.n_trades.sum()), f(W15["pooled_expectancy_net_pct"])),
+        ("Tổ hợp ròng > 0 / có ≥ 100 lệnh mà ròng > 0", f"{int((B1.expectancy_net_pct > 0).sum())} / {int(((B1.expectancy_net_pct > 0) & (B1.n_trades >= 100)).sum())}",
+         f"{int((B15.expectancy_net_pct > 0).sum())} / {int(((B15.expectancy_net_pct > 0) & (B15.n_trades >= 100)).sum())}"),
+        ("DSR lớn nhất", f(B1.dsr.max()), f(B15.dsr.max())),
+        ("PBO", f(W1["pbo"]["pbo"], 3), f(W15["pbo"]["pbo"], 3)),
+        ("Tổ hợp đạt tiêu chí chốt trước", "— (M1 không có tiêu chí §6)", f"{W15['n_pass_all']} / {len(B15)}"),
+    ]
+    L = ["# So sánh track M1 và M15", "",
+         "Mọi số [F] đo trên dữ liệu thật, train (đơn lẻ) và walk-forward 13 tháng 2025-05 → 2026-05 (tổ hợp); chưa dùng giai đoạn test.",
+         "Kết quả backtest tính theo % notional mỗi lệnh, phí taker 0,05%/chiều, trượt 1 tick/chiều, funding thật.", "",
+         "| Chỉ số | M1 | M15 |", "|---|---|---|"] + [f"| {a} | {b} | {c} |" for a, b, c in rows]
+    L += ["", "Đọc bảng [I]: M15 có lợi thế gộp phí lớn hơn M1 khoảng 3–10 lần và đủ lệnh để đo (mỗi tổ hợp hàng trăm–hàng nghìn lệnh), "
+          "nhưng lợi thế đó (≈ +0,01–0,02%/lệnh) vẫn nhỏ hơn nhiều chi phí ≈ 0,10%/lệnh, nên ròng vẫn âm ≈ −0,09%/lệnh như M1. "
+          "PBO M15 thấp hơn (ít lần thử hơn) nhưng DSR vẫn ≈ 0."]
+    (r15 / "m1_vs_m15.md").write_text("\n".join(L) + "\n")
