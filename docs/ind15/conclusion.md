@@ -1,6 +1,7 @@
 # Kết luận — Track M15: vào lệnh khung M15 bằng tổ hợp chỉ báo
 
 Ngày: 2026-10-10 · Nhánh `ind15` · Việc N5a (spec M15 §6: không tổ hợp nào đạt → viết kết luận, dừng hỏi chủ repo).
+**Quyết định của chủ repo (2026-10-10): hướng 1 — dừng track chỉ báo.** Track M15 đóng; không chạy giai đoạn test, không đăng ký forward holdout.
 Nhãn: [F] đã đo trên dữ liệu thật · [A] giả định · [I] suy luận · [L] giới hạn.
 
 ## Kết luận một câu
@@ -63,11 +64,11 @@ File: `reports/ind15/` (`single_tableA/B*.csv`, `candidates.csv`, `combos_tableA
 - Multiple testing: lần thử được đếm (29.394 + M1); lựa chọn ngầm (tham số mặc định, cách định nghĩa trạng thái) không đếm được hết.
 - Chỉ nghiên cứu: không giao dịch thật, không gửi lệnh, không dùng API key.
 
-## 6. Câu hỏi cho chủ repo (hướng tiếp)
+## 6. Hướng tiếp — chủ repo đã chọn 1
 
-Tôi không tự đổi phạm vi. Các hướng có thể (chủ repo chọn):
+Các hướng đã đưa ra (chủ repo chọn **1**; 2–4 để lại làm ghi chú, không làm):
 
-1. **Dừng track chỉ báo** — kết luận: tổ hợp chỉ báo TradingView không lãi sau phí taker ở khung M1 và M15.
+1. **Dừng track chỉ báo** ✓ (đã chọn) — kết luận: tổ hợp chỉ báo TradingView không lãi sau phí taker ở khung M1 và M15.
 2. **Kiểm tra phí thấp hơn** (maker 0,02%/chiều, lệnh limit) — đổi phạm vi phí, cần mô phỏng khả năng khớp lệnh limit; là lần thử mới.
 3. **Khung dài hơn** (vào lệnh H1/H4, giữ nhiều ngày, sóng ≥ 3–5%) — chi phí chỉ còn vài % mục tiêu; là track mới.
 4. Hướng khác do chủ repo nêu.

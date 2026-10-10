@@ -8,7 +8,7 @@ Người duyệt: chủ repo (hytmk2912). Trả lời và viết tài liệu b�
 | Track | Nhánh | Việc | Đặc tả | Trạng thái |
 |---|---|---|---|---|
 | M1 — lướt sóng 1–15 phút | `ind-scalp` | `TASKS.md` | `docs/ind/spec.md` | đóng: không tổ hợp nào lãi sau phí |
-| **M15 — vào lệnh khung M15** | **`ind15`** | **`TASKS_M15.md`** | **`docs/ind15/spec.md`** | **đang làm** |
+| M15 — vào lệnh khung M15 | `ind15` | `TASKS_M15.md` | `docs/ind15/spec.md` | đóng: 0/97 tổ hợp đạt tiêu chí; chủ repo dừng track chỉ báo (2026-10-10) |
 
 Mặc định làm track đang chạy. Code dùng chung; đổi code M1 thì kết quả M1 đã commit phải giữ nguyên.
 

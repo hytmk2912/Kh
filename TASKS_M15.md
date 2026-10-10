@@ -28,9 +28,9 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
   - Xong khi: `pytest -q tests/test_walkforward.py` qua; `combos_tableB.csv` + `top10.md` có cột đạt/không đạt từng tiêu chí §6; `reports/ind15/m1_vs_m15.md` có bảng so sánh.
 
 ### N5. Kết luận — **dừng hỏi chủ repo trước khi mở test**
-- [ ] **N5a** Có tổ hợp đạt §6 → viết `docs/ind15/strategy.md` + hỏi duyệt. Không có → viết `docs/ind15/conclusion.md` và hỏi hướng tiếp.
+- [x] **N5a** Có tổ hợp đạt §6 → viết `docs/ind15/strategy.md` + hỏi duyệt. Không có → viết `docs/ind15/conclusion.md` và hỏi hướng tiếp.
   - Xong khi: file tương ứng đã commit, câu hỏi đã gửi chủ repo, chủ repo đã trả lời.
-- [ ] **N5b** (chỉ khi được duyệt) Chạy test 2026-05-16 → 2026-10-08 đúng 1 lần, ghi "test bán sạch"; đăng ký forward holdout từ 2026-10-09 vào `configs/locked_strategies_ind15.yaml`.
+- [~] **N5b** **Bỏ** — không tổ hợp nào đạt §6, chủ repo chọn dừng track chỉ báo (2026-10-10); không chạy giai đoạn test, không đăng ký forward holdout. ~~(chỉ khi được duyệt) Chạy test 2026-05-16 → 2026-10-08 đúng 1 lần, ghi "test bán sạch"; đăng ký forward holdout từ 2026-10-09 vào `configs/locked_strategies_ind15.yaml`.~~
   - Xong khi: `reports/ind15/final_test.json` + SHA256 đã commit; conclusion tách [F]/[I]/[A]/[L].
 
 ## Log bằng chứng
@@ -46,9 +46,10 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
 - 2026-10-10 · N4a · `python -m kh.ind15 combos --part n4a` (9 s) · `candidates.csv` 13 dòng: D = Zig Zag, Williams Fractal, Chande Kroll Stop, Standard Error Bands, Bollinger, Donchian, Median Price, Keltner, SuperTrend, 52-Week High/Low; F = ATR (dùng trong tổ hợp, filter lift 1,04), BB Width, O-H-L-C Volatility [F]; 1.800 tổ hợp × 5 symbol; `trials.csv` tổng 3.420 lần thử thật (S1 198 + S2 1.422 + N4a 1.800) [F]; cả 1.800 đủ ≥ 30 tín hiệu/symbol, 1.752 đạt precision ≥ 1,2× ngẫu nhiên → `combos_tableA.csv` top 30 (đều đạt cả hai điều kiện); hạng 1: Chande Kroll Stop (kích hoạt) + Median Price (xác nhận), 5.807 tín hiệu/symbol, precision 0,53/0,54 vs ngẫu nhiên 0,43, recall sóng nhanh 0,44 [F]
 - 2026-10-10 · N4b · `python -m kh.ind15 combos --part n4b && pytest -q tests/test_walkforward.py` · 1 passed; 13 fold (2025-05 → 2026-05), ≈ 3 phút; 97 tổ hợp đánh giá ngoài mẫu, 252.687 lệnh (trung vị 1.501 lệnh/tổ hợp); tổng lần thử track M15 29.394 (cộng M1: 206.180) [F]; PBO 0,311 [F]; DSR lớn nhất 0,0008 [F]; gộp mọi lệnh ngoài mẫu: gross +0,016%/lệnh, ròng −0,087%/lệnh [F]; 3/97 tổ hợp có expectancy ròng > 0 (cao nhất Chande Kroll Stop kích hoạt + Average Price + Donchian xác nhận: 628 lệnh, +0,048%/lệnh, CI95 [−0,047; +0,156], chỉ được chọn ở 1 fold, train −0,067%) [F]. Tiêu chí §6: (1) ≥ 100 lệnh 97 · (2) exp > 0 và CI95 dưới > 0: **0** · (3) DSR ≥ 0,95: **0** · (4) ≥ 3/5 symbol dương: 3 · (5) không đổi dấu ±20%: 7 → **đạt cả 5: 0** [F] → `combos_tableB.csv` (cột c1–c5 + pass_all), `top10.md`, `m1_vs_m15.md`, `wf/summary.json`
 - 2026-10-10 · N5a · không tổ hợp nào đạt §6 → viết `docs/ind15/conclusion.md` (tách [F]/[I]/[A]/[L], mục chưa kiểm chứng, 4 hướng tiếp) và hỏi chủ repo; **chưa đánh dấu [x]** — chờ chủ repo trả lời
+- 2026-10-10 · N5a · chủ repo trả lời trong chat: chọn **hướng 1 — dừng track chỉ báo** · ghi CHANGELOG, cập nhật `docs/ind15/conclusion.md`; N5b bỏ (không có tổ hợp đạt)
 
 ## Ghi chú phiên
 <!-- Việc đang làm dở, file đang sửa, vấn đề chưa giải quyết. Cập nhật trước khi hết phiên. -->
-- **Đang chờ chủ repo** (N5a): chọn hướng tiếp ở mục 6 `docs/ind15/conclusion.md`. Không chạy N5b (không tổ hợp nào đạt §6).
+- Track M15 **đã đóng** (2026-10-10): chủ repo chọn dừng track chỉ báo. Không còn việc `[ ]` nào; giai đoạn test chưa dùng cho M15.
 - Code: `src/kh/ind/track.py` (`M1`, `M15`) — mọi hàm track M1 nhận `tr`, mặc định `M1`. CLI `python -m kh.ind15 <bước>` gọi cùng code với `M15`. Kết quả M15: `reports/ind15/`, trung gian `data/ind15/`.
 - Chạy lại kiểm tra M1 không đổi: `python -m kh.ind labels/indicators/single --symbols BTCUSDT`, so phần BTC với `git show HEAD:reports/ind/...`, rồi `git checkout -- reports/ind` (lệnh chạy 1 symbol ghi đè báo cáo 5 symbol).
