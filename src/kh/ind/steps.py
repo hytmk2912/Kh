@@ -54,4 +54,4 @@ def step_combos(cfg, P, args):
 
 
 def step_final(cfg, P, args):
-    raise NotImplementedError("việc F2 (cần chủ repo duyệt F1 trước)")
+    raise SystemExit("Không chạy: chủ repo chọn không mở tập test khoá (CHANGELOG 2026-10-10, docs/ind/conclusion.md)")

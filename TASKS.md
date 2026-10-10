@@ -40,10 +40,10 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
   - Xong khi: `pytest -q tests/test_walkforward.py` qua (không fold nào có test chồng train, embargo đúng 1 ngày); `combos_tableB.csv` + `top10.md` có đủ cột ở spec §8.
 
 ### F. Chiến lược cuối (spec §7) — **dừng hỏi trước khi chạy test khoá**
-- [ ] **F1** Viết `docs/ind/strategy.md`, ghi chiến lược chọn + hash commit vào `CHANGELOG.md`, **hỏi chủ repo duyệt**.
+- [x] **F1** Viết `docs/ind/strategy.md`, ghi chiến lược chọn + hash commit vào `CHANGELOG.md`, **hỏi chủ repo duyệt**.
   - Xong khi: chủ repo trả lời đồng ý trong PR hoặc chat.
-- [ ] **F2** Chạy test khoá đúng 1 lần, viết `docs/ind/conclusion.md`.
-  - Xong khi: `reports/ind/final_test.json` + SHA256 đã commit; conclusion tách [F]/[I]/[A]/[L].
+- [~] **F2** ~~Chạy test khoá đúng 1 lần~~, viết `docs/ind/conclusion.md`. **Bỏ phần test khoá** theo quyết định chủ repo (phương án 2, 2026-10-10): bằng chứng chọn chiến lược quá yếu, giữ tập test cho nghiên cứu sau. `docs/ind/conclusion.md` đã viết.
+  - Xong khi (đã đổi theo quyết định chủ repo): conclusion tách [F]/[I]/[A]/[L]; không có `final_test.json` vì test khoá không mở.
 
 ## Log bằng chứng
 <!-- Mỗi dòng: YYYY-MM-DD · mã việc · lệnh · kết quả chính -->
@@ -61,13 +61,15 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
 - 2026-10-09 · C1 · `python -m kh.ind combos` (bước chọn ứng viên) · `candidates.csv` 20 dòng (16 D + 4 F) kèm điểm từng tiêu chí; D (thứ tự): Zig Zag, Chande Kroll Stop, Williams Fractal, Standard Error Bands, Donchian, Bollinger, Keltner, SuperTrend, Parabolic SAR, 52-Week High/Low, MA Channel, Price Channel, Awesome Osc., TRIX, Adaptive MA, Average Price; F: ATR, O-H-L-C Volatility, Standard Error, Non-Directional C2C (tương quan lớn nhất với ứng viên đã chọn ≤ 0,80) [F]; quy tắc chốt trước trong CHANGELOG
 - 2026-10-09 · C2 · `python -m kh.ind combos` (quét) · 6.164 tổ hợp hợp lệ × 2 HTF = 12.328 lần thử, 220 s; `trials.csv` tổng 13.948 lần thử thật (S1 198 + S2 1.422 + C2 12.328) [F]; chỉ **30** tổ hợp đạt precision ≥ 1,5× ngẫu nhiên (cả Long và Short, trung vị 5 symbol) → `combos_tableA.csv` có 30 dòng (không đủ 50; KHÔNG hạ ngưỡng vì đó là tiêu chí chủ repo chọn) [F]; cả 30 có rất ít tín hiệu (trung vị 1–52/symbol trong 14 tháng, 0 tổ hợp đạt điều kiện mà có ≥ 100 tín hiệu mỗi chiều), recall sóng nhanh ≤ 0,2% [F]; thêm cột thông tin p binomial gộp 5 symbol (chưa điều chỉnh multiple testing): 11/30 có p < 0,05 cả hai chiều [F]
 - 2026-10-09 · W1 · `python -m kh.ind combos --part w1 && pytest -q tests/test_walkforward.py` · 1 passed (không fold nào chồng train, embargo đúng 1 ngày, không chạm test khoá); 13 fold (kiểm tra 2025-05 → 2026-05), 3.209 s; 242 tổ hợp được đánh giá ngoài mẫu; tổng số lần thử 176.786 [F]; PBO 0,504 [F]; 34/242 có expectancy ròng > 0 nhưng **tất cả chỉ 1–25 lệnh** (trung vị 5), 0 tổ hợp có ≥ 30 lệnh mà lãi [F]; DSR lớn nhất 0,0003 (không tổ hợp nào gần 0,95) [F]; gộp mọi lệnh ngoài mẫu: gộp phí +0,005%/lệnh, ròng −0,098%/lệnh [F]; top 1 Bảng B: SuperTrend + 52-Week High/Low + TRIX + Connors RSI (HTF) — 1 lệnh, +0,35% [F]; train của top 10 đều âm (−0,03 → −0,10%), ±20% tham số đổi dấu ở 8/10 [F] → `combos_tableB.csv` (62 cột), `top10.md`, `wf/summary.json`
+- 2026-10-10 · F1 · chủ repo trả lời trong chat: chọn **phương án 2** (không mở test khoá) · ghi CHANGELOG
+- 2026-10-10 · F2 · bỏ chạy test khoá (quyết định chủ repo); viết `docs/ind/conclusion.md` tách [F]/[I]/[A]/[L] + mục chưa kiểm chứng; `python -m kh.ind final` từ chối chạy kèm lý do
 
 ## Ghi chú phiên
 <!-- Việc đang làm dở, file đang sửa, vấn đề chưa giải quyết. Cập nhật trước khi hết phiên. -->
 - Nhánh `ind-scalp` = `ind-scalp-setup` (PR #4) + merge `phase-0` (PR #2, chưa merge vào master) để dùng lại `src/kh/data` (tải Binance Vision có SHA256/retry), `src/kh/backtest`, `src/kh/evaluation`. Code riêng của track nằm ở `src/kh/ind/`.
 - C2: Bảng A tổ hợp chỉ có 30 dòng đạt điều kiện → W1 chạy walk-forward cho 30 tổ hợp này ("top 50" = tối đa 50). Kết quả chi tiết theo symbol: `data/ind/combos_train_by_symbol.parquet` (không commit), tổng hợp mọi tổ hợp: `reports/ind/combos_tableA_all.csv.gz`.
 - W1 xong. Kết quả chọn từng fold lưu ở `data/ind/wf/foldNN/` (không commit) → chạy lại `--part w1` dùng lại cache, chỉ tính lại Bảng B + độ bền.
-- F1: đã viết `docs/ind/strategy.md` + dòng CHANGELOG (Bảng B hạng 1, commit `113a5c4`). **Đang chờ chủ repo trả lời** (mục 6 của strategy.md: 1 = chạy test khoá, 2 = kết luận không có chiến lược, 3 = hướng khác). Chưa mở test khoá; `python -m kh.ind final` vẫn chặn (NotImplementedError) tới khi được duyệt.
+- Track M1 đã đóng (2026-10-10): kết luận "không có chiến lược lãi sau phí đáng tin"; test khoá chưa mở. Việc tiếp theo ở track M15 (nhánh `ind15`, `TASKS_M15.md`).
 - Ngày trong log theo UTC (đồng hồ container).
 - Đối chiếu chỉ báo cần môi trường riêng: `python -m venv /tmp/xenv && /tmp/xenv/bin/pip install pandas-ta talipp pyarrow`, rồi `python tools/ind_crosscheck.py --pandas-ta-python /tmp/xenv/bin/python`.
 - Dữ liệu: đặt `KH_DATA_DIR` (mặc định `data/` trong repo, đã gitignore). Phiên mới phải chạy lại `python -m kh.ind data`.
