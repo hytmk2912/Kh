@@ -1,6 +1,6 @@
 # Chiến lược chọn cho test khoá (việc F1)
 
-Trạng thái: **chờ chủ repo duyệt** · Chưa mở tập test khoá (2026-05-16 → 2026-10-08).
+Trạng thái: **chủ repo chọn phương án 2 (2026-10-10) — không mở tập test khoá**; chiến lược dưới đây KHÔNG được dùng. Xem `docs/ind/conclusion.md`.
 Nhãn: [F] đã đo · [A] giả định · [I] suy luận · [L] giới hạn. Mọi số dưới đây đo trên train + validation (walk-forward ngoài mẫu), không phải lợi nhuận thực tế.
 
 ## 1. Cách chọn (chốt trước trong spec §6–7)
