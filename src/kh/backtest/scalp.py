@@ -105,10 +105,11 @@ def blocked_mask(is_filler: np.ndarray, block: int) -> np.ndarray:
 
 
 def run(m1: pd.DataFrame, sig: np.ndarray, tick: float, prm: ScalpParams, lo: int, hi: int,
-        funding: pd.DataFrame | None = None) -> pd.DataFrame:
-    """Backtest một symbol trên nến [lo, hi). Trả về bảng lệnh với các thành phần PnL (% notional)."""
+        funding: pd.DataFrame | None = None, blocked: np.ndarray | None = None) -> pd.DataFrame:
+    """Backtest một symbol trên nến [lo, hi). Trả về bảng lệnh với các thành phần PnL (% notional).
+    `blocked` (tuỳ chọn): mặt nạ nến không được vào lệnh, thay cho quy tắc filler + filler_block phút."""
     o, h, l, c = (m1[x].to_numpy(np.float64) for x in ("open", "high", "low", "close"))
-    blk = blocked_mask(m1.is_filler.to_numpy(), prm.filler_block)
+    blk = blocked_mask(m1.is_filler.to_numpy(), prm.filler_block) if blocked is None else np.asarray(blocked, bool)
     e, x, s, pin, pout, r, slip = _run(o, h, l, c, blk, np.asarray(sig, np.int8), float(tick), prm.tp, prm.sl, prm.max_hold,
                                        prm.slip_ticks, prm.delay, int(lo), int(hi))
     t = m1.open_time_ms.to_numpy()
@@ -149,3 +150,47 @@ def metrics(T: pd.DataFrame) -> dict:
             "avg_hold_min": float(T.hold_min.mean()),
             "tp_share": float((T.reason == 1).mean()), "sl_share": float((T.reason == -1).mean()),
             "opposite_exit_share": float((T.reason == 2).mean()), "time_exit_share": float((T.reason == 0).mean())}
+
+
+# ---------------------------------------------------------------- track M15 (spec M15 §4): tín hiệu M15, thoát trên đường giá M1
+M15_BASE = ScalpParams(tp=0.012, sl=0.008, max_hold=32 * 15, fee=0.0005, slip_ticks=1.0)
+SCENARIOS_M15 = {
+    "baseline": M15_BASE,
+    "tp0.80": ScalpParams(tp=0.008, sl=0.008, max_hold=480), "tp1.80": ScalpParams(tp=0.018, sl=0.008, max_hold=480),
+    "sl0.50": ScalpParams(tp=0.012, sl=0.005, max_hold=480), "sl1.20": ScalpParams(tp=0.012, sl=0.012, max_hold=480),
+    "fee0.02": ScalpParams(tp=0.012, sl=0.008, max_hold=480, fee=0.0002),
+    "fee0.07": ScalpParams(tp=0.012, sl=0.008, max_hold=480, fee=0.0007),
+    "slip3": ScalpParams(tp=0.012, sl=0.008, max_hold=480, slip_ticks=3.0),
+    "no_funding": M15_BASE,  # chạy không truyền funding
+}
+
+
+def tf_to_m1(m1_t: np.ndarray, tf_t: np.ndarray, sig_tf: np.ndarray, tf: int) -> np.ndarray:
+    """Đặt tín hiệu của nến khung `tf` (tính khi nến đóng) vào nến M1 CUỐI của nến đó → engine vào lệnh ở open nến M1
+    kế tiếp = open nến khung `tf` kế tiếp; tín hiệu ngược thoát ở open nến khung `tf` kế tiếp."""
+    out = np.zeros(len(m1_t), np.int8)
+    nz = np.flatnonzero(np.asarray(sig_tf) != 0)
+    if len(nz):
+        pos = np.searchsorted(m1_t, tf_t[nz] + (tf - 1) * 60_000)
+        ok = (pos < len(m1_t)) & (m1_t[np.minimum(pos, len(m1_t) - 1)] == tf_t[nz] + (tf - 1) * 60_000)
+        out[pos[ok]] = np.asarray(sig_tf)[nz[ok]]
+    return out
+
+
+def tf_blocked_m1(m1_t: np.ndarray, tf_t: np.ndarray, tf_filler: np.ndarray, tf: int, after: int) -> np.ndarray:
+    """Không vào lệnh khi nến khung `tf` chứa filler hoặc trong `after` nến khung `tf` sau đó; trải ra từng nến M1."""
+    blk_tf = blocked_mask(np.asarray(tf_filler), after)
+    j = np.searchsorted(tf_t, (m1_t // (tf * 60_000)) * (tf * 60_000))
+    j = np.minimum(j, len(tf_t) - 1)
+    return blk_tf[j] & (tf_t[j] == (m1_t // (tf * 60_000)) * (tf * 60_000))
+
+
+def run_tf(m1: pd.DataFrame, bars: pd.DataFrame, sig_tf: np.ndarray, tf: int, tick: float, prm: ScalpParams,
+           lo_ms: int, hi_ms: int, funding: pd.DataFrame | None = None, after_filler: int = 2) -> pd.DataFrame:
+    """Backtest tín hiệu khung `tf` (M15) với TP/SL/thoát mô phỏng trên từng nến M1 trong [lo_ms, hi_ms)."""
+    t = m1.open_time_ms.to_numpy()
+    tt = bars.open_time_ms.to_numpy()
+    sig = tf_to_m1(t, tt, sig_tf, tf)
+    blk = tf_blocked_m1(t, tt, bars.is_filler.to_numpy(), tf, after_filler)
+    lo, hi = int(np.searchsorted(t, lo_ms)), int(np.searchsorted(t, hi_ms))
+    return run(m1, sig, tick, prm, lo, hi, funding, blocked=blk)

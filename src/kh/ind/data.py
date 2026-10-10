@@ -144,7 +144,41 @@ def load_m1(P, symbol: str) -> pd.DataFrame:
 
 
 def load_htf(P, symbol: str, minutes: int) -> pd.DataFrame:
-    return pd.read_parquet(norm_path(P, {15: "klines_15m", 60: "klines_1h"}[minutes], symbol))
+    from kh.ind.track import KLINE_KIND
+
+    return pd.read_parquet(norm_path(P, KLINE_KIND[minutes], symbol))
+
+
+def load_bars(P, symbol: str, tf: int) -> pd.DataFrame:
+    """Nến khung `tf` phút có cột như M1 (`is_filler` = có ≥ 1 nến M1 filler bên trong với khung lớn)."""
+    if tf == 1:
+        return load_m1(P, symbol)
+    b = load_htf(P, symbol, tf)
+    return b.assign(is_filler=b.n_filler > 0)
+
+
+# ---------------------------------------------------------------- track M15 (việc N0): thêm H4
+def build_higher(cfg: dict, P, tr) -> dict:
+    """Dựng H4 từ M1 (M15/H1 đã có từ D2), kiểm số nến từng khung, ghi reports/<track>/data_quality.json."""
+    lo, hi = window_ms(cfg)
+    rep = {}
+    for s in cfg["symbols"]:
+        m1 = load_m1(P, s)
+        h4 = resample(m1, 240)
+        p = norm_path(P, "klines_4h", s)
+        p.parent.mkdir(parents=True, exist_ok=True)
+        h4.to_parquet(p, compression="zstd", index=False)
+        rep[s] = {"rows_m1": int(len(m1)), "filler_m1": int(m1.is_filler.sum())}
+        for tf in (15, 60, 240):
+            b = h4 if tf == 240 else load_htf(P, s, tf)
+            exp = (hi - lo) // (tf * MS_PER_MIN)
+            rep[s] |= {f"rows_{tf}m": int(len(b)), f"expected_{tf}m": int(exp), f"incomplete_{tf}m": int((b.n_m1 != tf).sum()),
+                       f"filler_bars_{tf}m": int((b.n_filler > 0).sum())}
+        log.info("%s: M15 %d, H1 %d, H4 %d nến; nến M15 có filler %d", s, rep[s]["rows_15m"], rep[s]["rows_60m"],
+                 rep[s]["rows_240m"], rep[s]["filler_bars_15m"])
+    rep["_note"] = {"source": "resample từ M1 đã xác minh SHA256 (manifest)", "is_filler": "nến khung lớn có ≥ 1 nến M1 filler"}
+    write_json(rep, tr.reports(P) / "data_quality.json")
+    return rep
 
 
 def load_funding(P, symbol: str) -> pd.DataFrame:

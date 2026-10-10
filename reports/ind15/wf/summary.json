@@ -1,0 +1,22 @@
+{
+  "n_folds": 13,
+  "n_trials_m15": 29394,
+  "n_trials_m1_m15": 206180,
+  "pbo": {
+    "pbo": 0.31095571095571095,
+    "n_combinations": 12870,
+    "median_logit": 2.564949357461537
+  },
+  "n_combos_evaluated": 97,
+  "n_trades_total": 252687,
+  "pooled_expectancy_net_pct": -0.08708208519230339,
+  "pooled_expectancy_gross_pct": 0.016149539010881526,
+  "n_expectancy_positive": 3,
+  "n_c1_trades_ge_100": 97,
+  "n_c2_exp_and_ci_low_pos": 0,
+  "n_c3_dsr_ge_095": 0,
+  "n_c4_symbols_pos_ge_3": 3,
+  "n_c5_no_sign_flip": 7,
+  "n_pass_all": 0,
+  "dsr_max": 0.0008342467379063492
+}

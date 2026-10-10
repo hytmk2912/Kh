@@ -1,4 +1,4 @@
-"""Đếm mọi lần thử (chỉ báo/tổ hợp/tham số) vào reports/ind/trials.csv — dùng cho multiple testing (DSR)."""
+"""Đếm mọi lần thử (chỉ báo/tổ hợp/tham số) vào reports/<track>/trials.csv — dùng cho multiple testing (DSR)."""
 from __future__ import annotations
 
 import csv
@@ -8,8 +8,8 @@ from pathlib import Path
 FIELDS = ["utc_time", "stage", "trial_id", "indicators", "htf", "params", "split", "symbols", "note", "n_trials"]
 
 
-def log_trials(reports_dir: Path, rows: list[dict]) -> int:
-    path = Path(reports_dir) / "ind" / "trials.csv"
+def log_trials(reports_dir: Path, rows: list[dict], track: str = "ind") -> int:
+    path = Path(reports_dir) / track / "trials.csv"
     path.parent.mkdir(parents=True, exist_ok=True)
     new = not path.exists()
     if not new:  # chạy lại cùng cấu hình không phải lần thử mới
@@ -37,8 +37,8 @@ def log_trials(reports_dir: Path, rows: list[dict]) -> int:
     return len(rows)
 
 
-def count_trials(reports_dir: Path, stage: str | None = None) -> int:
-    path = Path(reports_dir) / "ind" / "trials.csv"
+def count_trials(reports_dir: Path, stage: str | None = None, track: str = "ind") -> int:
+    path = Path(reports_dir) / track / "trials.csv"
     if not path.exists():
         return 0
     with open(path) as f:

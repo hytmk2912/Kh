@@ -19,14 +19,21 @@ def active_direction(sig: np.ndarray, k: int = VALID_BARS) -> np.ndarray:
     return np.sign(c).astype(np.float32)
 
 
-def signal_corr(cfg: dict, P, keys: list[str], kind: str, lo_ms: int, hi_ms: int) -> pd.DataFrame:
-    """Ma trận tương quan Pearson gộp 5 symbol (cộng dồn tổng để tiết kiệm RAM)."""
+def signal_corr(cfg: dict, P, keys: list[str], kind: str, lo_ms: int, hi_ms: int, tr=None) -> pd.DataFrame:
+    """Ma trận tương quan Pearson gộp 5 symbol (cộng dồn tổng để tiết kiệm RAM).
+    Track M15: directional dùng cột trạng thái `<key>_st` (dạng xác nhận của tổ hợp, spec M15 §5)."""
+    from kh.ind.track import M1
+
+    tr = tr or M1
     k = len(keys)
     n, sx, sxx = 0, np.zeros(k), np.zeros((k, k))
     for s in cfg["symbols"]:
-        sig = pd.read_parquet(signals_path(P, s), columns=["open_time_ms"] + keys)
+        cols = [c + "_st" for c in keys] if (kind == "D" and tr is not M1) else keys
+        sig = pd.read_parquet(signals_path(P, s, tr), columns=["open_time_ms"] + cols)
         m = (sig.open_time_ms >= lo_ms) & (sig.open_time_ms < hi_ms)
-        if kind == "D":
+        if kind == "D" and tr is not M1:
+            X = sig.loc[m, cols].to_numpy(np.float32)
+        elif kind == "D":
             X = np.stack([active_direction(sig[c].to_numpy()) for c in keys], axis=1)[m.to_numpy()]
         else:
             X = sig.loc[m, keys].to_numpy(np.float32)
@@ -45,11 +52,15 @@ def rank_score(df: pd.DataFrame, cols_hi: list[str], cols_lo: list[str]) -> pd.S
     return pd.concat(r, axis=1).mean(axis=1)
 
 
-def select(cfg: dict, P, n_d: int = 16, n_f: int = 4, lo_ms=None, hi_ms=None, A: pd.DataFrame | None = None) -> pd.DataFrame:
+def select(cfg: dict, P, n_d: int = 16, n_f: int = 4, lo_ms=None, hi_ms=None, A: pd.DataFrame | None = None,
+           tr=None) -> pd.DataFrame:
+    from kh.ind.track import M1
+
+    tr = tr or M1
     if lo_ms is None:
         lo_ms, hi_ms = split_ms(cfg, "train")
     if A is None:
-        A = pd.read_csv(P.reports / "ind" / "single_tableA.csv")
+        A = pd.read_csv(tr.reports(P) / "single_tableA.csv")
     A = A[~A.htf.astype(bool)]
     g = A.groupby(["indicator", "key", "kind"])
     D = g.agg(n_long=("n_long", "median"), n_short=("n_short", "median"), recall_fast=("recall_fast", "median"),
@@ -69,7 +80,7 @@ def select(cfg: dict, P, n_d: int = 16, n_f: int = 4, lo_ms=None, hi_ms=None, A:
     f = D[D.kind == "F"].copy().sort_values("filter_lift", ascending=False)
     picked = []
     for kind, pool, n in (("D", e, n_d), ("F", f, n_f)):
-        C = signal_corr(cfg, P, pool.key.tolist(), kind, lo_ms, hi_ms)
+        C = signal_corr(cfg, P, pool.key.tolist(), kind, lo_ms, hi_ms, tr)
         chosen = []
         for _, r in pool.iterrows():
             if len(chosen) == n:

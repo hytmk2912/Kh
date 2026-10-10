@@ -3,10 +3,19 @@
 Repo nghiên cứu định lượng Binance USDⓈ-M Perpetual, nến 1 phút. Chỉ nghiên cứu, **không giao dịch thật**.
 Người duyệt: chủ repo (hytmk2912). Trả lời và viết tài liệu bằng **tiếng Việt đơn giản**, định nghĩa thuật ngữ khi dùng lần đầu.
 
+## Track đang chạy
+
+| Track | Nhánh | Việc | Đặc tả | Trạng thái |
+|---|---|---|---|---|
+| M1 — lướt sóng 1–15 phút | `ind-scalp` | `TASKS.md` | `docs/ind/spec.md` | đóng: không tổ hợp nào lãi sau phí |
+| M15 — vào lệnh khung M15 | `ind15` | `TASKS_M15.md` | `docs/ind15/spec.md` | đóng: 0/97 tổ hợp đạt tiêu chí; chủ repo dừng track chỉ báo (2026-10-10) |
+
+Mặc định làm track đang chạy. Code dùng chung; đổi code M1 thì kết quả M1 đã commit phải giữ nguyên.
+
 ## Đọc gì trước khi làm
 
-1. `TASKS.md` — việc đang dở và điều kiện "xong" của từng việc. **Luôn bắt đầu từ việc `[ ]` đầu tiên.**
-2. `docs/ind/spec.md` — đặc tả đầy đủ của track hiện tại (lướt sóng M1 bằng tổ hợp chỉ báo).
+1. File việc của track đang chạy — việc đang dở và điều kiện "xong" của từng việc. **Luôn bắt đầu từ việc `[ ]` đầu tiên.**
+2. Đặc tả của track đang chạy.
 3. `CHANGELOG.md` — các quyết định đã chốt. Không làm ngược quyết định đã ghi.
 4. `docs/phase0_report.md` + `reports/phase0/` — sự thật đã đo về nguồn dữ liệu (Giai đoạn 0, đã duyệt).
 
@@ -30,7 +39,7 @@ Người duyệt: chủ repo (hytmk2912). Trả lời và viết tài liệu b�
 4. **Tập test cuối bị khoá** (2026-05-16 → 2026-10-08). Chỉ chạy một lần ở việc cuối của TASKS.md. Không chỉnh gì sau khi xem nó.
 5. **Mỗi số liệu gắn nhãn:** [F] đã đo · [A] giả định · [I] suy luận · [L] giới hạn.
 6. Mọi thay đổi tham số, nhãn, quy tắc, tiêu chí → ghi 1 dòng vào `CHANGELOG.md` (ngày, thay đổi, lý do).
-7. Mọi lần chạy thử tổ hợp/tham số được đếm trong `reports/ind/trials.csv` (để tính multiple testing).
+7. Mọi lần chạy thử tổ hợp/tham số được đếm trong `reports/<track>/trials.csv` (`ind` hoặc `ind15`) (để tính multiple testing).
 
 ## Cách làm việc
 
@@ -42,8 +51,8 @@ Người duyệt: chủ repo (hytmk2912). Trả lời và viết tài liệu b�
 
 ## Git
 
-- Làm trên nhánh `ind-scalp`, commit theo từng việc, mở 1 PR vào `master` và cập nhật dần. Không tự merge vào `master`.
-- Chỉ commit file nhỏ: code, test, tài liệu, `reports/ind/**` (csv/json/md/png, mỗi file < 5 MB). `data/` đã nằm trong `.gitignore`.
+- Làm trên nhánh của track đang chạy (bảng ở đầu file), commit theo từng việc, mở 1 PR cho mỗi track và cập nhật dần. Không tự merge vào `master`.
+- Chỉ commit file nhỏ: code, test, tài liệu, `reports/ind/**`, `reports/ind15/**` (csv/json/md/png, mỗi file < 5 MB). `data/` đã nằm trong `.gitignore`.
 - Commit message tiếng Việt, ngắn, dạng `ind: <việc> — <kết quả chính>`.
 
 ## Môi trường
@@ -69,4 +78,4 @@ src/kh/ind/report.py      xuất bảng vào reports/ind/
 tests/                    pytest, gồm test chống nhìn tương lai
 ```
 
-Chạy: `pip install -e .` rồi `python -m kh.ind <bước>` (bước = `data`, `labels`, `indicators`, `single`, `combos`, `final`).
+Chạy: `pip install -e .` rồi `python -m kh.ind <bước>` (track M1) hoặc `python -m kh.ind15 <bước>` (track M15) (bước = `data`, `labels`, `indicators`, `single`, `combos`, `final`).
