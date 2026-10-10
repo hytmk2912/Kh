@@ -55,6 +55,7 @@ M1 = Track(name="ind", tf=1, htf=(15, 60), bars_per_day=1440, wave_pct=0.005, wa
 M15 = Track(name="ind15", tf=15, htf=(60, 240), bars_per_day=96, wave_pct=0.015, wave_sens=(0.010, 0.015, 0.020),
             pullback_pct=0.006, fast_bars=32, flat_bars=32, unknown_after_filler=2, min_remaining=0.009,
             tp=0.012, sl=0.008, max_hold_bars=32,
-            param_overrides={"52-Week High/Low": {"length": 96}, "Zig Zag": {"deviation": 0.015}})
+            param_overrides={"52-Week High/Low": {"length": 96}, "Zig Zag": {"deviation": 0.015},
+                             "Multi-Timeframe MA": {"tf": "1h"}})
 
 TRACKS = {t.name: t for t in (M1, M15)}

@@ -1,0 +1,2320 @@
+{
+  "signal_counts_or_filter_on_share": {
+    "BTCUSDT": {
+      "SMA": 13885,
+      "EMA": 14831,
+      "DEMA": 19999,
+      "TEMA": 22980,
+      "Hull MA": 24786,
+      "Hamming MA": 13299,
+      "Arnaud Legoux MA": 22622,
+      "Least Squares MA": 12281,
+      "Smoothed MA": 12351,
+      "Adaptive MA": 10868,
+      "Multi-Timeframe MA": 4168,
+      "WMA": 16932,
+      "McGinley Dynamic": 8542,
+      "Guppy MMA": 2861,
+      "MA Cross": 3892,
+      "EMA Cross": 3284,
+      "MA-EMA Cross": 9215,
+      "SuperTrend": 1690,
+      "Ichimoku Cloud": 3925,
+      "Parabolic SAR": 5907,
+      "Directional Movement": 5901,
+      "Vortex": 7624,
+      "Williams Alligator": 4029,
+      "Williams Fractal": 7224,
+      "Aroon": 5414,
+      "Trend Strength Index": 5380,
+      "Zig Zag": 1776,
+      "Linear Regression Curve": 22012,
+      "Linear Regression Slope": 5380,
+      "Keltner Channels": 2705,
+      "Donchian Channels": 4769,
+      "Price Channel": 8393,
+      "MA Channel": 8581,
+      "Chande Kroll Stop": 10241,
+      "52-Week High/Low": 1743,
+      "Majority Rule": 8106,
+      "ADX": 0.48764269406392696,
+      "MACD": 5483,
+      "RSI": 8500,
+      "Stochastic": 28629,
+      "Stochastic RSI": 17279,
+      "Connors RSI": 35169,
+      "Awesome Oscillator": 3283,
+      "Accelerator Oscillator": 8461,
+      "Momentum": 10955,
+      "Chande Momentum Oscillator": 11379,
+      "Price Oscillator": 3152,
+      "Detrended Price Oscillator": 5685,
+      "TRIX": 1428,
+      "Fisher Transform": 13603,
+      "Ultimate Oscillator": 12529,
+      "Williams %R": 10430,
+      "SMI Ergodic": 10770,
+      "Relative Vigor Index": 12665,
+      "True Strength Index": 4813,
+      "Coppock Curve": 3682,
+      "Rate of Change": 11379,
+      "Klinger Oscillator": 10705,
+      "Bollinger Bands": 4286,
+      "BB %B": 8911,
+      "Standard Error Bands": 5755,
+      "Envelopes": 0,
+      "BB Width": 0.4906535388127854,
+      "ATR": 0.4798801369863014,
+      "Historical Volatility": 0.4939212328767123,
+      "Chaikin Volatility": 0.5040667808219178,
+      "Close-to-Close Volatility": 0.4939212328767123,
+      "Non-Directional Close-to-Close Volatility": 0.493935502283105,
+      "O-H-L-C Volatility": 0.48857020547945207,
+      "Relative Volatility Index": 0.4987728310502283,
+      "Standard Deviation": 0.49048230593607306,
+      "Mass Index": 0.5179509132420091,
+      "Net Volume": 9149,
+      "OBV": 9973,
+      "Accumulation/Distribution": 10044,
+      "MFI": 7317,
+      "Chaikin Money Flow": 8094,
+      "Chaikin Oscillator": 8379,
+      "Ease of Movement": 8570,
+      "Elder Force Index": 7775,
+      "Price & Volume Trend": 5701,
+      "Volume": 0.4930365296803653,
+      "Volume Oscillator": 0.3742151826484018,
+      "Volume Profile Fixed Range": 0.5382990867579909,
+      "VWAP": 7719,
+      "VWMA": 9482,
+      "Pivot Points Standard": 3199,
+      "Balance of Power": 9621,
+      "Accumulative Swing Index": 7056,
+      "Up/Down": 7862,
+      "Spread": 0.5077340182648402,
+      "Correlation Coefficient": 0.5014840182648402,
+      "Correlation-Log": 0.5001141552511416,
+      "Rank Correlation": 0.5008276255707762,
+      "Ratio": 0.5078196347031964,
+      "Standard Error": 0.4937357305936073,
+      "Average Price": 6771,
+      "Typical Price": 7245,
+      "Median Price": 7399
+    },
+    "ETHUSDT": {
+      "SMA": 14088,
+      "EMA": 15007,
+      "DEMA": 20252,
+      "TEMA": 22959,
+      "Hull MA": 24560,
+      "Hamming MA": 13495,
+      "Arnaud Legoux MA": 23036,
+      "Least Squares MA": 12227,
+      "Smoothed MA": 12516,
+      "Adaptive MA": 10756,
+      "Multi-Timeframe MA": 4166,
+      "WMA": 17270,
+      "McGinley Dynamic": 8492,
+      "Guppy MMA": 2779,
+      "MA Cross": 3931,
+      "EMA Cross": 3167,
+      "MA-EMA Cross": 9189,
+      "SuperTrend": 1563,
+      "Ichimoku Cloud": 3930,
+      "Parabolic SAR": 5576,
+      "Directional Movement": 5474,
+      "Vortex": 7893,
+      "Williams Alligator": 4007,
+      "Williams Fractal": 6906,
+      "Aroon": 5423,
+      "Trend Strength Index": 5510,
+      "Zig Zag": 3727,
+      "Linear Regression Curve": 21900,
+      "Linear Regression Slope": 5510,
+      "Keltner Channels": 2401,
+      "Donchian Channels": 4252,
+      "Price Channel": 8684,
+      "MA Channel": 8462,
+      "Chande Kroll Stop": 9963,
+      "52-Week High/Low": 1490,
+      "Majority Rule": 8322,
+      "ADX": 0.482648401826484,
+      "MACD": 5621,
+      "RSI": 8454,
+      "Stochastic": 28613,
+      "Stochastic RSI": 17336,
+      "Connors RSI": 35667,
+      "Awesome Oscillator": 3165,
+      "Accelerator Oscillator": 8515,
+      "Momentum": 11204,
+      "Chande Momentum Oscillator": 11743,
+      "Price Oscillator": 2993,
+      "Detrended Price Oscillator": 5575,
+      "TRIX": 1462,
+      "Fisher Transform": 13861,
+      "Ultimate Oscillator": 13142,
+      "Williams %R": 10855,
+      "SMI Ergodic": 10754,
+      "Relative Vigor Index": 12808,
+      "True Strength Index": 4820,
+      "Coppock Curve": 3637,
+      "Rate of Change": 11743,
+      "Klinger Oscillator": 10777,
+      "Bollinger Bands": 4357,
+      "BB %B": 9158,
+      "Standard Error Bands": 5719,
+      "Envelopes": 3,
+      "BB Width": 0.48441780821917807,
+      "ATR": 0.47584189497716894,
+      "Historical Volatility": 0.4944777397260274,
+      "Chaikin Volatility": 0.5059075342465753,
+      "Close-to-Close Volatility": 0.4944777397260274,
+      "Non-Directional Close-to-Close Volatility": 0.4921518264840183,
+      "O-H-L-C Volatility": 0.48841324200913244,
+      "Relative Volatility Index": 0.49894406392694063,
+      "Standard Deviation": 0.48424657534246573,
+      "Mass Index": 0.5143550228310503,
+      "Net Volume": 9012,
+      "OBV": 9918,
+      "Accumulation/Distribution": 10746,
+      "MFI": 7428,
+      "Chaikin Money Flow": 8680,
+      "Chaikin Oscillator": 8667,
+      "Ease of Movement": 8633,
+      "Elder Force Index": 7595,
+      "Price & Volume Trend": 5310,
+      "Volume": 0.49483447488584476,
+      "Volume Oscillator": 0.37587043378995433,
+      "Volume Profile Fixed Range": 0.5266409817351598,
+      "VWAP": 7716,
+      "VWMA": 9853,
+      "Pivot Points Standard": 3116,
+      "Balance of Power": 10251,
+      "Accumulative Swing Index": 6617,
+      "Up/Down": 7599,
+      "Spread": 0.5077340182648402,
+      "Correlation Coefficient": 0.5014840182648402,
+      "Correlation-Log": 0.5001141552511416,
+      "Rank Correlation": 0.5008276255707762,
+      "Ratio": 0.507648401826484,
+      "Standard Error": 0.489412100456621,
+      "Average Price": 6903,
+      "Typical Price": 7449,
+      "Median Price": 7587
+    },
+    "BNBUSDT": {
+      "SMA": 13765,
+      "EMA": 14682,
+      "DEMA": 19785,
+      "TEMA": 22813,
+      "Hull MA": 24456,
+      "Hamming MA": 13234,
+      "Arnaud Legoux MA": 22400,
+      "Least Squares MA": 12293,
+      "Smoothed MA": 12220,
+      "Adaptive MA": 10464,
+      "Multi-Timeframe MA": 4072,
+      "WMA": 16868,
+      "McGinley Dynamic": 8417,
+      "Guppy MMA": 2778,
+      "MA Cross": 3747,
+      "EMA Cross": 3207,
+      "MA-EMA Cross": 9223,
+      "SuperTrend": 1739,
+      "Ichimoku Cloud": 3741,
+      "Parabolic SAR": 6072,
+      "Directional Movement": 5768,
+      "Vortex": 7270,
+      "Williams Alligator": 3859,
+      "Williams Fractal": 7161,
+      "Aroon": 5131,
+      "Trend Strength Index": 5189,
+      "Zig Zag": 2248,
+      "Linear Regression Curve": 21674,
+      "Linear Regression Slope": 5189,
+      "Keltner Channels": 2973,
+      "Donchian Channels": 5085,
+      "Price Channel": 8109,
+      "MA Channel": 8259,
+      "Chande Kroll Stop": 9895,
+      "52-Week High/Low": 1885,
+      "Majority Rule": 7938,
+      "ADX": 0.4797374429223744,
+      "MACD": 5575,
+      "RSI": 8406,
+      "Stochastic": 28511,
+      "Stochastic RSI": 17089,
+      "Connors RSI": 34831,
+      "Awesome Oscillator": 3072,
+      "Accelerator Oscillator": 8412,
+      "Momentum": 10543,
+      "Chande Momentum Oscillator": 11035,
+      "Price Oscillator": 3059,
+      "Detrended Price Oscillator": 5297,
+      "TRIX": 1409,
+      "Fisher Transform": 13570,
+      "Ultimate Oscillator": 11770,
+      "Williams %R": 10098,
+      "SMI Ergodic": 10712,
+      "Relative Vigor Index": 12629,
+      "True Strength Index": 4863,
+      "Coppock Curve": 3540,
+      "Rate of Change": 11035,
+      "Klinger Oscillator": 11412,
+      "Bollinger Bands": 4415,
+      "BB %B": 8763,
+      "Standard Error Bands": 5884,
+      "Envelopes": 2,
+      "BB Width": 0.4881563926940639,
+      "ATR": 0.4702482876712329,
+      "Historical Volatility": 0.48982591324200914,
+      "Chaikin Volatility": 0.5045804794520548,
+      "Close-to-Close Volatility": 0.48982591324200914,
+      "Non-Directional Close-to-Close Volatility": 0.48688641552511414,
+      "O-H-L-C Volatility": 0.4819634703196347,
+      "Relative Volatility Index": 0.4984874429223744,
+      "Standard Deviation": 0.48805650684931506,
+      "Mass Index": 0.5092893835616439,
+      "Net Volume": 8638,
+      "OBV": 9864,
+      "Accumulation/Distribution": 9504,
+      "MFI": 7113,
+      "Chaikin Money Flow": 7561,
+      "Chaikin Oscillator": 8131,
+      "Ease of Movement": 8199,
+      "Elder Force Index": 7876,
+      "Price & Volume Trend": 5711,
+      "Volume": 0.4903824200913242,
+      "Volume Oscillator": 0.3945348173515982,
+      "Volume Profile Fixed Range": 0.5415382420091325,
+      "VWAP": 7200,
+      "VWMA": 9150,
+      "Pivot Points Standard": 3084,
+      "Balance of Power": 9327,
+      "Accumulative Swing Index": 6991,
+      "Up/Down": 7236,
+      "Spread": 0.5226740867579909,
+      "Correlation Coefficient": 0.49577625570776257,
+      "Correlation-Log": 0.5009703196347032,
+      "Rank Correlation": 0.4980593607305936,
+      "Ratio": 0.522716894977169,
+      "Standard Error": 0.48926940639269406,
+      "Average Price": 6552,
+      "Typical Price": 7008,
+      "Median Price": 7098
+    },
+    "SOLUSDT": {
+      "SMA": 13800,
+      "EMA": 14769,
+      "DEMA": 19940,
+      "TEMA": 22873,
+      "Hull MA": 24759,
+      "Hamming MA": 13176,
+      "Arnaud Legoux MA": 22648,
+      "Least Squares MA": 12209,
+      "Smoothed MA": 12223,
+      "Adaptive MA": 10610,
+      "Multi-Timeframe MA": 3984,
+      "WMA": 16744,
+      "McGinley Dynamic": 8297,
+      "Guppy MMA": 2715,
+      "MA Cross": 3813,
+      "EMA Cross": 3169,
+      "MA-EMA Cross": 9143,
+      "SuperTrend": 1605,
+      "Ichimoku Cloud": 3725,
+      "Parabolic SAR": 6105,
+      "Directional Movement": 5585,
+      "Vortex": 7407,
+      "Williams Alligator": 3877,
+      "Williams Fractal": 6913,
+      "Aroon": 5155,
+      "Trend Strength Index": 5332,
+      "Zig Zag": 4797,
+      "Linear Regression Curve": 22005,
+      "Linear Regression Slope": 5332,
+      "Keltner Channels": 2543,
+      "Donchian Channels": 4796,
+      "Price Channel": 8339,
+      "MA Channel": 8427,
+      "Chande Kroll Stop": 10145,
+      "52-Week High/Low": 1808,
+      "Majority Rule": 8110,
+      "ADX": 0.48383276255707763,
+      "MACD": 5561,
+      "RSI": 8331,
+      "Stochastic": 28695,
+      "Stochastic RSI": 17100,
+      "Connors RSI": 35153,
+      "Awesome Oscillator": 3135,
+      "Accelerator Oscillator": 8422,
+      "Momentum": 10877,
+      "Chande Momentum Oscillator": 11364,
+      "Price Oscillator": 3007,
+      "Detrended Price Oscillator": 5436,
+      "TRIX": 1396,
+      "Fisher Transform": 13843,
+      "Ultimate Oscillator": 12304,
+      "Williams %R": 10444,
+      "SMI Ergodic": 10724,
+      "Relative Vigor Index": 12608,
+      "True Strength Index": 4882,
+      "Coppock Curve": 3531,
+      "Rate of Change": 11364,
+      "Klinger Oscillator": 11344,
+      "Bollinger Bands": 4324,
+      "BB %B": 8873,
+      "Standard Error Bands": 5844,
+      "Envelopes": 4,
+      "BB Width": 0.4918521689497717,
+      "ATR": 0.4752283105022831,
+      "Historical Volatility": 0.4915667808219178,
+      "Chaikin Volatility": 0.505179794520548,
+      "Close-to-Close Volatility": 0.4915667808219178,
+      "Non-Directional Close-to-Close Volatility": 0.4896404109589041,
+      "O-H-L-C Volatility": 0.48841324200913244,
+      "Relative Volatility Index": 0.49815924657534244,
+      "Standard Deviation": 0.4919377853881279,
+      "Mass Index": 0.5156820776255707,
+      "Net Volume": 9308,
+      "OBV": 10357,
+      "Accumulation/Distribution": 10602,
+      "MFI": 7254,
+      "Chaikin Money Flow": 8239,
+      "Chaikin Oscillator": 8600,
+      "Ease of Movement": 8066,
+      "Elder Force Index": 8133,
+      "Price & Volume Trend": 6012,
+      "Volume": 0.4932648401826484,
+      "Volume Oscillator": 0.3931078767123288,
+      "Volume Profile Fixed Range": 0.5705764840182649,
+      "VWAP": 7551,
+      "VWMA": 9325,
+      "Pivot Points Standard": 2964,
+      "Balance of Power": 9763,
+      "Accumulative Swing Index": 6840,
+      "Up/Down": 7601,
+      "Spread": 0.5134275114155251,
+      "Correlation Coefficient": 0.5006135844748858,
+      "Correlation-Log": 0.5013698630136987,
+      "Rank Correlation": 0.5008418949771689,
+      "Ratio": 0.5134988584474885,
+      "Standard Error": 0.4964469178082192,
+      "Average Price": 6634,
+      "Typical Price": 7122,
+      "Median Price": 7241
+    },
+    "XRPUSDT": {
+      "SMA": 14081,
+      "EMA": 14989,
+      "DEMA": 20249,
+      "TEMA": 23140,
+      "Hull MA": 24608,
+      "Hamming MA": 13259,
+      "Arnaud Legoux MA": 22802,
+      "Least Squares MA": 12549,
+      "Smoothed MA": 12480,
+      "Adaptive MA": 10847,
+      "Multi-Timeframe MA": 4236,
+      "WMA": 17087,
+      "McGinley Dynamic": 8632,
+      "Guppy MMA": 2825,
+      "MA Cross": 3841,
+      "EMA Cross": 3258,
+      "MA-EMA Cross": 9331,
+      "SuperTrend": 1567,
+      "Ichimoku Cloud": 3889,
+      "Parabolic SAR": 5954,
+      "Directional Movement": 5644,
+      "Vortex": 7518,
+      "Williams Alligator": 3929,
+      "Williams Fractal": 6934,
+      "Aroon": 5194,
+      "Trend Strength Index": 5340,
+      "Zig Zag": 5120,
+      "Linear Regression Curve": 21959,
+      "Linear Regression Slope": 5340,
+      "Keltner Channels": 2637,
+      "Donchian Channels": 4699,
+      "Price Channel": 8543,
+      "MA Channel": 8436,
+      "Chande Kroll Stop": 10080,
+      "52-Week High/Low": 1801,
+      "Majority Rule": 7993,
+      "ADX": 0.4776541095890411,
+      "MACD": 5673,
+      "RSI": 8676,
+      "Stochastic": 28562,
+      "Stochastic RSI": 17164,
+      "Connors RSI": 35165,
+      "Awesome Oscillator": 3119,
+      "Accelerator Oscillator": 8557,
+      "Momentum": 11050,
+      "Chande Momentum Oscillator": 11559,
+      "Price Oscillator": 3058,
+      "Detrended Price Oscillator": 5518,
+      "TRIX": 1437,
+      "Fisher Transform": 13667,
+      "Ultimate Oscillator": 12320,
+      "Williams %R": 10608,
+      "SMI Ergodic": 10838,
+      "Relative Vigor Index": 12564,
+      "True Strength Index": 4988,
+      "Coppock Curve": 3592,
+      "Rate of Change": 11559,
+      "Klinger Oscillator": 11837,
+      "Bollinger Bands": 4396,
+      "BB %B": 9206,
+      "Standard Error Bands": 5782,
+      "Envelopes": 13,
+      "BB Width": 0.4865867579908676,
+      "ATR": 0.46571061643835615,
+      "Historical Volatility": 0.49076769406392695,
+      "Chaikin Volatility": 0.5061786529680365,
+      "Close-to-Close Volatility": 0.49076769406392695,
+      "Non-Directional Close-to-Close Volatility": 0.4894977168949772,
+      "O-H-L-C Volatility": 0.48593036529680367,
+      "Relative Volatility Index": 0.5004280821917808,
+      "Standard Deviation": 0.4867437214611872,
+      "Mass Index": 0.5147688356164384,
+      "Net Volume": 9012,
+      "OBV": 10163,
+      "Accumulation/Distribution": 10411,
+      "MFI": 7259,
+      "Chaikin Money Flow": 8314,
+      "Chaikin Oscillator": 8495,
+      "Ease of Movement": 8048,
+      "Elder Force Index": 8427,
+      "Price & Volume Trend": 6129,
+      "Volume": 0.492351598173516,
+      "Volume Oscillator": 0.38954052511415527,
+      "Volume Profile Fixed Range": 0.5618436073059361,
+      "VWAP": 7727,
+      "VWMA": 9720,
+      "Pivot Points Standard": 3224,
+      "Balance of Power": 9958,
+      "Accumulative Swing Index": 6824,
+      "Up/Down": 6730,
+      "Spread": 0.5037100456621004,
+      "Correlation Coefficient": 0.49820205479452057,
+      "Correlation-Log": 0.5017551369863014,
+      "Rank Correlation": 0.4977882420091324,
+      "Ratio": 0.5037528538812786,
+      "Standard Error": 0.49198059360730595,
+      "Average Price": 6853,
+      "Typical Price": 7447,
+      "Median Price": 7557
+    }
+  },
+  "seconds_total": {
+    "SMA": 0.013870954513549805,
+    "EMA": 0.007798671722412109,
+    "DEMA": 0.01369166374206543,
+    "TEMA": 0.012538909912109375,
+    "Hull MA": 0.019802331924438477,
+    "Hamming MA": 0.00835418701171875,
+    "Arnaud Legoux MA": 0.00958251953125,
+    "Least Squares MA": 0.043866634368896484,
+    "Smoothed MA": 0.006894350051879883,
+    "Adaptive MA": 0.016997337341308594,
+    "Multi-Timeframe MA": 0.07816648483276367,
+    "WMA": 0.008614301681518555,
+    "McGinley Dynamic": 0.013660192489624023,
+    "Guppy MMA": 0.03834104537963867,
+    "MA Cross": 0.01656961441040039,
+    "EMA Cross": 0.006094932556152344,
+    "MA-EMA Cross": 0.012269735336303711,
+    "SuperTrend": 0.013894319534301758,
+    "Ichimoku Cloud": 0.07711601257324219,
+    "Parabolic SAR": 0.009782791137695312,
+    "Directional Movement": 0.026352882385253906,
+    "Vortex": 0.02931809425354004,
+    "Williams Alligator": 0.009150981903076172,
+    "Williams Fractal": 0.01624774932861328,
+    "Aroon": 0.022586584091186523,
+    "Trend Strength Index": 0.025263071060180664,
+    "Zig Zag": 0.01903700828552246,
+    "Linear Regression Curve": 0.022345542907714844,
+    "Linear Regression Slope": 0.024878501892089844,
+    "Keltner Channels": 0.010937213897705078,
+    "Donchian Channels": 0.027085542678833008,
+    "Price Channel": 0.02759718894958496,
+    "MA Channel": 0.015753984451293945,
+    "Chande Kroll Stop": 0.054227352142333984,
+    "52-Week High/Low": 0.02686929702758789,
+    "Majority Rule": 0.015039682388305664,
+    "ADX": 0.1713695526123047,
+    "MACD": 0.012908697128295898,
+    "RSI": 0.012702465057373047,
+    "Stochastic": 0.045430898666381836,
+    "Stochastic RSI": 0.05004453659057617,
+    "Connors RSI": 0.07416701316833496,
+    "Awesome Oscillator": 0.01886272430419922,
+    "Accelerator Oscillator": 0.023456335067749023,
+    "Momentum": 0.0055353641510009766,
+    "Chande Momentum Oscillator": 0.023340463638305664,
+    "Price Oscillator": 0.007300853729248047,
+    "Detrended Price Oscillator": 0.010534286499023438,
+    "TRIX": 0.009421586990356445,
+    "Fisher Transform": 0.03785133361816406,
+    "Ultimate Oscillator": 0.047950029373168945,
+    "Williams %R": 0.029107093811035156,
+    "SMI Ergodic": 0.012999773025512695,
+    "Relative Vigor Index": 0.02358531951904297,
+    "True Strength Index": 0.012038707733154297,
+    "Coppock Curve": 0.010759353637695312,
+    "Rate of Change": 0.006761312484741211,
+    "Klinger Oscillator": 0.015774250030517578,
+    "Bollinger Bands": 0.02025914192199707,
+    "BB %B": 0.022728681564331055,
+    "Standard Error Bands": 0.04758906364440918,
+    "Envelopes": 0.009160995483398438,
+    "BB Width": 0.16788005828857422,
+    "ATR": 0.1517629623413086,
+    "Historical Volatility": 0.16241240501403809,
+    "Chaikin Volatility": 0.15826082229614258,
+    "Close-to-Close Volatility": 0.16293931007385254,
+    "Non-Directional Close-to-Close Volatility": 0.16704463958740234,
+    "O-H-L-C Volatility": 0.1622309684753418,
+    "Relative Volatility Index": 0.1802845001220703,
+    "Standard Deviation": 0.16470575332641602,
+    "Mass Index": 0.15436244010925293,
+    "Net Volume": 0.014112234115600586,
+    "OBV": 0.009871244430541992,
+    "Accumulation/Distribution": 0.011996984481811523,
+    "MFI": 0.02983713150024414,
+    "Chaikin Money Flow": 0.01985478401184082,
+    "Chaikin Oscillator": 0.012125253677368164,
+    "Ease of Movement": 0.014055728912353516,
+    "Elder Force Index": 0.0067975521087646484,
+    "Price & Volume Trend": 0.009531021118164062,
+    "Volume": 0.16083908081054688,
+    "Volume Oscillator": 0.00556635856628418,
+    "Volume Profile Fixed Range": 0.30643463134765625,
+    "VWAP": 0.026986122131347656,
+    "VWMA": 0.017881155014038086,
+    "Pivot Points Standard": 0.06577014923095703,
+    "Balance of Power": 0.013806819915771484,
+    "Accumulative Swing Index": 0.031172752380371094,
+    "Up/Down": 0.011512279510498047,
+    "Spread": 0.021456480026245117,
+    "Correlation Coefficient": 0.6096451282501221,
+    "Correlation-Log": 0.18503069877624512,
+    "Rank Correlation": 1.027747631072998,
+    "Ratio": 0.02200460433959961,
+    "Standard Error": 0.17723560333251953,
+    "Average Price": 0.014375925064086914,
+    "Typical Price": 0.012565135955810547,
+    "Median Price": 0.011200428009033203
+  },
+  "keys": {
+    "SMA": "i001",
+    "EMA": "i002",
+    "DEMA": "i003",
+    "TEMA": "i004",
+    "Hull MA": "i005",
+    "Hamming MA": "i006",
+    "Arnaud Legoux MA": "i007",
+    "Least Squares MA": "i008",
+    "Smoothed MA": "i009",
+    "Adaptive MA": "i010",
+    "Multi-Timeframe MA": "i011",
+    "WMA": "i012",
+    "McGinley Dynamic": "i013",
+    "Guppy MMA": "i014",
+    "MA Cross": "i015",
+    "EMA Cross": "i016",
+    "MA-EMA Cross": "i017",
+    "SuperTrend": "i018",
+    "Ichimoku Cloud": "i019",
+    "Parabolic SAR": "i020",
+    "Directional Movement": "i021",
+    "Vortex": "i022",
+    "Williams Alligator": "i023",
+    "Williams Fractal": "i024",
+    "Aroon": "i025",
+    "Trend Strength Index": "i026",
+    "Zig Zag": "i027",
+    "Linear Regression Curve": "i028",
+    "Linear Regression Slope": "i029",
+    "Keltner Channels": "i030",
+    "Donchian Channels": "i031",
+    "Price Channel": "i032",
+    "MA Channel": "i033",
+    "Chande Kroll Stop": "i034",
+    "52-Week High/Low": "i035",
+    "Majority Rule": "i036",
+    "ADX": "i037",
+    "MACD": "i038",
+    "RSI": "i039",
+    "Stochastic": "i040",
+    "Stochastic RSI": "i041",
+    "Connors RSI": "i042",
+    "Awesome Oscillator": "i043",
+    "Accelerator Oscillator": "i044",
+    "Momentum": "i045",
+    "Chande Momentum Oscillator": "i046",
+    "Price Oscillator": "i047",
+    "Detrended Price Oscillator": "i048",
+    "TRIX": "i049",
+    "Fisher Transform": "i050",
+    "Ultimate Oscillator": "i051",
+    "Williams %R": "i052",
+    "SMI Ergodic": "i053",
+    "Relative Vigor Index": "i054",
+    "True Strength Index": "i055",
+    "Coppock Curve": "i056",
+    "Rate of Change": "i057",
+    "Klinger Oscillator": "i058",
+    "Bollinger Bands": "i059",
+    "BB %B": "i060",
+    "Standard Error Bands": "i061",
+    "Envelopes": "i062",
+    "BB Width": "i063",
+    "ATR": "i064",
+    "Historical Volatility": "i065",
+    "Chaikin Volatility": "i066",
+    "Close-to-Close Volatility": "i067",
+    "Non-Directional Close-to-Close Volatility": "i068",
+    "O-H-L-C Volatility": "i069",
+    "Relative Volatility Index": "i070",
+    "Standard Deviation": "i071",
+    "Mass Index": "i073",
+    "Net Volume": "i074",
+    "OBV": "i075",
+    "Accumulation/Distribution": "i076",
+    "MFI": "i077",
+    "Chaikin Money Flow": "i078",
+    "Chaikin Oscillator": "i079",
+    "Ease of Movement": "i080",
+    "Elder Force Index": "i081",
+    "Price & Volume Trend": "i082",
+    "Volume": "i083",
+    "Volume Oscillator": "i084",
+    "Volume Profile Fixed Range": "i085",
+    "VWAP": "i086",
+    "VWMA": "i087",
+    "Pivot Points Standard": "i088",
+    "Balance of Power": "i089",
+    "Accumulative Swing Index": "i090",
+    "Up/Down": "i091",
+    "Spread": "i092",
+    "Correlation Coefficient": "i093",
+    "Correlation-Log": "i094",
+    "Rank Correlation": "i095",
+    "Ratio": "i096",
+    "Standard Error": "i097",
+    "Average Price": "i099",
+    "Typical Price": "i100",
+    "Median Price": "i101"
+  },
+  "state_share": {
+    "BTCUSDT": {
+      "SMA": {
+        "long_share": 0.5108590182648401,
+        "short_share": 0.48898401826484017
+      },
+      "EMA": {
+        "long_share": 0.5125428082191781,
+        "short_share": 0.4873002283105023
+      },
+      "DEMA": {
+        "long_share": 0.49817351598173515,
+        "short_share": 0.5015839041095891
+      },
+      "TEMA": {
+        "long_share": 0.49606164383561646,
+        "short_share": 0.5035102739726027
+      },
+      "Hull MA": {
+        "long_share": 0.4963470319634703,
+        "short_share": 0.5034674657534246
+      },
+      "Hamming MA": {
+        "long_share": 0.5099315068493151,
+        "short_share": 0.4899115296803653
+      },
+      "Arnaud Legoux MA": {
+        "long_share": 0.5054223744292238,
+        "short_share": 0.49439212328767124
+      },
+      "Least Squares MA": {
+        "long_share": 0.5005422374429224,
+        "short_share": 0.4990867579908676
+      },
+      "Smoothed MA": {
+        "long_share": 0.5135702054794521,
+        "short_share": 0.48627283105022834
+      },
+      "Adaptive MA": {
+        "long_share": 0.5203053652968036,
+        "short_share": 0.4795519406392694
+      },
+      "Multi-Timeframe MA": {
+        "long_share": 0.5179223744292237,
+        "short_share": 0.48012271689497715
+      },
+      "WMA": {
+        "long_share": 0.5092180365296803,
+        "short_share": 0.4906535388127854
+      },
+      "McGinley Dynamic": {
+        "long_share": 0.5218464611872146,
+        "short_share": 0.47775399543378994
+      },
+      "Guppy MMA": {
+        "long_share": 0.5186501141552512,
+        "short_share": 0.4805079908675799
+      },
+      "MA Cross": {
+        "long_share": 0.5121860730593607,
+        "short_share": 0.48735730593607307
+      },
+      "EMA Cross": {
+        "long_share": 0.5144406392694064,
+        "short_share": 0.48513127853881277
+      },
+      "MA-EMA Cross": {
+        "long_share": 0.4947203196347032,
+        "short_share": 0.5051369863013698
+      },
+      "SuperTrend": {
+        "long_share": 0.5011130136986301,
+        "short_share": 0.4971603881278539
+      },
+      "Ichimoku Cloud": {
+        "long_share": 0.528824200913242,
+        "short_share": 0.46927796803652966
+      },
+      "Parabolic SAR": {
+        "long_share": 0.5169948630136987,
+        "short_share": 0.48297659817351596
+      },
+      "Directional Movement": {
+        "long_share": 0.4920947488584475,
+        "short_share": 0.5075057077625571
+      },
+      "Vortex": {
+        "long_share": 0.509375,
+        "short_share": 0.49033961187214614
+      },
+      "Williams Alligator": {
+        "long_share": 0.5167380136986301,
+        "short_share": 0.48297659817351596
+      },
+      "Williams Fractal": {
+        "long_share": 0.5018978310502283,
+        "short_share": 0.49803082191780823
+      },
+      "Aroon": {
+        "long_share": 0.5062928082191781,
+        "short_share": 0.4934360730593607
+      },
+      "Trend Strength Index": {
+        "long_share": 0.5102454337899544,
+        "short_share": 0.48934075342465755
+      },
+      "Zig Zag": {
+        "long_share": 0.537171803652968,
+        "short_share": 0.461800799086758
+      },
+      "Linear Regression Curve": {
+        "long_share": 0.4975599315068493,
+        "short_share": 0.5022545662100457
+      },
+      "Linear Regression Slope": {
+        "long_share": 0.5102454337899544,
+        "short_share": 0.48934075342465755
+      },
+      "Keltner Channels": {
+        "long_share": 0.49556221461187216,
+        "short_share": 0.5037243150684931
+      },
+      "Donchian Channels": {
+        "long_share": 0.5133133561643836,
+        "short_share": 0.4863727168949772
+      },
+      "Price Channel": {
+        "long_share": 0.5253995433789954,
+        "short_share": 0.47420091324200914
+      },
+      "MA Channel": {
+        "long_share": 0.5092893835616439,
+        "short_share": 0.4904252283105023
+      },
+      "Chande Kroll Stop": {
+        "long_share": 0.5150542237442922,
+        "short_share": 0.4846603881278539
+      },
+      "52-Week High/Low": {
+        "long_share": 0.5306221461187215,
+        "short_share": 0.4670376712328767
+      },
+      "Majority Rule": {
+        "long_share": 0.5012271689497717,
+        "short_share": 0.4985017123287671
+      },
+      "MACD": {
+        "long_share": 0.5005707762557078,
+        "short_share": 0.49875856164383564
+      },
+      "RSI": {
+        "long_share": 0.5147688356164384,
+        "short_share": 0.4848316210045662
+      },
+      "Stochastic": {
+        "long_share": 0.5007705479452055,
+        "short_share": 0.4990011415525114
+      },
+      "Stochastic RSI": {
+        "long_share": 0.49941495433789956,
+        "short_share": 0.5001284246575343
+      },
+      "Connors RSI": {
+        "long_share": 0.5000856164383561,
+        "short_share": 0.4984303652968037
+      },
+      "Awesome Oscillator": {
+        "long_share": 0.5155536529680366,
+        "short_share": 0.48354737442922374
+      },
+      "Accelerator Oscillator": {
+        "long_share": 0.49838755707762555,
+        "short_share": 0.5010559360730593
+      },
+      "Momentum": {
+        "long_share": 0.5087756849315068,
+        "short_share": 0.49099600456621006
+      },
+      "Chande Momentum Oscillator": {
+        "long_share": 0.5089041095890411,
+        "short_share": 0.4908818493150685
+      },
+      "Price Oscillator": {
+        "long_share": 0.5145690639269407,
+        "short_share": 0.48498858447488585
+      },
+      "Detrended Price Oscillator": {
+        "long_share": 0.5138841324200913,
+        "short_share": 0.48524543378995433
+      },
+      "TRIX": {
+        "long_share": 0.5167950913242009,
+        "short_share": 0.48142123287671235
+      },
+      "Fisher Transform": {
+        "long_share": 0.5033390410958904,
+        "short_share": 0.49648972602739727
+      },
+      "Ultimate Oscillator": {
+        "long_share": 0.5194920091324201,
+        "short_share": 0.4800941780821918
+      },
+      "Williams %R": {
+        "long_share": 0.5220605022831051,
+        "short_share": 0.47753995433789953
+      },
+      "SMI Ergodic": {
+        "long_share": 0.5043664383561643,
+        "short_share": 0.49509132420091323
+      },
+      "Relative Vigor Index": {
+        "long_share": 0.5028966894977169,
+        "short_share": 0.496875
+      },
+      "True Strength Index": {
+        "long_share": 0.5022688356164383,
+        "short_share": 0.496875
+      },
+      "Coppock Curve": {
+        "long_share": 0.51287100456621,
+        "short_share": 0.48668664383561644
+      },
+      "Rate of Change": {
+        "long_share": 0.5089041095890411,
+        "short_share": 0.4908818493150685
+      },
+      "Klinger Oscillator": {
+        "long_share": 0.5012414383561644,
+        "short_share": 0.4977882420091324
+      },
+      "Bollinger Bands": {
+        "long_share": 0.4939212328767123,
+        "short_share": 0.5057505707762557
+      },
+      "BB %B": {
+        "long_share": 0.5132277397260274,
+        "short_share": 0.4863727168949772
+      },
+      "Standard Error Bands": {
+        "long_share": 0.4947345890410959,
+        "short_share": 0.5048658675799087
+      },
+      "Envelopes": {
+        "long_share": 0.0,
+        "short_share": 0.0
+      },
+      "Net Volume": {
+        "long_share": 0.5043521689497716,
+        "short_share": 0.4953624429223744
+      },
+      "OBV": {
+        "long_share": 0.5054366438356165,
+        "short_share": 0.4941638127853881
+      },
+      "Accumulation/Distribution": {
+        "long_share": 0.5182933789954338,
+        "short_share": 0.4812357305936073
+      },
+      "MFI": {
+        "long_share": 0.4948772831050228,
+        "short_share": 0.5048658675799087
+      },
+      "Chaikin Money Flow": {
+        "long_share": 0.5132990867579909,
+        "short_share": 0.4860873287671233
+      },
+      "Chaikin Oscillator": {
+        "long_share": 0.5128139269406393,
+        "short_share": 0.4867151826484018
+      },
+      "Ease of Movement": {
+        "long_share": 0.5174800228310502,
+        "short_share": 0.4822488584474886
+      },
+      "Elder Force Index": {
+        "long_share": 0.5004851598173516,
+        "short_share": 0.49911529680365296
+      },
+      "Price & Volume Trend": {
+        "long_share": 0.4953624429223744,
+        "short_share": 0.5042380136986301
+      },
+      "VWAP": {
+        "long_share": 0.5186073059360731,
+        "short_share": 0.48136415525114157
+      },
+      "VWMA": {
+        "long_share": 0.520148401826484,
+        "short_share": 0.4794520547945205
+      },
+      "Pivot Points Standard": {
+        "long_share": 0.5226455479452055,
+        "short_share": 0.47534246575342465
+      },
+      "Balance of Power": {
+        "long_share": 0.5066780821917808,
+        "short_share": 0.493050799086758
+      },
+      "Accumulative Swing Index": {
+        "long_share": 0.35740582191780823,
+        "short_share": 0.6422945205479452
+      },
+      "Up/Down": {
+        "long_share": 0.46067351598173517,
+        "short_share": 0.5391267123287671
+      },
+      "Average Price": {
+        "long_share": 0.5128424657534246,
+        "short_share": 0.4867579908675799
+      },
+      "Typical Price": {
+        "long_share": 0.513056506849315,
+        "short_share": 0.4865439497716895
+      },
+      "Median Price": {
+        "long_share": 0.5122146118721461,
+        "short_share": 0.48738584474885843
+      }
+    },
+    "ETHUSDT": {
+      "SMA": {
+        "long_share": 0.5142408675799087,
+        "short_share": 0.4856021689497717
+      },
+      "EMA": {
+        "long_share": 0.5162671232876712,
+        "short_share": 0.48357591324200916
+      },
+      "DEMA": {
+        "long_share": 0.5020405251141552,
+        "short_share": 0.49768835616438356
+      },
+      "TEMA": {
+        "long_share": 0.4962899543378995,
+        "short_share": 0.5033533105022832
+      },
+      "Hull MA": {
+        "long_share": 0.4974315068493151,
+        "short_share": 0.5023829908675799
+      },
+      "Hamming MA": {
+        "long_share": 0.5134417808219178,
+        "short_share": 0.48641552511415526
+      },
+      "Arnaud Legoux MA": {
+        "long_share": 0.5101740867579909,
+        "short_share": 0.4896404109589041
+      },
+      "Least Squares MA": {
+        "long_share": 0.49982876712328766,
+        "short_share": 0.4998002283105023
+      },
+      "Smoothed MA": {
+        "long_share": 0.5151398401826484,
+        "short_share": 0.48470319634703196
+      },
+      "Adaptive MA": {
+        "long_share": 0.5188498858447489,
+        "short_share": 0.4808219178082192
+      },
+      "Multi-Timeframe MA": {
+        "long_share": 0.5156535388127854,
+        "short_share": 0.4825913242009132
+      },
+      "WMA": {
+        "long_share": 0.5132420091324201,
+        "short_share": 0.48661529680365295
+      },
+      "McGinley Dynamic": {
+        "long_share": 0.5266409817351598,
+        "short_share": 0.47314497716894977
+      },
+      "Guppy MMA": {
+        "long_share": 0.5138841324200913,
+        "short_share": 0.4852311643835616
+      },
+      "MA Cross": {
+        "long_share": 0.5140410958904109,
+        "short_share": 0.4852882420091324
+      },
+      "EMA Cross": {
+        "long_share": 0.5158247716894977,
+        "short_share": 0.48331906392694063
+      },
+      "MA-EMA Cross": {
+        "long_share": 0.49553367579908675,
+        "short_share": 0.5043236301369863
+      },
+      "SuperTrend": {
+        "long_share": 0.4930079908675799,
+        "short_share": 0.5061358447488584
+      },
+      "Ichimoku Cloud": {
+        "long_share": 0.5239155251141553,
+        "short_share": 0.47444349315068496
+      },
+      "Parabolic SAR": {
+        "long_share": 0.5148544520547945,
+        "short_share": 0.4851170091324201
+      },
+      "Directional Movement": {
+        "long_share": 0.4873002283105023,
+        "short_share": 0.5124714611872146
+      },
+      "Vortex": {
+        "long_share": 0.5111444063926941,
+        "short_share": 0.4885844748858447
+      },
+      "Williams Alligator": {
+        "long_share": 0.5161101598173516,
+        "short_share": 0.4835901826484018
+      },
+      "Williams Fractal": {
+        "long_share": 0.5036815068493151,
+        "short_share": 0.49624714611872145
+      },
+      "Aroon": {
+        "long_share": 0.5061501141552511,
+        "short_share": 0.4935787671232877
+      },
+      "Trend Strength Index": {
+        "long_share": 0.5129851598173516,
+        "short_share": 0.4867865296803653
+      },
+      "Zig Zag": {
+        "long_share": 0.5397973744292237,
+        "short_share": 0.4601170091324201
+      },
+      "Linear Regression Curve": {
+        "long_share": 0.49601883561643834,
+        "short_share": 0.5037956621004567
+      },
+      "Linear Regression Slope": {
+        "long_share": 0.5129851598173516,
+        "short_share": 0.4867865296803653
+      },
+      "Keltner Channels": {
+        "long_share": 0.4864583333333333,
+        "short_share": 0.5126712328767123
+      },
+      "Donchian Channels": {
+        "long_share": 0.5130422374429223,
+        "short_share": 0.4865582191780822
+      },
+      "Price Channel": {
+        "long_share": 0.5284389269406393,
+        "short_share": 0.4709046803652968
+      },
+      "MA Channel": {
+        "long_share": 0.5125428082191781,
+        "short_share": 0.487171803652968
+      },
+      "Chande Kroll Stop": {
+        "long_share": 0.5211472602739726,
+        "short_share": 0.47848173515981735
+      },
+      "52-Week High/Low": {
+        "long_share": 0.5273544520547945,
+        "short_share": 0.4702340182648402
+      },
+      "Majority Rule": {
+        "long_share": 0.5087043378995434,
+        "short_share": 0.4910816210045662
+      },
+      "MACD": {
+        "long_share": 0.502425799086758,
+        "short_share": 0.4970034246575342
+      },
+      "RSI": {
+        "long_share": 0.5166095890410959,
+        "short_share": 0.4830194063926941
+      },
+      "Stochastic": {
+        "long_share": 0.5023687214611872,
+        "short_share": 0.49733162100456624
+      },
+      "Stochastic RSI": {
+        "long_share": 0.5021118721461187,
+        "short_share": 0.4974172374429224
+      },
+      "Connors RSI": {
+        "long_share": 0.5020262557077626,
+        "short_share": 0.49650399543379
+      },
+      "Awesome Oscillator": {
+        "long_share": 0.5139554794520548,
+        "short_share": 0.48518835616438355
+      },
+      "Accelerator Oscillator": {
+        "long_share": 0.5004566210045662,
+        "short_share": 0.4989868721461187
+      },
+      "Momentum": {
+        "long_share": 0.5112157534246575,
+        "short_share": 0.48857020547945207
+      },
+      "Chande Momentum Oscillator": {
+        "long_share": 0.5111301369863014,
+        "short_share": 0.4886700913242009
+      },
+      "Price Oscillator": {
+        "long_share": 0.514925799086758,
+        "short_share": 0.4842180365296804
+      },
+      "Detrended Price Oscillator": {
+        "long_share": 0.5150827625570776,
+        "short_share": 0.48424657534246573
+      },
+      "TRIX": {
+        "long_share": 0.5191067351598173,
+        "short_share": 0.47998002283105023
+      },
+      "Fisher Transform": {
+        "long_share": 0.5053795662100456,
+        "short_share": 0.4944634703196347
+      },
+      "Ultimate Oscillator": {
+        "long_share": 0.5350884703196347,
+        "short_share": 0.46431221461187216
+      },
+      "Williams %R": {
+        "long_share": 0.5258704337899544,
+        "short_share": 0.47391552511415524
+      },
+      "SMI Ergodic": {
+        "long_share": 0.5061358447488584,
+        "short_share": 0.49332191780821916
+      },
+      "Relative Vigor Index": {
+        "long_share": 0.5050656392694064,
+        "short_share": 0.4946489726027397
+      },
+      "True Strength Index": {
+        "long_share": 0.5051512557077625,
+        "short_share": 0.494078196347032
+      },
+      "Coppock Curve": {
+        "long_share": 0.5140410958904109,
+        "short_share": 0.4852882420091324
+      },
+      "Rate of Change": {
+        "long_share": 0.5111301369863014,
+        "short_share": 0.4886700913242009
+      },
+      "Klinger Oscillator": {
+        "long_share": 0.5054081050228311,
+        "short_share": 0.49333618721461187
+      },
+      "Bollinger Bands": {
+        "long_share": 0.4911672374429224,
+        "short_share": 0.5084332191780822
+      },
+      "BB %B": {
+        "long_share": 0.5146404109589041,
+        "short_share": 0.48504566210045663
+      },
+      "Standard Error Bands": {
+        "long_share": 0.4843607305936073,
+        "short_share": 0.5152397260273973
+      },
+      "Envelopes": {
+        "long_share": 0.8017979452054794,
+        "short_share": 0.03782819634703196
+      },
+      "Net Volume": {
+        "long_share": 0.49576198630136986,
+        "short_share": 0.5040239726027397
+      },
+      "OBV": {
+        "long_share": 0.4913384703196347,
+        "short_share": 0.5081050228310502
+      },
+      "Accumulation/Distribution": {
+        "long_share": 0.533490296803653,
+        "short_share": 0.46622431506849316
+      },
+      "MFI": {
+        "long_share": 0.4945776255707763,
+        "short_share": 0.5052083333333334
+      },
+      "Chaikin Money Flow": {
+        "long_share": 0.5286101598173516,
+        "short_share": 0.4710331050228311
+      },
+      "Chaikin Oscillator": {
+        "long_share": 0.527468607305936,
+        "short_share": 0.4723744292237443
+      },
+      "Ease of Movement": {
+        "long_share": 0.5217608447488584,
+        "short_share": 0.47796803652968034
+      },
+      "Elder Force Index": {
+        "long_share": 0.4895833333333333,
+        "short_share": 0.5101883561643835
+      },
+      "Price & Volume Trend": {
+        "long_share": 0.48374714611872144,
+        "short_share": 0.5159389269406393
+      },
+      "VWAP": {
+        "long_share": 0.5147831050228311,
+        "short_share": 0.48520262557077626
+      },
+      "VWMA": {
+        "long_share": 0.523045091324201,
+        "short_share": 0.47632705479452053
+      },
+      "Pivot Points Standard": {
+        "long_share": 0.5180793378995434,
+        "short_share": 0.4803082191780822
+      },
+      "Balance of Power": {
+        "long_share": 0.5153681506849315,
+        "short_share": 0.4844320776255708
+      },
+      "Accumulative Swing Index": {
+        "long_share": 0.35734874429223745,
+        "short_share": 0.641980593607306
+      },
+      "Up/Down": {
+        "long_share": 0.4358304794520548,
+        "short_share": 0.5638413242009133
+      },
+      "Average Price": {
+        "long_share": 0.5146832191780822,
+        "short_share": 0.48498858447488585
+      },
+      "Typical Price": {
+        "long_share": 0.5144263698630137,
+        "short_share": 0.4852311643835616
+      },
+      "Median Price": {
+        "long_share": 0.5143550228310503,
+        "short_share": 0.48498858447488585
+      }
+    },
+    "BNBUSDT": {
+      "SMA": {
+        "long_share": 0.518935502283105,
+        "short_share": 0.48083618721461185
+      },
+      "EMA": {
+        "long_share": 0.521832191780822,
+        "short_share": 0.477939497716895
+      },
+      "DEMA": {
+        "long_share": 0.5030108447488585,
+        "short_share": 0.49660388127853883
+      },
+      "TEMA": {
+        "long_share": 0.4973601598173516,
+        "short_share": 0.5022688356164383
+      },
+      "Hull MA": {
+        "long_share": 0.4980022831050228,
+        "short_share": 0.5018264840182648
+      },
+      "Hamming MA": {
+        "long_share": 0.5183219178082191,
+        "short_share": 0.4814497716894977
+      },
+      "Arnaud Legoux MA": {
+        "long_share": 0.5144263698630137,
+        "short_share": 0.4853881278538813
+      },
+      "Least Squares MA": {
+        "long_share": 0.5010559360730593,
+        "short_share": 0.4985159817351598
+      },
+      "Smoothed MA": {
+        "long_share": 0.5230736301369863,
+        "short_share": 0.47682648401826483
+      },
+      "Adaptive MA": {
+        "long_share": 0.5297374429223745,
+        "short_share": 0.4700199771689498
+      },
+      "Multi-Timeframe MA": {
+        "long_share": 0.5201341324200913,
+        "short_share": 0.4769549086757991
+      },
+      "WMA": {
+        "long_share": 0.5186501141552512,
+        "short_share": 0.48115011415525116
+      },
+      "McGinley Dynamic": {
+        "long_share": 0.5304651826484018,
+        "short_share": 0.46929223744292237
+      },
+      "Guppy MMA": {
+        "long_share": 0.523829908675799,
+        "short_share": 0.47532819634703194
+      },
+      "MA Cross": {
+        "long_share": 0.5235730593607306,
+        "short_share": 0.4761130136986301
+      },
+      "EMA Cross": {
+        "long_share": 0.5248430365296803,
+        "short_share": 0.47484303652968035
+      },
+      "MA-EMA Cross": {
+        "long_share": 0.49676084474885845,
+        "short_share": 0.5030964611872146
+      },
+      "SuperTrend": {
+        "long_share": 0.4977739726027397,
+        "short_share": 0.5018978310502283
+      },
+      "Ichimoku Cloud": {
+        "long_share": 0.5327340182648402,
+        "short_share": 0.4654537671232877
+      },
+      "Parabolic SAR": {
+        "long_share": 0.5200770547945206,
+        "short_share": 0.47985159817351597
+      },
+      "Directional Movement": {
+        "long_share": 0.47892408675799086,
+        "short_share": 0.5207905251141552
+      },
+      "Vortex": {
+        "long_share": 0.5203053652968036,
+        "short_share": 0.4793949771689498
+      },
+      "Williams Alligator": {
+        "long_share": 0.5244292237442922,
+        "short_share": 0.47528538812785387
+      },
+      "Williams Fractal": {
+        "long_share": 0.5137842465753425,
+        "short_share": 0.4860730593607306
+      },
+      "Aroon": {
+        "long_share": 0.5132277397260274,
+        "short_share": 0.48647260273972603
+      },
+      "Trend Strength Index": {
+        "long_share": 0.521218607305936,
+        "short_share": 0.47849600456621005
+      },
+      "Zig Zag": {
+        "long_share": 0.5596603881278539,
+        "short_share": 0.44016837899543376
+      },
+      "Linear Regression Curve": {
+        "long_share": 0.49740296803652967,
+        "short_share": 0.502425799086758
+      },
+      "Linear Regression Slope": {
+        "long_share": 0.521218607305936,
+        "short_share": 0.47849600456621005
+      },
+      "Keltner Channels": {
+        "long_share": 0.49053938356164384,
+        "short_share": 0.5091181506849315
+      },
+      "Donchian Channels": {
+        "long_share": 0.5167665525114156,
+        "short_share": 0.4828909817351598
+      },
+      "Price Channel": {
+        "long_share": 0.5363441780821918,
+        "short_share": 0.4630422374429224
+      },
+      "MA Channel": {
+        "long_share": 0.520804794520548,
+        "short_share": 0.4788955479452055
+      },
+      "Chande Kroll Stop": {
+        "long_share": 0.5299657534246576,
+        "short_share": 0.4697203196347032
+      },
+      "52-Week High/Low": {
+        "long_share": 0.519591894977169,
+        "short_share": 0.47851027397260276
+      },
+      "Majority Rule": {
+        "long_share": 0.5129994292237443,
+        "short_share": 0.4867865296803653
+      },
+      "MACD": {
+        "long_share": 0.5067922374429223,
+        "short_share": 0.49270833333333336
+      },
+      "RSI": {
+        "long_share": 0.5228453196347032,
+        "short_share": 0.47685502283105025
+      },
+      "Stochastic": {
+        "long_share": 0.505779109589041,
+        "short_share": 0.49387842465753423
+      },
+      "Stochastic RSI": {
+        "long_share": 0.503781392694064,
+        "short_share": 0.49574771689497715
+      },
+      "Connors RSI": {
+        "long_share": 0.5054081050228311,
+        "short_share": 0.49312214611872146
+      },
+      "Awesome Oscillator": {
+        "long_share": 0.5236586757990868,
+        "short_share": 0.47562785388127854
+      },
+      "Accelerator Oscillator": {
+        "long_share": 0.5015268264840183,
+        "short_share": 0.4979309360730594
+      },
+      "Momentum": {
+        "long_share": 0.5192208904109589,
+        "short_share": 0.4805222602739726
+      },
+      "Chande Momentum Oscillator": {
+        "long_share": 0.5196347031963471,
+        "short_share": 0.48012271689497715
+      },
+      "Price Oscillator": {
+        "long_share": 0.5247431506849315,
+        "short_share": 0.4749429223744292
+      },
+      "Detrended Price Oscillator": {
+        "long_share": 0.5238156392694064,
+        "short_share": 0.4754708904109589
+      },
+      "TRIX": {
+        "long_share": 0.5220034246575342,
+        "short_share": 0.4771689497716895
+      },
+      "Fisher Transform": {
+        "long_share": 0.5068350456621005,
+        "short_share": 0.49296518264840183
+      },
+      "Ultimate Oscillator": {
+        "long_share": 0.5537528538812785,
+        "short_share": 0.44580479452054794
+      },
+      "Williams %R": {
+        "long_share": 0.5354594748858448,
+        "short_share": 0.46429794520547946
+      },
+      "SMI Ergodic": {
+        "long_share": 0.5100456621004567,
+        "short_share": 0.48948344748858447
+      },
+      "Relative Vigor Index": {
+        "long_share": 0.502568493150685,
+        "short_share": 0.497203196347032
+      },
+      "True Strength Index": {
+        "long_share": 0.5091324200913242,
+        "short_share": 0.48999714611872147
+      },
+      "Coppock Curve": {
+        "long_share": 0.5217751141552511,
+        "short_share": 0.4775827625570776
+      },
+      "Rate of Change": {
+        "long_share": 0.5196347031963471,
+        "short_share": 0.48012271689497715
+      },
+      "Klinger Oscillator": {
+        "long_share": 0.5067351598173516,
+        "short_share": 0.4922231735159817
+      },
+      "Bollinger Bands": {
+        "long_share": 0.491837899543379,
+        "short_share": 0.5078196347031964
+      },
+      "BB %B": {
+        "long_share": 0.5228881278538813,
+        "short_share": 0.47658390410958906
+      },
+      "Standard Error Bands": {
+        "long_share": 0.48406107305936075,
+        "short_share": 0.5156107305936073
+      },
+      "Envelopes": {
+        "long_share": 0.0,
+        "short_share": 0.8396118721461188
+      },
+      "Net Volume": {
+        "long_share": 0.49940068493150686,
+        "short_share": 0.5000713470319634
+      },
+      "OBV": {
+        "long_share": 0.4937928082191781,
+        "short_share": 0.5055793378995433
+      },
+      "Accumulation/Distribution": {
+        "long_share": 0.5476883561643836,
+        "short_share": 0.45201198630136985
+      },
+      "MFI": {
+        "long_share": 0.503966894977169,
+        "short_share": 0.4957191780821918
+      },
+      "Chaikin Money Flow": {
+        "long_share": 0.5440353881278539,
+        "short_share": 0.45567922374429226
+      },
+      "Chaikin Oscillator": {
+        "long_share": 0.5435216894977168,
+        "short_share": 0.4562785388127854
+      },
+      "Ease of Movement": {
+        "long_share": 0.5171518264840183,
+        "short_share": 0.48254851598173515
+      },
+      "Elder Force Index": {
+        "long_share": 0.4914240867579909,
+        "short_share": 0.5083333333333333
+      },
+      "Price & Volume Trend": {
+        "long_share": 0.4848744292237443,
+        "short_share": 0.514412100456621
+      },
+      "VWAP": {
+        "long_share": 0.5108875570776256,
+        "short_share": 0.48905536529680366
+      },
+      "VWMA": {
+        "long_share": 0.5285245433789955,
+        "short_share": 0.4708761415525114
+      },
+      "Pivot Points Standard": {
+        "long_share": 0.5431649543378996,
+        "short_share": 0.4540953196347032
+      },
+      "Balance of Power": {
+        "long_share": 0.5330479452054795,
+        "short_share": 0.46663812785388126
+      },
+      "Accumulative Swing Index": {
+        "long_share": 0.3586044520547945,
+        "short_share": 0.6410816210045662
+      },
+      "Up/Down": {
+        "long_share": 0.38901255707762555,
+        "short_share": 0.6105450913242009
+      },
+      "Average Price": {
+        "long_share": 0.5229309360730594,
+        "short_share": 0.4764554794520548
+      },
+      "Typical Price": {
+        "long_share": 0.5226740867579909,
+        "short_share": 0.4767123287671233
+      },
+      "Median Price": {
+        "long_share": 0.522759703196347,
+        "short_share": 0.47662671232876713
+      }
+    },
+    "SOLUSDT": {
+      "SMA": {
+        "long_share": 0.508204908675799,
+        "short_share": 0.49166666666666664
+      },
+      "EMA": {
+        "long_share": 0.5078339041095891,
+        "short_share": 0.492023401826484
+      },
+      "DEMA": {
+        "long_share": 0.5032391552511416,
+        "short_share": 0.49646118721461185
+      },
+      "TEMA": {
+        "long_share": 0.49870148401826486,
+        "short_share": 0.5009417808219178
+      },
+      "Hull MA": {
+        "long_share": 0.4990154109589041,
+        "short_share": 0.5007990867579909
+      },
+      "Hamming MA": {
+        "long_share": 0.5080907534246575,
+        "short_share": 0.49170947488584477
+      },
+      "Arnaud Legoux MA": {
+        "long_share": 0.5069206621004566,
+        "short_share": 0.49289383561643835
+      },
+      "Least Squares MA": {
+        "long_share": 0.5010844748858447,
+        "short_share": 0.4985445205479452
+      },
+      "Smoothed MA": {
+        "long_share": 0.5068921232876712,
+        "short_share": 0.49297945205479454
+      },
+      "Adaptive MA": {
+        "long_share": 0.5089041095890411,
+        "short_share": 0.49076769406392695
+      },
+      "Multi-Timeframe MA": {
+        "long_share": 0.4992151826484018,
+        "short_share": 0.498787100456621
+      },
+      "WMA": {
+        "long_share": 0.5083333333333333,
+        "short_share": 0.49148116438356165
+      },
+      "McGinley Dynamic": {
+        "long_share": 0.5163812785388128,
+        "short_share": 0.4834046803652968
+      },
+      "Guppy MMA": {
+        "long_share": 0.4981307077625571,
+        "short_share": 0.501027397260274
+      },
+      "MA Cross": {
+        "long_share": 0.5076341324200914,
+        "short_share": 0.4914383561643836
+      },
+      "EMA Cross": {
+        "long_share": 0.5058504566210046,
+        "short_share": 0.49260844748858446
+      },
+      "MA-EMA Cross": {
+        "long_share": 0.4973601598173516,
+        "short_share": 0.5024971461187214
+      },
+      "SuperTrend": {
+        "long_share": 0.4892979452054795,
+        "short_share": 0.5091609589041096
+      },
+      "Ichimoku Cloud": {
+        "long_share": 0.5075627853881278,
+        "short_share": 0.4905679223744292
+      },
+      "Parabolic SAR": {
+        "long_share": 0.5120433789954338,
+        "short_share": 0.4879280821917808
+      },
+      "Directional Movement": {
+        "long_share": 0.47949486301369865,
+        "short_share": 0.520291095890411
+      },
+      "Vortex": {
+        "long_share": 0.5058219178082192,
+        "short_share": 0.4939212328767123
+      },
+      "Williams Alligator": {
+        "long_share": 0.502939497716895,
+        "short_share": 0.49677511415525116
+      },
+      "Williams Fractal": {
+        "long_share": 0.5030964611872146,
+        "short_share": 0.4966324200913242
+      },
+      "Aroon": {
+        "long_share": 0.5021974885844749,
+        "short_share": 0.49754566210045664
+      },
+      "Trend Strength Index": {
+        "long_share": 0.5054509132420091,
+        "short_share": 0.49433504566210046
+      },
+      "Zig Zag": {
+        "long_share": 0.527468607305936,
+        "short_share": 0.47244577625570777
+      },
+      "Linear Regression Curve": {
+        "long_share": 0.49867294520547945,
+        "short_share": 0.5011415525114156
+      },
+      "Linear Regression Slope": {
+        "long_share": 0.5054509132420091,
+        "short_share": 0.49433504566210046
+      },
+      "Keltner Channels": {
+        "long_share": 0.4821632420091324,
+        "short_share": 0.5171232876712328
+      },
+      "Donchian Channels": {
+        "long_share": 0.501726598173516,
+        "short_share": 0.4978738584474886
+      },
+      "Price Channel": {
+        "long_share": 0.5138127853881278,
+        "short_share": 0.4855165525114155
+      },
+      "MA Channel": {
+        "long_share": 0.5051940639269407,
+        "short_share": 0.4944349315068493
+      },
+      "Chande Kroll Stop": {
+        "long_share": 0.5110730593607306,
+        "short_share": 0.4886700913242009
+      },
+      "52-Week High/Low": {
+        "long_share": 0.5076341324200914,
+        "short_share": 0.49098173515981736
+      },
+      "Majority Rule": {
+        "long_share": 0.4902111872146119,
+        "short_share": 0.5095747716894977
+      },
+      "MACD": {
+        "long_share": 0.5041238584474886,
+        "short_share": 0.49531963470319634
+      },
+      "RSI": {
+        "long_share": 0.5042094748858448,
+        "short_share": 0.49553367579908675
+      },
+      "Stochastic": {
+        "long_share": 0.5052796803652968,
+        "short_share": 0.4944206621004566
+      },
+      "Stochastic RSI": {
+        "long_share": 0.5014697488584475,
+        "short_share": 0.4980593607305936
+      },
+      "Connors RSI": {
+        "long_share": 0.5013841324200913,
+        "short_share": 0.4971461187214612
+      },
+      "Awesome Oscillator": {
+        "long_share": 0.5056364155251142,
+        "short_share": 0.4934503424657534
+      },
+      "Accelerator Oscillator": {
+        "long_share": 0.5020833333333333,
+        "short_share": 0.4973601598173516
+      },
+      "Momentum": {
+        "long_share": 0.5051369863013698,
+        "short_share": 0.4946489726027397
+      },
+      "Chande Momentum Oscillator": {
+        "long_share": 0.5047517123287671,
+        "short_share": 0.4950770547945205
+      },
+      "Price Oscillator": {
+        "long_share": 0.5054509132420091,
+        "short_share": 0.4929937214611872
+      },
+      "Detrended Price Oscillator": {
+        "long_share": 0.5042522831050228,
+        "short_share": 0.4948772831050228
+      },
+      "TRIX": {
+        "long_share": 0.5023972602739726,
+        "short_share": 0.495847602739726
+      },
+      "Fisher Transform": {
+        "long_share": 0.5050799086757991,
+        "short_share": 0.494777397260274
+      },
+      "Ultimate Oscillator": {
+        "long_share": 0.52150399543379,
+        "short_share": 0.4780393835616438
+      },
+      "Williams %R": {
+        "long_share": 0.5170947488584475,
+        "short_share": 0.4826912100456621
+      },
+      "SMI Ergodic": {
+        "long_share": 0.5070490867579909,
+        "short_share": 0.49240867579908676
+      },
+      "Relative Vigor Index": {
+        "long_share": 0.5005422374429224,
+        "short_share": 0.49915810502283103
+      },
+      "True Strength Index": {
+        "long_share": 0.5046518264840183,
+        "short_share": 0.49463470319634706
+      },
+      "Coppock Curve": {
+        "long_share": 0.5081763698630137,
+        "short_share": 0.490296803652968
+      },
+      "Rate of Change": {
+        "long_share": 0.5047517123287671,
+        "short_share": 0.4950770547945205
+      },
+      "Klinger Oscillator": {
+        "long_share": 0.5037385844748858,
+        "short_share": 0.49526255707762556
+      },
+      "Bollinger Bands": {
+        "long_share": 0.48326198630136985,
+        "short_share": 0.5164526255707762
+      },
+      "BB %B": {
+        "long_share": 0.5077625570776255,
+        "short_share": 0.49190924657534246
+      },
+      "Standard Error Bands": {
+        "long_share": 0.48468892694063925,
+        "short_share": 0.514597602739726
+      },
+      "Envelopes": {
+        "long_share": 0.30442351598173517,
+        "short_share": 0.4974315068493151
+      },
+      "Net Volume": {
+        "long_share": 0.48974029680365294,
+        "short_share": 0.5100456621004567
+      },
+      "OBV": {
+        "long_share": 0.4861586757990868,
+        "short_share": 0.513384703196347
+      },
+      "Accumulation/Distribution": {
+        "long_share": 0.5149543378995434,
+        "short_share": 0.4845890410958904
+      },
+      "MFI": {
+        "long_share": 0.488013698630137,
+        "short_share": 0.5117722602739726
+      },
+      "Chaikin Money Flow": {
+        "long_share": 0.5107305936073059,
+        "short_share": 0.48876997716894977
+      },
+      "Chaikin Oscillator": {
+        "long_share": 0.5139269406392694,
+        "short_share": 0.4858732876712329
+      },
+      "Ease of Movement": {
+        "long_share": 0.5186073059360731,
+        "short_share": 0.48115011415525116
+      },
+      "Elder Force Index": {
+        "long_share": 0.4828624429223744,
+        "short_share": 0.5169235159817351
+      },
+      "Price & Volume Trend": {
+        "long_share": 0.4773972602739726,
+        "short_share": 0.5217465753424657
+      },
+      "VWAP": {
+        "long_share": 0.49937214611872144,
+        "short_share": 0.5005993150684932
+      },
+      "VWMA": {
+        "long_share": 0.513527397260274,
+        "short_share": 0.4861444063926941
+      },
+      "Pivot Points Standard": {
+        "long_share": 0.5034389269406393,
+        "short_share": 0.49382134703196345
+      },
+      "Balance of Power": {
+        "long_share": 0.5086044520547945,
+        "short_share": 0.49118150684931505
+      },
+      "Accumulative Swing Index": {
+        "long_share": 0.34693207762557077,
+        "short_share": 0.6521689497716895
+      },
+      "Up/Down": {
+        "long_share": 0.3875713470319635,
+        "short_share": 0.6117579908675799
+      },
+      "Average Price": {
+        "long_share": 0.5075342465753425,
+        "short_share": 0.4917950913242009
+      },
+      "Typical Price": {
+        "long_share": 0.507462899543379,
+        "short_share": 0.4918664383561644
+      },
+      "Median Price": {
+        "long_share": 0.5082334474885845,
+        "short_share": 0.4910958904109589
+      }
+    },
+    "XRPUSDT": {
+      "SMA": {
+        "long_share": 0.5014982876712328,
+        "short_share": 0.4983447488584475
+      },
+      "EMA": {
+        "long_share": 0.5001712328767123,
+        "short_share": 0.49967180365296804
+      },
+      "DEMA": {
+        "long_share": 0.5004280821917808,
+        "short_share": 0.49931506849315066
+      },
+      "TEMA": {
+        "long_share": 0.49667522831050226,
+        "short_share": 0.5029109589041096
+      },
+      "Hull MA": {
+        "long_share": 0.49753139269406393,
+        "short_share": 0.502283105022831
+      },
+      "Hamming MA": {
+        "long_share": 0.5005279680365297,
+        "short_share": 0.49931506849315066
+      },
+      "Arnaud Legoux MA": {
+        "long_share": 0.5004994292237442,
+        "short_share": 0.49937214611872144
+      },
+      "Least Squares MA": {
+        "long_share": 0.49918664383561645,
+        "short_share": 0.5003852739726027
+      },
+      "Smoothed MA": {
+        "long_share": 0.4992579908675799,
+        "short_share": 0.5005850456621005
+      },
+      "Adaptive MA": {
+        "long_share": 0.5002711187214612,
+        "short_share": 0.4995719178082192
+      },
+      "Multi-Timeframe MA": {
+        "long_share": 0.4838184931506849,
+        "short_share": 0.5141695205479452
+      },
+      "WMA": {
+        "long_share": 0.5006706621004566,
+        "short_share": 0.49917237442922374
+      },
+      "McGinley Dynamic": {
+        "long_share": 0.5062357305936073,
+        "short_share": 0.49342180365296806
+      },
+      "Guppy MMA": {
+        "long_share": 0.4818065068493151,
+        "short_share": 0.517351598173516
+      },
+      "MA Cross": {
+        "long_share": 0.4945062785388128,
+        "short_share": 0.5051227168949771
+      },
+      "EMA Cross": {
+        "long_share": 0.492351598173516,
+        "short_share": 0.5072631278538813
+      },
+      "MA-EMA Cross": {
+        "long_share": 0.49746004566210045,
+        "short_share": 0.5023972602739726
+      },
+      "SuperTrend": {
+        "long_share": 0.4831906392694064,
+        "short_share": 0.5158390410958904
+      },
+      "Ichimoku Cloud": {
+        "long_share": 0.4893550228310502,
+        "short_share": 0.5090896118721461
+      },
+      "Parabolic SAR": {
+        "long_share": 0.49918664383561645,
+        "short_share": 0.5007848173515982
+      },
+      "Directional Movement": {
+        "long_share": 0.4690211187214612,
+        "short_share": 0.5307077625570776
+      },
+      "Vortex": {
+        "long_share": 0.4949343607305936,
+        "short_share": 0.5047802511415526
+      },
+      "Williams Alligator": {
+        "long_share": 0.49075342465753424,
+        "short_share": 0.5089611872146119
+      },
+      "Williams Fractal": {
+        "long_share": 0.4895833333333333,
+        "short_share": 0.5100456621004567
+      },
+      "Aroon": {
+        "long_share": 0.4978310502283105,
+        "short_share": 0.501912100456621
+      },
+      "Trend Strength Index": {
+        "long_share": 0.4974315068493151,
+        "short_share": 0.5023116438356164
+      },
+      "Zig Zag": {
+        "long_share": 0.5123002283105023,
+        "short_share": 0.4868578767123288
+      },
+      "Linear Regression Curve": {
+        "long_share": 0.4973601598173516,
+        "short_share": 0.5024543378995434
+      },
+      "Linear Regression Slope": {
+        "long_share": 0.4974315068493151,
+        "short_share": 0.5023116438356164
+      },
+      "Keltner Channels": {
+        "long_share": 0.4750998858447489,
+        "short_share": 0.5245005707762557
+      },
+      "Donchian Channels": {
+        "long_share": 0.4891409817351598,
+        "short_share": 0.5104594748858448
+      },
+      "Price Channel": {
+        "long_share": 0.5054794520547945,
+        "short_share": 0.4941495433789954
+      },
+      "MA Channel": {
+        "long_share": 0.4949771689497717,
+        "short_share": 0.5047231735159817
+      },
+      "Chande Kroll Stop": {
+        "long_share": 0.5004851598173516,
+        "short_share": 0.49924372146118723
+      },
+      "52-Week High/Low": {
+        "long_share": 0.4851598173515982,
+        "short_share": 0.5127425799086758
+      },
+      "Majority Rule": {
+        "long_share": 0.4665953196347032,
+        "short_share": 0.5331192922374429
+      },
+      "MACD": {
+        "long_share": 0.5006563926940639,
+        "short_share": 0.498787100456621
+      },
+      "RSI": {
+        "long_share": 0.4948630136986301,
+        "short_share": 0.5047659817351599
+      },
+      "Stochastic": {
+        "long_share": 0.5023116438356164,
+        "short_share": 0.49746004566210045
+      },
+      "Stochastic RSI": {
+        "long_share": 0.5000856164383561,
+        "short_share": 0.4994434931506849
+      },
+      "Connors RSI": {
+        "long_share": 0.4983447488584475,
+        "short_share": 0.500185502283105
+      },
+      "Awesome Oscillator": {
+        "long_share": 0.493236301369863,
+        "short_share": 0.5061501141552511
+      },
+      "Accelerator Oscillator": {
+        "long_share": 0.4999429223744292,
+        "short_share": 0.4995005707762557
+      },
+      "Momentum": {
+        "long_share": 0.4962899543378995,
+        "short_share": 0.50349600456621
+      },
+      "Chande Momentum Oscillator": {
+        "long_share": 0.49912956621004567,
+        "short_share": 0.5006849315068493
+      },
+      "Price Oscillator": {
+        "long_share": 0.4918236301369863,
+        "short_share": 0.5077910958904109
+      },
+      "Detrended Price Oscillator": {
+        "long_share": 0.49275114155251143,
+        "short_share": 0.5066923515981735
+      },
+      "TRIX": {
+        "long_share": 0.48563070776255707,
+        "short_share": 0.513341894977169
+      },
+      "Fisher Transform": {
+        "long_share": 0.5013127853881278,
+        "short_share": 0.4985159817351598
+      },
+      "Ultimate Oscillator": {
+        "long_share": 0.5207334474885845,
+        "short_share": 0.4788384703196347
+      },
+      "Williams %R": {
+        "long_share": 0.5062785388127854,
+        "short_share": 0.4933504566210046
+      },
+      "SMI Ergodic": {
+        "long_share": 0.5006563926940639,
+        "short_share": 0.4988013698630137
+      },
+      "Relative Vigor Index": {
+        "long_share": 0.5031107305936073,
+        "short_share": 0.4966181506849315
+      },
+      "True Strength Index": {
+        "long_share": 0.4987157534246575,
+        "short_share": 0.5005565068493151
+      },
+      "Coppock Curve": {
+        "long_share": 0.4958761415525114,
+        "short_share": 0.5037385844748858
+      },
+      "Rate of Change": {
+        "long_share": 0.49912956621004567,
+        "short_share": 0.5006849315068493
+      },
+      "Klinger Oscillator": {
+        "long_share": 0.5054081050228311,
+        "short_share": 0.493564497716895
+      },
+      "Bollinger Bands": {
+        "long_share": 0.46933504566210044,
+        "short_share": 0.5302654109589041
+      },
+      "BB %B": {
+        "long_share": 0.4989297945205479,
+        "short_share": 0.5007420091324201
+      },
+      "Standard Error Bands": {
+        "long_share": 0.4962186073059361,
+        "short_share": 0.5033818493150685
+      },
+      "Envelopes": {
+        "long_share": 0.41765125570776257,
+        "short_share": 0.5352739726027397
+      },
+      "Net Volume": {
+        "long_share": 0.4683361872146119,
+        "short_share": 0.531392694063927
+      },
+      "OBV": {
+        "long_share": 0.45928938356164384,
+        "short_share": 0.5404252283105023
+      },
+      "Accumulation/Distribution": {
+        "long_share": 0.5113299086757991,
+        "short_share": 0.48834189497716896
+      },
+      "MFI": {
+        "long_share": 0.4753995433789954,
+        "short_share": 0.5243864155251141
+      },
+      "Chaikin Money Flow": {
+        "long_share": 0.5083904109589041,
+        "short_share": 0.49125285388127854
+      },
+      "Chaikin Oscillator": {
+        "long_share": 0.5100456621004567,
+        "short_share": 0.48978310502283107
+      },
+      "Ease of Movement": {
+        "long_share": 0.5159960045662101,
+        "short_share": 0.4837328767123288
+      },
+      "Elder Force Index": {
+        "long_share": 0.4714041095890411,
+        "short_share": 0.528310502283105
+      },
+      "Price & Volume Trend": {
+        "long_share": 0.46877853881278536,
+        "short_share": 0.5309360730593607
+      },
+      "VWAP": {
+        "long_share": 0.5027825342465754,
+        "short_share": 0.497203196347032
+      },
+      "VWMA": {
+        "long_share": 0.5032106164383562,
+        "short_share": 0.49646118721461185
+      },
+      "Pivot Points Standard": {
+        "long_share": 0.4893692922374429,
+        "short_share": 0.5091609589041096
+      },
+      "Balance of Power": {
+        "long_share": 0.4925085616438356,
+        "short_share": 0.5072203196347032
+      },
+      "Accumulative Swing Index": {
+        "long_share": 0.3351027397260274,
+        "short_share": 0.6646118721461187
+      },
+      "Up/Down": {
+        "long_share": 0.3302083333333333,
+        "short_share": 0.669263698630137
+      },
+      "Average Price": {
+        "long_share": 0.49945776255707763,
+        "short_share": 0.5001997716894977
+      },
+      "Typical Price": {
+        "long_share": 0.49995719178082193,
+        "short_share": 0.4997003424657534
+      },
+      "Median Price": {
+        "long_share": 0.4990582191780822,
+        "short_share": 0.5005993150684932
+      }
+    }
+  },
+  "bars": "M15",
+  "htf_frames_min": [
+    60,
+    240
+  ],
+  "param_overrides": {
+    "52-Week High/Low": {
+      "length": 96
+    },
+    "Zig Zag": {
+      "deviation": 0.015
+    },
+    "Multi-Timeframe MA": {
+      "tf": "1h"
+    }
+  },
+  "bars_per_day": 96
+}

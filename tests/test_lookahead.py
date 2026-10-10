@@ -83,3 +83,51 @@ def test_htf_filter_no_lookahead(ind_data):
     for i in np.random.default_rng(0).choice(np.arange(200, N_IND), 30, replace=False):
         l2, s2 = htf_permissions(t[: i + 1], c[: i + 1])
         assert l2[i] == L[i] and s2[i] == S[i]
+
+
+# ---------------------------------------------------------------- track M15 (N2): mọi chỉ báo trên nến M15, dạng sự kiện + trạng thái
+from kh.ind.indicators.impl import timeframe  # noqa: E402
+from kh.ind.signals import event_state  # noqa: E402
+from kh.ind.track import M15  # noqa: E402
+
+N15 = 3200  # ≈ 33 ngày nến M15
+
+
+@pytest.fixture(scope="module")
+def m15_data():
+    k = synth_klines(N15, seed=21, filler_at=(1800, 1802))
+    rng = np.random.default_rng(8)
+    ref = k.close.to_numpy() * 0.5 + np.cumsum(rng.normal(0, 0.02, len(k)))
+    t0 = k.open_time_ms.iloc[0] - (k.open_time_ms.iloc[0] % 86_400_000)
+    k["open_time_ms"] = t0 + np.arange(N15, dtype=np.int64) * 900_000  # nến M15, bắt đầu 00:00 UTC
+    return k, ref
+
+
+@pytest.mark.parametrize("name", sorted(IMPL))
+def test_indicator_no_lookahead_m15(name, m15_data):
+    """Trên nến M15 (tham số quy đổi của track M15): giá trị, sự kiện và trạng thái tại t tính trên data[:t+1]
+    phải bằng khi tính trên toàn bộ."""
+    k, ref = m15_data
+    with timeframe(M15):
+        full_out, full_sig = compute(name, Ctx.from_frame(k, ref))
+        full_st = event_state(full_sig) if full_sig.dtype != bool else None
+        rng = np.random.default_rng(abs(hash(name)) % 2**32)
+        for t in sorted(rng.choice(np.arange(1000, N15), 20, replace=False)):
+            out, sig = compute(name, Ctx.from_frame(k.iloc[: t + 1], ref[: t + 1]))
+            assert sig[t] == full_sig[t], f"{name}: tín hiệu khác tại t={t}"
+            if full_st is not None:
+                assert event_state(sig)[t] == full_st[t], f"{name}: trạng thái khác tại t={t}"
+            for key in full_out:
+                a, b = out[key][t], full_out[key][t]
+                assert np.isclose(a, b, rtol=1e-5, atol=1e-6, equal_nan=True), f"{name}.{key}: {a} ≠ {b} tại t={t}"
+
+
+def test_m15_day_based_indicators_produce_signals(m15_data):
+    """Chỉ báo theo ngày phải có tín hiệu trên M15 (quy đổi 1 ngày = 96 nến, khung MTF = H1)."""
+    k, ref = m15_data
+    with timeframe(M15):
+        for name in ("52-Week High/Low", "Pivot Points Standard", "Multi-Timeframe MA", "VWAP", "Zig Zag"):
+            _, sig = compute(name, Ctx.from_frame(k, ref))
+            assert (sig != 0).sum() > 5, name
+        _, vp = compute("Volume Profile Fixed Range", Ctx.from_frame(k, ref))
+        assert 0 < vp[200:].mean() < 1

@@ -16,6 +16,7 @@ except ImportError:
 
 # Số nến trong 1 ngày của khung đang tính (M1: 1.440; M15: 96). Đổi qua kh.ind.indicators.impl.timeframe().
 BARS_PER_DAY = 1440
+BASE_MINUTES = 1  # số phút mỗi nến đầu vào (M1: 1; M15: 15)
 
 
 def S(x) -> pd.Series:

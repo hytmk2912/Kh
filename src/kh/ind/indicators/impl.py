@@ -57,14 +57,14 @@ IMPL: dict = {}
 def timeframe(tr):
     """Tính chỉ báo cho khung của track `tr`: đặt số nến/ngày và tham số đã quy đổi (spec M15 §3).
     Track M1 không đổi gì. Khôi phục giá trị cũ khi thoát."""
-    old_bpd, old = K.BARS_PER_DAY, {n: copy.deepcopy(BY_NAME[n].params) for n in tr.param_overrides}
+    old_bpd, old_base, old = K.BARS_PER_DAY, K.BASE_MINUTES, {n: copy.deepcopy(BY_NAME[n].params) for n in tr.param_overrides}
     try:
-        K.BARS_PER_DAY = tr.bars_per_day
+        K.BARS_PER_DAY, K.BASE_MINUTES = tr.bars_per_day, tr.tf
         for n, kv in tr.param_overrides.items():
             BY_NAME[n].params = {**BY_NAME[n].params, **kv}
         yield
     finally:
-        K.BARS_PER_DAY = old_bpd
+        K.BARS_PER_DAY, K.BASE_MINUTES = old_bpd, old_base
         for n, p in old.items():
             BY_NAME[n].params = p
 
@@ -173,20 +173,24 @@ def _(X):
 
 
 def htf_closed(X, minutes):
-    """Nến khung lớn đã ĐÓNG ánh xạ về từng nến M1: giá trị tại t là của nến HTF gần nhất có
-    thời điểm đóng ≤ thời điểm đóng của nến M1 t. Trả về (close_htf_series_index, df_htf)."""
+    """Nến khung lớn đã ĐÓNG ánh xạ về từng nến đầu vào (M1 hoặc M15): giá trị tại t là của nến HTF gần nhất có
+    thời điểm đóng ≤ thời điểm đóng của nến t. Trả về (df_htf, vị trí trong df_htf)."""
+    base = K.BASE_MINUTES
     step = minutes * 60_000
     b = (X.t // step) * step
     df = pd.DataFrame({"b": b, "c": X.c, "n": 1}).groupby("b").agg(c=("c", "last"), n=("n", "sum"))
-    df = df[df.n == minutes]  # chỉ nến khung lớn đủ phút (đã đóng)
+    df = df[df.n == minutes // base]  # chỉ nến khung lớn đủ nến con (đã đóng)
     avail = df.index.to_numpy() + step
-    pos = np.searchsorted(avail, X.t + 60_000, side="right") - 1
+    pos = np.searchsorted(avail, X.t + base * 60_000, side="right") - 1
     return df, pos
+
+
+TF_MINUTES = {"15m": 15, "1h": 60, "4h": 240}
 
 
 @reg("Multi-Timeframe MA")
 def _(X):
-    df, pos = htf_closed(X, 15)
+    df, pos = htf_closed(X, TF_MINUTES[P("Multi-Timeframe MA")["tf"]])
     ma = K.sma(df.c.to_numpy(), P("Multi-Timeframe MA")["length"])
     line = np.where(pos >= 0, ma[np.maximum(pos, 0)], np.nan)
     return price_cross(X, line)

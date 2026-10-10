@@ -14,7 +14,7 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
   - Xong khi: `pytest -q tests/test_labels.py` qua với ca M15 (chuỗi giá tự tạo có đáp án biết trước); `reports/ind15/waves_stats.json` đủ 5 symbol × 3 ngưỡng (1,0 / 1,5 / 2,0%), chỉ train + validation.
 
 ### N2. Chỉ báo M15 (spec §3)
-- [ ] **N2** 99 chỉ báo trên M15 (dạng sự kiện + dạng trạng thái), quy đổi tham số "1 ngày" = 96 nến, HTF H1 + H4.
+- [x] **N2** 99 chỉ báo trên M15 (dạng sự kiện + dạng trạng thái), quy đổi tham số "1 ngày" = 96 nến, HTF H1 + H4.
   - Xong khi: `pytest -q tests/test_lookahead.py` qua cho mọi chỉ báo trên M15, cả dạng sự kiện và trạng thái, cùng H1/H4; `reports/ind15/signal_summary.json` có số tín hiệu mỗi chỉ báo × symbol; mọi tham số quy đổi đã ghi CHANGELOG.
 
 ### N3. Chấm đơn lẻ (spec §4)
@@ -39,6 +39,8 @@ Quy tắc: làm việc `[ ]` đầu tiên. Chỉ đổi sang `[x]` khi lệnh �
 - 2026-10-10 · N0 · `python -m kh.ind labels/indicators/single --symbols BTCUSDT` (code mới) so với bản đã commit · `single_tableA.csv` phần BTC 198 dòng × 35 cột **giống hệt từng ô** (SHA256 e6ba0617… = e6ba0617…); `single_tableB.csv` 158 dòng và `single_tableB_sensitivity.csv` 1.422 dòng giống hệt; Parquet tín hiệu + nhãn + sóng BTC giống hệt; `trials.csv` không đổi → code M1 không đổi kết quả (đã khôi phục file báo cáo 5 symbol sau khi so)
 - 2026-10-10 · N0 · `python -m kh.ind15 data` · manifest 280 file, 0 tải mới, 0 lỗi; mỗi symbol M15 70.080 / H1 17.520 / H4 4.380 nến, 0 nến thiếu nến con [F]; nến M15 có filler: BTC 13, ETH/BNB/SOL/XRP 14 [F] → `reports/ind15/data_quality.json`
 - 2026-10-10 · N1 · `pytest -q tests/test_labels.py && python -m kh.ind15 labels` · 7 passed (gồm 2 ca M15 chuỗi giá tự tạo: sóng nhanh 1,6%/10 nến, sóng chậm 1,6%/40 nến, đi ngang 40 nến, nhịp hồi 0,7% trong sóng giảm, UNKNOWN = filler + 2 nến); `waves_stats.json` 5 symbol × 3 ngưỡng (1,0 / 1,5 / 2,0%), train + validation; sóng 1,5% nhanh tăng/giảm: BTC 681/668 · ETH 1.593/1.578 · BNB 913/900 · SOL 2.069/2.065 · XRP 2.195/2.199 [F]; sóng chậm rất ít (BTC 78/91, SOL 15/18) [F]; tỷ lệ nến ĐI NGANG ở 1,5%: BTC 71,6% · ETH 35,1% · BNB 59,1% · SOL 20,9% · XRP 32,0% [F]
+- 2026-10-10 · N2 · `pytest -q tests/test_lookahead.py` · 203 passed: 99 chỉ báo × 20 thời điểm trên M1 (cũ) + 99 chỉ báo × 20 thời điểm trên M15 (giá trị + sự kiện + trạng thái) + chỉ báo theo ngày có tín hiệu trên M15; HTF H1/H4 trên M15 ở `tests/test_track.py` (khớp bản M1 tại phút đóng nến, không nhìn tương lai); toàn bộ `pytest -q` 242 passed
+- 2026-10-10 · N2 · `python -m kh.ind15 indicators` · 99 chỉ báo × 5 symbol, 79 directional có thêm cột trạng thái (178 cột), 9 s; HTF H1+H4 cho phép long 35,8–44,7% / short 36,4–45,3% số nến [F]; trung vị số sự kiện/symbol trên cả cửa sổ: thấp nhất Envelopes 3, TRIX 1.428, SuperTrend 1.605; trung vị các chỉ báo 8.199 [F] → `reports/ind15/signal_summary.json`; tham số quy đổi: CHANGELOG + `docs/ind15/indicator_params.md`; M1 BTC: Multi-Timeframe MA và HTF giống hệt bản cũ sau khi sửa `htf_closed`
 
 ## Ghi chú phiên
 <!-- Việc đang làm dở, file đang sửa, vấn đề chưa giải quyết. Cập nhật trước khi hết phiên. -->
